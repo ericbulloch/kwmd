@@ -105,3 +105,9 @@ or
 You can also use them together using:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -vV`
+
+#### -c TIME
+
+Sometimes you know that you need to rate limit your login attempts due to a network intrusion detection system or perhaps the server you are brute forcing naturally limits your login attempt rates. In either case you can specify the wait time per login attempt. Each thread will use this option. Here is the syntax to wait 3 seconds between each attempt:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -c 3`
