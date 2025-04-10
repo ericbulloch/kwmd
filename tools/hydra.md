@@ -81,3 +81,27 @@ or
 Hydra will then use go through each of the entries in the wordlist and report if any of the entries worked. The output will look like the following:
 
 `[22][ssh] host: 10.10.1.1    login: bob     password: 123456`
+
+### Options
+
+Because systems like Linux are so configurable, capture the flag events will configure services in many different ways so that you have to read the manual for different tools you are using. Below are some options are useful to know about.
+
+#### -s PORT
+
+Sometimes a service is running on a different port. You can use this option to let hydra know that the service isn't using the standard port for that service. For example, if ssh was running on port 9000 instead of the usual 22, you would run the following:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -s 9000`
+
+#### -v and -vV
+
+Sometimes you want to make sure things are running as you were intending them to run. Maybe you need a sanity check to make sure you got the syntax correct. The verbose options can help with that. The `-v` option will add output lines that start with `[VERBOSE]` or `[STATUS]`, making the output more verbose. The `-V` option will add output lines that start with `[ATTEMPT]` that show each attempt. If you would like to use either one, the sytax is the following:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -v`
+
+or
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -V`
+
+You can also use them together using:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -vV`
