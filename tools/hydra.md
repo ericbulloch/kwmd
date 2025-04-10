@@ -1,6 +1,6 @@
 # hydra
 
-Hydra is a very powerful tool to brute force a system. You can provide it with a wordlist to try for the username or password. It will run the attempts in parrallel. Hydra is also aware of many different services and protocols. You can use this same tool to brute force ssh, ftp, PostgreSQL, smb and more. Some tools like community edition of Burp Suite rate limits your login attempts and so understanding how to use Hydra can save you from purchasing a Burp Suite license.
+Hydra is a very powerful tool to brute force a system. I can provide it with a wordlist to try for the username or password in a login attempt. It will run the attempts in parrallel. Hydra is also aware of many different services and protocols. I can use this same tool to brute force ssh, ftp, PostgreSQL, smb and more. Some tools like community edition of Burp Suite rate limits my login attempts and so understanding how to use Hydra saves me from purchasing a Burp Suite license.
 
 ## Usage
 
@@ -68,9 +68,9 @@ The following examples are ones that I have used in capture the flag exercises. 
 
 ### ssh
 
-If a system is vulnerable to an ssh brute force (meaning if you type `ssh target_machine` and it asks for a password) and you have either a username or password, hydra can help you gain access.
+If a system is vulnerable to an ssh brute force (meaning if I type `ssh target_machine` and it asks for a password) and I have either a username or password, hydra can help you gain access.
 
-We have found the username `bob` is a user on the machine with an ip address of `10.10.1.1`. We want to use the `rockyou.txt` wordlist stored in the `/usr/share/wordlists` directory. The syntax is the following when not including options:
+I have found the username `bob` is a user on the machine with an ip address of `10.10.1.1`. I want to use the `rockyou.txt` wordlist stored in the `/usr/share/wordlists` directory. The syntax is the following when not including options:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh`
 
@@ -84,7 +84,7 @@ Hydra will then use go through each of the entries in the wordlist and report if
 
 ### Options
 
-Because systems like Linux are so configurable, capture the flag events will configure services in many different ways so that you have to read the manual for different tools you are using. Below are some options are useful to know about.
+Because systems like Linux are so configurable, capture the flag events will configure services in many different ways so that I have to read the manual for the different tools I am using. Below are some options are useful to know about.
 
 #### -h
 
@@ -94,13 +94,13 @@ The output provided above was generated with this option. This options always gi
 
 #### -s PORT
 
-Sometimes a service is running on a different port. You can use this option to let hydra know that the service isn't using the standard port for that service. For example, if ssh was running on port 9000 instead of the usual 22, you would run the following:
+Sometimes a service is running on a different port. I use this option to let hydra know that the service isn't using the standard port for that service. For example, if ssh was running on port 9000 instead of the usual 22, I would run the following:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -s 9000`
 
 #### -v and -vV
 
-Sometimes you want to make sure things are running as you were intending them to run. Maybe you need a sanity check to make sure you got the syntax correct. The verbose options can help with that. The `-v` option will add output lines that start with `[VERBOSE]` or `[STATUS]`, making the output more verbose. The `-V` option will add output lines that start with `[ATTEMPT]` that show each attempt. If you would like to use either one, the sytax is the following:
+Sometimes I want to make sure things are running as I was intending them to run. Maybe I need a sanity check to make sure I got the syntax correct. The verbose options can help with that. The `-v` option will add output lines that start with `[VERBOSE]` or `[STATUS]`, making the output more verbose. The `-V` option will add output lines that start with `[ATTEMPT]` that show each attempt. When I want to use either one, the sytax is the following:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -v`
 
@@ -108,18 +108,18 @@ or
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -V`
 
-You can also use them together using:
+I can also use them together using:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -vV`
 
 #### -c TIME
 
-Sometimes you know that you need to rate limit your login attempts due to a network intrusion detection system or perhaps the server you are brute forcing naturally limits your login attempt rates. In either case you can specify the wait time per login attempt. Each thread will use this option. Here is the syntax to wait 3 seconds between each attempt:
+Sometimes I know that I need to rate limit my login attempts due to a network intrusion detection system or perhaps the server I am brute forcing naturally rate limits my login attempts. In either case I can specify the wait time per login attempt. Each thread will use this option. Here is the syntax to wait 3 seconds between each attempt:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -c 3`
 
 #### -t TASKS
 
-If you are trying to brute force a single target, you can specify the maximum number of connections for that target. This can be really handy if your machine and the target have a lot of resources and can handle the load. By default, this number is 16. In this example I am going to double the connections. Here is the syntax I used to change it:
+If I am trying to brute force a single target, I can specify the maximum number of connections for that target. This can be really handy if my machine and the target have a lot of resources and can handle the load. By default, this number is 16. In this example I am going to double the connections. Here is the syntax I used to change it:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -t 32`
