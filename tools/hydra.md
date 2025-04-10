@@ -111,3 +111,9 @@ You can also use them together using:
 Sometimes you know that you need to rate limit your login attempts due to a network intrusion detection system or perhaps the server you are brute forcing naturally limits your login attempt rates. In either case you can specify the wait time per login attempt. Each thread will use this option. Here is the syntax to wait 3 seconds between each attempt:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -c 3`
+
+#### -t TASKS
+
+If you are trying to brute force a single target, you can specify the maximum number of connections for that target. This can be really handy if your machine and the target have a lot of resources and can handle the load. By default, this number is 16. In this example I am going to double the connections. Here is the syntax I used to change it:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -t 32`
