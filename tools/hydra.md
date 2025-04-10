@@ -86,6 +86,12 @@ Hydra will then use go through each of the entries in the wordlist and report if
 
 Because systems like Linux are so configurable, capture the flag events will configure services in many different ways so that you have to read the manual for different tools you are using. Below are some options are useful to know about.
 
+#### -h
+
+The output provided above was generated with this option. This options always gives me the most up to date information about the hydra options I am using. The syntax is the following:
+
+`hydra -h`
+
 #### -s PORT
 
 Sometimes a service is running on a different port. You can use this option to let hydra know that the service isn't using the standard port for that service. For example, if ssh was running on port 9000 instead of the usual 22, you would run the following:
