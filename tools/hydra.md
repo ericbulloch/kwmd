@@ -108,6 +108,20 @@ or
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt http-get://10.10.1.1`
 
+### http-post-form
+
+This is where I use hydra the most. In a capture the flag event, I have found a username and I need to loop over a list of passwords to log into the admin section of a website. I'll manually attempt to log into the site and get the error message for a failed login attempt. In this example, the failed message is "Invalid Login".
+
+The syntax is the following when not including options:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt http://10.10.1.1 http-post-form "/index.php:username=^USER^&password=^PASS^:F=Invalid Login"`
+
+Most of the items on here are familiar. The last section where things are more complicated. The last section is split into 3 parts and are seperated by the ':' character. Here is a breakdown of each part:
+
+- `/index.php` is the path to the form I am trying to post to.
+- `username=^USER^&password=^PASS^` are where I pass in my username and password that were set with the -l and -P variables at the start of the command. In this case, `username` and `password` are variables of the form located at `/index.php`. They need to match the parameters of the form I am trying to brute force.
+- `F=Invalid Login` is how I tell hydra what will be in the response when there is a failure. If a username and password succeed, "Invalid Login" will not be in the resposne.
+
 ### ssh
 
 If a system is vulnerable to an ssh brute force (meaning if I type `ssh target_machine` and it asks for a password) and I have either a username or password, hydra can help you gain access.
