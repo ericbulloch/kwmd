@@ -96,6 +96,18 @@ or
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt ftps://10.10.1.1`
 
+### http-get
+
+When I go to a website that has basic HTTP authentication (a site that asks for a username and password in a javascript popup), hydra can brute force that site. I typically see these on admin sites running outside ports 80 or 443.
+
+The syntax is the following when not including options:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 http-get`
+
+or
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt http-get://10.10.1.1`
+
 ### ssh
 
 If a system is vulnerable to an ssh brute force (meaning if I type `ssh target_machine` and it asks for a password) and I have either a username or password, hydra can help you gain access.
