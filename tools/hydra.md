@@ -66,11 +66,29 @@ Examples:
 
 The following examples are ones that I have used in capture the flag exercises. The wordlists that are provided are ones that are found on Kali unless otherwise specified.
 
+For each of the examples below, here are the variables that I am using:
+
+- Username of `bob`
+- Password wordlist found in `/usr/share/wordlist/rockyou.txt`
+- The target machine is found at ip address `10.10.1.1`
+
+### ftp
+
+There are a lot of companies and users that still use ftp servers. Unfortunately, these servers are not very secure and often have sensitive documents on them. Don't sleep on how valuable an ftp server can be.
+
+The syntax is the following when not including options:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ftp`
+
+or
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt ftp://10.10.1.1`
+
 ### ssh
 
 If a system is vulnerable to an ssh brute force (meaning if I type `ssh target_machine` and it asks for a password) and I have either a username or password, hydra can help you gain access.
 
-I have found the username `bob` is a user on the machine with an ip address of `10.10.1.1`. I want to use the `rockyou.txt` wordlist stored in the `/usr/share/wordlists` directory. The syntax is the following when not including options:
+The syntax is the following when not including options:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh`
 
