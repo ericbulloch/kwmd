@@ -97,3 +97,25 @@ Online Event Booking and Reservation System 1.0 - 'reason' Stored Cross-Site Scr
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
 Shellcodes: No Results
 ```
+
+The `Online Book Store 1.0 - Unauthenticated Remote Code Execution` line caught my eye. Looking in the Path column of the table, I see that `php/webapps/47887.py` is the file to run this exploit. I was to see more information about this exploit. I'll run the following command to get more information:
+
+`searchsploit 47887 -p`
+
+It output the following:
+
+```bash
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                                                                                                                   |  Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Online Book Store 1.0 - Unauthenticated Remote Code Execution                                                                                                                    | php/webapps/47887.py
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+root@ip-10-10-92-190:~/Instructions# searchsploit 47887 -p
+  Exploit: Online Book Store 1.0 - Unauthenticated Remote Code Execution
+      URL: https://www.exploit-db.com/exploits/47887
+     Path: /opt/exploitdb/exploits/php/webapps/47887.py
+    Codes: N/A
+ Verified: True
+File Type: ASCII text
+```
