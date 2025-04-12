@@ -75,3 +75,25 @@ Running `searchsploit -h` provided the following output:
 ## Examples
 
 The following examples are ones that I have used in capture the flag exercises.
+
+### Searching
+
+I found a web application that was running the "Online Book Store v1.0" software. Using searchsploit I was able to find all kinds of vulnerabilities. Here is the command I ran to find what exploits were available:
+
+`searchsploit Online Book Store`
+
+The following was the output:
+
+```bash
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                                                                                                                   |  Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+GotoCode Online Bookstore - Multiple Vulnerabilities                                                                                                                             | asp/webapps/17921.txt
+Online Book Store 1.0 - 'bookisbn' SQL Injection                                                                                                                                 | php/webapps/47922.txt
+Online Book Store 1.0 - 'id' SQL Injection                                                                                                                                       | php/webapps/48775.txt
+Online Book Store 1.0 - Arbitrary File Upload                                                                                                                                    | php/webapps/47928.txt
+Online Book Store 1.0 - Unauthenticated Remote Code Execution                                                                                                                    | php/webapps/47887.py
+Online Event Booking and Reservation System 1.0 - 'reason' Stored Cross-Site Scripting (XSS)                                                                                     | php/webapps/50450.txt
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+```
