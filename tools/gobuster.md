@@ -108,7 +108,7 @@ Global Flags:
 
 A simple directory enumerate looks like the following:
 
-`gobuster dir -u 10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt`
+`gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt`
 
 - The `dir` part of the command lets gobuster know that this is a directory search
 - The `-u` lets gobuster know what the target url is
@@ -118,5 +118,7 @@ A simple directory enumerate looks like the following:
 
 | example  | what it means  | when I use it  |
 | -------- | -------------- | -------------- |
-| `gobuster dir -u 10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -t 4 --delay 3000`  | The `-t` flag decreases the thread count from 10 to 4 and the `--delay 3000` flag is increasing the delay in each thread between requests.  | If I want to be less noisy on a network or if the machine seems to have less resources because it is slow to handle requests.  |
-| `gobuster dir -u 10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -t 20 --delay 500`  | The `-t` flag increases the thread count from 10 to 20 and the `--delay 500` flag is decreasing the delay in each thread between requests.  | If I don't care noise on a network or if the machine seems to have sufficient resources because it is quick to handle requests.  |
+| `gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -t 4 --delay 3000`  | The `-t` flag decreases the thread count from 10 to 4 and the `--delay 3000` flag is increasing the delay in each thread between requests.  | If I want to be less noisy on a network or if the machine seems to have less resources because it is slow to handle requests.  |
+| `gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -t 20 --delay 500`  | The `-t` flag increases the thread count from 10 to 20 and the `--delay 500` flag is decreasing the delay in each thread between requests.  | If I don't care noise on a network or if the machine seems to have sufficient resources because it is quick to handle requests.  |
+| `gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -z --no-color -o ~/gobuster.out`  | The `-z` flag removes the progress bar output while the -o flag tells gobuster to save the output to the gobuster.out file in my home directory.  | I have some automated scripts that will run this command and save the file so that it can be parsed and used with other commands and tools.  |
+| `gobuster dir -u http://10.10.3.23 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt --wordlist-offset $(grep -n 'odbc' /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt | cut -d':' -f1)`  | The `--wordlist-offset` flag tells gobuster to start on the line number provided (in this case grep finds the line number and returns it).  | I have accidentally stopped gobuster when it was most of the way done. This command allowed me to continue from where I was before I accidentally stopped the script.  |
