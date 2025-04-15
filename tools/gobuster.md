@@ -105,3 +105,11 @@ Global Flags:
   -w, --wordlist string       Path to the wordlist. Set to - to use STDIN.
       --wordlist-offset int   Resume from a given position in the wordlist (defaults to 0)
 ```
+
+A simple directory enumerate looks like the following:
+
+`gobuster dir -u 10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt`
+
+- The `dir` part of the command lets gobuster know that this is a directory search
+- The `-u` lets gobuster know what the target url is
+- The `-w` lets gobuster know what wordlist to use
