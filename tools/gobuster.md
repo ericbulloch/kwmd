@@ -39,3 +39,12 @@ Flags:
 
 Use "gobuster [command] --help" for more information about a command.
 ```
+
+## Examples
+
+The following examples are ones that I have used in capture the flag exercises. The wordlists that are provided are ones that are found on Kali unless otherwise specified.
+
+For each of the examples below, here are the variables that I am using:
+
+- Password wordlist found in `/usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt`
+- The target machine is found at ip address `10.10.1.1`
