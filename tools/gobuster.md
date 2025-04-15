@@ -113,3 +113,10 @@ A simple directory enumerate looks like the following:
 - The `dir` part of the command lets gobuster know that this is a directory search
 - The `-u` lets gobuster know what the target url is
 - The `-w` lets gobuster know what wordlist to use
+
+#### Useful options for directory/file enumeration mode
+
+| example  | what it means  | when I use it  |
+| -------- | -------------- | -------------- |
+| `gobuster dir -u 10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -t 4 --delay 3000`  | The `-t` flag decreases the thread count from 10 to 4 and the `--delay 3000` flag is increasing the delay in each thread between requests.  | If I want to be less noisy on a network or if the machine seems to have less resources because it is slow to handle requests.  |
+| `gobuster dir -u 10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -t 20 --delay 500`  | The `-t` flag increases the thread count from 10 to 20 and the `--delay 500` flag is decreasing the delay in each thread between requests.  | If I don't care noise on a network or if the machine seems to have sufficient resources because it is quick to handle requests.  |
