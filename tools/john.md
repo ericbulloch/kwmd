@@ -57,3 +57,15 @@ Usage: john [OPTIONS] [PASSWORD-FILES]
 --format=NAME              force hash of type NAME. The supported formats can
                            be seen with --list=formats and --list=subformats
 ```
+
+## Examples
+
+The following examples are ones that I have used in capture the flag exercises. I rarely include a wordlist in capture the flag events. I will mention the type of file that john is trying to crack.
+
+### Keepass
+
+Once during a capture the flag event I found a keepass file. The keepass file is not in a format that john knows how to use. Fortunately, there are tools online that I was able to use that converted the file to a format that john could understand. In this example I am going to use a keepass file called database.kdbx that is in the directory I am currently in. The steps are the following:
+
+- Download the [keepass2john](https://github.com/ivanmrsulja/keepass2john) tool.
+- Run the keepass2john script on your keepass database. `python keepass2john/keepass2john.py database.kdbx > output_john.txt`
+- Run john `john --format=keepass output_john.txt`
