@@ -107,7 +107,7 @@ When I find a web server on a target, this is the first scan that I run. I am a 
 
 `ffuf -u http://10.10.1.1/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt`
 
-- The `FUZZ` part of the command lets ffuf know you want to fuzz the words in the wordlist.
+- The `FUZZ` part of the command lets ffuf know where I want to fuzz the words in the wordlist.
 - The `-u` lets ffuf know what the target url is.
 - The `-w` lets ffuf know what wordlist to use.
 
@@ -119,8 +119,21 @@ Here is the command to search for files:
 
 `ffuf -u http://10.10.1.1/data/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt -e .html,.php,.txt,.zip`
 
-- The `FUZZ` part of the command lets ffuf know you want to fuzz the words in the wordlist.
-- Notice that I am looking in the data directory. Use whatever directory you find that is suspicious.
+- The `FUZZ` part of the command lets ffuf know where I want to fuzz the words in the wordlist.
+- Notice that I am looking in the data directory. I use whatever directory I find that is suspicious.
 - The `-u` lets ffuf know what the target url is.
 - The `-w` lets ffuf know what wordlist to use.
 - The `-e` lets ffuf know what file extensions we are interested in.
+
+### subdomain enumeration
+
+Once in a while, a capture the flag machine has some subdomains that I have to find so that I can continue on in the challenge. The ffuf tool makes this easy to enumerate as well. Here is the syntax:
+
+`ffuf -H "Host: FUZZ.10.10.1.1" -H "User-Agent: PENTEST" -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt -u http://10.10.1.1 -fs 100`
+
+- The `FUZZ` part of the command lets ffuf know where I want to fuzz the words in the wordlist.
+- The `-u` lets ffuf know what the target url is.
+- The `-w` lets ffuf know what wordlist to use.
+- Notice that I am using FUZZ in a header. This will check if the subdomain exists.
+- I also included an User-Agent header this was a recommendation that I got from some videos on youtube. I can't remember which ones.
+- The `fs` parameter lets me filter responses by size. This needs to be ajusted based on what I get back. Most responses come back as false positives but the actual responses that are subdomains will have a larger size. This parameter is used to filter them out.
