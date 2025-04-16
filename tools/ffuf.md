@@ -101,12 +101,26 @@ For each of the examples below, here are the variables that I am using:
 
 - The target machine is found at ip address `10.10.1.1`
 
-### directory/file enumeration
+### directory enumeration
 
 When I find a web server on a target, this is the first scan that I run. I am a big fan of ffuf's syntax for this and other scans. A simple scan looks like the following:
 
 `ffuf -u http://10.10.1.1/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt`
 
-- The `FUZZ` part of the command lets ffuf know you want to fuzz the words in the wordlist
-- The `-u` lets ffuf know what the target url is
-- The `-w` lets ffuf know what wordlist to use
+- The `FUZZ` part of the command lets ffuf know you want to fuzz the words in the wordlist.
+- The `-u` lets ffuf know what the target url is.
+- The `-w` lets ffuf know what wordlist to use.
+
+### file enumeration
+
+The above command can be altered slightly to find files with particular extensions. This can be very handy when I am looking for things like zip archives or hidden files. I run this in folders that have suspicious directory names like `test`, `download`, `logs`, `data`, etc...
+
+Here is the command to search for files:
+
+`ffuf -u http://10.10.1.1/data/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt -e .html,.php,.txt,.zip`
+
+- The `FUZZ` part of the command lets ffuf know you want to fuzz the words in the wordlist.
+- Notice that I am looking in the data directory. Use whatever directory you find that is suspicious.
+- The `-u` lets ffuf know what the target url is.
+- The `-w` lets ffuf know what wordlist to use.
+- The `-e` lets ffuf know what file extensions we are interested in.
