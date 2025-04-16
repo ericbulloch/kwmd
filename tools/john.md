@@ -66,9 +66,8 @@ The following examples are ones that I have used in capture the flag exercises. 
 
 Once during a capture the flag event I found a keepass file. The keepass file is not in a format that john knows how to use. Fortunately, there are tools online that I was able to use that converted the file to a format that john could understand. In this example I am going to use a keepass file called database.kdbx that is in the directory I am currently in. The steps are the following:
 
-- Download the [keepass2john](https://github.com/ivanmrsulja/keepass2john) tool.
-- Run the keepass2john script on my keepass database. `python keepass2john/keepass2john.py database.kdbx > john.txt`
-- Run john `john --format=keepass john.txt`
+- Run the keepass2john script on my keepass database. `keepass2john database.kdbx > john.txt`
+- Run john. `john --format=keepass john.txt`
 
 ### Linux shadow file
 
@@ -90,3 +89,17 @@ Once some passwords have been cracked, john stores the results in the $JOHN/john
 I can also see if any root (UID 0) accounts got cracked with the following command:
 
 `john --show --users=0 mypasswd`
+
+### RAR archive file
+
+I have found .rar files that were password protected in a capture the flag event. Similar to Keepass, there are tools that can convert the rar file to a format that john can use. In this example I have the secrets.rar file in my current directory. Here are the steps:
+
+- Run rar2john on the rar file. `rar2john secrets.rar > john.txt
+- Run john. `john john.txt`
+
+### ZIP archive file
+
+I have found .zip files that were password protected in a capture the flag event. Similar to Keepass, there are tools that can convert the zip file to a format that john can use. In this example I have the secrets.zip file in my current directory. Here are the steps:
+
+- Run zip2john on the rar file. `zip2john secrets.rar > john.txt
+- Run john. `john john.txt`
