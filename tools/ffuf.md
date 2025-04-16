@@ -92,3 +92,21 @@ EXAMPLE USAGE:
 
   More information and examples: https://github.com/ffuf/ffuf
 ```
+
+## Examples
+
+The following examples are ones that I have used in capture the flag exercises. The wordlists that are provided are ones that are found on Kali unless otherwise specified.
+
+For each of the examples below, here are the variables that I am using:
+
+- The target machine is found at ip address `10.10.1.1`
+
+### directory/file enumeration
+
+When I find a web server on a target, this is the first scan that I run. I am a big fan of ffuf's syntax for this and other scans. A simple scan looks like the following:
+
+`ffuf -u http://10.10.1.1/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt`
+
+- The `FUZZ` part of the command lets ffuf know you want to fuzz the words in the wordlist
+- The `-u` lets ffuf know what the target url is
+- The `-w` lets ffuf know what wordlist to use
