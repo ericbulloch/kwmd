@@ -67,5 +67,26 @@ The following examples are ones that I have used in capture the flag exercises. 
 Once during a capture the flag event I found a keepass file. The keepass file is not in a format that john knows how to use. Fortunately, there are tools online that I was able to use that converted the file to a format that john could understand. In this example I am going to use a keepass file called database.kdbx that is in the directory I am currently in. The steps are the following:
 
 - Download the [keepass2john](https://github.com/ivanmrsulja/keepass2john) tool.
-- Run the keepass2john script on your keepass database. `python keepass2john/keepass2john.py database.kdbx > output_john.txt`
-- Run john `john --format=keepass output_john.txt`
+- Run the keepass2john script on my keepass database. `python keepass2john/keepass2john.py database.kdbx > john.txt`
+- Run john `john --format=keepass john.txt`
+
+### Linux shadow file
+
+I have had to crack some user's linux password in a capture the flag event. For this example, I am on the linux machine and I can read both the /etc/passwd and /etc/shadow files. Here are the steps to run:
+
+- Create an unshadow file that john can use. Run `unshadow /etc/passwd /etc/shadow > mypasswd`
+- Run john on the new file. `john mypasswd`
+
+#### Useful switches with Linux shadow file
+
+If I have a custom wordlist that I would like to use, here is the command to use:
+
+`john --wordlist=wordlist.txt mypasswd`
+
+Once some passwords have been cracked, john stores the results in the $JOHN/john.pot file. They do not intend for me to view that file directly. The have provided to following command to see the results:
+
+`john --show mypasswd`
+
+I can also see if any root (UID 0) accounts got cracked with the following command:
+
+`john --show --users=0 mypasswd`
