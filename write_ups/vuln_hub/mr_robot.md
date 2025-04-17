@@ -16,4 +16,4 @@
 
 ## Description
 
-
+This was the first capture the flag challenge that I tried. I have never watched the show before so most of the references are lost on me. The challenge follows the standard flow of scanning, looking for vulnerabilites and then exploiting them.
