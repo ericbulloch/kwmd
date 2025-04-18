@@ -108,4 +108,10 @@ I have found .zip files that were password protected in a capture the flag event
 
 Every now and then I will find a hash that [CrackStation](https://crackstation.net/) doesn't have a solution for. I can use john to try to crack the hash. John has a built in word list but I can also supply my own. In the following example I have an md5 hash that is stored in a file called hash.txt in the current directory. I also know for sure that this is an md5 hash. This is the command to have john try to crack the hash:
 
-`john hash.txt -format=Raw-MD5`
+`john --format=raw-md5 hello.txt`
+
+The `--format` option is important because if it is not supplied john will try to crack the hash with multiple different hashing algorithms that it detects.
+
+I was abled to see the cracked hash, once john finished, with the following command:
+
+`john --format=raw-md5 hello.txt --show`
