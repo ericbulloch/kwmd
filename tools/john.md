@@ -115,3 +115,7 @@ The `--format` option is important because if it is not supplied john will try t
 I was abled to see the cracked hash, once john finished, with the following command:
 
 `john --format=raw-md5 hello.txt --show`
+
+I often times want to use my own word list when I am doing this. For this example, my wordlist is found in list.txt. To use a custom word list change the command to the following:
+
+`john --format=raw-md5 --wordlist=list.txt hello.txt`
