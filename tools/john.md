@@ -103,3 +103,9 @@ I have found .zip files that were password protected in a capture the flag event
 
 - Run zip2john on the rar file. `zip2john secrets.rar > john.txt
 - Run john. `john john.txt`
+
+### MD5
+
+Every now and then I will find a hash that [CrackStation](https://crackstation.net/) doesn't have a solution for. I can use john to try to crack the hash. John has a built in word list but I can also supply my own. In the following example I have an md5 hash that is stored in a file called hash.txt in the current directory. I also know for sure that this is an md5 hash. This is the command to have john try to crack the hash:
+
+`john hash.txt -format=Raw-MD5`
