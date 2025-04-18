@@ -10,4 +10,4 @@ Once I have a shell running on a capture the flag box, I often need to escalate 
 - Check what cron jobs are listed
 - What groups the current user belong to
 
-There are many other checks and the list keeps growing.
+There are many other checks and the list keeps growing. I download and follow the instructions found at the [linPEAS repository](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS). 
