@@ -119,3 +119,7 @@ I was abled to see the cracked hash, once john finished, with the following comm
 I often times want to use my own word list when I am doing this. For this example, my wordlist is found in list.txt. To use a custom word list change the command to the following:
 
 `john --format=raw-md5 --wordlist=list.txt hello.txt`
+
+I still had to run the following command to see the cracked hash once john finished:
+
+`john --format=raw-md5 hello.txt --show`
