@@ -186,4 +186,34 @@ Now I triggered a 404 error on the website. Here is the url I used:
 
 `http://10.22.1.112/a;a;`
 
-My listening shell now has a connection!
+My listening terminal now has the following at the bottom:
+
+```bash
+daemon@linux:/opt/binami/apps/wordpress/htdocs$
+```
+
+My listening terminal now has a connection!
+
+#### Have a Look Around
+
+Now that I have access to a machine, I need to gather more information. Here are some questions that I am going to answer:
+
+- Who am I running as?
+- What permissions do I have?
+- What other users are in the /home directory?
+- What interesting files do I have access to?
+
+I am running as the user daemon. When I run the `ls` command, I see that there is a file called wp-config.php. I used the following command to view the contents of that file:
+
+`cat wp-config.php`
+
+There are a lot of interesting things in this file. There are credentials for a database user and an ftp user. I noted that information in case I need to go down that path.
+
+I ran `ls /home` to see what other users are on the machine. There is a user called robot that we can use. I ran `ls -lha /home/robot` and there are a could of important files that show up:
+
+- key-2-of-3.txt
+- password.raw-md5
+
+The key file is owned by the user robot and only robot can read the file. This is telling me that I need to use the password.raw-md5 file to get the robot user's password so that I can login as robot.
+
+#### User Privilege Escalation
