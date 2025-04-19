@@ -172,4 +172,18 @@ That is the payload I am going to use. I need to make sure that my machine is li
 
 `nc -lvnp 4444`
 
-This tells netcat that
+Here is a breakdown of this command:
+
+- `nc` is the tool netcat. It is used to connect and listen on ports of machines. It can do a lot of useful things.
+- The `-l` option tells netcat that it is listening for a connection rather than creating a connection.
+- The `-v` option (I know it doesn't have a dash above but that is shorthand) makes sure that we get verbose output.
+- The `-n` option tells netcat to suppress name and host resolutions.
+- The `-p` option tells netcat what port it is going to listen on and wait for connections.
+
+Now that my attack machine is listening for a connection, I just need to execute the PHP code mentioned above. I need to add the code to a template in the WordPress admin site. I could create a new page or just add it to an existing page. I chose to add the code to the 404.php template. It is very easy to generate a 404 error on a site. I inserted the code at the top of the 404.php template and saved the template.
+
+Now I triggered a 404 error on the website. Here is the url I used:
+
+`http://10.22.1.112/a;a;`
+
+My listening shell now has a connection!
