@@ -20,7 +20,13 @@ This was the first capture the flag challenge that I tried. I have never watched
 
 ### Process
 
-I imported the virtual machine image into virtual box and booted it up. There is a login screen but I don't have a username or password. I tried admin/admin and root/root but that didn't work.
+#### Setup
+
+I imported the virtual machine image into virtual box and booted it up.
+
+#### Port and Service Scan
+
+There is a login screen but I don't have a username or password. I tried admin/admin and root/root but that didn't work.
 
 From here I knew that I needed to get the ip address of the machine so that I could scan it and find out what services were on the machine. When I setup my home lab I limited the ip addresses to the range of 10.22.1.110-130. So I ran the following command to find the machine:
 
@@ -38,6 +44,8 @@ I can use a password to ssh onto the machine since a password prompt showed up w
 
 This lets me know that I can try to brute force login with hydra if I find a username.
 
+#### Website Enumeration
+
 Since I don't have much other information, I opened up Firefox and checked out the website that was running on the target machine.
 
 I viewed the various pages on the website and viewed the page source. I didn't see anything that stood out. None of the links looked particularly promising either.
@@ -46,7 +54,9 @@ From here I needed to run some directory enumeration to get more information. I 
 
 `dirb http://10.22.1.112`
 
-The output mentioned a few things. I started out with the robots.txt file. The output was the following:
+#### First Key
+
+The output mentioned a few things. I started out with the robots.txt file to see what directories are available that they don't want indexed. The output was the following:
 
 ```txt
 User-agent: *
@@ -58,7 +68,9 @@ Nice! I found the first key! I opened that file in Firefox using the following u
 
 `http://10.22.1.112/key-1-of-3.txt`
 
-Finding the first key means that the other file is important. I grabbed that file in Firefox using the following url:
+#### Provided Word List
+
+Finding the first key file means that the fsociety.dic file is important. I grabbed that file in Firefox using the following url:
 
 `http://10.22.1.112/fsociety.dic`
 
@@ -73,6 +85,8 @@ The file is over 800k lines. I wanted to see if there were duplicates. I ran the
 There are only about 11k unique lines in this file. With that in mind, I saved a copy of the file with just the unique lines using the following command:
 
 `uniq fsociety.dic > test.txt`
+
+#### Admin Login Form
 
 At this point, I have a shorted dictionary list and more things that dirb had in the output. I see that one of the things dirb wanted me to check was the `admin/` path. I'll go there next. The url is:
 
