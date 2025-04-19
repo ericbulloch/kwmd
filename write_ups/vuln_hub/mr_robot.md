@@ -1,8 +1,8 @@
-| Stat      | Value                                        |
-| --------- | -------------------------------------------- |
-| Room      | MR-ROBOT: 1                                  |
-| URL       | https://www.vulnhub.com/entry/mr-robot-1,151 |
-| Difficult | Easy                                         |
+| Stat       | Value                                        |
+| ---------- | -------------------------------------------- |
+| Room       | MR-ROBOT: 1                                  |
+| URL        | https://www.vulnhub.com/entry/mr-robot-1,151 |
+| Difficulty | Easy                                         |
 
 ## Concepts/Tools Used
 
@@ -121,3 +121,26 @@ Here is a summary of what is happening:
 After running the command I got a valid username:
 
 `Elliot`
+
+Now that we have the username we need a password. I tried 2 things at once. I ran hydra with the username Elliot and the same word list that I was provided while I looked at some of the other results from dirb. I also took another look at the website pages again to see if there was anything I missed. It didn't take long for hydra to provide the password. Here is the hydra command that I ran:
+
+`hydra -l Elliot -P test.txt 10.22.1.112 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=is incorrect'
+
+Here is a summary of what is happening:
+- The `-l` option lets hydra know that I want to use Elliot as the username.
+- The `-P` option lets hydra know that I want to use a word list of passwords.
+- 10.22.1.112 is the ip address where hydra is making the request.
+- Hydra is making a http-post-form request. This is the request that is made when we type a username and password at the admin login page in Firefox.
+- The http-post-form uses a string as input. It has 3 parts that are separated by the colon (:) character.
+- The path of the request: `/wp-login.php`.
+- The form data. In our case we have 3 items. The ^USER^ variable will be Elliot. The ^PASS^ variable will be populated by the word list mentioned above. The wp-submit variable will be Log+In.
+- Finally, the `F=is incorrect` part tells hydra that a failed request will have the string "is incorrect" in the response.
+
+Running this command did provide the password. I have redacted the password but I wanted to show the following output from hydra:
+
+```bash
+[80][http-post-form] host: 10.22.1.112   login: Elliot   password: REDACTED
+1 of 1 target successfully completed, 1 valid password found
+```
+
+#### Website Admin
