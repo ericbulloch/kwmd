@@ -114,7 +114,7 @@ This is where I use hydra the most. In a capture the flag event, I have found a 
 
 The syntax is the following when not including options:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt http://10.10.1.1 http-post-form "/index.php:username=^USER^&password=^PASS^:F=Invalid Login"`
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 http-post-form "/index.php:username=^USER^&password=^PASS^:F=Invalid Login"`
 
 Most of the items on here are familiar. The last section where things are more complicated. The last section is split into 3 parts and are seperated by the ':' character. Here is a breakdown of each part:
 
