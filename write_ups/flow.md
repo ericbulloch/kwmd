@@ -33,6 +33,31 @@ This command does the following things:
 - The `-T5` option will cause nmap to run the scan at one of the fastest levels (insane speed).
 - The `-v` option tells nmap that I want verbose output from this scan.
 
+Here is some sample output from the above command when port 22 and 80 were found open on the target machine:
+
+```bash
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-04-21 15:30 BST
+Initiating ARP Ping Scan at 15:30
+Scanning target.thm (10.10.7.168) [1 port]
+Completed ARP Ping Scan at 15:30, 0.03s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 15:30
+Scanning target.thm (10.10.7.168) [65535 ports]
+Discovered open port 22/tcp on 10.10.7.168
+Discovered open port 80/tcp on 10.10.7.168
+Completed SYN Stealth Scan at 15:30, 1.81s elapsed (65535 total ports)
+Nmap scan report for target.thm (10.10.7.168)
+Host is up (0.00012s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 02:42:CD:52:D4:57 (Unknown)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 2.02 seconds
+           Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
+```
+
 Once this scan is complete and we have some ports that are reported as being up, I will run another command. For this example I will say that port 22 and 80 were up on the target machine. I run the following command to get more information for those ports:
 
 `nmap -p 22,80 -A -Pn -v target.thm`
