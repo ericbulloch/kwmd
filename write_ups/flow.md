@@ -58,7 +58,9 @@ Nmap done: 1 IP address (1 host up) scanned in 2.02 seconds
            Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
 ```
 
-Once this scan is complete and we have some ports that are reported as being up, I will run another command. For this example I will say that port 22 and 80 were up on the target machine. I run the following command to get more information for those ports:
+Notice how fast this scan is with the `-T5` option (1.81 seconds to scan 65535 ports).
+
+Once this scan is complete and we have some ports that are reported as being up, I will run another command. I scan ports 22 and 80 from the previous output and get more information about the services running on thos ports. I run the following command to get more information for those ports:
 
 `nmap -p 22,80 -A -Pn -v target.thm`
 
@@ -68,3 +70,44 @@ This command does the following:
 - The `-A` option tells nmap to try operating system detection, version detection, script scanning and also perform a traceroute.
 - The `-Pn` option tells nmap to skip host discovery.
 - The `-v` option tells nmap that I want verbose output from this scan.
+
+Here is some sample output from this command:
+
+```bash
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-04-21 15:37 BST
+...
+Host is up (0.00034s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.11 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET POST OPTIONS HEAD
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: My Super Amazing Website!
+MAC Address: 02:42:CD:52:D4:57 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: Linux 3.1 (95%), Linux 3.2 (95%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (94%), Linux 3.10 - 3.13 (94%), Linux 3.8 (94%), ASUS RT-N56U WAP (Linux 3.4) (93%), Linux 3.16 (93%), Linux 2.6.32 (92%), Linux 2.6.39 - 3.2 (92%), Linux 3.1 - 3.2 (92%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime guess: 6.032 days (since Tue Apr 15 14:51:39 2025)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=262 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.34 ms target.thm (10.10.7.168)
+
+NSE: Script Post-scanning.
+Initiating NSE at 15:37
+Completed NSE at 15:37, 0.00s elapsed
+Initiating NSE at 15:37
+Completed NSE at 15:37, 0.00s elapsed
+Initiating NSE at 15:37
+Completed NSE at 15:37, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 11.12 seconds
+           Raw packets sent: 47 (3.672KB) | Rcvd: 31 (2.616KB)
+```
