@@ -58,9 +58,9 @@ Nmap done: 1 IP address (1 host up) scanned in 2.02 seconds
            Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
 ```
 
-Notice how fast this scan is with the `-T5` option (1.81 seconds to scan 65535 ports).
+Notice how fast this scan is with the `-T5` option (1.81 seconds to scan 65535 ports). If there are no ports open from the previous scan I will try a UDP scan. I have included that scan below.
 
-Once this scan is complete and we have some ports that are reported as being up, I will run another command. I scan ports 22 and 80 from the previous output and get more information about the services running on thos ports. I run the following command to get more information for those ports:
+Once this scan is complete and I have some ports that are reported as being up, I will run another command. I scan ports 22 and 80 from the previous output and get more information about the services running on thos ports. I run the following command to get more information for those ports:
 
 `nmap -p 22,80 -A -Pn -v target.thm`
 
@@ -113,3 +113,11 @@ Nmap done: 1 IP address (1 host up) scanned in 11.12 seconds
 ```
 
 I cut out some of the output to show some of the important parts of this scan. There are a lot of good things happening with this scan. Nmap is guessing the operating system, doing a traceroute and discovering the service and version number for ports 22 and 80. Based on the services that are running from the results I now move on to the next segment.
+
+### UDP Scan
+
+If there are no ports open from the original TCP scan that I mentioned above, I'll try a UDP scan. A full UDP scan is significantly slower than a TCP scan. Here is the command I use for a UDP scan:
+
+`nmap -p- -sU -Pn -T5 -v target.thm`
+
+This command is the same as the original known machine ip address scan command above except the `-sU` option has been added to let nmap know I want a UDP scan instead.
