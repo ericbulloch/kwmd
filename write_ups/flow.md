@@ -111,3 +111,5 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 11.12 seconds
            Raw packets sent: 47 (3.672KB) | Rcvd: 31 (2.616KB)
 ```
+
+I cut out some of the output to show some of the important parts of this scan. There are a lot of good things happening with this scan. Nmap is guessing the operating system, doing a traceroute and discovering the service and version number for ports 22 and 80. Based on the services that are running from the results I now move on to the next segment.
