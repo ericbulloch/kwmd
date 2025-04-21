@@ -10,9 +10,9 @@ Unless the instructions tell me that I have a specific hostname that I must use,
 
 I do this so that I don't have to remember the ip address of the machine that I am attacking in the capture the flag event. I have less to remember and so I can focus more on what I am trying to do.
 
-## Port Scan
+# Port Scanning
 
-### Unknown Machine IP Address
+## Unknown Machine IP Address
 
 When doing a capture the flag event with a VulnHub machine, I will need to discover the ip address of the machine. In my home lab I restrict the ip addresses of the machines to a range (for example 10.22.1.110-130). When I start up the VulnHub machine I need to find out what the ip address it is using. I already know that my attack machine is using 10.22.1.110. I run the following command to see the other machines with ip addresses:
 
@@ -20,7 +20,9 @@ When doing a capture the flag event with a VulnHub machine, I will need to disco
 
 Whatever ip address shows up in the results is the machine that I just imported from VulnHub.
 
-### Known Machine IP Address
+## Known Machine IP Address
+
+### Original TCP Scan
 
 In a capture the flag event I usually run a port scan in 2 parts. I am using the same hostname that I mentioned earlier (target.thm). The first command I run is:
 
@@ -59,6 +61,8 @@ Nmap done: 1 IP address (1 host up) scanned in 2.02 seconds
 ```
 
 Notice how fast this scan is with the `-T5` option (1.81 seconds to scan 65535 ports). If there are no ports open from the previous scan I will try a UDP scan. I have included that scan below.
+
+### Second TCP Scan
 
 Once this scan is complete and I have some ports that are reported as being up, I will run another command. I scan ports 22 and 80 from the previous output and get more information about the services running on thos ports. I run the following command to get more information for those ports:
 
@@ -121,3 +125,11 @@ If there are no ports open from the original TCP scan that I mentioned above, I'
 `nmap -p- -sU -Pn -T5 -v target.thm`
 
 This command is the same as the original known machine ip address scan command above except the `-sU` option has been added to let nmap know I want a UDP scan instead.
+
+# SSH
+
+## Initial Information
+
+If nmap shows that SSH is running on a machine, I will manually connect to it. I am trying to see if it asks for a password. If that is the case, this is another attack vector I can use if I can find a username on the server.
+
+If the password prompt did not show up and I got an error that says "Permission denied (publickey)", my attack vector got smaller.
