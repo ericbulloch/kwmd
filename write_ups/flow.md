@@ -138,6 +138,22 @@ There are a few different types of enumeration on websites that can be really us
 
 I almost always run a directory enumeration to see if there are any folders or files that are not linked directly by the website. This is how I usually find the admin login form. Also, I do a double check on the robots.txt file because this file is notorious in capture the flag events for giving away information.
 
+There are a lot of automated tools that you can use for directory automation. Generally, your word list is the most important part of directory enumeration. If I get stuck I use a combination of tools and word lists to see if they found anything different. Here are some tools I like to use and some sample usage:
+
+#### dirsearch
+
+This tool can be installed with pip. I use this tool because the syntax is easy to remember and it does a pretty good job with its default word list. I install it with the following command:
+
+`pip3 install dirsearch`
+
+I run it with the following command:
+
+`dirsearch -u http://target.thm`
+
+The `-u` option tells dirsearch what url I want to start searching in. If it found that the site has a path like `/admin` and I wanted to search that folder, then I would run another search with the following command:
+
+`dirsearch -u http://target.thm/admin`
+
 ### Subdomain Enumeration
 
 Sometimes I will run subdomain enumeration to see if there are any other sites hosted by this machine.
