@@ -146,7 +146,7 @@ Once I have connected to the target machine with netcat, getting a stable shell 
 
 If python is on the machine this is my preferred method. There are 4 steps and then I will have a stable shell. The steps are:
 
-- Run the command: `python3 -c 'import pty;pty.spawn("/bin/bash")'. This creates a new process that runs bash in a pseudo-terminal (pty).
+- Run the command: `python3 -c 'import pty;pty.spawn("/bin/bash")'`. This creates a new process that runs bash in a pseudo-terminal (pty).
 - Run the command: `export TERM=xterm`. This sets the terminal emulator to xterm. This is the default setting for Ubuntu.
 - Move your shell session to the background by hitting `^Z` (ctrl+Z). I need to run one more command and this process needs to be in the background.
 - Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through.
