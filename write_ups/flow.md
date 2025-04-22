@@ -126,6 +126,18 @@ If there are no ports open from the original TCP scan that I mentioned above, I'
 
 This command is the same as the original known machine ip address scan command above except the `-sU` option has been added to let nmap know I want a UDP scan instead.
 
+# Website
+
+This section will most likely be its own file instead of just a section for right now. For now I am just starting with the process.
+
+## Browsing
+
+In a capture the flag event I am looking at the different pages and trying to find forms and input fields. Each one of these is an attack vector that can be used to do things like SQL injection or a XSS attack. Mapping the site is one of the first things I do while running directory enumeration on a website.
+
+## Inpecting HTML
+
+Capture the flag events often have flags in the comments of the HTML. I have found flags, usernames, passwords, directories and links that my automated runs didn't find. This is a very overlooked way to find useful things when I get stuck.
+
 # SSH
 
 ## Initial Information
