@@ -137,3 +137,16 @@ If the password prompt did not show up and I got an error that says "Permission 
 Also, sometimes I need to connect to ssh on a different port. This involves using the `-p` option. If I need to connect on port 2222 I would run the following command:
 
 `ssh -p 2222 user@target.thm`
+
+# Stable Shell
+
+Once I have connected to the target machine with netcat, getting a stable shell is my main priority. There are a few different ways to do this, here are the ones that I use.
+
+## Python PTY
+
+If python is on the machine this is my preferred method. There are 4 steps and then I will have a stable shell. The steps are:
+
+- Run the command: `python3 -c 'import pty;pty.spawn("/bin/bash")'. This creates a new process that runs bash in a pseudo-terminal (pty).
+- Run the command: `export TERM=xterm`. This sets the terminal emulator to xterm. This is the default setting for Ubuntu.
+- Move your shell session to the background by hitting `^Z` (ctrl+Z). I need to run one more command and this process needs to be in the background.
+- Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through.
