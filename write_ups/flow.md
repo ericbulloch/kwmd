@@ -130,6 +130,10 @@ This command is the same as the original known machine ip address scan command a
 
 ## Initial Information
 
-If nmap shows that SSH is running on a machine, I will manually connect to it. I am trying to see if it asks for a password. If that is the case, this is another attack vector I can use if I can find a username on the server.
+If nmap shows that ssh is running on a machine, I will manually connect to it. I am trying to see if it asks for a password. If that is the case, this is another attack vector I can use if I can find a username on the server.
 
 If the password prompt did not show up and I got an error that says "Permission denied (publickey)", my attack vector got smaller.
+
+Also, sometimes I need to connect to ssh on a different port. This involves using the `-p` option. If I need to connect on port 2222 I would run the following command:
+
+`ssh -p 2222 user@target.thm`
