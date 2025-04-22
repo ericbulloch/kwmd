@@ -130,6 +130,22 @@ This command is the same as the original known machine ip address scan command a
 
 This section will most likely be its own file instead of just a section for right now. For now I am just starting with the process.
 
+## Enumeration
+
+There are a few different types of enumeration on websites that can be really useful.
+
+### Directory Enumeration
+
+I almost always run a directory enumeration to see if there are any folders or files that are not linked directly by the website. This is how I usually find the admin login form. Also, I do a double check on the robots.txt file because this file is notorious in capture the flag events for giving away information.
+
+### Subdomain Enumeration
+
+Sometimes I will run subdomain enumeration to see if there are any other sites hosted by this machine.
+
+### Parameter Enumeration
+
+When I get stuck I sometimes try to run a parameter enumeration on a form just to see if there are any other named variables that I can submit that might change the behavior of a form. Sometimes developers don't want the public to know about these hidden parameters because they use them for testing, other times the developers just didn't document them.
+
 ## Browsing
 
 In a capture the flag event I am looking at the different pages and trying to find forms and input fields. Each one of these is an attack vector that can be used to do things like SQL injection or a XSS attack. Mapping the site is one of the first things I do while running directory enumeration on a website.
