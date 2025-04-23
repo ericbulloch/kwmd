@@ -236,7 +236,7 @@ More often then not, I really just want to download a folder rather than running
 smb: \> recurse on
 smb: \> prompt off
 smb: \> mget *
-'''
+```
 
 Here is an explanation of these commands:
 
