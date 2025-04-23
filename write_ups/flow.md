@@ -254,5 +254,5 @@ If python is on the machine this is my preferred method. There are 4 steps and t
 
 - Run the command: `python3 -c 'import pty;pty.spawn("/bin/bash")'`. This creates a new process that runs bash in a pseudo-terminal (pty).
 - Run the command: `export TERM=xterm`. This sets the terminal emulator to xterm. This is the default setting for Ubuntu.
-- Move your shell session to the background by hitting `^Z` (ctrl+Z). I need to run one more command and this process needs to be in the background.
-- Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through.
+- Move your shell session to the background by hitting `^Z` (ctrl+Z). I need to run one more command and this process needs to be in the background for the command to work.
+- Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through to standard in and out. The `fg` command move the previous process from the background to the foreground.
