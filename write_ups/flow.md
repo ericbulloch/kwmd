@@ -208,6 +208,26 @@ The output will look something like the following:
 
 The above example tells me that the `anonymous` disk doesn't require me to authenticate. Therefore, I can view the contents of that disk.
 
+## Connecting to Disk
+
+To connect to an anonymous disk, I use the smbclient tool. It makes it easy to browse and download files after enumeration is complete. I connect to the anonymous disk above with the following command:
+
+`smbclient //target.thm/anonymous/ -N`
+
+This will change the command prompt to the following:
+
+`smb: \>`
+
+Now I can use the `ls` and `cd` commands to look around the disk.
+
+## Downloading Individual Files
+
+I often times need to download the contents of a disk on to my machine for analysis. If the file on the disk is called important.txt, I would run the following command in the smb prompt:
+
+`get important.txt`
+
+This will download the important.txt file to the directory I was in on my machine when I connected to the disk.
+
 # Stable Shell
 
 Once I have connected to the target machine with netcat, getting a stable shell is my main priority. There are a few different ways to do this, here are the ones that I use.
