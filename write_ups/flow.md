@@ -192,6 +192,22 @@ It is important to find out what diskes are available and if any of them don't r
 
 `smbmap -H target.thm`
 
+The output will look something like the following:
+
+```bash
+[+] Finding open SMB ports...
+[+] Guest SMB session established on target.thm...
+[+] IP: 10.22.112:445           Name: storage
+        Disk                                              Permissions
+        ----                                              -----------
+        print$                                            NO ACCESS
+        anonymous                                         READ ONLY
+        mrburns                                           NO ACCESS
+        IPC$                                              NO ACCESS
+```
+
+The above example tells me that the `anonymous` disk doesn't require me to authenticate. Therefore, I can view the contents of that disk.
+
 # Stable Shell
 
 Once I have connected to the target machine with netcat, getting a stable shell is my main priority. There are a few different ways to do this, here are the ones that I use.
