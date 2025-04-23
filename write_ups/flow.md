@@ -168,7 +168,17 @@ In a capture the flag event I am looking at the different pages and trying to fi
 
 ## Inpecting HTML
 
-Capture the flag events often have flags in the comments of the HTML. I have found flags, usernames, passwords, directories and links that my automated runs didn't find. This is a very overlooked way to find useful things when I get stuck.
+Capture the flag events often have flags in the comments of the HTML. I have found flags, usernames, passwords, directories and links that my automated runs didn't find. This is a very overlooked way to find useful things when I get stuck. Here is an altered sample of some comments that I have found in html:
+
+```html
+<!--
+
+  Note from me, to me, remember my login name.
+
+  Username: Sk3l3t0r
+
+-->
+```
 
 # SSH
 
