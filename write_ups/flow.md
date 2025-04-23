@@ -222,11 +222,27 @@ Now I can use the `ls` and `cd` commands to look around the disk.
 
 ## Downloading Individual Files
 
-I often times need to download the contents of a disk on to my machine for analysis. If the file on the disk is called important.txt, I would run the following command in the smb prompt:
+I often times need to download the contents of a disk on to my machine for analysis. If the file on the disk is called important.txt, I would run the following command (I included the smb prompt in the beginning of the command):
 
-`get important.txt`
+`smb: \> get important.txt`
 
 This will download the important.txt file to the directory I was in on my machine when I connected to the disk.
+
+## Downloading Folders
+
+More often then not, I really just want to download a folder rather than running the above command multiple times. This is still easy but I run a few more commands. I go into the folder on the disk that has all the files and folders I want. I then run the following commands (I included the smb prompt in the beginning of the commands):
+
+```bash
+smb: \> recurse on
+smb: \> prompt off
+smb: \> mget *
+'''
+
+Here is an explanation of these commands:
+
+- `recurse on` will grab all the files and folders inside the folders in this directory.
+- `prompt off` will not ask me if I want to download the file.
+- `mget *` targets all the files and folders in this directory.
 
 # Stable Shell
 
