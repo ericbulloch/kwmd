@@ -182,6 +182,16 @@ Also, sometimes I need to connect to ssh on a different port. This involves usin
 
 `ssh -p 2222 user@target.thm`
 
+# SMB
+
+Server Message Block is commonly used in capture the flag events. It allows users to share files and printers across the network. Enumerating SMB and Samba folders are a gold mine but I forget the syntax and tools all the time.
+
+## Enumeration
+
+It is important to find out what diskes are available and if any of them don't require me to login. I use the smbmap tool to solve this. The following command will discover what shares are available and what the permissions for them are:
+
+`smbmap -H target.thm`
+
 # Stable Shell
 
 Once I have connected to the target machine with netcat, getting a stable shell is my main priority. There are a few different ways to do this, here are the ones that I use.
