@@ -235,4 +235,4 @@ If there are no ports open from the original TCP scan that I mentioned above, I'
 
 `nmap -p- -sU -Pn -T5 -v target.thm`
 
-This command is the same as the original known machine ip address scan command above except the `-sU` option has been added to let nmap know I want a UDP scan instead.
+This command is the same as the [original known machine ip address scan](#original-tcp-scan) command above except the `-sU` option has been added to let nmap know I want a UDP scan instead.
