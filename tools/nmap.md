@@ -123,7 +123,9 @@ EXAMPLES:
 SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES
 ```
 
-## Unknown Machine IP Address
+## Port Scans
+
+### Unknown Machine IP Address
 
 When doing a capture the flag event with a VulnHub machine, I will need to discover the ip address of the machine. In my home lab I restrict the ip addresses of the machines to a range (for example 10.22.1.110-130). When I start up the VulnHub machine I need to find out what the ip address it is using. I already know that my attack machine is using 10.22.1.110. I run the following command to see the other machines with ip addresses:
 
@@ -131,9 +133,9 @@ When doing a capture the flag event with a VulnHub machine, I will need to disco
 
 Whatever ip address shows up in the results is the machine that I just imported from VulnHub.
 
-## Known Machine IP Address
+### Known Machine IP Address
 
-### Original TCP Scan
+#### Original TCP Scan
 
 In a capture the flag event I usually run a port scan in 2 parts. I am using the hostname target.thm for this an future examples. The first command I run is:
 
@@ -173,7 +175,7 @@ Nmap done: 1 IP address (1 host up) scanned in 2.02 seconds
 
 Notice how fast this scan is with the `-T5` option (1.81 seconds to scan 65535 ports). If there are no ports open from the previous scan I will try a UDP scan. I have included that scan below.
 
-### Second TCP Scan
+#### Second TCP Scan
 
 Once this scan is complete and I have some ports that are reported as being up, I will run another command. I scan ports 22 and 80 from the previous output and get more information about the services running on thos ports. I run the following command to get more information for those ports:
 
@@ -229,7 +231,7 @@ Nmap done: 1 IP address (1 host up) scanned in 11.12 seconds
 
 I cut out some of the output to show some of the important parts of this scan. There are a lot of good things happening with this scan. Nmap is guessing the operating system, doing a traceroute and discovering the service and version number for ports 22 and 80. Based on the services that are running from the results I now move on to the next segment.
 
-### UDP Scan
+#### UDP Scan
 
 If there are no ports open from the original TCP scan that I mentioned above, I'll try a UDP scan. A full UDP scan is significantly slower than a TCP scan. Here is the command I use for a UDP scan:
 
