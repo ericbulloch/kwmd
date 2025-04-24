@@ -61,4 +61,23 @@ From here you can start typing to see how the port handles the message. It varie
 
 ## Listening
 
-This is by far the most common use I have for netcat. I will list on my attack machine so that I can get a reverse shell onto the machine I am attacking.
+This is by far the most common use I have for netcat. I will list on my attack machine so that I can get a reverse shell onto the machine I am attacking. Here is the syntax:
+
+`nc -lvnp 4444`
+
+Here is what the command is doing:
+
+- The `-l` option tells netcat to listen.
+- The `-v` option tells netcat to be in verbose mode.
+- The `-n` option tells netcat to supress name/port resolutions.
+- The `-p` option tells netcat what port to listen on. In this case 4444.
+
+This will output something like the following:
+
+`Listening on 0.0.0.0 4444`
+
+When someone connects, the terminal reads something like the following:
+
+`Connection received on 10.10.1.1 33032`
+
+From here, I can generate a stable shell.
