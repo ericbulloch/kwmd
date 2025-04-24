@@ -10,6 +10,8 @@ Unless the instructions tell me that I have a specific hostname that I must use,
 
 I do this so that I don't have to remember the ip address of the machine that I am attacking in the capture the flag event. I have less to remember and so I can focus more on what I am trying to do.
 
+Sometimes, as a sanity check, I will run `ping target.thm` or open a browsers and type `http://target.thm` to make sure that everything is working
+
 # Port Scanning
 
 I have added information about this on my [nmap tool](../tools/nmap.md#port-scans) page in the Port Scans section.
