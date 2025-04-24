@@ -50,3 +50,15 @@ usage: nc [-46CDdFhklNnrStUuvZz] [-I length] [-i interval] [-M ttl]
 		-z		Zero-I/O mode [used for scanning]
 	Port numbers can be individual or ranges: lo-hi [inclusive]
 ```
+
+## Connecting
+
+Now and then I'll use netcat to connect to a port on a machine. Usually this happens when I am trying to figure out what is running on the given port. As an example, I am going to connect to the machine at 10.10.1.1 on port 1337. The syntax is very simple:
+
+`nc 10.10.1.1 1337`
+
+From here you can start typing to see how the port handles the message. It varies based on what is listening on that port.
+
+## Listening
+
+This is by far the most common use I have for netcat. I will list on my attack machine so that I can get a reverse shell onto the machine I am attacking.
