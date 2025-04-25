@@ -2,9 +2,13 @@
 
 Welcome! This is my personal repository for all things cyber security. I keep notes for commands that I regularly use and write ups for machines I have hacked on platforms like TryHackMe and VulnHub.
 
+## Hacking Flow
+
+I have been documenting the steps and scenarios that I often see in capture the flag events. I call this my [hacking flow](write_ups/flow.md). I use it as a reference and guide while I work on capture the flag events. My goal is for this to continue to evolve and become my one stop shop for bug bounties and capture the flag events.
+
 ## Tools
 
-The `tools` folder contains a list of commands that I regularly use and most importantly examples of how they are used. Most of the tools come by default with Kali Linux.
+The tools folder contains a list of commands that I regularly use and most importantly examples of how they are used. Most of the tools come by default with Kali Linux.
 
 ## Write Ups
 
