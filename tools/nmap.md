@@ -137,7 +137,7 @@ Whatever ip address shows up in the results is the machine that I just imported 
 
 #### Original TCP Scan
 
-In a capture the flag event I usually run a port scan in 2 parts. I am using the hostname target.thm for this an future examples. The first command I run is:
+In a capture the flag event I usually run a port scan in 2 parts. I am using the hostname target.thm for this and future examples. The first command I run is:
 
 `nmap -p- -Pn -T5 -v target.thm`
 
