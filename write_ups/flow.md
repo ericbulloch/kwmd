@@ -14,7 +14,13 @@ Sometimes, as a sanity check, I will run `ping target.thm` or open a browsers an
 
 # Port Scanning
 
-I have added information about this on my [nmap tool](../tools/nmap.md#port-scans) page in the Port Scans section.
+I have added information about this on my [nmap tool](../tools/nmap.md#port-scans) page in the Port Scans section. There are 2 commands that I generally run and the provided link explains in details what they are doing. Here are the commands:
+
+`nmap -p- -Pn -T5 -v target.thm`
+
+and
+
+`nmap -p 22,80, -A -Pn -v target.thm`
 
 # Website
 
