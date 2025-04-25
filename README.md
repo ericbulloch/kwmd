@@ -8,7 +8,7 @@ I have been documenting the steps and scenarios that I often see in capture the 
 
 ## Tools
 
-The tools folder contains a list of commands that I regularly use and most importantly examples of how they are used. Most of the tools come by default with Kali Linux.
+The [tools folder](tools/) contains a list of commands that I regularly use and most importantly examples of how they are used. Most of the tools come by default with Kali Linux.
 
 ## Write Ups
 
