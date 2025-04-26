@@ -192,7 +192,7 @@ My listening terminal now has the following at the bottom:
 daemon@linux:/opt/binami/apps/wordpress/htdocs$
 ```
 
-My listening terminal now has a connection!
+In other words, my listening terminal now has a connection!
 
 #### Have a Look Around
 
@@ -209,6 +209,19 @@ I am running as the user daemon. When I run the `ls` command, I see that there i
 
 There are a lot of interesting things in this file. There are credentials for a database user and an ftp user. I noted that information in case I need to go down that path.
 
+I also like the text of the license.txt file. I ran the command `cat license.txt` on it and got the following text:
+
+```
+do you want a password or something?
+ZWxsaW90OkVSMjgtMDY1Mgo=
+```
+
+That string is base64 encoded. When I decode it, I get the username and password that I got when I logged into the WordPress admin. I used CyberChef to base64 decode the string. I don't know if the machine has the base64 command on it. If it does I could have also decoded it by typing:
+
+`echo "ZWxsaW90OkVSMjgtMDY1Mgo=" | base64 -d `
+
+Time to look in other places.
+
 I ran `ls /home` to see what other users are on the machine. There is a user called robot that we can use. I ran `ls -lha /home/robot` and there are a could of important files that show up:
 
 - key-2-of-3.txt
@@ -217,3 +230,13 @@ I ran `ls /home` to see what other users are on the machine. There is a user cal
 The key file is owned by the user robot and only robot can read the file. This is telling me that I need to use the password.raw-md5 file to get the robot user's password so that I can login as robot.
 
 #### User Privilege Escalation
+
+I was able to cat the password.raw-md5 file:
+
+`cat password.raw-md5`
+
+I saw the following:
+
+`robot:c3fcd3d76192e4007dfb496cca67e13b`
+
+
