@@ -68,6 +68,10 @@ The `-u` option tells dirsearch what url I want to start searching in. If it fou
 
 `dirsearch -u http://target.thm/admin`
 
+#### ffuf
+
+Sometimes I run a few different tools just to see if I get different results. The ffuf tool is my go to when I want a second opinion. I have provided information on how to run it on [its tools page](tools/ffuf.md#directory-enumeration).
+
 ### Subdomain Enumeration
 
 Sometimes I will run subdomain enumeration to see if there are any other sites hosted by this machine.
