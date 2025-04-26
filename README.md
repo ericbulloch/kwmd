@@ -72,6 +72,10 @@ The `-u` option tells dirsearch what url I want to start searching in. If it fou
 
 Sometimes I run a few different tools just to see if I get different results. The ffuf tool is my go to when I want a second opinion. I have provided information on how to run it on [its tools page](tools/ffuf.md#directory-enumeration).
 
+#### gobuster
+
+The gobuster tool is a wonderful tool to use to get a second opinion as well. I generally go with ffuf instead of gobuster when I want a second opinion. You won't be disappointed using either tool. I have provided information on how to run gobuster for directory enumeration on [its tool page](tools/gobuster.md#directoryfile-dir-enumeration-mode)
+
 ### Subdomain Enumeration
 
 Sometimes I will run subdomain enumeration to see if there are any other sites hosted by this machine.
