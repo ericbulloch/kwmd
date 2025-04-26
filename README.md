@@ -52,15 +52,19 @@ There are a few different types of enumeration on websites that can be really us
 
 I almost always run a directory enumeration to see if there are any folders or files that are not linked directly by the website. This is how I usually find the admin login form. Also, I do a double check on the robots.txt file because this file is notorious in capture the flag events for giving away information.
 
+If the tool finds a directory like the `/app` directory, I will often times run the tool again on that directory so I can see if there are additional results.
+
 There are a lot of automated tools that you can use for directory automation. Generally, your word list is the most important part of directory enumeration. If I get stuck I use a combination of tools and word lists to see if they found anything different. Here are some tools I like to use and some sample usage:
 
 #### dirsearch
+
+I usually use dirsearch as my directory enumeration tool. The syntax is very terse and so I don't have to remember much to run it. It doesn't come by default on Kali so I have to install it before I use it.
 
 This tool can be installed with pip. I use this tool because the syntax is easy to remember and it does a pretty good job with its default word list. I install it with the following command:
 
 `pip3 install dirsearch`
 
-I run it with the following command:
+My favorite thing about this tool is how little I have to remember when I run it. I run it with the following command:
 
 `dirsearch -u http://target.thm`
 
