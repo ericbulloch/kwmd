@@ -248,3 +248,35 @@ On my attack machine, I ran the following command to login as the robot user:
 I then entered that password that CrackStation gave me. Just like that, I now have a shell on the machine as the robot user. I closed my other shell window.
 
 I didn't actually need to close my original shell. I could have just generated a more stable shell. The steps that I use can be [found here](../../README.md#stable-shell).
+
+Either way, now that I am the robot user I can read the flag in the `key-2-of-3.txt` file.
+
+#### Root User Privilege Escalation
+
+Now I need to try to get the root user. I can grab a linpeas.sh script and run that to find vulnerabilities. I'll manually check a few things first. Here is the list:
+
+- Run the `id` command to see what groups I am in. Nothing stands out,
+- Run the `sudo su` command to see if I can be root with just my password. That did not work.
+- Run the `sudo -l` command to see what privileges I have. Nothing stands out.
+- Check the `/opt`, `/tmp` and `/var` directories to see if anything stands out. It didn't.
+- Run the `find / -perm /4000 -type f 2>/dev/null` command to get a list of all files that have the SUID bit set. Here is the list:
+
+```bash
+/bin/ping
+/bin/umount
+/bin/mount
+/bin/ping6
+/bin/su
+/usr/bin/passwd
+/usr/bin/newgrp
+/usr/bin/chsh
+/usr/bin/chfn
+/usr/bin/gpasswd
+/usr/bin/sudo
+/usr/local/bin/nmap
+/usr/lib/openssh/ssh-keysign
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/vmware-tools/bin32/vmware-user-suid-wrapper
+/usr/lib/vmware-tools/bin64/vmware-user-suid-wrapper
+/usr/lib/pt_chown
+```
