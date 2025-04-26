@@ -216,7 +216,7 @@ do you want a password or something?
 ZWxsaW90OkVSMjgtMDY1Mgo=
 ```
 
-That string is base64 encoded. When I decode it, I get the username and password that I got when I logged into the WordPress admin. I used CyberChef to base64 decode the string. I don't know if the machine has the base64 command on it. If it does I could have also decoded it by typing:
+That string is base64 encoded. When I decode it, I get the username and password that I got when I logged into the WordPress admin. I used [CyberChef](https://gchq.github.io/CyberChef/) to base64 decode the string. I don't know if the machine has the base64 command on it. If it does I could have also decoded it by typing:
 
 `echo "ZWxsaW90OkVSMjgtMDY1Mgo=" | base64 -d `
 
@@ -239,4 +239,12 @@ I saw the following:
 
 `robot:c3fcd3d76192e4007dfb496cca67e13b`
 
+I used [CrackStation](https://crackstation.net/) to crack that md5 hash. It provided the password for the robot user.
 
+On my attack machine, I ran the following command to login as the robot user:
+
+`ssh robot@10.22.1.112`
+
+I then entered that password that CrackStation gave me. Just like that, I now have a shell on the machine as the robot user. I closed my other shell window.
+
+I didn't actually need to close my original shell. I could have just generated a more stable shell. The steps that I use can be [found here](../../README.md#stable-shell).
