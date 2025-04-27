@@ -7,7 +7,6 @@
 ## Concepts/Tools Used
 
 - nmap
-- Burp Suite
 - dirb
 - hydra
 - netcat
