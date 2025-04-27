@@ -38,7 +38,7 @@ I have added information about this on my [nmap tool](../tools/nmap.md#port-scan
 
 and
 
-`nmap -p 22,80, -A -Pn -v target.thm`
+`nmap -A -Pn -v target.thm -p 22,80`
 
 # Website
 
