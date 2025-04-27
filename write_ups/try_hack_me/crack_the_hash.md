@@ -16,7 +16,7 @@ Cracking hashes challenges.
 
 ### Process
 
-I am presented with two groups of hashes. The first group is called level 1 and it has 5 hashes. The second group is called level 2 and it has 4 hashes. Since I am trying to break hashes, I load the [CrackStation](https://crackstation.net/) website. I am hoping it can crack a bunch of these. I load all of the hashes into the input field so that I only need to submit the hashes one time.
+I am presented with two groups of hashes. The first group is called level 1 and it has 5 hashes. The second group is called level 2 and it has 4 hashes. Since I am trying to break hashes, I load the CrackStation website. I am hoping it can crack a bunch of these. I load all of the hashes into the input field so that I only need to submit the hashes one time.
 
 #### Level 1
 
