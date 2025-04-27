@@ -6,7 +6,9 @@
 
 ## Concepts/Tools Used
 
-- CrackStation
+- [CrackStation](https://crackstation.net/)
+- [Hashes.com](https://hashes.com/en/tools/hash_identifier)
+- [HashCat](https://hashcat.net/wiki/doku.php?id=example_hashes)
 
 ## Description
 
@@ -20,7 +22,7 @@ I am presented with two groups of hashes. The first group is called level 1 and 
 
 The task text says:
 
-`Can you complete the level 1 tasks by cracking the hashes?`
+Can you complete the level 1 tasks by cracking the hashes?
 
 ##### 48bb6e862e54f2a795ffc4e541caed4d
 
@@ -36,13 +38,21 @@ I load the hash into CrackStation and it breaks this one instantly. This hash is
 
 ##### $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
 
+CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: bcrypt $2*$, Blowfish (Unix). This hash appears to be mode 3200 on the HashCat example hashes page. I load the hash value into a text file that I name hash.txt. I run the following command on the attack box:
 
+`hashcat -m 3200 hash.txt /usr/share/wordlists/rockyou.txt`
 
 ##### 279412f945939ba78ce0758d3fd83daa
 
 I load the hash into CrackStation and it breaks this one instantly. This hash is an md4 hash.
 
 #### Level 2
+
+The task text says:
+
+This task increases the difficulty. All of the answers will be in the classic [rock you](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) password list.
+
+You might have to start using hashcat here and not online tools. It might also be handy to look at some example hashes on [hashcats page](https://hashcat.net/wiki/doku.php?id=example_hashes).
 
 ##### F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85
 
@@ -54,7 +64,8 @@ I load the hash into CrackStation and it breaks this one instantly. This hash is
 
 ##### Hash: $6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02. Salt: aReallyHardSalt
 
-
+CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: sha512crypt $6$, SHA512 (Unix).
 
 ##### Hash: e5d8870e5bdd26602cab8dbe07a942c8669e56d6 Salt: tryhackme
 
+CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: SHA1.
