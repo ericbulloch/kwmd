@@ -38,7 +38,7 @@ I load the hash into CrackStation and it breaks this one instantly. This hash is
 
 ##### $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
 
-CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: bcrypt $2*$, Blowfish (Unix). This hash appears to be mode 3200 on the HashCat example hashes page. I load the hash value into a text file that I name hash.txt.
+CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: bcrypt $2*$, Blowfish (Unix). This hash appears to be mode 3200 on the HashCat example hashes page. I loaded the hash value into a text file that I name hash.txt.
 
 Blowfish is a really slow cipher. It is designed to make it painful to crack a hash by taking a long time with each attempt. The hint for this problem says:
 
@@ -102,6 +102,10 @@ I load the hash into CrackStation and it breaks this one instantly. This hash is
 ##### Hash: $6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02. Salt: aReallyHardSalt
 
 CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: sha512crypt $6$, SHA512 (Unix).
+
+I loaded the hash value into a text file that I name hash.txt. So my hash.txt file looked like this:
+
+`$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.`
 
 I found that this type of hash is mode 1800 in hashcat. I ran the following command to crack it:
 
