@@ -38,9 +38,40 @@ I load the hash into CrackStation and it breaks this one instantly. This hash is
 
 ##### $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
 
-CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: bcrypt $2*$, Blowfish (Unix). This hash appears to be mode 3200 on the HashCat example hashes page. I load the hash value into a text file that I name hash.txt. I run the following command on the attack box:
+CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: bcrypt $2*$, Blowfish (Unix). This hash appears to be mode 3200 on the HashCat example hashes page. I load the hash value into a text file that I name hash.txt.
 
-`hashcat -m 3200 hash.txt /usr/share/wordlists/rockyou.txt`
+Blowfish is a really slow cipher. It is designed to make it painful to crack a hash by taking a long time with each attempt. The hint for this problem says:
+
+This type of hash can take a very long time to crack, so either filter rockyou for four character words, or use a mask for four lower case alphabetical characters
+
+I have provided a python script that I used to filter the words in rockyou.txt. This sped up the this problem significantly.
+
+```python
+import string
+
+with open('trimmed.txt', 'w') as wp:
+    with open('/usr/share/wordlists/rockyou.txt', 'r', encoding='latin1') as fp:
+        for line in fp.readlines():
+            line = line.strip()
+            if len(line) != 4:
+                continue
+            for c in line:
+                if c not in string.ascii_lowercase + string.digits:
+                    continue
+            wp.write(line + '\n')
+```
+
+Now there are only 18k words that are being checked instead of millions.
+
+I run the following command on the attack box:
+
+`hashcat -m 3200 hash.txt trimmed.txt`
+
+After a few minutes hashcat output the answer. The answer had the format:
+
+`$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom:####`
+
+The #### at the end was the answer.
 
 ##### 279412f945939ba78ce0758d3fd83daa
 
