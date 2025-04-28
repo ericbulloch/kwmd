@@ -103,6 +103,10 @@ I load the hash into CrackStation and it breaks this one instantly. This hash is
 
 CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: sha512crypt $6$, SHA512 (Unix).
 
+I found that this type of hash is mode 1800 in hashcat. I ran the following command to crack it:
+
+`hashcat -m 1800 hash.txt /usr/share/wordlists/rockyou.txt`
+
 ##### Hash: e5d8870e5bdd26602cab8dbe07a942c8669e56d6 Salt: tryhackme
 
 CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: SHA1.
