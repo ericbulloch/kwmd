@@ -61,6 +61,12 @@ with open('trimmed.txt', 'w') as wp:
             wp.write(line + '\n')
 ```
 
+I saved that script as `trim.py` and ran the following command to execute it:
+
+`python3 trim.py`
+
+That generates a file named `trimmed.txt` that I can use for hashcat.
+
 Now there are only 18k words that are being checked instead of millions.
 
 I run the following command on the attack box:
