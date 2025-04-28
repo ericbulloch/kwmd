@@ -115,6 +115,10 @@ I found that this type of hash is mode 1800 in hashcat. I ran the following comm
 
 CrackStation was unable to instantly break this one. I ran this hash through hashes.com and it thinks the the hash is one of these possible algorithms: SHA1.
 
-I found that this type of hash is mode 100 in hashcat. I ran the following command to crack it:
+I loaded the hash value and salt into a text file that I name hash.txt. The 2 values were separated by a colon (:). So my hash.txt file looked like this:
 
-`hashcat -m 100 hash.txt /usr/share/wordlists/rockyou.txt`
+`e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme`
+
+I found that this type of hash is mode 160 in hashcat. I ran the following command to crack it:
+
+`hashcat -m 160 hash.txt /usr/share/wordlists/rockyou.txt`
