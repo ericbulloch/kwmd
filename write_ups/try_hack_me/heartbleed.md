@@ -17,7 +17,7 @@ SSL issues are still lurking in the wild! Can you exploit this web servers OpenS
 
 ## Process
 
-This room has 2 parts. The first is information about the HeartBleed bug and what is causing it. The room provides a high level summary of how the bug can exploit memory on the server. There are a few external links that give more information and explain how this is a massive vulnerablity. The 2nd task wants you to exploit heartbleed on a server to get the flag.
+This room has 2 parts. The first is information about the HeartBleed bug and what is causing it. The room provides a high level summary of how the bug can exploit memory on the server. There are a few external links that give more information and explain how this is a massive vulnerablity. The 2nd task wants you to exploit HeartBleed on a server to get the flag.
 
 ## Task 1 Background Information
 
@@ -25,7 +25,7 @@ I spent a lot of time reading the material and trying to understand the bug. I h
 
 It is obvious that this exploit needs SSL or TLS. Since TLS is the successor of SSL and SSLv3 is totally broken I will just talk about using TLS for an https connection in this room.
 
-In order to perform the heartbeat request (the request that causes the heartbleed attack), you need to have a connection with the server. Below are the minimum requests and responses for a heartbleed attack.
+In order to perform the heartbeat request (the request that causes the HeartBleed attack), you need to have a connection with the server. Below are the minimum requests and responses for a HeartBleed attack.
 
 | Step | Description | Who sends it |
 | ---- | ----------- | ------------ |
@@ -46,7 +46,7 @@ Content-Length: 5
 
 The server is suppose to look at the Content-Length property and create a buffer of that length in memory. Then it copies the text in the Content property into that buffer that it just created. Then it copys that buffer into a response and sends the response back to me so that our TLS connection stays alive.
 
-### How heartbleed works
+### How HeartBleed works
 
 This vulnerability exists because it trusted user input. In my example above I said that my Content-Length was 5 bytes. But what if I had the same Content and I said that my Content-Length was 65,535 bytes?
 
@@ -72,7 +72,7 @@ I used searchsploit to see if it had a script ready to go. I ran the following:
 
 `searchsploit heartbleed`
 
-It had a few scripts, they were a bit out of date. I expected it since heartbleed is now a decade old at the time of this writing.
+It had a few scripts, they were a bit out of date. I expected it since HeartBleed is now a decade old at the time of this writing.
 
 I copied over the first one that was provided by searchsploit to my current directory witht the following command:
 
