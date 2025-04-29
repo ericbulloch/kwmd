@@ -36,3 +36,22 @@ In order to perform the heartbeat request (the request that causes the heartblee
 | 5. | **Heartbeat** response leaking memory past intended payload | **Server -> Attacker** |
 
 Steps 4 and 5 are at the heart (no pun intended) of this room.
+
+### How the request and response should work
+
+It turns out that a heartbeat request is very simple. The 2 properties that matter are the content and the length of the content. So I send a heartbeat request with these 2 properties to a server:
+
+Content: 'Hello'
+Content-Length: 5
+
+The server is suppose to look at the Content-Length property and create a buffer of that length in memory. Then it copies the text in the Content property into that buffer that it just created. Then it copys that buffer into a response and sends the response back to me so that our TLS connection stays alive.
+
+### How heartbleed works
+
+This vulnerability exists because it trusted user input. In my example above I said that my Content-Length was 5 bytes. But what if I had the same Content and I said that my Content-Length was 65,535 bytes?
+
+This is where the vulnerability. It doesn't check the length of my Content it just blindly trusts that I am sending the correct Content-Length for my Content.
+
+In this case, the server will allocate a 65,535 byte buffer in memory. Keep in mind that deallocated memory still has the values that were in those addresses when the memory was allocated. Then it will copy over the 5 bytes in my Content property. Then it will read all the bytes from the buffer (all 65,535 of them) and copy them to the response that goes back to me.
+
+So now I have all kinds of things that were in memory when I made my request. It turns out that this can be usernames, passwords, sensitive chat logs and emails, environment variables, secret keys for X.509 certificates, critical business documents and more.
