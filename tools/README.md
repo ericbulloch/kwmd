@@ -7,6 +7,6 @@
 - [linPEAS.sh](linpeas.md)
 - [MSFvenom](msfvenom.md)
 - [Netcat](netcat.md)
-- [Nmap](nmap.md)
+- [nc - Nmap](nmap.md)
 - [SearchSploit](searchsploit.md)
 - [sqlmap](sqlmap.md)
