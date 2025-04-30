@@ -224,3 +224,11 @@ If this command doesn't fail, it will tell me what scripts and binaries I can ru
 - What input does the script allow?
 
 The answers to all these questions get noted.
+
+## uname -a
+
+This command is very simple. There are kernal attacks that can be ran to get root access. I will take the output of this command and check if there are any CVEs related to this kernal. Here is some sample output when I run the `uname -a` command:
+
+`Linux my_machine 5.15.0-124-generic #134~20.04.1-Ubuntu SMP Tue Oct 1 15:27:33 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux`
+
+I will take the enter "Linux 5.15.0-124 CVE" into google to see if there are any vulnerabilites.
