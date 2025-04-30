@@ -192,3 +192,9 @@ If python is on the machine this is my preferred method. There are 4 steps and t
 - Run the command: `export TERM=xterm`. This sets the terminal emulator to xterm. This is the default setting for Ubuntu.
 - Move your shell session to the background by hitting `^Z` (ctrl+Z). I need to run one more command and this process needs to be in the background for the command to work.
 - Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through to standard in and out. The `fg` command move the previous process from the background to the foreground.
+
+# Linux Privilege Escalation
+
+If I have a shell on a Linux machine, the goal is to become root. The process is part art and part science. Learning how Linux works and practicing can go a long way. Being creative is also very important. In my experience, enumeration is the most important skill with privilege escalation. For each user that I escalate to (whether vertically or horizontally), I run nearly identical steps with each user. The things that each user has access to can be very unique.
+
+
