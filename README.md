@@ -201,6 +201,15 @@ This section will eventually become a whole page because of how much information
 
 I eventually find a way to run the [LinPEAS](tools/linpeas.sh) script somewhere on the machine. The insights that it provides are amazing! But I don't usually go straight to LinPeas. I do have a few commands that I run manually and check if they provide some quick wins. Here are the commands that I run and validate before I run LinPEAS:
 
+## ls /home
+
+I want to know what users are on the machine. If possible, I will go into each users directory and see what files and folders are available. These include things like the the following:
+
+- The public and private keys in the .ssh folder.
+- The .bash_history file.
+- Documents and Desktop folders.
+- Out of place folders like .git.
+
 ## id
 
 The `id` command is one of the very first things I run when I login with a new user on a Linux machine. The group information that it provides lets me know what my attack surface is with this user. For example, sometimes in a capture the flag event, I'll run the `id` command and I'll get output that a user is in the adm group. This means that this user can read a lot of log files in the /var/log directory. Log files are full of useful information.
