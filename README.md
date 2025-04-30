@@ -201,4 +201,16 @@ This section will eventually become a whole page because of how much information
 
 I eventually find a way to run the [LinPEAS](tools/linpeas.sh) script somewhere on the machine. The insights that it provides are amazing! But I don't usually go straight to LinPeas. I do have a few commands that I run manually and check if they provide some quick wins. Here are the commands that I run and validate before I run LinPEAS:
 
+## id
+
+The `id` command is one of the very first things I run when I login with a new user on a Linux machine. The group information that it provides lets me know what my attack surface is with this user. For example, sometimes in a capture the flag event, I'll run the `id` command and I'll get output that a user is in the adm group. This means that this user can read a lot of log files in the /var/log directory. Log files are full of useful information.
+
+I usually run the `id` command and then check what each group has access to. I'll note them and and continue with other commands. The direction of this and other commands dictates where I should start attacking.
+
+Here is some sample output for the `id` command:
+
+`uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),132(postgres)`
+
+In this case, I would note that the ubuntu user is also in the postgres group. I would make sure I understood what that means and then check the output from the next few sections of commands.
+
 
