@@ -198,3 +198,7 @@ If python is on the machine this is my preferred method. There are 4 steps and t
 If I have a shell on a Linux machine, the goal is to become root. The process is part art and part science. Learning how Linux works and practicing can go a long way. Being creative is also very important. In my experience, enumeration is the most important skill with privilege escalation. For each user that I escalate to (whether vertically or horizontally), I run nearly identical steps with each user. The things that each user has access to can be very unique.
 
 This section will eventually become a whole page because of how much information it covers. New techniques are constantly being found and researchers are finding new ways to exploit old systems and vulnerabilities. That is why this art and science intersect wonderfully here.
+
+I eventually find a way to run the [LinPEAS](tools/linpeas.sh) script somewhere on the machine. The insights that it provides are amazing! But I don't usually go straight to LinPeas. I do have a few commands that I run manually and check if they provide some quick wins. Here are the commands that I run and validate before I run LinPEAS:
+
+
