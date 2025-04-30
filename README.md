@@ -218,6 +218,12 @@ So if the user mike has a folder in /home I would run the following command expl
 
 If I can read the /etc/passwd file it also has information about users of the system and where their home directory is located. Once in a while the home directory of a user will not be in the /home folder.
 
+## crontab -e
+
+Capture the flag events often have a script that runs every minute that I can exploit to do privilege escalation. If my user has access, this will tell me what crons are running and how often. These jobs are for the current user. Here is a sample of a cron that runs each minute and runs a backup script in the user mike's home directory:
+
+`* * * * * /usr/bin/python /home/mike/backup.py`
+
 ## id
 
 The `id` command is one of the very first things I run when I login with a new user on a Linux machine. The group information that it provides lets me know what my attack surface is with this user. For example, sometimes in a capture the flag event, I'll run the `id` command and I'll get output that a user is in the adm group. This means that this user can read a lot of log files in the /var/log directory. Log files are full of useful information.
