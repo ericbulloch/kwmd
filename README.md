@@ -210,6 +210,10 @@ I want to know what users are on the machine. If possible, I will go into each u
 - Documents and Desktop folders.
 - Out of place folders like .git.
 
+So if the user mike has a folder in /home I would run the following command explore what is available to me:
+
+`ls -lha /home/mike`
+
 ## id
 
 The `id` command is one of the very first things I run when I login with a new user on a Linux machine. The group information that it provides lets me know what my attack surface is with this user. For example, sometimes in a capture the flag event, I'll run the `id` command and I'll get output that a user is in the adm group. This means that this user can read a lot of log files in the /var/log directory. Log files are full of useful information.
