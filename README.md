@@ -214,6 +214,10 @@ So if the user mike has a folder in /home I would run the following command expl
 
 `ls -lha /home/mike`
 
+## cat /etc/passwd
+
+If I can read the /etc/passwd file it also has information about users of the system and where their home directory is located. Once in a while the home directory of a user will not be in the /home folder.
+
 ## id
 
 The `id` command is one of the very first things I run when I login with a new user on a Linux machine. The group information that it provides lets me know what my attack surface is with this user. For example, sometimes in a capture the flag event, I'll run the `id` command and I'll get output that a user is in the adm group. This means that this user can read a lot of log files in the /var/log directory. Log files are full of useful information.
