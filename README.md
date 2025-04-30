@@ -213,4 +213,14 @@ Here is some sample output for the `id` command:
 
 In this case, I would note that the ubuntu user is also in the postgres group. I would make sure I understood what that means and then check the output from the next few sections of commands.
 
+## sudo -l
 
+If this command doesn't fail, it will tell me what scripts and binaries I can run as root. From here, I note what commands and binaries can be ran. I'll also look at the binaries, scripts and their containing directories. I am specifically looking at the permissions. Here are some examples of what I am looking for:
+
+- Can I delete this binary and replace it with another one that does what I need it to do?
+- Are there flags that I can run with this binary to do a wildcard attack?
+- Can the binary run shell commands?
+- Can I alter edit the script that is being ran?
+- What input does the script allow?
+
+The answers to all these questions get noted.
