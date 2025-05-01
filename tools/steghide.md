@@ -59,3 +59,21 @@ options for the info command:
 To embed emb.txt in cvr.jpg: steghide embed -cf cvr.jpg -ef emb.txt
 To extract embedded data from stg.jpg: steghide extract -sf stg.jpg
 ```
+
+## Examples
+
+### Extracting Files
+
+As mentioned before, capture the flag events use image and audio files to hide other files. If I had an image file called hello.jpg and I wanted to try and extract a file from it, I would run the following command:
+
+`steghide extract -sf hello.jpg`
+
+After I run this command steghide askes me for a passphrase. I provide one if I have it, otherwise I just press enter for a blank password. If it was successful, it will extract a file. Here is some sample output when I extracted a file called password.txt from my image file hello.jpg.
+
+```bash
+$ steghide extract -sf hello.jpg
+Enter passphrase:
+wrote extracted data to "password.txt".
+$ cat password.txt
+MyPassword: letmein1!
+```
