@@ -68,7 +68,7 @@ As mentioned before, capture the flag events use image and audio files to hide o
 
 `steghide extract -sf hello.jpg`
 
-After I run this command steghide askes me for a passphrase. I provide one if I have it, otherwise I just press enter for a blank password. If it was successful, it will extract a file. Here is some sample output when I extracted a file called password.txt from my image file hello.jpg.
+After I run this command steghide askes me for a passphrase. I provide one if I have it, otherwise I just press enter for a blank password. If it was successful, it will extract a file. Here is some sample output when I extracted a file called password.txt from my image file hello.jpg and ran the cat command on the password.txt file:
 
 ```bash
 $ steghide extract -sf hello.jpg
