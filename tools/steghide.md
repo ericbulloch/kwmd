@@ -83,3 +83,30 @@ MyPassword: letmein1!
 I can try to get information about hidden files using steghide. If it is passphrase protected then I'll need to provide it. Sometimes the information can be useful. Here is how I check for hidden file information:
 
 `steghide info hello.jpg`
+
+Here is some sample output when no hidden files are in the image or when I enter the wrong passphrase:
+
+```bash
+$steghide info hello.jpg
+"hello.jpg":
+  format: jpeg
+  capacity: 144.0 Byte
+Try to get information about embedded data ? (y/n) y
+Enter passphrase:
+steghide: could not extract any data with that passphrase!
+```
+
+Here is some sample output when it works:
+
+```bash
+$steghide info hello.jpg
+"hello.jpg":
+  format: jpeg
+  capacity: 144.0 Byte
+Try to get information about embedded data ? (y/n) y
+Enter passphrase:
+  embedded file "password.txt":
+    size 21.0 Byte
+    encrypted: rijndael-128, cbc
+    compressed: yes
+```
