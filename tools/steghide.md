@@ -78,6 +78,14 @@ $ cat password.txt
 MyPassword: letmein1!
 ```
 
+Sometimes I don't want to keep that file name that was hidden in the image or audio file. I use the `-xf` option to change the name of the extracted file. Using the above example I can save the password.txt file as not_password.txt when it gets extracted using the following command:
+
+`steghide extract -sf hello.jpg -xf not_password.txt`
+
+This provides the output of:
+
+`wrote extracted data to "not_password.txt".`
+
 ### Information from Files
 
 I can try to get information about hidden files using steghide. If it is passphrase protected then I'll need to provide it. Sometimes the information can be useful. Here is how I check for hidden file information:
