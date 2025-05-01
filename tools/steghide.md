@@ -77,3 +77,9 @@ wrote extracted data to "password.txt".
 $ cat password.txt
 MyPassword: letmein1!
 ```
+
+### Information from Files
+
+I can try to get information about hidden files using steghide. If it is passphrase protected then I'll need to provide it. Sometimes the information can be useful. Here is how I check for hidden file information:
+
+`steghide info hello.jpg`
