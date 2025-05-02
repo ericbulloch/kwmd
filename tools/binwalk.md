@@ -101,3 +101,13 @@ The following examples are going to use a file called shady.jpg. This file has s
 Binwalk has a large list of known file types that it checks for. Running the following command will have Binwalk check the image for the well known file types:
 
 `binwalk -e shady.jpg`
+
+### Find All Files
+
+Sometimes in capture the flag events, I need to have binwalk look for all files embedded within an image. The following commands do the same thing, they both look for all files with the shady.jpg image:
+
+`binwalk -D='.*' shady.jpg`
+
+OR
+
+`binwalk --dd='.*' shady.jpg`
