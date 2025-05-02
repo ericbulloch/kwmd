@@ -91,3 +91,13 @@ General Options:
     -p, --fexclude=<str>         Do not scan files whose names match this regex
     -s, --status=<int>           Enable the status server on the specified port
 ```
+
+## Examples
+
+The following examples are going to use a file called shady.jpg. This file has some files embedded into it.
+
+### Find Known File Type
+
+Binwalk has a large list of known file types that it checks for. Running the following command will have Binwalk check the image for the well known file types:
+
+`binwalk -e shady.jpg`
