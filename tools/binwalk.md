@@ -102,7 +102,7 @@ Binwalk has a large list of known file types that it checks for. Running the fol
 
 `binwalk -e shady.jpg`
 
-### Find All Files
+### Find All File Types
 
 Sometimes in capture the flag events, I need to have binwalk look for all files embedded within an image. The following commands do the same thing, they both look for all files with the shady.jpg image:
 
@@ -111,3 +111,9 @@ Sometimes in capture the flag events, I need to have binwalk look for all files 
 OR
 
 `binwalk --dd='.*' shady.jpg`
+
+### Find Specific File Types
+
+In the case where there are a lot of files embedded in an image and I only need to find a specific file type (i.e. python file types), I would run the following command:
+
+`binwalk -D='.py' shady.jpg`
