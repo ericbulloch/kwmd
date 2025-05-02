@@ -1,3 +1,5 @@
+# THM: Crack the hash
+
 | Stat       | Value                                        |
 | ---------- | -------------------------------------------- |
 | Room       | Crack the hash                               |
