@@ -222,11 +222,15 @@ If I can read the /etc/passwd file it also has information about users of the sy
 
 The SUID (Set User ID) bit is a special permission that allows a user to run a binary with the privileges of the binary's owner, rather than their own user privileges. In other words, I can use a binary that root owns and run that binary as root instead of my regular user. An example of a binary that has the SUID bit set looks like the following:
 
-`-rwsr-xr-x 1 root root 163K Apr   4  2025 /usr/bin/my_binary`
+`-rwsr-xr-x 1 root root 163K Apr   4  2025 /usr/bin/sudo`
+
+The SUID bit in this example is the `s` at the beginning of the user's privileges. Normally you would see `rwx`, but the `s` means that the file is executed with root's privileges.
 
 I search for these files with the following commands:
 
 `find / -perm -u=s -type f 2>/dev/null`
+
+I pair the output of this command with GTFOBins to find out if any of the binaries have a SUID bit set that can be used to escalate privileges.
 
 ## crontab -e
 
