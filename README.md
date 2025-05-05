@@ -230,6 +230,12 @@ I search for these files with the following commands:
 
 `find / -perm -u=s -type f 2>/dev/null`
 
+Here is an explanation of this commands:
+
+- The `-type f` option tell find to look for files.
+- The `-perm -u=s` options tell find to look for files with the permissions that match a user SUID bit set.
+- The `2>/dev/null` tells the command to redirect all failures to /dev/null (don't show failures).
+
 I pair the output of this command with GTFOBins to find out if any of the binaries have a SUID bit set that can be used to escalate privileges.
 
 ## crontab -e
