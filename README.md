@@ -218,6 +218,12 @@ So if the user mike has a folder in /home I would run the following command expl
 
 If I can read the /etc/passwd file it also has information about users of the system and where their home directory is located. Once in a while the home directory of a user will not be in the /home folder.
 
+## SUID Binaries
+
+The SUID (Set User ID) bit is a special permission that allows a user to run a binary with the privileges of the binary's owner, rather than their own user privileges. In other words, I can use a binary that root owns and run that binary as root instead of my regular user. An example of a binary that has the SUID bit set looks like the following:
+
+`-rwsr-xr-x 1 root root 163K Apr   4  2025 /usr/bin/my_binary`
+
 ## crontab -e
 
 Capture the flag events often have a script that runs every minute that I can exploit to do privilege escalation. If my user has access, this will tell me what crons are running and how often. These jobs are for the current user. Here is a sample of a cron that runs each minute and runs a backup script in the user mike's home directory:
