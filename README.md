@@ -224,6 +224,10 @@ The SUID (Set User ID) bit is a special permission that allows a user to run a b
 
 `-rwsr-xr-x 1 root root 163K Apr   4  2025 /usr/bin/my_binary`
 
+I search for these files with the following commands:
+
+`find / -perm -u=s -type f 2>/dev/null`
+
 ## crontab -e
 
 Capture the flag events often have a script that runs every minute that I can exploit to do privilege escalation. If my user has access, this will tell me what crons are running and how often. These jobs are for the current user. Here is a sample of a cron that runs each minute and runs a backup script in the user mike's home directory:
