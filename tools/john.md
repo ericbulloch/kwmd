@@ -113,6 +113,16 @@ I have been a part of a few capture the flag events that use the combination of 
 - Use the password when importing the .asc file.
 - Decrypt the .pgp file to get the credentials.
 
+As an example, I have 2 files named mine.asc and credentials.pgp. Here are the commands to get the credentials:
+
+For the first step, I would run:
+
+`g2g2john mine.asc > hash.txt`
+
+The hash.txt file has a hash that john can now understand. I run the following command so john can crack the password:
+
+`john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt`
+
 ### MD5
 
 Every now and then I will find a hash that [CrackStation](https://crackstation.net/) doesn't have a solution for. I can use john to try to crack the hash. John has a built in word list but I can also supply my own. In the following example I have an md5 hash that is stored in a file called hash.txt in the current directory. I also know for sure that this is an md5 hash. This is the command to have john try to crack the hash:
