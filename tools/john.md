@@ -123,6 +123,20 @@ The hash.txt file has a hash that john can now understand. I run the following c
 
 `john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt`
 
+When john cracks the password it will look like the following:
+
+```bash
+Press 'q' or Ctrl-C to abort, almost any other key for status
+my_password      (mine)
+```
+
+Now that I have the decrypted password, I decrypt the credentials.pgp file with the following commands:
+
+```bash
+gpg --import mine.asc
+gpg -d credentials.pgp
+```
+
 ### MD5
 
 Every now and then I will find a hash that [CrackStation](https://crackstation.net/) doesn't have a solution for. I can use john to try to crack the hash. John has a built in word list but I can also supply my own. In the following example I have an md5 hash that is stored in a file called hash.txt in the current directory. I also know for sure that this is an md5 hash. This is the command to have john try to crack the hash:
