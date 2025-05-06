@@ -216,7 +216,7 @@ So if the user mike has a folder in /home I would run the following command expl
 
 ## cat /etc/passwd | grep '/bin/bash'
 
-If I can read the /etc/passwd file it also has information about users of the system and where their home directory is located. Once in a while the home directory of a user will not be in the /home folder.
+If I can read the /etc/passwd file it also has information about users of the system and where their home directory is located. Once in a while the home directory of a user will not be in the /home folder. I am generally just looking for users that have a shell. The `grep '/bin/bash'` part the command will filter out the users that do not have  a shell.
 
 ## SUID Binaries
 
