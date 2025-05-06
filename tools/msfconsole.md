@@ -58,3 +58,5 @@ Matching Modules
 To use that module, all I have to do is run `use 0`. That will change my console's appearance to let me know the module loaded. In this case, the console will display:
 
 `msf6 auxiliary(scanner/ftp/anonymous) > `
+
+Searches can be refined and even include version numbers. The msfconsole is very robust when it comes to searching for modules.
