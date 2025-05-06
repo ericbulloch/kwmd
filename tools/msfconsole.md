@@ -38,3 +38,23 @@ Console options:
     -x, --execute-command COMMAND    Execute the specified console commands (use ; for multiples)
     -h, --help                       Show this message
 ```
+
+## Searching
+
+The msfconsole's search is really good. I will often times search for something generic like 'ftp anonymous' to get the module that will check if anonymous logins are allowed. The msfconsole is loaded with useful modules to help find and exploit vulnerabilities.
+
+Going with the example that was just mentioned, when I search for 'ftp anonymous' the output will look like:
+
+```bash
+Matching Modules
+================
+
+   #   Name                                                     Disclosure Date  Rank    Check  Description
+   -   ----                                                     ---------------  ----    -----  -----------
+   0   auxiliary/scanner/ftp/anonymous                          .                normal  No     Anonymous FTP Access Detection
+   ...
+```
+
+To use that module, all I have to do is run `use 0`. That will change my console's appearance to let me know the module loaded. In this case, the console will display:
+
+`msf6 auxiliary(scanner/ftp/anonymous) > `
