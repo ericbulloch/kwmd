@@ -60,3 +60,28 @@ To use that module, all I have to do is run `use 0`. That will change my console
 `msf6 auxiliary(scanner/ftp/anonymous) > `
 
 Searches can be refined and even include version numbers. The msfconsole is very robust when it comes to searching for modules.
+
+## Module
+
+Once I have selected a module like in the example above, I need to provide the parameters necessary for the module to run. To view those options I run the following command:
+
+`show options`
+
+This will provide a list of required and not required parameters for this module. Here is a sample output of that command:
+
+```bash
+msf6 auxiliary(scanner/ftp/anonymous) > show options
+
+Module options (auxiliary/scanner/ftp/anonymous):
+
+   Name     Current Setting      Required  Description
+   ----     ---------------      --------  -----------
+   FTPPASS  mozilla@example.com  no        The password for the specified username
+   FTPUSER  anonymous            no        The username to authenticate as
+   RHOSTS                        yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+   RPORT    21                   yes       The target port (TCP)
+   THREADS  1                    yes       The number of concurrent threads (max one per host)
+
+
+View the full module info with the info, or info -d command.
+```
