@@ -85,3 +85,26 @@ Module options (auxiliary/scanner/ftp/anonymous):
 
 View the full module info with the info, or info -d command.
 ```
+
+The output shows that 3 options are required. I only have 2 of them set. I need to set the RHOSTS option or else I can't run this module. I am going to run this module on a machine with the ip address of 10.10.1.112. So to set the RHOSTS option I would run the following command:
+
+`set rhosts 10.10.1.112`
+
+When I set options I don't need to worry about casing of the options. I run `show options` again to show that it was set:
+
+```bash
+msf6 auxiliary(scanner/ftp/anonymous) > show options
+
+Module options (auxiliary/scanner/ftp/anonymous):
+
+   Name     Current Setting      Required  Description
+   ----     ---------------      --------  -----------
+   FTPPASS  mozilla@example.com  no        The password for the specified username
+   FTPUSER  anonymous            no        The username to authenticate as
+   RHOSTS   10.10.1.112          yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+   RPORT    21                   yes       The target port (TCP)
+   THREADS  1                    yes       The number of concurrent threads (max one per host)
+
+
+View the full module info with the info, or info -d command.
+```
