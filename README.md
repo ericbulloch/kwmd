@@ -274,4 +274,4 @@ This command is very simple. There are kernal attacks that can be ran to get roo
 
 `Linux my_machine 5.15.0-124-generic #134~20.04.1-Ubuntu SMP Tue Oct 1 15:27:33 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux`
 
-I will take the enter "Linux 5.15.0-124 CVE" into google to see if there are any vulnerabilites.
+I will type "Linux 5.15.0-124 CVE" into google to see if there are any vulnerabilites.
