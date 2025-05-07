@@ -3,6 +3,7 @@
 - [Binwalk](binwalk.md)
 - [ffuf - Fuzz Faster U Fool](ffuf.md)
 - [Gobuster](gobuster.md)
+- [Hashcat](hashcat.md)
 - [Hydra](hydra.md)
 - [John the Ripper](john.md)
 - [linPEAS.sh](linpeas.md)
