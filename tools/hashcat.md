@@ -590,3 +590,5 @@ Restore.Point....: 0/103965 (0.00%)
 Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1
 Candidates.#1....:  -> everybody knows it
 ```
+
+The key is shown on the line with the JWT. The key shows up after the colon (:). In this case, the key is `secret`.
