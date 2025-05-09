@@ -2,6 +2,7 @@
 
 | Stat       | Value                                        |
 | ---------- | -------------------------------------------- |
+| Image      | <img src="../../images/write_ups/try_hack_me/tools_r_us.jpeg" alt="ToolsRus" width="90"/> |
 | Room       | ToolsRus                         |
 | URL        | https://tryhackme.com/room/toolsrus     |
 | Difficulty | Easy                                         |
