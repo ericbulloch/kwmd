@@ -44,7 +44,12 @@ Port 80 has the http service running on it. It has Apache 2.4.18 running. So now
 
 `dirb http://target.thm /usr/share/wordlists/dirb/common.txt`
 
-The output mentions a directory that starts with a "g".
+The output mentions a directory that starts with a "g". Here is the output:
+
+```bash
+---- Entering directory: http://target.thm/gxxxxxxxx/ ----
++ http://target.thm/gxxxxxxxx/index.html (CODE:200|SIZE:51)
+```
 
 ## Whose name can you find from this directory?
 
@@ -57,6 +62,16 @@ The rendered page has a name on it. The text on the page reads:
 `Hey xxx, did you update that TomCat server?`
 
 ## What directory has basic authentication?
+
+Since I am looking for a directory that has basic authentication, I went back to my dirbuster output and noticed which directory returned a 401 error. The output from dirbuster was:
+
+```bash
++ http://target.thm/index.html (CODE:200|SIZE:168)
++ http://target.thm/pxxxxxxxx (CODE:401|SIZE:457)
++ http://target.thm/server-status (CODE:403|SIZE:298)
+```
+
+I pulled up the middle result in a browser and sure enough it wanted basic authentication.
 
 ## What is bob's password to the protected part of the website?
 
