@@ -14,6 +14,7 @@ In the write ups I provide the steps to get the answers but I usually will not g
 
 A lot of people who do write ups only include the answers and not all the steps they took to get those answers. I want to include what was checked and eliminated before I found the solution. The thought process is more important than the answers.
 
+- [TryHackMe Write-Ups](write_ups/try_hack_me/)
 - [VulnHub Write-Ups](write_ups/vuln_hub/)
 
 # Hacking Flow
