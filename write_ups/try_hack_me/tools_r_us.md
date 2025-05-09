@@ -123,10 +123,43 @@ The last line of output for port 1234 tells the name and version of the software
 
 ## Use Nikto with the credentials you have found and scan the /manager/html directory on the port found above. How many docume0?
 
+When I go to the url that it is asking for (http://target.thm:1234/manager/html), it wants me to put in a username and password. I try the combination that I found earlier and I am able to login. You can see the answer to this question on the manager page or you can enter the following command and wait for nikto to finish:
+
+`nikto -h http://target.thm:1234/manager/html -id bob:bubbles`
+
+There are 5 docume0. Here is the list:
+
+- /docs
+- /examples
+- /host-manager
+- /lF7Fhb
+- /manager
+
 ## What is the server version?
+
+This one was a tricky problem for me. The nmap output for port 1234 says Apache Tomcat/Coyote  JSP engine 1.1. This is not the answer that we are looking for. Instead, I noticed the output on port 80. That version number is what the exercise is looking for. Here is the line from the output that I am talking about:
+
+```bash
+80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))
+```
 
 ## What version of Apache-Coyote is this service using?
 
+As I just mentioned, the version number is 1.1.
+
 ## Use Metasploit to exploit the service and get a shell on the system. What user did you get a shell as?
+
+I run `msfconsole` to bring up Metasploit. I use the search feature to find a vulnerability. Here is the what I search for:
+
+`search tomcat`
+
+In the output I only looked for modules that had an excellent rating and mentioned the manager. That leaves me with 2 options:
+
+`exploit/multi/http/tomcat_mgr_deploy`
+
+and
+
+`exploit/mult/http/tomcate_mgr_upload`
+
 
 ## What flag is found in the root directory?
