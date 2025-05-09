@@ -1,6 +1,7 @@
 # Tools
 
 - [Binwalk](binwalk.md)
+- [dirbuster](dirbuster.md)
 - [ffuf - Fuzz Faster U Fool](ffuf.md)
 - [Gobuster](gobuster.md)
 - [Hashcat](hashcat.md)
