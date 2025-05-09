@@ -8,4 +8,8 @@
 
 ## Concepts/Tools Used
 
-- [Dirbuster](../../dirbuster.md)
+- [Dirbuster](../../tools/dirbuster.md)
+- [Hydra](../../tools/hydra.md)
+- [Nmap](../../tools/nmap.md)
+- [Nikto](../../tools/nikto.md)
+- [Metasploit](../../tools/msfconsole.md)
