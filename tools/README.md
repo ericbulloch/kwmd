@@ -11,6 +11,7 @@
 - [MSConsole](msconsole.md)
 - [MSFvenom](msfvenom.md)
 - [nc - Netcat](netcat.md)
+- [Nikto](nikto.md)
 - [Nmap](nmap.md)
 - [SearchSploit](searchsploit.md)
 - [sqlmap](sqlmap.md)
