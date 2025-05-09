@@ -8,13 +8,13 @@
 
 ## Concepts/Tools Used
 
-- [Dirbuster](../../tools/dirbuster.md)
+- [Dirb](../../tools/dirb.md)
 - [Hydra](../../tools/hydra.md)
 - [Nmap](../../tools/nmap.md)
 - [Nikto](../../tools/nikto.md)
 - [Metasploit](../../tools/msfconsole.md)
 
-## Description
+## Room Description
 
 Your challenge is to use the tools listed below to enumerate a server, gathering information along the way that will eventually lead to you taking over the machine.
 
