@@ -48,6 +48,14 @@ The output mentions a directory that starts with a "g".
 
 ## Whose name can you find from this directory?
 
+I opened up the browser and went to the following url:
+
+`http://target.thm/gxxxxxxxx/`
+
+The rendered page has a name on it. The text on the page reads:
+
+`Hey xxx, did you update that TomCat server?`
+
 ## What directory has basic authentication?
 
 ## What is bob's password to the protected part of the website?
