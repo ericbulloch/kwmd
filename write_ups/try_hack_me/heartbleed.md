@@ -2,6 +2,7 @@
 
 | Stat       | Value                                        |
 | ---------- | -------------------------------------------- |
+| Image      | <img src="../../images/write_ups/try_hack_me/heartbleed.png" alt="HeartBleed" width="90"/> |
 | Room       | HeartBleed                                   |
 | URL        | https://tryhackme.com/room/heartbleed        |
 | Difficulty | Easy                                         |
