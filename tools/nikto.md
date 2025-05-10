@@ -100,6 +100,8 @@ Running `nikto -Help` provided the following output:
 
 ## Examples
 
+### Standard examples
+
 Nikto can be used to run against a web server all it needs is a host name. I run the following command to check for vulnerabilities:
 
 `nikto -h http://target.thm`
@@ -111,3 +113,9 @@ The `-h` option lets nikto know what host I want it to check on. This will alway
 Checking https traffic on the standard port 443 just needs a protocol change:
 
 `nikto -h https://target.thm`
+
+### Using Basic Authentication
+
+Sometimes the web server will use Basic Authentication to block my scans. If I know what the username and password are I can provide them to nikto so that it can continue to scan. The credentials are provided using the `-id` option. I would provide the username mike and the password letmein1 in the original example like so:
+
+`nikto -h http://target.thm -id mike:letmein1`
