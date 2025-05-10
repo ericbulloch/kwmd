@@ -119,3 +119,5 @@ Checking https traffic on the standard port 443 just needs a protocol change:
 Sometimes the web server will use Basic Authentication to block my scans. If I know what the username and password are I can provide them to nikto so that it can continue to scan. The credentials are provided using the `-id` option. I would provide the username mike and the password letmein1 in the original example like so:
 
 `nikto -h http://target.thm -id mike:letmein1`
+
+Now nikto can log in to the site and continue to run scans on protected pages. A lot of software information and configuration files are hidden behind pages that need credentials. This will help getting past pages that are using Basic Authentication.
