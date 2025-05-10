@@ -97,3 +97,9 @@ Running `nikto -Help` provided the following output:
        -vhost+            Virtual host (for Host header)
    		+ requires a value
 ```
+
+## Examples
+
+Nikto can be used to run against a web server all it needs is a host name. I run the following command to check for vulnerabilities:
+
+`nikto -h http://target.thm`
