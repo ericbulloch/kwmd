@@ -2,6 +2,7 @@
 
 | Stat       | Value                                        |
 | ---------- | -------------------------------------------- |
+| Image      | <img src="../../images/write_ups/try_hack_me/crack_the_hash.jpeg" alt="Crack the hash" width="90"/> |
 | Room       | Crack the hash                               |
 | URL        | https://tryhackme.com/room/crackthehash      |
 | Difficulty | Easy                                         |
