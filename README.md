@@ -2,6 +2,8 @@
 
 Welcome! This is my personal repository for all things cyber security. I keep notes for commands that I regularly use and write ups for machines I have hacked on platforms like TryHackMe and VulnHub.
 
+Here is my profile on TryHackMe. I am ranked in the top 2%:
+
 <img src="https://tryhackme-badges.s3.amazonaws.com/kwmd.png" alt="Your Image Badge" />
 
 ## Tools
