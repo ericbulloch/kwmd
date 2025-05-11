@@ -125,6 +125,12 @@ Also, sometimes I need to connect to ssh on a different port. This involves usin
 
 `ssh -p 2222 user@target.thm`
 
+## Hydra
+
+If I have found a username (for example bob) but do not know the password, I will run hydra using the rockyou.txt wordlist to see if I can find the password and log into the server. Using [the example found here](tools/hydra.md#ssh), I run the following command:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh`
+
 # SMB
 
 Server Message Block is commonly used in capture the flag events. It allows users to share files and printers across the network. Enumerating SMB and Samba folders are a gold mine but I forget the syntax and tools all the time.
