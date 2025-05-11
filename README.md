@@ -2,6 +2,8 @@
 
 Welcome! This is my personal repository for all things cyber security. I keep notes for commands that I regularly use and write ups for machines I have hacked on platforms like TryHackMe and VulnHub.
 
+<img src="https://tryhackme-badges.s3.amazonaws.com/kwmd.png" alt="Your Image Badge" />
+
 ## Tools
 
 The [tools folder](tools/) contains a list of tools that I regularly use and most importantly examples of how they are used. Most of the tools come by default with Kali Linux. I reference these pages often when I work on a capture the flag event.
