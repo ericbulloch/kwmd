@@ -4,7 +4,7 @@ Welcome! This is my personal repository for all things cyber security. I keep no
 
 ## TryHackMe
 
-Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). I am ranked in the top 2%. Also here is my badge for TryHackMe (generated May 10, 2025).
+Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). I am ranked in the top 2%. Here is my badge for TryHackMe (generated May 10, 2025).
 
 <img src="https://tryhackme-badges.s3.amazonaws.com/kwmd.png" alt="Your Image Badge" />
 
