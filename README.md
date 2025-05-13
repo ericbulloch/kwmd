@@ -99,7 +99,7 @@ When I get stuck I sometimes try to run a parameter enumeration on a form just t
 
 In a capture the flag event I am looking at the different pages and trying to find forms and input fields. Each one of these is an attack vector that can be used to do things like SQL injection or a XSS attack. Mapping the site is one of the first things I do while running directory enumeration on a website.
 
-## Inpecting HTML
+## Inspecting HTML
 
 Capture the flag events often have flags in the comments of the HTML. I have found flags, usernames, passwords, directories and links that my automated runs didn't find. This is a very overlooked way to find useful things when I get stuck. Here is an altered sample of some comments that I have found in html:
 
