@@ -60,7 +60,7 @@ I almost always run a directory enumeration to see if there are any folders or f
 
 If the tool finds a directory like `/app`, I will often run the tool again on that directory to see if there are additional results.
 
-There are a lot of automated tools you can use for directory enumeration. Generally, your word list is the most important part. If I get stuck, I use a combination of tools and word lists to see if they find anything different. Here are some tools I like to use and some sample usage:
+There are a lot of automated tools I can use for directory enumeration. Generally, the word list is the most important part. If I get stuck, I use a combination of tools and word lists to see if they find anything different. Here are some tools I like to use and some sample usage:
 
 #### dirsearch
 
@@ -84,7 +84,7 @@ Sometimes I run a few different tools just to see if I get different results. Th
 
 #### gobuster
 
-The gobuster tool is also a great tool to get a second opinion. I generally go with ffuf instead of gobuster when I want a second opinion, but you will not be disappointed using either tool. I have provided information on how to run gobuster for directory enumeration on [its tool page](tools/gobuster.md#directoryfile-dir-enumeration-mode).
+The gobuster tool is also a great tool to get a second opinion. I generally go with ffuf instead of gobuster when I want a second opinion, but I have not been disappointed using either tool. I have provided information on how to run gobuster for directory enumeration on [its tool page](tools/gobuster.md#directoryfile-dir-enumeration-mode).
 
 ### Subdomain Enumeration
 
@@ -164,7 +164,7 @@ To connect to an anonymous disk, I use the smbclient tool. It makes it easy to b
 
 This will change the command prompt to:
 
-`smb: >`
+`smb: \>`
 
 Now I can use the `ls` and `cd` commands to look around the disk.
 
@@ -172,7 +172,7 @@ Now I can use the `ls` and `cd` commands to look around the disk.
 
 I often need to download the contents of a disk onto my machine for analysis. If the file on the disk is called important.txt, I would run the following command (I included the smb prompt in the beginning of the command):
 
-`smb: > get important.txt`
+`smb: \> get important.txt`
 
 This will download the important.txt file to the directory I was in on my machine when I connected to the disk.
 
@@ -180,7 +180,11 @@ This will download the important.txt file to the directory I was in on my machin
 
 More often than not, I really just want to download a folder rather than running the above command multiple times. This is still easy, but I run a few more commands. I go into the folder on the disk that has all the files and folders I want. I then run the following commands (I included the smb prompt in the beginning of the commands):
 
-`smb: > recurse on smb: > prompt off smb: > mget *`
+```bash
+smb: \> recurse on
+smb: \> prompt off
+smb: \> mget *
+```
 
 Here is an explanation of these commands:
 
@@ -198,7 +202,7 @@ If Python is on the machine, this is my preferred method. There are four steps, 
 
 - Run the command: `python3 -c 'import pty;pty.spawn("/bin/bash")'`. This creates a new process that runs bash in a pseudo-terminal (pty).
 - Run the command: `export TERM=xterm`. This sets the terminal emulator to xterm. This is the default setting for Ubuntu.
-- Move your shell session to the background by hitting `^Z` (Ctrl+Z). I need to run one more command, and this process needs to be in the background for the command to work.
+- Move my shell session to the background by hitting `^Z` (Ctrl+Z). I need to run one more command, and this process needs to be in the background for the command to work.
 - Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through to standard in and out. The `fg` command moves the previous process from the background to the foreground.
 
 # Linux Privilege Escalation
@@ -232,7 +236,7 @@ The SUID (Set User ID) bit is a special permission that allows a user to run a b
 
 `-rwsr-xr-x 1 root root 163K Apr   4  2025 /usr/bin/sudo`
 
-The SUID bit in this example is the `s` at the beginning of the user's privileges. Normally you would see `rwx`, but the `s` means that the file is executed with root's privileges.
+The SUID bit in this example is the `s` at the beginning of the user's privileges. Normally I would see `rwx`, but the `s` means that the file is executed with root's privileges.
 
 I search for these files with the following command:
 
