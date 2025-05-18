@@ -6,7 +6,7 @@ Broken Access Control is when a website or app lets people do things they should
 
 In the OWASP Top Ten list for 2021 it is the number one most common vulnerability. The OWASP Top Ten site says the following:
 
-> 94% of applications were tested for some form of broken access control. The 34 Common Weakness Enumerations (CWEs) mapped to Broken Access Control had more occurrences in applications than any other category".
+> 94% of applications were tested for some form of broken access control. The 34 Common Weakness Enumerations (CWEs) mapped to Broken Access Control had more occurrences in applications than any other category.
 
 Most applications implement some form of authentication but forget to implement or enforce proper authorization logic — especially on sensitive endpoints, API routes, and across microservices.
 
