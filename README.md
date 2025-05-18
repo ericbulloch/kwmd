@@ -124,11 +124,13 @@ Also, sometimes I need to connect to SSH on a different port. This involves usin
 
 `ssh -p 2222 user@target.thm`
 
-## Hydra
+## SSH Brute Force
 
-If I have found a username (for example, bob) but do not know the password, I will run hydra using the rockyou.txt wordlist to see if I can find the password and log into the server. Using [the example found here](tools/hydra.md#ssh), I run:
+SSH does have some CVEs (Common Vulnerabilites and Exposures) but I rarely have to use them in a capture the flag event. Usually I will need to brute force SSH because I have found a username (for example, bob) but do not know the password, I will run Hydra using the rockyou.txt wordlist to see if I can find the password and log into the server. Using [the example found here](tools/hydra.md#ssh), I run:
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh`
+
+There are other tools that can do this as well but I prefer Hydra.
 
 # SMB
 
