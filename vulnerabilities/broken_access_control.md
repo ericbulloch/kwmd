@@ -40,4 +40,4 @@ Most applications implement some form of authentication but forget to implement 
 
 ## Summary
 
-In short, Broken Access Control vulnerabilities exist because a system doesn't check if a user has permission to perform an action. The server should always check if the user has permission to perform the action. The system should use role-based access control so that they can only see and do what their roles allow.
+In short, Broken Access Control vulnerabilities exist because a system doesn't check if a user has permission to perform an action. The server should always check if the user has permission to perform the action. Whether a user is trying to access a resource or perform an action, the system should check if a user is authenticated and authorized to continue. Broken Access Control vulnerabilities are so prevelent because authentication and authorization checks, while not hard to implement, are easy to forget or miss. They rely on humans to initially set for resources and endpoints and humans are the weakest part of security.
