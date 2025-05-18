@@ -5,3 +5,4 @@ I have included different vulnerabilities here so that I can easily reference th
 ## OWASP Top Ten
 
 - [Broken Access Control](broken_access_control.md)
+- [Cryptographic Failures](cryptographic_failures.md)
