@@ -48,4 +48,19 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 
 ## Best Practices
 
+| Best Practice | Why It Matters |
+| ------------- | -------------- |
+| Use HTTPS/TLS for all data in transit | Prevents attackers from intercepting sensitive information (e.g., MITM attacks). |
+| Store passwords using strong hashing algorithms (e.g., bcrypt, Argon2) | Protects credentials even if the database is compromised (i.e. very slow algorithms, each entry has a unique salt, etc...). |
+| Use modern, secure encryption algorithms (e.g., AES-GCM, RSA with OAEP) | Outdated algorithms like MD5 or RC4 are easily breakable and no longer secure. |
+| Enforce strong key management practices | Hardcoded or reused keys can be easily stolen or misused across systems. |
+| Avoid rolling your own cryptography | Custom implementations often have flaws; use well-reviewed libraries instead. |
+| Verify digital certificates and signatures correctly | Prevents spoofing and ensures integrity of the data or identity. |
+| Disable outdated protocols (e.g., SSL, TLS 1.0/1.1) | These protocols have known vulnerabilities and can be exploited for decryption. |
+| Use authenticated encryption (e.g., AES-GCM, ChaCha20-Poly1305) | Ensures both confidentiality and authenticity — avoids padding oracle attacks. |
+| Do not log sensitive data (e.g., secrets, keys, tokens) | Logs can be accessed or leaked — exposing private data. |
+| Enforce secure random number generation (e.g., /dev/urandom, secrets module in Python) | Weak randomness can lead to predictable tokens or keys, undermining security. |
+
 ## Summary
+
+
