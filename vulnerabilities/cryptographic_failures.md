@@ -51,7 +51,7 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Best Practice | Why It Matters |
 | ------------- | -------------- |
 | Use HTTPS/TLS for all data in transit | Prevents attackers from intercepting sensitive information (e.g., MITM attacks). |
-| Store passwords using strong hashing algorithms (e.g., bcrypt, Argon2) | Protects credentials even if the database is compromised (i.e. very slow algorithms, each entry has a unique salt, etc...). |
+| Store passwords using strong hashing algorithms (e.g., bcrypt, Argon2) | Protects credentials even if the database is compromised (e.g. very slow algorithms, each entry has a unique salt, etc...). |
 | Use modern, secure encryption algorithms (e.g., AES-GCM, RSA with OAEP) | Outdated algorithms like MD5 or RC4 are easily breakable and no longer secure. |
 | Enforce strong key management practices | Hardcoded or reused keys can be easily stolen or misused across systems. |
 | Avoid rolling your own cryptography | Custom implementations often have flaws; use well-reviewed libraries instead. |
@@ -63,4 +63,4 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 
 ## Summary
 
-
+Evaluate your data and determine the protection level of data in transit and at rest. Avoid sending data in clear text with protocols like HTTP, SMTP and FTP. If the data falls under privacy laws like GDPR or PCI DSS, make sure their rules are followed. 
