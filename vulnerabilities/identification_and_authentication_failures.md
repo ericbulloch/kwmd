@@ -16,7 +16,7 @@ The OWASP Juice Shop is an open-source project that is intentionally vulnerable.
 
 ### TryHackMe
 
-TryHackMe has a couple rooms dedicated to this subject. The rooms are online and require an account. Here are some links to rooms that talk about Injection:
+TryHackMe has a couple rooms dedicated to this subject. The rooms are online and require an account. Here are some links to rooms that talk about Identification and Authentication Failures:
 
 - [OWASP Top 10 - 2021](https://tryhackme.com/room/owasptop102021)
 
