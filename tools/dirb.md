@@ -61,17 +61,41 @@ For each of the examples below, here are the variables that I am using:
 
 - The target machine is found at ip address `10.10.1.1`
 
-### hotkeys
+### Hotkeys
 
 The dirb tool has a few keys that I can press during a scan. Here are the keys and what they do:
 
 - `q` will stop the scan. It also saves the state of the scan so I can continue if needed.
 - `r` will display that show how many words are left to try in this scan.
+- `n` stop searching in the current directory. By default dirb searchings directories recursively and when I want it to move on I press this key.
 
-### directory enumeration
+### Directory Enumeration
 
 When I find a web server on a target, this is the first scan that I run.
 
 `dirb http://10.10.1.1/`
 
 This will start the directory scan with the basic wordlist. It will output the results as the scan finds any hidden paths or files.
+
+### Useful Options
+
+I wanted to provide some examples of different options and an example of how to use them.
+
+#### Output File
+
+The `-o` option tells dirb where to save the output in a file. I am going to save the output to the results.txt file using the following command:
+
+`dirb http://10.10.1.1/ -o results.txt`
+
+#### Don't Search Recursively
+
+Once in a while I only want to search the current directory and not anything below it. In that case I run the following:
+
+`dirb http://10.10.1.1/ -r`
+
+#### Basic Authentication
+
+Some Tomcat managers require basic authentication in order to view it and all sub pages. Dirb provides a way to use basic authentication to continue looking at the manager and all sub pages. I would log in with the username owner and password letmein1 with the following command:
+
+`dirb http://10.10.1.1/ -u owner:letmein1`
+
