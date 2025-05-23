@@ -52,3 +52,26 @@ dirb <url_base> [<wordlist_file(s)>] [options]
  dirb http://url/ /usr/share/dirb/wordlists/vulns/apache.txt (Test with apache.txt wordlist)
  dirb https://secure_url/ (Simple Test with SSL)
 ```
+
+## Examples
+
+The following examples are ones that I have used in capture the flag exercises. The wordlists that are provided are ones that are found on Kali unless otherwise specified.
+
+For each of the examples below, here are the variables that I am using:
+
+- The target machine is found at ip address `10.10.1.1`
+
+### hotkeys
+
+The dirb tool has a few keys that I can press during a scan. Here are the keys and what they do:
+
+- `q` will stop the scan. It also saves the state of the scan so I can continue if needed.
+- `r` will display that show how many words are left to try in this scan.
+
+### directory enumeration
+
+When I find a web server on a target, this is the first scan that I run.
+
+`dirb http://10.10.1.1/`
+
+This will start the directory scan with the basic wordlist. It will output the results as the scan finds any hidden paths or files.
