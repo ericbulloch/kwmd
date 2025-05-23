@@ -11,3 +11,17 @@ Once I have a shell running on a capture the flag box, I often need to escalate 
 - What groups the current user belong to
 
 There are many other checks and the list keeps growing. I download and follow the instructions found at the [linPEAS repository](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS). 
+
+## Examples
+
+LinPEAS throws a lot of information at me all at once. Generally the first step is to download the file onto the machine. I almost always download the file into the `/tmp` directory since it is writable by all users. To download the file I run the following command:
+
+`wget https://github.com/peass-ng/PEASS-ng/releases/download/20250518-5781f7e5/linpeas.sh`
+
+This will save the file as linpeas.sh. Now I set the script to executable with the following command:
+
+`chmod +x linpeas.sh`
+
+Again, LinPEAS throws a lot of information at me. When I run it, I use the `-w` option so that it will pause between sections of the script. That way I can look over the report for just that small section and see if it reported anything that will help me escalate. Here is an example of the command:
+
+`./linpeas.sh -w`
