@@ -49,7 +49,7 @@ For each of the examples below, here are the variables that I am using:
 - Password wordlist found in `/usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt`
 - The target machine is found at ip address `10.10.1.1`
 
-### directory/file (dir) enumeration mode
+### Directory/File (dir) Enumeration Mode
 
 The first search I usually do once I have found that a web server is running on the target is to do a directory search on the web site. The gobuster tool makes this very easy to do. It is a specialized command for gobuster and so it has different help output from the vanilla gobuster help. Here is the output from running `gobuster dir -h`:
 
@@ -114,7 +114,7 @@ A simple directory enumerate looks like the following:
 - The `-u` lets gobuster know what the target url is
 - The `-w` lets gobuster know what wordlist to use
 
-#### Useful options for directory/file enumeration mode
+#### Useful Options for Directory/File Enumeration Mode
 
 | example  | what it means  | when I use it  |
 | -------- | -------------- | -------------- |
