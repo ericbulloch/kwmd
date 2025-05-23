@@ -99,3 +99,8 @@ Some Tomcat managers require basic authentication in order to view it and all su
 
 `dirb http://10.10.1.1/ -u owner:letmein1`
 
+#### Slowing Down Requests
+
+Some machines in capture the flag events have firewalls to block me when I flood the machine with too many requests. Dirb has a way to show down requests so the firewall doesn't block me. I use the following command to wait 2 seconds (2000 milliseconds) between each request:
+
+`dirb http://10.10.1.1/ -z 2000`
