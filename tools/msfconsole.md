@@ -108,3 +108,11 @@ Module options (auxiliary/scanner/ftp/anonymous):
 
 View the full module info with the info, or info -d command.
 ```
+
+Now I can execute the module with the following command:
+
+`msf6 auxiliary(scanner/ftp/anonymous) > run`
+
+The output will be dependent on the success of the module and what module was ran.
+
+When I want to run another module I type `back` and that unselects the module.
