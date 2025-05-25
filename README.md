@@ -23,11 +23,11 @@ A lot of people who do write-ups only include the answers and not all the steps 
 - [TryHackMe Write-Ups](write_ups/try_hack_me/)
 - [VulnHub Write-Ups](write_ups/vuln_hub/)
 
-# Hacking Flow
+## Hacking Flow
 
 I have been documenting the steps and scenarios that I often see in capture the flag events. I call this my hacking flow. I use it as a reference and guide while I work on capture the flag events. My goal is for this to continue to evolve and become my one-stop shop for bug bounties and capture the flag events.
 
-## Starting
+### Starting
 
 Unless the instructions tell me to use a specific hostname, I will often change the IP address of the machine to a more memorable hostname. For example, if I am working on a capture the flag on TryHackMe and they provide a machine with an IP address like 10.10.160.54, I will add an entry to my /etc/hosts file. In this example, I will run the following:
 
@@ -37,7 +37,7 @@ I do this so that I do not have to remember the IP address of the machine I am a
 
 Sometimes, as a sanity check, I will run `ping target.thm` or open a browser and type `http://target.thm` to make sure that everything is working.
 
-# Port Scanning
+## Port Scanning
 
 I have added information about this on my [nmap tool](../tools/nmap.md#port-scans) page in the Port Scans section. There are two commands that I generally run, and the provided link explains in detail what they are doing. Here are the commands:
 
@@ -46,15 +46,15 @@ nmap -p- -Pn -T5 -v target.thm
 nmap -A -Pn -v target.thm -p 22,80
 ```
 
-# Website
+## Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
 
-## Enumeration
+### Enumeration
 
 There are a few different types of enumeration on websites that can be really useful.
 
-### Directory Enumeration
+#### Directory Enumeration
 
 I almost always run a directory enumeration to see if there are any folders or files that are not directly linked by the website. This is how I usually find the admin login form. Also, I double-check the robots.txt file because this file is notorious in capture the flag events for giving away information.
 
@@ -62,7 +62,7 @@ If the tool finds a directory like `/app`, I will often run the tool again on th
 
 There are a lot of automated tools I can use for directory enumeration. Generally, the word list is the most important part. If I get stuck, I use a combination of tools and word lists to see if they find anything different. Here are some tools I like to use and some sample usage:
 
-#### dirsearch
+##### dirsearch
 
 I usually use dirsearch as my directory enumeration tool. The syntax is very terse, so I do not have to remember much to run it. It does not come by default on Kali, so I have to install it before use.
 
@@ -78,27 +78,27 @@ The `-u` option tells dirsearch what URL I want to start searching in. If it fin
 
 `dirsearch -u http://target.thm/admin`
 
-#### ffuf
+##### ffuf
 
 Sometimes I run a few different tools just to see if I get different results. The ffuf tool is my go-to when I want a second opinion. I have provided information on how to run it on [its tools page](tools/ffuf.md#directory-enumeration).
 
-#### gobuster
+##### gobuster
 
 The gobuster tool is also a great tool to get a second opinion. I generally go with ffuf instead of gobuster when I want a second opinion, but I have not been disappointed using either tool. I have provided information on how to run gobuster for directory enumeration on [its tool page](tools/gobuster.md#directoryfile-dir-enumeration-mode).
 
-### Subdomain Enumeration
+#### Subdomain Enumeration
 
 Sometimes I will run subdomain enumeration to see if there are any other sites hosted by this machine.
 
-### Parameter Enumeration
+#### Parameter Enumeration
 
 When I get stuck, I sometimes try to run parameter enumeration on a form to see if there are any other named variables that I can submit that might change the behavior of a form. Sometimes developers do not want the public to know about these hidden parameters because they use them for testing; other times, the developers just did not document them.
 
-## Browsing
+### Browsing
 
 In a capture the flag event, I look at the different pages and try to find forms and input fields. Each one of these is an attack vector that can be used for things like SQL injection or XSS attacks. Mapping the site is one of the first things I do while running directory enumeration.
 
-## Inspecting HTML
+### Inspecting HTML
 
 Capture the flag events often have flags in the comments of the HTML. I have found flags, usernames, passwords, directories, and links that my automated runs did not find. This is a very overlooked way to find useful things when I get stuck. Here is an altered sample of some comments that I have found in HTML:
 
@@ -112,9 +112,9 @@ Capture the flag events often have flags in the comments of the HTML. I have fou
 -->
 ```
 
-# SSH
+## SSH
 
-## Initial Information
+### Initial Information
 
 If nmap shows that SSH is running on a machine, I will manually connect to it. I am trying to see if it asks for a password. If that is the case, this is another attack vector I can use if I can find a username on the server.
 
@@ -124,7 +124,7 @@ Also, sometimes I need to connect to SSH on a different port. This involves usin
 
 `ssh -p 2222 user@target.thm`
 
-## SSH Brute Force
+### SSH Brute Force
 
 SSH does have some CVEs (Common Vulnerabilites and Exposures) but I rarely have to use them in a capture the flag event. Usually I will need to brute force SSH because I have found a username (for example, bob) but do not know the password, I will run Hydra using the rockyou.txt wordlist to see if I can find the password and log into the server. Using [the example found here](tools/hydra.md#ssh), I run:
 
@@ -132,11 +132,11 @@ SSH does have some CVEs (Common Vulnerabilites and Exposures) but I rarely have 
 
 There are other tools that can do this as well but I prefer Hydra.
 
-# SMB
+## SMB
 
 Server Message Block is commonly used in capture the flag events. It allows users to share files and printers across the network. Enumerating SMB and Samba folders is a gold mine, but I forget the syntax and tools all the time.
 
-## Enumeration
+### Enumeration
 
 It is important to find out what disks are available and if any of them do not require me to log in. I use the smbmap tool to solve this. The following command will discover what shares are available and what the permissions for them are:
 
@@ -158,7 +158,7 @@ The output will look something like the following:
 
 The above example tells me that the `anonymous` disk does not require authentication. Therefore, I can view the contents of that disk.
 
-## Connecting to Disk
+### Connecting to Disk
 
 To connect to an anonymous disk, I use the smbclient tool. It makes it easy to browse and download files after enumeration is complete. I connect to the anonymous disk above with:
 
@@ -170,7 +170,7 @@ This will change the command prompt to:
 
 Now I can use the `ls` and `cd` commands to look around the disk.
 
-## Downloading Individual Files
+### Downloading Individual Files
 
 I often need to download the contents of a disk onto my machine for analysis. If the file on the disk is called important.txt, I would run the following command (I included the smb prompt in the beginning of the command):
 
@@ -178,7 +178,7 @@ I often need to download the contents of a disk onto my machine for analysis. If
 
 This will download the important.txt file to the directory I was in on my machine when I connected to the disk.
 
-## Downloading Folders
+### Downloading Folders
 
 More often than not, I really just want to download a folder rather than running the above command multiple times. This is still easy, but I run a few more commands. I go into the folder on the disk that has all the files and folders I want. I then run the following commands (I included the smb prompt in the beginning of the commands):
 
@@ -194,11 +194,11 @@ Here is an explanation of these commands:
 - `prompt off` will not ask me if I want to download each file.
 - `mget *` targets all the files and folders in this directory.
 
-# Stable Shell
+## Stable Shell
 
 Once I have connected to the target machine with netcat, getting a stable shell is my main priority. There are a few different ways to do this; here are the ones that I use.
 
-## Python PTY
+### Python PTY
 
 If Python is on the machine, this is my preferred method. There are four steps, and then I will have a stable shell. The steps are:
 
@@ -207,7 +207,7 @@ If Python is on the machine, this is my preferred method. There are four steps, 
 - Move my shell session to the background by hitting `^Z` (Ctrl+Z). I need to run one more command, and this process needs to be in the background for the command to work.
 - Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through to standard in and out. The `fg` command moves the previous process from the background to the foreground.
 
-# Linux Privilege Escalation
+## Linux Privilege Escalation
 
 If I have a shell on a Linux machine, the goal is to become root. The process is part art and part science. Learning how Linux works and practicing can go a long way. Being creative is also very important. In my experience, enumeration is the most important skill with privilege escalation. For each user that I escalate to (whether vertically or horizontally), I run nearly identical steps. The things that each user has access to can be very unique.
 
@@ -215,7 +215,7 @@ This section will eventually become a whole page because of how much information
 
 I eventually find a way to run the [LinPEAS](tools/linpeas.sh) script somewhere on the machine. The insights that it provides are amazing! But I do not usually go straight to LinPEAS. I have a few commands that I run manually and check if they provide some quick wins. Here are the commands that I run and validate before I run LinPEAS:
 
-## ls /home
+### ls /home
 
 I want to know what users are on the machine. If possible, I will go into each user's directory and see what files and folders are available. These include things like the following:
 
@@ -228,11 +228,11 @@ So if the user mike has a folder in /home, I would run the following command to 
 
 `ls -lha /home/mike`
 
-## cat /etc/passwd | grep '/bin/bash'
+### cat /etc/passwd | grep '/bin/bash'
 
 If I can read the /etc/passwd file, it also has information about users of the system and where their home directory is located. Once in a while, the home directory of a user will not be in the /home folder. I am generally just looking for users that have a shell. The `grep '/bin/bash'` part of the command will filter out the users that do not have a shell.
 
-## SUID Binaries
+### SUID Binaries
 
 The SUID (Set User ID) bit is a special permission that allows a user to run a binary with the privileges of the binary's owner, rather than their own user privileges. In other words, I can use a binary that root owns and run that binary as root instead of my regular user. An example of a binary that has the SUID bit set looks like the following:
 
@@ -252,13 +252,13 @@ Here is an explanation of this command:
 
 I pair the output of this command with GTFOBins to find out if any of the binaries with the SUID bit set can be used to escalate privileges.
 
-## crontab -e
+### crontab -e
 
 Capture the flag events often have a script that runs every minute that I can exploit to do privilege escalation. If my user has access, this will tell me what crons are running and how often. These jobs are for the current user. Here is a sample of a cron that runs each minute and runs a backup script in the user mike's home directory:
 
 `* * * * * /usr/bin/python /home/mike/backup.py`
 
-## id
+### id
 
 The `id` command is one of the very first things I run when I log in with a new user on a Linux machine. The group information that it provides lets me know what my attack surface is with this user. For example, sometimes in a capture the flag event, I will run the `id` command and see that a user is in the adm group. This means that this user can read a lot of log files in the /var/log directory. Log files are full of useful information.
 
@@ -270,7 +270,7 @@ Here is some sample output for the `id` command:
 
 In this case, I would note that the ubuntu user is also in the postgres group. I would make sure I understood what that means and then check the output from the next few sections of commands.
 
-## sudo -l
+### sudo -l
 
 If this command does not fail, it will tell me what scripts and binaries I can run as root. From here, I note what commands and binaries can be run. I also look at the binaries, scripts, and their containing directories. I am specifically looking at the permissions. Here are some examples of what I am looking for:
 
@@ -282,7 +282,7 @@ If this command does not fail, it will tell me what scripts and binaries I can r
 
 The answers to all these questions get noted.
 
-## uname -a
+### uname -a
 
 This command is very simple. There are kernel attacks that can be run to get root access. I will take the output of this command and check if there are any CVEs related to this kernel. Here is some sample output when I run the `uname -a` command:
 
