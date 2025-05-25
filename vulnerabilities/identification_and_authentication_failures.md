@@ -8,6 +8,20 @@ Imagine websites like lockers at school. Only people with the right key or combi
 
 ## Common Examples
 
+- Weak passwords – Using 123456 or password makes it easy for someone to break in.
+- Login pages don’t block brute force – No rate-limiting or IP throttling on login attempts allows mass automated attacks. You can try guessing the password over and over without being stopped.
+- Passwords stored in plain text – If someone hacks the system, they can read everyone's password easily.
+- No two-factor authentication (2FA) – Just a password isn't enough to keep accounts safe anymore.
+- Logged-in users not verified – A site might forget to check if you're still who you say you are.
+- Insecure password reset workflows – Predictable reset tokens or missing expiration allows unauthorized resets.
+- Session fixation – Attacker sets a known session ID before login and hijacks it after authentication.
+- Improper session termination – Users remain logged in indefinitely, allowing session hijacking on shared devices.
+- JWT tampering or misconfigured validation – Accepting unsigned tokens (alg=none) or using symmetric keys incorrectly.
+- Exploitable biometric spoofing – Facial recognition or fingerprint systems bypassed with fake data.
+- Authentication bypass via SQL injection – admin' OR '1'='1 bypasses login if not sanitized.
+- Subdomain takeover via SSO misconfiguration – Attacker gains access by registering a forgotten subdomain tied to authentication.
+- Exposed internal APIs with weak auth – Internal endpoints protected by weak or hardcoded credentials.
+
 ## Practice Exploiting Identification and Authentication Failures
 
 ### PortSwigger
