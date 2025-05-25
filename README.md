@@ -264,7 +264,18 @@ Here is an explanation of this command:
 - The `-perm -u=s` option tells find to look for files with the user SUID bit set.
 - The `2>/dev/null` tells the command to redirect all errors to /dev/null (do not show errors).
 
-I pair the output of this command with GTFOBins to find out if any of the binaries with the SUID bit set can be used to escalate privileges.
+I pair the output of this command with the [GTFOBins website](https://gtfobins.github.io/) to find out if any of the binaries with the SUID bit set can be used to escalate privileges.
+
+##### SUID Example with GTFOBins
+
+One capture the flag exercise had the SUID bit set for nmap. GTFOBins [has two examples with nmap](https://gtfobins.github.io/gtfobins/nmap/#suid) where you can get root. I like the second one if the version of nmap is between 2.02 and 5.21. All you have to type to get a root shell is the following:
+
+```bash
+sudo nmap --interactive
+nmap> !sh
+```
+
+That will give you new shell as root. There are many examples of how you can exploit a binary with the SUID bit set. GTFOBins has a lot of good documentation around it.
 
 #### crontab -e
 
