@@ -61,3 +61,5 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Utilize Secure Authentication Protocols | Ensures the use of up-to-date and secure protocols (e.g., OAuth 2.0) to manage authentication processes. |
 
 ## Summary
+
+Identity and Authentication Failures are very complex and easy to get wrong. Systems need to authenticate users to prove they are who they say they are. This means that they should have the correct password and preferably a multi-factor authentication method. Systems should ensure that easy passwords are not allowed. Passwords should use strong encryption methods so that attackers will still struggle in the event that a database is compromised. Sessions need to be authenticated and best practices should be followed.
