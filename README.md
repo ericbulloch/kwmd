@@ -90,6 +90,12 @@ The gobuster tool is also a great tool to get a second opinion. I generally go w
 
 Sometimes I will run subdomain enumeration to see if there are any other sites hosted by this machine.
 
+##### Subdomain Enumeration with ffuf
+
+The ffuf tool is my go-to when I run subdomain enumeration. I have provided information on how to run it on [its tools page](tools/ffuf.md#subdomain-enumeration). I have included the command here for a quick reference:
+
+`ffuf -H "Host: FUZZ.10.10.1.1" -H "User-Agent: PENTEST" -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt -u http://10.10.1.1 -fs 100`
+
 ##### Parameter Enumeration
 
 When I get stuck, I sometimes try to run parameter enumeration on a form to see if there are any other named variables that I can submit that might change the behavior of a form. Sometimes developers do not want the public to know about these hidden parameters because they use them for testing; other times, the developers just did not document them.
@@ -111,6 +117,14 @@ Capture the flag events often have flags in the comments of the HTML. I have fou
 
 -->
 ```
+
+#### SQL Injection
+
+SQL injection is still a vulerability to be aware of in capture the flag events. Many exercises have forms that are vulnerable to this attack. The main forms that I routinely check are the login, feedback and address forms. I'll run a regular request and capture it in Burp. I'll save the request to a file named `request.txt` and then run the following command:
+
+`sqlmap -r request.txt`
+
+I have more details about this on the [sqlmap tools page](tools/sqlmap.md).
 
 ### SSH
 
