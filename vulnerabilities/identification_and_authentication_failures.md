@@ -2,6 +2,10 @@
 
 ## What are Identification and Authentication Failures
 
+This vulnerability refers to failures in verifying a user's identity and session integrity. If the controls that handle identification and authentication are weak, attackers can impersonate users, escalate privileges, hijack a current session, or takeover an account.
+
+Imagine websites like lockers at school. Only people with the right key or combination (like a password) should be able to opent them. If the lock is weak or someone guesses the combo, they can sneak in.
+
 ## Common Examples
 
 ## Practice Exploiting Identification and Authentication Failures
