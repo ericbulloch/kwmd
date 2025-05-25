@@ -42,6 +42,15 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 
 | Best Practice | Why It Matters |
 | ------------- | -------------- |
-| Example | Because |
+| Enforce Strong Password Policies | Prevents easy-to-guess passwords, reducing the risk of unauthorized access. |
+| Implement Multi-Factor Authentication (MFA) | Adds an extra layer of security, making it harder for attackers to compromise accounts. |
+| Secure Session Management | Protects against session hijacking by ensuring session IDs are unique, unpredictable, and properly invalidated. |
+| Limit Failed Login Attempts | Mitigates brute-force and credential stuffing attacks by restricting repeated login attempts. |
+| Use Secure Password Storage Techniques | Protects stored passwords using hashing algorithms like bcrypt, preventing attackers from retrieving plaintext passwords. |
+| Avoid Exposing Session IDs in URLs | Prevents session fixation and leakage through browser history or logs. |
+| Implement CAPTCHA on Login Forms | Deters automated login attempts by requiring human interaction. |
+| Regularly Monitor and Audit Authentication Logs | Helps detect suspicious activities and potential breaches in real-time. |
+| Educate Users on Phishing and Social Engineering | Reduces the risk of credential compromise through user awareness and training. |
+| Utilize Secure Authentication Protocols | Ensures the use of up-to-date and secure protocols (e.g., OAuth 2.0) to manage authentication processes. |
 
 ## Summary
