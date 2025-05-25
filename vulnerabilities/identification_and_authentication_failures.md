@@ -26,7 +26,11 @@ Imagine websites like lockers at school. Only people with the right key or combi
 
 ### PortSwigger
 
-PortSwigger has multiple labs to see this vulnerability in action. The labs are online and require an account. Here are some labs:
+PortSwigger has multiple labs to see this vulnerability in action. The labs are online and require an account. They provide a lot of [background information here](https://portswigger.net/web-security/authentication). Here are some labs:
+
+- [Vulnerabilities in password-based login](https://portswigger.net/web-security/authentication/password-based)
+- [Vulnerabilities in multi-factor authentication](https://portswigger.net/web-security/authentication/multi-factor)
+- [Vulnerabilities in other authentication mechanisms](https://portswigger.net/web-security/authentication/other-mechanisms)
 
 ### OWASP Juice Shop
 
@@ -37,6 +41,9 @@ The OWASP Juice Shop is an open-source project that is intentionally vulnerable.
 TryHackMe has a couple rooms dedicated to this subject. The rooms are online and require an account. Here are some links to rooms that talk about Identification and Authentication Failures:
 
 - [OWASP Top 10 - 2021](https://tryhackme.com/room/owasptop102021)
+- [Enumeration & Brute Force](https://tryhackme.com/room/enumerationbruteforce)
+- [Identity and Access Management](https://tryhackme.com/room/iaaaidm)
+- [Authentication Bypass](https://tryhackme.com/r/room/authenticationbypass)
 
 ## Best Practices
 
