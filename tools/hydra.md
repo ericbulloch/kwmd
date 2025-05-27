@@ -122,6 +122,14 @@ Most of the items on here are familiar. The last section where things are more c
 - `username=^USER^&password=^PASS^` are where I pass in my username and password that were set with the -l and -P variables at the start of the command. In this case, `username` and `password` are variables of the form located at `/index.php`. They need to match the parameters of the form I am trying to brute force.
 - `F=Invalid Login` is how I tell hydra what will be in the response when there is a failure. If a username and password succeed, "Invalid Login" will not be in the resposne.
 
+### https-post-form
+
+The previous section works for a site that is using http (port 80 by default). If the webserver is running https (port 443 by default), then a single character needs to be added to the above command. Instead of `http-post-form` the command will use `https-post-form`. So the previous command will become:
+
+`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 https-post-form "/index.php:username=^USER^&password=^PASS^:F=Invalid Login"`
+
+Again, the `http-post-form` in the previous example became `https-post-form`.
+
 ### ssh
 
 If a system is vulnerable to an ssh brute force (meaning if I type `ssh target_machine` and it asks for a password) and I have either a username or password, hydra can help you gain access.
