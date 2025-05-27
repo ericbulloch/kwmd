@@ -126,6 +126,30 @@ SQL injection is still a vulerability to be aware of in capture the flag events.
 
 I have more details about this on the [sqlmap tools page](tools/sqlmap.md).
 
+#### File Upload
+
+An image uploading form can be an entry point into a website. This is because the code that uploads files does not check file extensions or if the file is actually a PNG or JPEG file. The [PHP Reverse Shell](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) makes it easy to get a reverse shell for systems that are vulnerable.
+
+I first grab the file from the repository above or the one on the TryHackMe attack box located at `/usr/share/webshells/php/php-reverse-shell.php`. There are only 2 lines that need to be altered in this file. They are the lines that define the `$ip` and `$port` variables.
+
+I set those to the values that my attack box is using. I'll run a netcat listener with the following `nc -lnvp 4444`. The port 4444 value also got set as the `$port` variable in the script.
+
+From here I'll see if I can upload the shell directly. If that fails I'll try different file extensions hoping that they have not accounted for it. Here is the list of file extensions that I try:
+
+- .php
+- .php3
+- .php4
+- .php5
+- .phtml
+
+In the event that they want a specific file extension like .jpg, I will try the following extensions:
+
+- .php.jpg
+- .php.jpeg
+- .php%00.jpg
+
+The `%00` is a null character for a url and marks the end of the string.
+
 ### SSH
 
 #### Initial Information
