@@ -124,3 +124,5 @@ username=admin&password=password
 Now running the following command will check if this form is vulnerable to a sql injection attack:
 
 `sqlmap -r request.txt`
+
+The sqlmap tool will examine the request and check each parameter being sent in the request. For this example it will check if username is vulnerable to a sql injection attack then it will run the same test for the password parameter. It tests the parameters by checking if it can get a timeout for the request. It will add a delay of like five seconds to each parameter request and if the response takes more than five seconds, it will know that the parameter is vulnerable to the attack and what type of database the site is using.
