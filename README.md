@@ -76,6 +76,31 @@ Remote system type is UNIX.
 Using binary mode to transfer files.
 ```
 
+#### FTP Navigation
+
+I navigate using the `cd` command to change directories, just like in Linux. The `ls` command is usable in FTP and works the same way as it does in Linux.
+
+#### FTP Viewing File Contents
+
+View files is different in FTP. I have provided some examples of how not to do it:
+
+```bash
+ftp> less note.txt
+?Invalid command
+ftp> head note.txt
+?Invalid command
+ftp> nano note.txt
+?Invalid command
+ftp> vim note.txt
+?Invalid command
+ftp> tail note.txt
+?Invalid command
+```
+
+To view a file's contents without downloading it to my machine, I run the same command that was used to download the file except I add a `-` character at the end. Here is the command to view an FTP file:
+
+`get note.txt -`
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
