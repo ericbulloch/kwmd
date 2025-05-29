@@ -56,6 +56,26 @@ It is very easy to log into an FTP server as an anonymous user. I start by typin
 
 `ftp 10.10.1.1`
 
+This will output the following:
+
+```bash
+Connected to target.thm.
+220 (vsFTPd 3.0.3)
+Name (target.thm:root):
+```
+
+From here, I enter `anonymous` as the username. **Note that I didn't use blank**, that would have used the username from my machine (in this case, root). After I type `anonymous` I get the following line as output:
+
+`331 Please specify the password.`
+
+For this next part, you can leave it blank or type whatever you want. If anonymous login is allowed, you will be greeted with the following:
+
+```bash
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+```
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
