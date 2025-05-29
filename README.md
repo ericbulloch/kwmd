@@ -92,6 +92,16 @@ If I wanted to specify where the save gets saved on my machine, I can just tell 
 
 This will save the note.txt file on the server as secret.txt on my machine in the /root directory.
 
+##### Destination File Path Does Not Exist
+
+If the destination path that was provided does not exist, I will get an error that says `No such file or directory`. In the following example, the `Documents` folder in the /root directory does not exist. This is the input and the error:
+
+```bash
+ftp> get note.txt /root/Documents/secret.txt
+local: /root/Documents/secret.txt remote: note.txt
+local: /root/Documents/secret.txt: No such file or directory
+```
+
 #### FTP Viewing File Contents
 
 View files is different in FTP. I have provided some examples of how not to do it:
