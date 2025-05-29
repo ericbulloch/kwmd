@@ -46,6 +46,16 @@ nmap -p- -Pn -T5 -v target.thm
 nmap -A -Pn -v target.thm -p 22,80
 ```
 
+### FTP
+
+FTP is a very common way in the real world for businesses to exchange files with each other without having to integrate with an API. It is also a place where a lot of people store a lot of files in capture the flag events that are loaded with juicy bits of information.
+
+#### Anonymous Login
+
+It is very easy to log into an FTP server as an anonymous user. I start by typing in the following command:
+
+`ftp 10.10.1.1`
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
