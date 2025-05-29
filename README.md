@@ -80,6 +80,18 @@ Using binary mode to transfer files.
 
 I navigate using the `cd` command to change directories, just like in Linux. The `ls` command is usable in FTP and works the same way as it does in Linux.
 
+#### FTP Downloading File
+
+Downloading a file from the ftp server to my machine is very simple. If I wanted to save the `note.txt` file that is in the current directory of the FTP server into the directory on my machine I was in when I ran the ftp command, I would run:
+
+`get note.txt`
+
+If I wanted to specify where the save gets saved on my machine, I can just tell the command where to save the file:
+
+`get note.txt /root/secret.txt`
+
+This will save the note.txt file on the server as secret.txt on my machine in the /root directory.
+
 #### FTP Viewing File Contents
 
 View files is different in FTP. I have provided some examples of how not to do it:
