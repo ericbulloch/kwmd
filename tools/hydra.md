@@ -142,7 +142,7 @@ or
 
 `hydra -l bob -P /usr/share/wordlists/rockyou.txt ssh:10.10.1.1`
 
-Hydra will then use go through each of the entries in the wordlist and report if any of the entries worked. The output will look like the following:
+Hydra will then use go through each of the entries in the wordlist and report if any of the entries worked. The output will look like the following when hydra finds the password:
 
 `[22][ssh] host: 10.10.1.1    login: bob     password: 123456`
 
