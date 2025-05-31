@@ -123,6 +123,12 @@ To view a file's contents without downloading it to my machine, I run the same c
 
 `get note.txt -`
 
+### POP3
+
+POP3 email servers are a great way to gather information for a capture the flag event. Once I learned what to type with netcat it became really easy to login, list emails and read emails. I'll also include a way to brute force a password with hydra.
+
+#### Connecting to POP3
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
