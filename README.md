@@ -320,6 +320,36 @@ In the event that they want a specific file extension like .jpg, I will try the 
 
 The `%00` is a null character for a url and marks the end of the string.
 
+### Decoding Text
+
+A lot of capture the flag events have text that has encoded in different formats. The servers in the capture the flag events will have passwords and other credentials encoded in different formats that I need to decode to move on to the next part of the event. I usually decode them on the [CyberChef website](https://cyberchef.com). Some of the formats can be decoded from the Linux terminal using some binaries that are available on Kali.
+
+I am converting the text "Anyone can learn about cyber security!" into different formats that I have seen in capture the flag events:
+
+#### Base32
+
+IFXHS33OMUQGGYLOEBWGKYLSNYQGCYTPOV2CAY3ZMJSXEIDTMVRXK4TJOR4SC===
+
+#### Base45
+
+AC8$FF1/DB44CECK44X C:KE944:JC8%EB44OFF5$CR44Z C6%E-ED4EF
+
+#### Base62
+
+K0964MlTDohPr4N5YafBjpSbo0l9algtO199y73ed1yOXwW2CfJ
+
+#### Base64
+
+QW55b25lIGNhbiBsZWFybiBhYm91dCBjeWJlciBzZWN1cml0eSE=
+
+#### Base85
+
+6#LsdDIjr#@;[3(ARTUs+CS_tF`\a9H"(?*+EM+(F`M2<Gp*
+
+#### Base92
+
+9!kped3j$2gQQqDrD:=AOSa>y{t_*fjGE_9wk<aO@\m1,]$
+
 ### SSH
 
 #### Initial Information
