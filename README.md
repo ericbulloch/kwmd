@@ -147,13 +147,13 @@ Here is my command prompt:
 
 ```bash
 +OK KWMD Capture the Flag POP3 Electronic-Mail System
-user test
+user Gustavo
 +OK
 pass letmein1!
 +OK Logged in.
 ```
 
-Just like that, I am now in the POP3 server logged in with the test user.
+Just like that, I am now in the POP3 server logged in with the Gustavo user.
 
 #### Listing Messages for User on POP3
 
@@ -161,7 +161,7 @@ The purpose of logging into the POP3 server with a user is to get the messages s
 
 ```bash
 +OK KWMD Capture the Flag POP3 Electronic-Mail System
-user test
+user Gustavo
 +OK
 pass letmein1!
 +OK Logged in.
@@ -169,9 +169,43 @@ list
 +OK 2 messages:
 1 631
 2 1048
+.
 ```
 
-I have found 2 messages for the test user. Next I'll show how to read them.
+I have found 2 messages for the Gustavo user. Next I'll show how to read them.
+
+#### Reading Messages for User on POP3
+
+The retr command is how I retrieve a message from the server so that I can view it. This command needs the id of the message that I got as output in the previous command. Here is a continuation of the prompt above and the message that it contained:
+
+```bash
++OK KWMD Capture the Flag POP3 Electronic-Mail System
+user Gustavo
++OK
+pass letmein1!
++OK Logged in.
+list
++OK 2 messages:
+1 631
+2 1048
+.
+retr 1
++OK 631 octets
+Return-Path: <root@ubuntu>
+X-Original-To: Gustavo
+Delivered-To: Gustavo@ubuntu
+Received: from ok (localhost [127.0.0.1])
+	by ubuntu (Postfix) with ESMTP id D5EDA454B1
+	for <Gustavo>; Tue, 10 Apr 2025 19:45:33 -0700 (PDT)
+Message-Id: <20250425024542.DEADBEEF11@ubuntu>
+Date: Tue, 10 Apr 2025 19:45:33 -0700 (PDT)
+From: them@ubuntu
+
+Gustavo, please you need to stop breaking Rufus' codes. Also, you are AAA supervisor for training. I will email you once a student is designated to you.
+
+Also, be cautious of possible network breaches. We have intel that DoomBlade is being sought after by a crime syndicate named OASIS.
+.
+```
 
 ### Website
 
