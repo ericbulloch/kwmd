@@ -155,6 +155,24 @@ pass letmein1!
 
 Just like that, I am now in the POP3 server logged in with the test user.
 
+#### Listing Messages for User on POP3
+
+The purpose of logging into the POP3 server with a user is to get the messages so I can read them and try to move onto the next step of the capture the flag. The list command will list all messages. The first number is the id of the email message and the next number is the size of the message. Below is the continuation of the prompt but with the listed messages:
+
+```bash
++OK KWMD Capture the Flag POP3 Electronic-Mail System
+user test
++OK
+pass letmein1!
++OK Logged in.
+list
++OK 2 messages:
+1 631
+2 1048
+```
+
+I have found 2 messages for the test user. Next I'll show how to read them.
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
