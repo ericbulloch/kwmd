@@ -129,6 +129,16 @@ POP3 email servers are a great way to gather information for a capture the flag 
 
 #### Connecting to POP3
 
+I use netcat to connect to a POP3 service. There are other clients and ways to do this but in a capture the flag event, I need something that is lightweight. I am not always guaranteed to have a GUI so learning a commandline tool like netcat has been very useful.
+
+For this example, my POP3 service is running on port 110 of my server which is located at 10.10.1.1. Here is how I connect to it:
+
+`nc target.thm 110`
+
+The banner for the email server will show something once you connect. In my case I got the following:
+
+`+OK KWMD Capture the Flag POP3 Electronic-Mail System`
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
