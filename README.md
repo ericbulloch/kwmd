@@ -207,6 +207,12 @@ Also, be cautious of possible network breaches. We have intel that DoomBlade is 
 .
 ```
 
+To read the second message I just need to type the following:
+
+`retr 2`
+
+POP3 is very straight forward and once I learned a few commands it became very easy to do what I needed for capture the flag events.
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
