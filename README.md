@@ -139,6 +139,22 @@ The banner for the email server will show something once you connect. In my case
 
 `+OK KWMD Capture the Flag POP3 Electronic-Mail System`
 
+#### Logging into POP3
+
+Now that I have connected to the POP3 server, I can log into the server. I'll need to send the user command with my username and then the pass command with my password. Since this is on port 110 and not 995, this traffic is in plain text.
+
+Here is my command prompt:
+
+```bash
++OK KWMD Capture the Flag POP3 Electronic-Mail System
+user test
++OK
+pass letmein1!
++OK Logged in.
+```
+
+Just like that, I am now in the POP3 server logged in with the test user.
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
