@@ -481,7 +481,7 @@ If I have a shell on a Linux machine, the goal is to become root. The process is
 
 This section will eventually become a whole page because of how much information it covers. New techniques are constantly being found, and researchers are finding new ways to exploit old systems and vulnerabilities. That is why this art and science intersect wonderfully here.
 
-I eventually find a way to run the [LinPEAS](tools/linpeas.sh) script somewhere on the machine. The insights that it provides are amazing! But I do not usually go straight to LinPEAS. I have a few commands that I run manually and check if they provide some quick wins. Here are the commands that I run and validate before I run LinPEAS:
+I eventually find a way to run the [LinPEAS](tools/linpeas.md) script somewhere on the machine. The insights that it provides are amazing! But I do not usually go straight to LinPEAS. I have a few commands that I run manually and check if they provide some quick wins. Here are the commands that I run and validate before I run LinPEAS:
 
 #### ls /home
 
