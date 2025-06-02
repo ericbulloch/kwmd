@@ -37,6 +37,11 @@ I do this so that I do not have to remember the IP address of the machine I am a
 
 Sometimes, as a sanity check, I will run `ping target.thm` or open a browser and type `http://target.thm` to make sure that everything is working.
 
+This does not solve all my problems. There are two scenarios where I couldn't just use target.thm for the rest of a capture the flag event:
+
+- A box will require a specific hostname to access their site and any subdomains. In this case, I added their specific domain name to my host file using the command above.
+- A box has a vulnerability that runs on their machine and it does not have target.thm in their host file.
+
 ### Port Scanning
 
 I have added information about this on my [nmap tool](../tools/nmap.md#port-scans) page in the Port Scans section. There are two commands that I generally run, and the provided link explains in detail what they are doing. Here are the commands:
