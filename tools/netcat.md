@@ -110,6 +110,6 @@ Cat will grab the text in output.txt and send it to my attack machine on port 44
 
 ## POP3
 
-Netcat is the tool I use when interacting with POP3. I have a write up that details interacting with [POP3](pop3.md) in my tools section. It covers the some of the more common scenarios that I have found during capture the flag events.
+Netcat is the tool I use when interacting with POP3. I have a write up that details interacting with [POP3](../services/pop3.md) in my services section. It covers the some of the more common scenarios that I have found during capture the flag events.
 
 All the examples and interactions use netcat.
