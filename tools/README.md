@@ -1,6 +1,6 @@
 # Tools
 
-I have included guides on how to use various tools and programs. Some of the tools are specific cyber security tools (hydra or john for example) while others are more general use (ssh or ftp for example). I reference these guides and commands while I work on bug bounties and capture the flag events. I frequently use them and update them.
+I have included guides on how to use various tools and programs. Some of the tools are specific cyber security tools (hydra or john for example) while others are more general use (ssh, ftp or netcat for POP3 for example). I reference these guides and commands while I work on bug bounties and capture the flag events. I frequently use them and update them.
 
 - [Binwalk](binwalk.md)
 - [dirb](dirb.md)
@@ -17,6 +17,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [nc - Netcat](netcat.md)
 - [Nikto](nikto.md)
 - [Nmap](nmap.md)
+- [POP3](pop3.md)
 - [SearchSploit](searchsploit.md)
 - [sqlmap](sqlmap.md)
 - [ssh](ssh.md)
