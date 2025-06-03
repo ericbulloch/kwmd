@@ -79,13 +79,13 @@ This file is a giant word list. I downloaded the file and ran the following comm
 
 `wc -l fsociety.dic`
 
-The file is over 800k lines. I wanted to see if there were duplicates. I ran the following command:
+The file is over 800k lines. I wanted to see if there were duplicates. The uniq tool will remove duplicate lines but they must be near each other. So I'll need to make sure the file is sorted as part of the command. I ran the following command:
 
-`uniq fsociety.dic | wc -l`
+`sort fsocity.dic | uniq | wc -l`
 
 There are only about 11k unique lines in this file. With that in mind, I saved a copy of the file with just the unique lines using the following command:
 
-`uniq fsociety.dic > test.txt`
+`sort fsocity.dic | uniq > test.txt`
 
 #### Admin Login Form
 
