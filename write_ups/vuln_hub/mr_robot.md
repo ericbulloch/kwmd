@@ -107,7 +107,7 @@ I see a login page and I started to try a few different combinations:
 
 None of these worked. I did notice that the error message doesn't give a generic "your username and password are incorrect" error message. It tells me "Invalid username. Lost your password?". I got the same error message when I tried a few different usernames. If I provide a correct username do I get a different message? So far the only information that I have is the dictionary file that I shortened earlier. I watch the login attempt in the Firefox developer toolbar so I can see the request. Since we have 11k lines in the dictionary file, I don't want to use Burp Suite since it throttles my brute force attempts. I want to use hydra. The command that I used is the following:
 
-`hydra -L test.txt -p admin 10.22.1.112 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=Invalid username'
+`hydra -L test.txt -p admin 10.22.1.112 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=Invalid username'`
 
 Here is a summary of what is happening:
 - The `-L` option lets hydra know that I want to use a word list of usernames.
