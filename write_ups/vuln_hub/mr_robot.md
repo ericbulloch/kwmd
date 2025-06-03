@@ -125,7 +125,7 @@ After running the command I got a valid username:
 
 Now that we have the username we need a password. I tried 2 things at once. I ran hydra with the username Elliot and the same word list that I was provided while I looked at some of the other results from dirb. I also took another look at the website pages again to see if there was anything I missed. It didn't take long for hydra to provide the password. Here is the hydra command that I ran:
 
-`hydra -l Elliot -P test.txt 10.22.1.112 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=is incorrect'
+`hydra -l Elliot -P test.txt 10.22.1.112 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=is incorrect'`
 
 Here is a summary of what is happening:
 - The `-l` option lets hydra know that I want to use Elliot as the username.
