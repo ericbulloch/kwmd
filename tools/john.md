@@ -168,3 +168,7 @@ One capture the flag event had a private ssh key available but they did not prov
 Then I ran john on the `rsa_john` file so that I it could find the passphrase. The command I ran was:
 
 `john rsa_john`
+
+I also run the following command frequently:
+
+`john --wordlist=/usr/share/wordlists/rockyou.txt rsa_john`
