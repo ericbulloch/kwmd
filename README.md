@@ -59,6 +59,30 @@ I have included a tool write up for the [ftp tool](tools/ftp.md) in my tools sec
 
 I have included a write up that details interacting with [pop3](services/pop3.md) in my services section. It covers the some of the more common scenarios that I have found during capture the flag events.
 
+### NFS
+
+NFS allows users to access and manage files on a remote server as if those files were on their local computer. The server drives need to be mounted on my machine so that I can see them and use them. Here is the command to see what drives are available on the remote machine:
+
+`showmount -e 10.10.1.1`
+
+This will output something like the following:
+
+```bash
+Export list for 10.10.1.1:
+/mnt/share *
+```
+
+The output tells me I can mount the folder /mnt/share that is on the server with the ip address 10.10.1.1. I usually create a folder with the same name as the drive and then mount that nfs drive to that folder. In this case, here is the commands I run:
+
+```bash
+mkdir share
+sudo mount -t nfs 10.10.1.1:/mnt/share share
+```
+
+Now I can access the folder and the files. There was a capture the flag event where I couldn't cd into the share directory. I was root on my machine and when I ran `cd share` I got the following error:
+
+`bash: cd: share/: Permission denied`
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
