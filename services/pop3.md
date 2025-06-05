@@ -4,9 +4,9 @@ POP3 email servers are a great way to gather information for a capture the flag 
 
 ## Connecting
 
-I use netcat to connect to a POP3 service. There are other clients and ways to do this but in a capture the flag event, I need something that is lightweight. I am not always guaranteed to have a GUI so learning a commandline tool like netcat has been very useful.
+I use netcat to connect to a pop3 service. There are other clients and ways to do this but in a capture the flag event, I need something that is lightweight. I am not always guaranteed to have a GUI so learning a commandline tool like netcat has been very useful.
 
-For this example, my POP3 service is running on port 110 of my server which is located at 10.10.1.1. Here is how I connect to it:
+For this example, my pop3 service is running on port 110 of my server which is located at 10.10.1.1. Here is how I connect to it:
 
 `nc 10.10.1.1 110`
 
@@ -16,7 +16,7 @@ The banner for the email server will show something once you connect. In my case
 
 ## Log In
 
-Now that I have connected to the POP3 server, I can log into the server. I'll need to send the user command with my username and then the pass command with my password. Since this is on port 110 and not 995, this traffic is in plain text.
+Now that I have connected to the pop3 server, I can log into the server. I'll need to send the user command with my username and then the pass command with my password. Since this is on port 110 and not 995, this traffic is in plain text.
 
 Here is my command prompt:
 
@@ -29,11 +29,11 @@ pass letmein1!
 +OK Logged in.
 ```
 
-Just like that, I am now in the POP3 server logged in with the Gustavo user.
+Just like that, I am now in the pop3 server logged in with the Gustavo user.
 
 ## Listing Messages for a User
 
-The purpose of logging into the POP3 server with a user is to get the messages so I can read them and try to move onto the next step of the capture the flag. The list command will list all messages. The first number is the id of the email message and the next number is the size of the message. Below is the continuation of the prompt but with the listed messages:
+The purpose of logging into the pop3 server with a user is to get the messages so I can read them and try to move onto the next step of the capture the flag. The list command will list all messages. The first number is the id of the email message and the next number is the size of the message. Below is the continuation of the prompt but with the listed messages:
 
 ```bash
 nc 10.10.1.1 110
