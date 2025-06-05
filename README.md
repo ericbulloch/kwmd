@@ -57,7 +57,7 @@ I have included a tool write up for the [ftp tool](tools/ftp.md) in my tools sec
 
 ### POP3
 
-I have included a write up that details interacting with [POP3](services/pop3.md) in my services section. It covers the some of the more common scenarios that I have found during capture the flag events.
+I have included a write up that details interacting with [pop3](services/pop3.md) in my services section. It covers the some of the more common scenarios that I have found during capture the flag events.
 
 ### Website
 
