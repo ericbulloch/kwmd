@@ -100,6 +100,8 @@ sudo usermod -u 1018 kwmd
 sudo groupmod -g 1018 kwmd
 ```
 
+After that I changed to the user by running `su kwmd`. From there, I was able to view the files in the nfs share.
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
