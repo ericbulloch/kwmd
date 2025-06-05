@@ -83,6 +83,23 @@ Now I can access the folder and the files. There was a capture the flag event wh
 
 `bash: cd: share/: Permission denied`
 
+I ran the following command to see what the permissions were for the share folder:
+
+```bash
+# ls -lh
+...
+drwx------ 2 1018 1018 4.0K Apr  2  2025 share
+...
+```
+
+The 1003 user and group didn't exist on my machine. Since I was root I added a user and set their user and group id to 1018. Here are the commands I ran:
+
+```bash
+sudo useradd kwmd
+sudo usermod -u 1018 kwmd
+sudo groupmod -g 1018 kwmd
+```
+
 ### Website
 
 This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
