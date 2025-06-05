@@ -2,13 +2,35 @@
 
 ## What is Insecure Design
 
+Insecure Design is building software without thinking enough about how to keep it safe from hackers. It refers to flaws in architecture and planning phases of software development. It’s not a bug in the code—it’s a flaw in how the system was intended to work from the beginning. It stems from insufficient thread modeling, lack of security-centric user stories, and absence of defense-in-depth.
+
+I want to reiterate, due to poor planning, architecture and design, **these issues exist regardless of how well the code is written**.
+
 ## Common Examples
+
+- No login required to use the app – Anyone can access it without proving who they are.
+- No limit on password tries – A hacker could keep guessing until they get in.
+- Sharing private info in public links – Like showing your diary on a billboard.
+- No security questions or recovery options – If you lose access, so can a hacker easily gain it.
+- No role-based access control (RBAC) – Users have more access than they should.
+- Hardcoded business rules that assume user honesty – Trusting client-side input without server verification.
+- Not using HTTPS for sensitive transactions – Leaves user data exposed to man-in-the-middle attacks.
+- Lack of security considerations in design documents – Leads to implementation without a secure foundation.
+- Business logic flaws – For example, refunding items without verifying the purchase state.
+- Missing secure-by-default settings – Allowing insecure configurations in production environments.
+- Improper data partitioning in multi-tenant environments – A tenant can access data from another tenant.
+- Lack of compensating controls for external integrations – Trusting third-party APIs without validation or isolation.
+- Inadequate threat modeling for privileged workflows – E.g., administrative interfaces accessible without sufficient segregation or audit logging.
 
 ## Practice Exploiting Insecure Design
 
 ### PortSwigger
 
 PortSwigger has multiple labs to see this vulnerability in action. The labs are online and require an account. Here are some labs:
+
+- [Insecure direct object references](https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references)
+- [OS command injection, simple case](https://portswigger.net/web-security/os-command-injection/lab-simple)
+- [CSRF vulnerability with no defenses](https://portswigger.net/web-security/csrf/lab-no-defenses)
 
 ### OWASP Juice Shop
 
@@ -24,6 +46,15 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 
 | Best Practice | Why It Matters |
 | ------------- | -------------- |
-| Example | Because |
+| Implement Threat Modeling Early | Identifies potential security issues during the design phase, allowing for proactive mitigation strategies. |
+| Adopt Secure Design Principles | Principles like least privilege, defense-in-depth, and fail-safe defaults help in building robust security into the system architecture. |
+| Define and Enforce Security Requirements | Clearly stated security requirements ensure that security is considered throughout the development lifecycle. |
+| Use Secure Design Patterns and Frameworks | Leveraging established secure design patterns reduces the likelihood of introducing vulnerabilities. |
+| Conduct Regular Design Reviews | Periodic reviews of the system design help in identifying and addressing security flaws before implementation. |
+| Educate Development Teams on Secure Design | Training developers on secure design principles fosters a security-first mindset, reducing the introduction of design flaws. |
+| Integrate Security into SDLC Processes | Incorporating security checkpoints into the Software Development Life Cycle ensures continuous attention to security concerns. |
+| Limit Exposure of Sensitive Data | Minimizing the collection and storage of sensitive data reduces the impact in case of a breach. |
+| Implement Proper Access Controls | Ensuring that users have access only to the resources they need prevents unauthorized access and potential data breaches. |
+| Plan for Secure Failure States | Designing systems to fail securely ensures that, in the event of a failure, the system does not expose sensitive information or become vulnerable to attacks. |
 
 ## Summary
