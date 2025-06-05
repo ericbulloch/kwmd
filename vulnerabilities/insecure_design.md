@@ -58,3 +58,5 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Plan for Secure Failure States | Designing systems to fail securely ensures that, in the event of a failure, the system does not expose sensitive information or become vulnerable to attacks. |
 
 ## Summary
+
+Insecure Design can be prevented. The software development process needs to establish and use a secure development lifecycle. The team needs to evaluate and design security and privacy-related controls. Threat modeling needs to occur for critical authentication, access control, business logic and key flows. Bad actor use cases need to be implemented that are based on that threat modeling. Unit and integration tests are needed to try and validate all critical flows that were written for bad actor use cases.
