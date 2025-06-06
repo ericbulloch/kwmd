@@ -16,7 +16,7 @@ There are many other checks and the list keeps growing. I download and follow th
 
 LinPEAS throws a lot of information at me all at once. Generally the first step is to download the file onto the machine. I almost always download the file into the `/tmp` directory since it is writable by all users. To download the file I run the following command:
 
-`wget https://github.com/peass-ng/PEASS-ng/releases/download/20250518-5781f7e5/linpeas.sh`
+`wget https://github.com/peass-ng/PEASS-ng/releases/download/20250601-88c7a0f6/linpeas.sh`
 
 This will save the file as linpeas.sh. Now I set the script to executable with the following command:
 
