@@ -22,6 +22,28 @@ This will save the file as linpeas.sh. Now I set the script to executable with t
 
 `chmod +x linpeas.sh`
 
+### Useful Options
+
+#### Pause execution between big blocks of checks
+
 Again, LinPEAS throws a lot of information at me. When I run it, I use the `-w` option so that it will pause between sections of the script. That way I can look over the report for just that small section and see if it reported anything that will help me escalate. Here is an example of the command:
 
 `./linpeas.sh -w`
+
+The output will now show results and then have `Press enter to continue` after a few sections have executed. Now I can review what was found and press enter when I am ready to continue.
+
+#### Only execute selected checks
+
+Sometimes I will get stuck and miss something during a capture the flag event. I'll look at a write up and it will tell me that they found something in LinPEAS that helped them. I don't want to wait for the entire script to run again so I will just run a single check. The `-o` option makes this possible. If I only wanted to run the system_information check, I would run the following:
+
+`./linpeas.sh -o system_information`
+
+I can also specify two or more checks by separating them with a comma. Here is an example:
+
+`./linpeas.sh -o system_information,procs_crons_timers_srvcs_sockets,interesting_files`
+
+#### Perform all checks
+
+There are a few checks that LinPEAS doesn't perform. Some of them are time consuming. If I include the `-a` flag, LinPEAS will run the extra checks. These checks include 1 min of processes, su brute, and extra checks. Here is an example of how to run this:
+
+`./linpeas.sh -a`
