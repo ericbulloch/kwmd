@@ -74,3 +74,13 @@ ftp> tail note.txt
 To view a file's contents without downloading it to my machine, I run the same command that was used to download the file except I add a `-` character at the end. Here is the command to view an FTP file:
 
 `get note.txt -`
+
+## Connecting to Non-Standard Port
+
+In the example above I connected to port 21 which is the standard ftp port. If I was connecting to a server that was running on a different port like 5555. I would need to use the following to connect:
+
+```bash
+ftp
+ftp> open 10.10.1.1 5555
+Connected to 10.10.1.1
+```
