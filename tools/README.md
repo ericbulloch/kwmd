@@ -11,7 +11,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [Hashcat](hashcat.md)
 - [Hydra](hydra.md)
 - [John the Ripper](john.md)
-- [linPEAS.sh](linpeas.md)
+- [LinPEAS.sh](linpeas.md)
 - [MSConsole](msconsole.md)
 - [MSFvenom](msfvenom.md)
 - [nc - Netcat](netcat.md)
