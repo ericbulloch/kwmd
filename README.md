@@ -384,3 +384,11 @@ This command is very simple. There are kernel attacks that can be run to get roo
 `Linux my_machine 5.15.0-124-generic #134~20.04.1-Ubuntu SMP Tue Oct 1 15:27:33 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux`
 
 I will type "Linux 5.15.0-124 CVE" into Google to see if there are any vulnerabilities.
+
+#### env
+
+I know that this is a simple command but it can give a lot of information. This will show paths that binaries are located in. Often times the user I am using has read/write permissions for that directory. Some variables can be hits about what software is running on the machine. It doesn't hurt to have a peek and the rewards can be amazing.
+
+#### groups and whoami /groups
+
+Both commands give information about what groups the user is apart of. The groups give clues about what a user has access to and where I need to look. For example, if I notice a use is a member of the adm group, I know that I can start to look at a lot of log files in /var/log since this group deals with system monitoring tasks.
