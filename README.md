@@ -349,6 +349,10 @@ Capture the flag events often have a script that runs every minute that I can ex
 
 `* * * * * /usr/bin/python /home/mike/backup.py`
 
+#### cat /etc/crontab
+
+Much like the previous command I seem to have better results when I run this command instead of the previous one. I find more crons with this command. They will follow the same format as the previous example.
+
 #### id
 
 The `id` command is one of the very first things I run when I log in with a new user on a Linux machine. The group information that it provides lets me know what my attack surface is with this user. For example, sometimes in a capture the flag event, I will run the `id` command and see that a user is in the adm group. This means that this user can read a lot of log files in the /var/log directory. Log files are full of useful information.
