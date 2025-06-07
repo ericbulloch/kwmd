@@ -204,7 +204,7 @@ In the event that they want a specific file extension like .jpg, I will try the 
 - .php.jpeg
 - .php%00.jpg
 
-The `%00` is a null character for a url and marks the end of the string.
+The `%00` is a null character for a url and marks the end of the string. I am at the mercy of however the server side was implemented. They might only be checking for .jpg in the file name or they might want it to end with that. The server side might also try to validate that the file starts with the correct file signature. The list of file signatures can be [found here](https://en.wikipedia.org/wiki/List_of_file_signatures).
 
 ### Decoding Text
 
