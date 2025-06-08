@@ -2,6 +2,10 @@
 
 The nikto tool is used as a vulnerability scanner for web servers. It tries to identify outdated software, dangerous files and misconfigurations. It can be very useful for finding ways that a server can be exploited.
 
+## TryHackMe Attack Box
+
+The version of nikto on the TryHackMe attack box is older. I have found that I get better results when I use a newer version of the tool. I have been cloning the [repository from GitHub](https://github.com/sullo/nikto) and following there instructions on the main README to run the latest version. The latest version gives better hints and tips out of the box. I strongly recommend using it over the one that comes preinstalled with the attack box.
+
 ## Usage
 
 Running `nikto -Help` provided the following output:
