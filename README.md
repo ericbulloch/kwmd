@@ -40,7 +40,7 @@ Sometimes, as a sanity check, I will run `ping target.thm` or open a browser and
 This does not solve all my problems. There are two scenarios where I couldn't just use target.thm for the rest of a capture the flag event:
 
 - A box will require a specific hostname to access their site and any subdomains. In this case, I added their specific domain name to my host file using the command above.
-- A box has a vulnerability that runs on their machine and it does not have target.thm in their host file.
+- A box has a vulnerability that calls out to the url that I provide. Since the target machine does not have target.thm in their host file it will fail to resolve an ip address. In this case, I will just provide the ip address of the target machine.
 
 ### Port Scanning
 
