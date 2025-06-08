@@ -377,6 +377,8 @@ If this command does not fail, it will tell me what scripts and binaries I can r
 
 The answers to all these questions get noted.
 
+If the output of this command produces `sudo NOPASSWD`, I will always check [GTFOBins](https://gtfobins.github.io/) for SUID and Sudo exploits. I will ask AI and Google to see if anyone has come up with a way to escalate with this command.
+
 #### uname -a
 
 This command is very simple. There are kernel attacks that can be run to get root access. I will take the output of this command and check if there are any CVEs related to this kernel. Here is some sample output when I run the `uname -a` command:
