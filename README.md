@@ -393,6 +393,10 @@ I know that this is a simple command but it can give a lot of information. This 
 
 Both commands give information about what groups the user is apart of. The groups give clues about what a user has access to and where I need to look. For example, if I notice a use is a member of the adm group, I know that I can start to look at a lot of log files in /var/log since this group deals with system monitoring tasks.
 
+#### grep -Ri "password" /home /opt 2>/dev/null
+
+Developers struggle to sanitize their logs before they write to file. So many capture the flag events have credentials in files. This command looks in two of the more common directories to contains passwords. It looks for the case-insensitive string "password". It will look in all files in the /home and /opt directories.
+
 #### ls -la /root /home/*/.*_history 2>/dev/null
 
 History files can contains passwords and usernames. These files can also include what software is on the system. Once the .bash_history file told me where some backup files were located on the machine. It had a script that was running the backups as root. I was able to alter the script that was running to become root. History files can be very helpful.
