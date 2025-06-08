@@ -51,6 +51,8 @@ nmap -p- -Pn -T5 -v target.thm
 nmap -A -Pn -v target.thm -p 22,80
 ```
 
+I use these two commands for nearly all of the capture the flag events that I do. There are a few scenarios where they don't work as well. Those cases are usually when the machine is using UDP instead of TCP.
+
 ### FTP
 
 I have included a tool write up for the [ftp tool](tools/ftp.md) in my tools section. It covers the some of the more common scenarios that I have found during capture the flag events.
