@@ -159,9 +159,9 @@ I still had to run the following command to see the cracked hash once john finis
 
 `john --format=raw-md5 hello.txt --show`
 
-### SSH
+### SSH Private Key
 
-One capture the flag event had a private ssh key available but they did not provide the passphrase for the ssh key. I needed to get the key so that I could use the ssh key and log into another machine. I have saved the rsa private key in the file `id_rsa`. I used the [ssh2john](https://raw.githubusercontent.com/openwall/john/bleeding-jumbo/run/ssh2john.py) script to convert the rsa private key to a format that john could understand. Here is the command I ran:
+One capture the flag event had a private ssh key available but they did not provide the passphrase for the ssh key. I needed to get the key so that I could use the ssh key and log into another machine. I saved the rsa private key in the file `id_rsa`. I used the [ssh2john](https://raw.githubusercontent.com/openwall/john/bleeding-jumbo/run/ssh2john.py) script to convert the rsa private key to a format that john could understand. Here is the command I ran to convert the private key to a format john could understand:
 
 `python3 ssh2john.py id_rsa > rsa_john`
 
@@ -169,6 +169,6 @@ Then I ran john on the `rsa_john` file so that I it could find the passphrase. T
 
 `john rsa_john`
 
-I also run the following command frequently:
+The previous command uses john's default wordlist. I frequently supply a wordlist with the following command:
 
 `john --wordlist=/usr/share/wordlists/rockyou.txt rsa_john`
