@@ -198,7 +198,11 @@ From here I'll see if I can upload the shell directly. If that fails I'll try di
 - .php3
 - .php4
 - .php5
+- .php7
 - .phtml
+- .phps
+- .pht
+- .phar
 
 In the event that they want a specific file extension like .jpg, I will try the following extensions:
 
