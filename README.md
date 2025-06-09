@@ -94,7 +94,7 @@ drwx------ 2 1018 1018 4.0K Apr  2  2025 share
 ...
 ```
 
-The 1003 user and group didn't exist on my machine. Since I was root I added a user and set their user and group id to 1018. Here are the commands I ran:
+The 1018 user and group didn't exist on my machine. Since I was root I added a user and set their user and group id to 1018. Here are the commands I ran:
 
 ```bash
 sudo useradd kwmd
