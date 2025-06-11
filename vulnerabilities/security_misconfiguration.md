@@ -44,7 +44,16 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 
 | Best Practice | Why It Matters |
 | ------------- | -------------- |
-| Example | Because |
+| Disable default/admin features in production | Prevents attackers from using built-in test tools or debug consoles. |
+| Remove directory listings | Avoid exposing file structures that reveal sensitive components. |
+| Turn off verbose error/debug modes | Prevents leaking internal paths, stack traces, and config details. |
+| Apply vendor hardening guides & patch regularly | Ensures servers and services are secure, reducing attack surface. |
+| Set secure HTTP headers (HSTS, CSP, CORS) | Blocks client-side attacks enabled by misconfigured headers . |
+| Restrict unnecessary services/ports | Reduces the number of potential entry points for attackers. |
+| Enforce principle of least privilege | Limits damage if a component gets compromised. |
+| Secure cloud configurations (e.g., AWS S3/VPC) | Misconfigured cloud services are a top cause of breaches. |
+| Regularly audit and review configurations | Detects drift, forgotten test environments, or insecure defaults. |
+| Ensure sensitive endpoints require authentication | Prevents exposures of admin or debug interfaces. |
 
 ## Summary
 
