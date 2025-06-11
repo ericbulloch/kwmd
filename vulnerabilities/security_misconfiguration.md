@@ -6,6 +6,20 @@ Security Misconfiguration is when systems, frameworks or servers are deployed wi
 
 ## Common Examples
 
+- Default passwords left on (like "admin:admin")
+- Directory listings turned on—anyone can browse your files
+- Settings open to everyone instead of just users/admins
+- Unpatched systems exposing known CVEs due to lax update policies
+- Verbose error messages revealing stack traces or backend tech
+- Public S3 buckets or unsecured cloud storage
+- Debug mode enabled in production environments
+- Over-permissive CORS configurations, allowing arbitrary sites to access sensitive APIs
+- Exposed admin panels (e.g., /phpmyadmin, Jenkins, or Grafana) without auth or protected by weak creds
+- Kubernetes dashboards exposed with cluster-admin roles and no RBAC
+- HTTP methods misconfigured—allowing PUT/DELETE where they shouldn’t be (leads to web shell uploads)
+- Misconfigured CSP headers allowing XSS via whitelisted wildcard domains
+- CI/CD pipelines exposing secrets in environment variables or build logs
+
 ## Practice Exploiting Security Misconfiguration
 
 ### PortSwigger
