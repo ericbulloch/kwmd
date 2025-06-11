@@ -26,6 +26,10 @@ Security Misconfiguration is when systems, frameworks or servers are deployed wi
 
 PortSwigger has multiple labs to see this vulnerability in action. The labs are online and require an account. Here are some labs:
 
+- [Using Burp to Test for Security Misconfiguration Issues](https://portswigger.net/support/using-burp-to-test-for-security-misconfiguration-issues)
+- [Lab: Authentication bypass via information disclosure](https://portswigger.net/web-security/information-disclosure/exploiting/lab-infoleak-authentication-bypass)
+- [Lab: CORS vulnerability with trusted insecure protocols](https://portswigger.net/web-security/cors/lab-breaking-https-attack)
+
 ### OWASP Juice Shop
 
 The OWASP Juice Shop is an open-source project that is intentionally vulnerable. It has many vulnerabilities and makes finding them a bit of a game using their scoreboard page. It can be accessed with Heroku or using Docker. I ran it using Docker and I seem to recall that one of the vulnerabilities will not work properly if you use Heroku. More information on the project and how to run it can [be found here](https://owasp.org/www-project-juice-shop/).
