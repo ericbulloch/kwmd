@@ -39,6 +39,7 @@ The OWASP Juice Shop is an open-source project that is intentionally vulnerable.
 TryHackMe has a couple rooms dedicated to this subject. The rooms are online and require an account. Here are some links to rooms that talk about Security Misconfiguration:
 
 - [OWASP Top 10 - 2021](https://tryhackme.com/room/owasptop102021)
+- [Attacking & Defending Core Services](https://tryhackme.com/module/attacking-defending-core-services)
 
 ## Best Practices
 
