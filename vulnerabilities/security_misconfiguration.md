@@ -47,3 +47,5 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Example | Because |
 
 ## Summary
+
+Systems, frameworks or servers that have been deployed need to have their settings hardened. Default credentials need to be changed. Error messages need to be examined to make sure they don't reveal too much information. Software with known CVEs (common vulnerabilities and exposures) need to be patched to limit the attack surface. The settings for an application need to follow the principle of least privilege. Software in production should not have debug settings since it can reveal too much information.
