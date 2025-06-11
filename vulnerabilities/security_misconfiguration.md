@@ -2,6 +2,8 @@
 
 ## What is Security Misconfiguration
 
+Security Misconfiguration is when systems, frameworks or servers are deployed with insecure settings. This can also include cases when unnecessary services are enabled, giving attackers room to exploit flaws. It is caused by overlooked defaults, missing hardening steps or improper permissions.
+
 ## Common Examples
 
 ## Practice Exploiting Security Misconfiguration
