@@ -99,6 +99,13 @@ ftp> open 10.10.1.1 5555
 Connected to 10.10.1.1
 ```
 
+or
+
+```bash
+ftp 10.10.1.1 2100
+Connected to 10.10.1.1
+```
+
 ## Upload File
 
 Uploading a file is very simple. In this example, I want to upload a file named shell.php. After I log into the system and navigate to the appropriate directory on the FTP server, I run the following command:
