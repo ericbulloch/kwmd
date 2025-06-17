@@ -6,4 +6,5 @@ Here are the list of write-ups that I have done for TryHackMe.
 
 - [Crack The Hash](crack_the_hash.md)
 - [Heartbleed](heartbleed.md)
+- [Ignite](ignite.md)
 - [ToolsRus](tools_r_us.md)
