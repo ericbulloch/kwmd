@@ -9,7 +9,10 @@
 
 ## Concepts/Tools Used
 
-- [Gobuster](../../tools/gobuster.md)
+- [netcat](../../tools/netcat.md)
+- [nmap](../../tools/nmap.md)
+- [Searchsploit](../../tools/searchsploit.md)
+- Base64 Encoding
 
 ## Room Description
 
