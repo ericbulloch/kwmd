@@ -409,6 +409,6 @@ Both commands give information about what groups the user is apart of. The group
 
 Developers struggle to sanitize their logs before they write to file. So many capture the flag events have credentials in files. This command looks in two of the more common directories to contains passwords. It looks for the case-insensitive string "password". It will look in all files in the /home and /opt directories.
 
-#### ls -la /root /home/*/.*_history 2>/dev/null
+#### `ls -la /root /home/*/.*_history 2>/dev/null`
 
 History files can contains passwords and usernames. These files can also include what software is on the system. Once the .bash_history file told me where some backup files were located on the machine. It had a script that was running the backups as root. I was able to alter the script that was running to become root. History files can be very helpful.
