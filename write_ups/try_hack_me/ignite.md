@@ -49,7 +49,7 @@ The nmap scan above mentioned the /fuel/ directory. When I browse that page I no
 
 ![Fuel CMS Login Page](../../images/write_ups/try_hack_me/ignite/login.png)
 
-I use the credentials found earlier, and I am in.
+I use the credentials found earlier, I am in.
 
 ## Getting a Foothold
 
@@ -172,7 +172,7 @@ Since the username is root. I tried to log in as the root user with that passwor
 $ su root
 ```
 
-It worked. I'm in! The cursor changed to the # character to let me know that I was root. I ran the following to get the flag:
+It worked. I'm in! The cursor changed to the # character to let me know that I am root. I ran the following to get the flag:
 
 ```bash
 # cat /root/root.txt
