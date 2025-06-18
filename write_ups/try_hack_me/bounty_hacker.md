@@ -184,7 +184,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-06-18 19:00:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-06-18 19:00:18
 ```
 
-It turns out that we can brute force the ssh service and hydra has given me the password.
+It turns out that I can brute force the ssh service and hydra has given me the password.
 
 ## Getting a Foothold
 
@@ -195,6 +195,15 @@ $ ssh REDACTED@target.thm
 ```
 
 I have a shell. I'm in!
+
+## user.txt
+
+I run ls and I see a file called user.txt. I run the following to get the first flag:
+
+```bash
+$ cat user.txt
+REDACTED
+```
 
 ## Privilege Escalation
 
