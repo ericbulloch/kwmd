@@ -4,9 +4,9 @@ The searchsploit tool is a useful commandline database that allows me to look up
 
 ## Python 2 Scripts
 
-Searchsploit is a fantastic that indexes CVEs and the scripts that were made for them. Many of the scripts found in this project were made before January 2020 when Python 2 reached end of life. These scripts can be ran using the TryHackMe attack box since it has Python 2 running on it. If there is a dependency package in these scripts for a third party package, I will look up the releases for the package on Pypi and get the last one before January 2020.
+Searchsploit is a fantastic tool that indexes CVEs and the scripts that were made for those CVEs. Many of the scripts found in this project were made before January 2020 when Python 2 reached end of life. These scripts can be ran using the TryHackMe attack box since it has Python 2 running on it (the python binary). If there is a dependency package in these scripts for a third party package, I will look up the releases for the package on PyPI and get the last one before January 2020.
 
-Usually allows me to run the script. The main way I determine if a script is Python 2 is the print statements. Python 2 didn't require parentheses when calling print, Python 3 does. I try to use my best judgement either way to determine if something can be ran as a Python 2 script or if it can be updated to Python 3.
+Usually this allows me to run the script. The two main ways I determine if a script is Python 2 is the print statements and the input command. Python 2 didn't require parentheses when calling print, Python 3 does. The input command handles input differently between Python 2 and Python 3. I try to use my best judgement either way to determine if something can be ran as a Python 2 script or if it can be updated to Python 3.
 
 ## Usage
 
