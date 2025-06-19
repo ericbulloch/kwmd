@@ -305,7 +305,7 @@ This section will eventually become a whole page because of how much information
 
 I eventually find a way to run the [LinPEAS](tools/linpeas.md) script somewhere on the machine. The insights that it provides are amazing! But I do not usually go straight to LinPEAS. I have a few commands that I run manually and check if they provide some quick wins. Here are the commands that I run and validate before I run LinPEAS:
 
-#### ls /home
+#### `ls /home`
 
 I want to know what users are on the machine. If possible, I will go into each user's directory and see what files and folders are available. These include things like the following:
 
@@ -318,11 +318,11 @@ So if the user mike has a folder in /home, I would run the following command to 
 
 `ls -lha /home/mike`
 
-#### cat /etc/passwd | grep '/bin/bash'
+#### `cat /etc/passwd | grep '/bin/bash'`
 
 If I can read the /etc/passwd file, it also has information about users of the system and where their home directory is located. Once in a while, the home directory of a user will not be in the /home folder. I am generally just looking for users that have a shell. The `grep '/bin/bash'` part of the command will filter out the users that do not have a shell.
 
-#### SUID Binaries
+#### `find / -perm -u=s -type f 2>/dev/null`
 
 The SUID (Set User ID) bit is a special permission that allows a user to run a binary with the privileges of the binary's owner, rather than their own user privileges. In other words, I can use a binary that root owns and run that binary as root instead of my regular user. An example of a binary that has the SUID bit set looks like the following:
 
@@ -353,17 +353,17 @@ nmap> !sh
 
 That will give you new shell as root. There are many examples of how you can exploit a binary with the SUID bit set. GTFOBins has a lot of good documentation around it.
 
-#### crontab -e
+#### `crontab -e`
 
 Capture the flag events often have a script that runs every minute that I can exploit to do privilege escalation. If my user has access, this will tell me what crons are running and how often. These jobs are for the current user. Here is a sample of a cron that runs each minute and runs a backup script in the user mike's home directory:
 
 `* * * * * /usr/bin/python /home/mike/backup.py`
 
-#### cat /etc/crontab
+#### `cat /etc/crontab`
 
 Much like the previous command I seem to have better results when I run this command instead of the previous one. I find more crons with this command. They will follow the same format as the previous example.
 
-#### id
+#### `id`
 
 The `id` command is one of the very first things I run when I log in with a new user on a Linux machine. The group information that it provides lets me know what my attack surface is with this user. For example, sometimes in a capture the flag event, I will run the `id` command and see that a user is in the adm group. This means that this user can read a lot of log files in the /var/log directory. Log files are full of useful information.
 
@@ -375,7 +375,7 @@ Here is some sample output for the `id` command:
 
 In this case, I would note that the ubuntu user is also in the postgres group. I would make sure I understood what that means and then check the output from the next few sections of commands.
 
-#### sudo -l
+#### `sudo -l`
 
 If this command does not fail, it will tell me what scripts and binaries I can run as root. From here, I note what commands and binaries can be run. I also look at the binaries, scripts, and their containing directories. I am specifically looking at the permissions. Here are some examples of what I am looking for:
 
@@ -389,7 +389,7 @@ The answers to all these questions get noted.
 
 If the output of this command produces `sudo NOPASSWD`, I will always check [GTFOBins](https://gtfobins.github.io/) for SUID and Sudo exploits. I will ask AI and Google to see if anyone has come up with a way to escalate with this command.
 
-#### uname -a
+#### `uname -a`
 
 This command is very simple. There are kernel attacks that can be run to get root access. I will take the output of this command and check if there are any CVEs related to this kernel. Here is some sample output when I run the `uname -a` command:
 
@@ -397,15 +397,15 @@ This command is very simple. There are kernel attacks that can be run to get roo
 
 I will type "Linux 5.15.0-124 CVE" into Google to see if there are any vulnerabilities.
 
-#### env
+#### `env`
 
 I know that this is a simple command but it can give a lot of information. This will show paths that binaries are located in. Often times the user I am using has read/write permissions for that directory. Some variables can be hits about what software is running on the machine. It doesn't hurt to have a peek and the rewards can be amazing.
 
-#### groups and whoami /groups
+#### `groups` and `whoami /groups`
 
 Both commands give information about what groups the user is apart of. The groups give clues about what a user has access to and where I need to look. For example, if I notice a use is a member of the adm group, I know that I can start to look at a lot of log files in /var/log since this group deals with system monitoring tasks.
 
-#### grep -Ri "password" /home /opt 2>/dev/null
+#### `grep -Ri "password" /home /opt 2>/dev/null`
 
 Developers struggle to sanitize their logs before they write to file. So many capture the flag events have credentials in files. This command looks in two of the more common directories to contains passwords. It looks for the case-insensitive string "password". It will look in all files in the /home and /opt directories.
 
