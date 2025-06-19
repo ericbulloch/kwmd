@@ -1,6 +1,12 @@
-# searchsploit
+# Searchsploit
 
 The searchsploit tool is a useful commandline database that allows me to look up a vulnerabilities in the [Exploit Database](https://www.exploit-db.com/searchsploit) based on the name and version of software. This information provides a list of known vulnerabilites and scripts that can be used to run against target machines. Once I install searchsploit on my machine I can look up vulnerabilites without using an internet connection.
+
+## Python 2 Scripts
+
+Searchsploit is a fantastic that indexes CVEs and the scripts that were made for them. Many of the scripts found in this project were made before January 2020 when Python 2 reached end of life. These scripts can be ran using the TryHackMe attack box since it has Python 2 running on it. If there is a dependency package in these scripts for a third party package, I will look up the releases for the package on Pypi and get the last one before January 2020.
+
+Usually allows me to run the script. The main way I determine if a script is Python 2 is the print statements. Python 2 didn't require parentheses when calling print, Python 3 does. I try to use my best judgement either way to determine if something can be ran as a Python 2 script or if it can be updated to Python 3.
 
 ## Usage
 
@@ -128,7 +134,7 @@ The above command is the same as running the following:
 
 `cp /opt/exploitdb/exploits/php/webapps/47887.py .`
 
-I run any python script with python3 because python has been end of life since January 1st, 2020. In the extremely rare event that a script needs python2, I will usually just update the script to work for python3. This script would not work with python2 since it uses the built in input command and that is handled slightly differently between python2 and python3.
+I try to run any python script with python3 because python 2 has been end of life since January 1st, 2020. This script would not work with python 2 since it uses the built in input command and that is handled slightly differently between python2 and python3.
 
 Now I run the command with the following:
 
