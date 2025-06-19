@@ -12,7 +12,7 @@
 - [netcat](../../tools/netcat.md)
 - [nmap](../../tools/nmap.md)
 - [Searchsploit](../../tools/searchsploit.md)
-- Base64 Encoding
+- base64
 
 ## Room Description
 
