@@ -16,6 +16,12 @@ Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). I am ranked in 
 
 The [tools folder](tools/) contains a list of tools that I regularly use and, most importantly, examples of how they are used. Most of the tools come by default with Kali Linux. I reference these pages often when I work on a capture the flag event.
 
+## Vulnerabilities
+
+The [vulnerabilities folder](vulnerabilities/) has information about the OWASP 2021 Top Ten vulnerabilities. Each vulnerabilitY is explained and examples of how it is found in the wild are provided.
+
+Each vulnerabilitY has a list of best practices and links to exercises that use that vulnerability.
+
 ## Write-Ups
 
 I want to help others who are learning about cybersecurity. There are many capture the flag machines and events available to learn from. Below is a list of platforms that have capture the flag machines, grouped by provider (TryHackMe, VulnHub, etc.). I then list the write-ups that I have for each platform.
