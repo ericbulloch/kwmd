@@ -12,6 +12,10 @@ Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). I am ranked in 
   <img src="images/kwmd.png" alt="kwmd TryHackMe Badge" />
 </a>
 
+## Concepts
+
+The [concepts folder](concepts/) contains a lit of concepts that are more than just a process, tool or idea. These are the things in cyber security that are very deep.
+
 ## Tools
 
 The [tools folder](tools/) contains a list of tools that I regularly use and, most importantly, examples of how they are used. Most of the tools come by default with Kali Linux. I reference these pages often when I work on a capture the flag event.
