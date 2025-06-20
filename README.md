@@ -2,6 +2,8 @@
 
 Welcome! This is my personal repository for all things cybersecurity. I keep notes for commands that I regularly use and write-ups for machines I have hacked on platforms like TryHackMe and VulnHub.
 
+**Everything in here is for educational purposes.**
+
 ## TryHackMe
 
 Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). I am ranked in the top 1%. Here is my badge for TryHackMe (generated June 6, 2025):
