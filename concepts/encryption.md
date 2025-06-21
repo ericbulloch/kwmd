@@ -4,9 +4,13 @@ Encryption is taking text and turning it into secret text called cipher text tha
 
 ## Text Encoding
 
-A lot of capture the flag events have text that has encoded in different formats. The servers in the capture the flag events will have passwords and other credentials encoded in different formats that I need to decode to move on to the next part of the event. I usually decode them on the [CyberChef website](https://cyberchef.com). Some of the formats can be decoded from the Linux terminal using some binaries that are available on Kali.
+Encoding is similar and related to encryption, with encryption focusing on data security and confidentiality, while encoding focuses on data usability and representation.
 
-I am converting the text "Anyone can learn about cyber security!" into different formats that I have seen in capture the flag events:
+Most capture the flag events have text that has been encoded in different formats. The servers in the capture the flag events will have passwords and other credentials encoded in different formats that I need to decode to move on to the next part of the event. I usually decode them on the [CyberChef website](https://cyberchef.com). Some of the formats can be decoded from the Linux terminal using some binaries that are available on Kali.
+
+### Sample Text
+
+I am encoding the text "Anyone can learn about cyber security!" into different formats that I have seen in capture the flag events:
 
 ### Base32
 
