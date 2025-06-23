@@ -22,9 +22,9 @@ The [tools folder](tools/) contains a list of tools that I regularly use and, mo
 
 ## Vulnerabilities
 
-The [vulnerabilities folder](vulnerabilities/) has information about the OWASP 2021 Top Ten vulnerabilities. Each vulnerabilitY is explained and examples of how it is found in the wild are provided.
+The [vulnerabilities folder](vulnerabilities/) has information about the OWASP 2021 Top Ten vulnerabilities. Each vulnerability is explained and examples of how it is found in the wild are provided.
 
-Each vulnerabilitY has a list of best practices and links to exercises that use that vulnerability.
+Each vulnerability has a list of best practices and links to exercises that use that vulnerability.
 
 ## Write-Ups
 
