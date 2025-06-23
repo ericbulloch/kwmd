@@ -58,7 +58,7 @@ This does not solve all my problems. There are two scenarios where I couldn't ju
 
 ### Port Scanning
 
-I have added information about this on my [nmap tool](../tools/nmap.md#port-scans) page in the Port Scans section.
+I have added information about this on my [nmap tool](tools/nmap.md#port-scans) page in the Port Scans section.
 
 I ususally just run the following command:
 
