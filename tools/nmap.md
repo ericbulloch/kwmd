@@ -137,99 +137,89 @@ Whatever ip address shows up in the results is the machine that I just imported 
 
 #### Original TCP Scan
 
-In a capture the flag event I usually run a port scan in 2 parts. I am using the hostname target.thm for this and future examples. The first command I run is:
+In a capture the flag event I usually run the following scan. I am using the hostname target.thm for this and future examples. Here is the command I run:
 
-`nmap -p- -Pn -T5 -v target.thm`
+```bash
+nmap -T4 -n -sC -sV -Pn -v -p- target.thm
+```
 
 This command does the following things:
 
-- The `-p-` option tells nmap to scan all ports.
+- The `-T4` option will cause nmap to run the scan at one of the fastest levels.
+- The `-n` option tells nmap to never resolve the DNS.
+- The `-sC` option is used to do a default script scan.
+- The `-sV` option probes any open ports to determine the service and version info.
 - The `-Pn` option tells nmap to skip host discovery.
-- The `-T5` option will cause nmap to run the scan at one of the fastest levels (insane speed).
 - The `-v` option tells nmap that I want verbose output from this scan.
+- The `-p-` option tells nmap to scan all ports.
 
 Here is some sample output from the above command when port 22 and 80 were found open on the target machine:
 
 ```bash
-Starting Nmap 7.80 ( https://nmap.org ) at 2025-04-21 15:30 BST
-Initiating ARP Ping Scan at 15:30
-Scanning target.thm (10.10.7.168) [1 port]
-Completed ARP Ping Scan at 15:30, 0.03s elapsed (1 total hosts)
-Initiating SYN Stealth Scan at 15:30
-Scanning target.thm (10.10.7.168) [65535 ports]
-Discovered open port 22/tcp on 10.10.7.168
-Discovered open port 80/tcp on 10.10.7.168
-Completed SYN Stealth Scan at 15:30, 1.81s elapsed (65535 total ports)
-Nmap scan report for target.thm (10.10.7.168)
-Host is up (0.00012s latency).
-Not shown: 65533 closed ports
-PORT   STATE SERVICE
-22/tcp open  ssh
-80/tcp open  http
-MAC Address: 02:42:CD:52:D4:57 (Unknown)
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-06-23 19:38 BST
+NSE: Loaded 151 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 19:38
+Completed NSE at 19:38, 0.00s elapsed
+Initiating NSE at 19:38
+Completed NSE at 19:38, 0.00s elapsed
+Initiating NSE at 19:38
+Completed NSE at 19:38, 0.00s elapsed
+Initiating ARP Ping Scan at 19:38
+Scanning target.thm (10.10.232.89) [1 port]
+Completed ARP Ping Scan at 19:38, 0.04s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 19:38
+Scanning target.thm (10.10.232.89) [65535 ports]
+Discovered open port 80/tcp on 10.10.232.89
+Discovered open port 25/tcp on 10.10.232.89
+Discovered open port 55006/tcp on 10.10.232.89
+Discovered open port 55007/tcp on 10.10.232.89
+Completed SYN Stealth Scan at 19:38, 2.19s elapsed (65535 total ports)
+Initiating Service scan at 19:38
+Scanning 4 services on target.thm (10.10.232.89)
+Completed Service scan at 19:39, 26.54s elapsed (4 services on 1 host)
+NSE: Script scanning 10.10.232.89.
+Initiating NSE at 19:39
+Completed NSE at 19:39, 7.21s elapsed
+Initiating NSE at 19:39
+Completed NSE at 19:40, 74.02s elapsed
+Initiating NSE at 19:40
+Completed NSE at 19:40, 0.00s elapsed
+Nmap scan report for target.thm (10.10.232.89)
+Host is up (0.00031s latency).
+Not shown: 65531 closed ports
+PORT      STATE SERVICE     VERSION
+25/tcp    open  smtp        Postfix smtpd
+|_smtp-commands: ubuntu, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, 
+|_ssl-date: TLS randomness does not represent time
+80/tcp    open  http        Apache httpd 2.4.7 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: GoldenEye Primary Admin Server
+55006/tcp open  ssl/unknown
+|_ssl-date: TLS randomness does not represent time
+55007/tcp open  pop3        Dovecot pop3d
+|_pop3-capabilities: UIDL RESP-CODES PIPELINING CAPA AUTH-RESP-CODE USER STLS SASL(PLAIN) TOP
+|_ssl-date: TLS randomness does not represent time
+MAC Address: 02:6E:1B:13:75:85 (Unknown)
 
+NSE: Script Post-scanning.
+Initiating NSE at 19:40
+Completed NSE at 19:40, 0.00s elapsed
+Initiating NSE at 19:40
+Completed NSE at 19:40, 0.00s elapsed
+Initiating NSE at 19:40
+Completed NSE at 19:40, 0.00s elapsed
 Read data files from: /usr/bin/../share/nmap
-Nmap done: 1 IP address (1 host up) scanned in 2.02 seconds
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 110.86 seconds
            Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
 ```
 
-Notice how fast this scan is with the `-T5` option (1.81 seconds to scan 65535 ports). If there are no ports open from the previous scan I will try a UDP scan. I have included that scan below.
+If there are no ports open from the previous scan I will try a UDP scan. I have included that scan below.
 
-#### Second TCP Scan
-
-Once this scan is complete and I have some ports that are reported as being up, I will run another command. I scan ports 22 and 80 from the previous output and get more information about the services running on thos ports. I run the following command to get more information for those ports:
-
-`nmap -p 22,80 -A -Pn -v target.thm`
-
-This command does the following:
-
-- The `-p 22,80` option tells nmap to scan ports 22 and 80.
-- The `-A` option tells nmap to try operating system detection, version detection, script scanning and also perform a traceroute.
-- The `-Pn` option tells nmap to skip host discovery.
-- The `-v` option tells nmap that I want verbose output from this scan.
-
-Here is some sample output from this command:
-
-```bash
-Starting Nmap 7.80 ( https://nmap.org ) at 2025-04-21 15:37 BST
-...
-Host is up (0.00034s latency).
-
-PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.11 (Ubuntu Linux; protocol 2.0)
-80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
-| http-methods: 
-|_  Supported Methods: GET POST OPTIONS HEAD
-|_http-server-header: Apache/2.4.41 (Ubuntu)
-|_http-title: My Super Amazing Website!
-MAC Address: 02:42:CD:52:D4:57 (Unknown)
-Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Aggressive OS guesses: Linux 3.1 (95%), Linux 3.2 (95%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (94%), Linux 3.10 - 3.13 (94%), Linux 3.8 (94%), ASUS RT-N56U WAP (Linux 3.4) (93%), Linux 3.16 (93%), Linux 2.6.32 (92%), Linux 2.6.39 - 3.2 (92%), Linux 3.1 - 3.2 (92%)
-No exact OS matches for host (test conditions non-ideal).
-Uptime guess: 6.032 days (since Tue Apr 15 14:51:39 2025)
-Network Distance: 1 hop
-TCP Sequence Prediction: Difficulty=262 (Good luck!)
-IP ID Sequence Generation: All zeros
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-
-TRACEROUTE
-HOP RTT     ADDRESS
-1   0.34 ms target.thm (10.10.7.168)
-
-NSE: Script Post-scanning.
-Initiating NSE at 15:37
-Completed NSE at 15:37, 0.00s elapsed
-Initiating NSE at 15:37
-Completed NSE at 15:37, 0.00s elapsed
-Initiating NSE at 15:37
-Completed NSE at 15:37, 0.00s elapsed
-Read data files from: /usr/bin/../share/nmap
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 11.12 seconds
-           Raw packets sent: 47 (3.672KB) | Rcvd: 31 (2.616KB)
-```
-
-I cut out some of the output to show some of the important parts of this scan. There are a lot of good things happening with this scan. Nmap is guessing the operating system, doing a traceroute and discovering the service and version number for ports 22 and 80. Based on the services that are running from the results I now move on to the next segment.
+I cut out some of the output to show some of the important parts of this scan. There are a lot of good things happening with this scan. Nmap is guessing the operating system, doing a traceroute and discovering the service and version number for ports 25, 80, 55006 and  55007. Based on the services that are running from the results, I start looking up vulnerabilities and manually check the services.
 
 #### UDP Scan
 
