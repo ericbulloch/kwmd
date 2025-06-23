@@ -135,7 +135,7 @@ Whatever ip address shows up in the results is the machine that I just imported 
 
 ### Known Machine IP Address
 
-#### Original TCP Scan
+#### Initial TCP Scan
 
 In a capture the flag event I usually run the following scan. I am using the hostname target.thm for this and future examples. Here is the command I run:
 
