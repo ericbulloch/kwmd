@@ -58,14 +58,15 @@ This does not solve all my problems. There are two scenarios where I couldn't ju
 
 ### Port Scanning
 
-I have added information about this on my [nmap tool](../tools/nmap.md#port-scans) page in the Port Scans section. There are two commands that I generally run, and the provided link explains in detail what they are doing. Here are the commands:
+I have added information about this on my [nmap tool](../tools/nmap.md#port-scans) page in the Port Scans section.
+
+I ususally just run the following command:
 
 ```bash
-nmap -p- -Pn -T5 -v target.thm
-nmap -A -Pn -v target.thm -p 22,80
+nmap -T4 -n -sC -sV -Pn -v -p- target.thm
 ```
 
-I use these two commands for nearly all of the capture the flag events that I do. There are a few scenarios where they don't work as well. Those cases are usually when the machine is using UDP instead of TCP.
+An explaination about this command can be found in the link above.
 
 ### FTP
 
