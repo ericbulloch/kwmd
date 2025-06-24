@@ -39,13 +39,7 @@ The SUID (Set User ID) bit is a special permission that allows a user to run a b
 
 `-rwsr-xr-x 1 root root 163K Apr   4  2025 /usr/bin/sudo`
 
-The SUID bit in this example is the `s` at the beginning of the user's privileges. Normally I would see `rwx`, but the `s` means that the file is executed with root's privileges.
-
-I search for these files with the following command:
-
-`find / -perm -u=s -type f 2>/dev/null`
-
-Here is an explanation of this command:
+Here is an explanation of the above command:
 
 - The `-type f` option tells find to look for files.
 - The `-perm -u=s` option tells find to look for files with the user SUID bit set.
