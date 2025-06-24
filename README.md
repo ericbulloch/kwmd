@@ -229,7 +229,7 @@ The `%00` is a null character for a url and marks the end of the string. I am at
 
 ### Decoding Text
 
-I have included a write up for the [text encoding](concepts/encryption.md#text-encoding) in my Encryption [concepts](concepts/README.md) section. It covers some of the more common scenarios that I have found during capture the flag events.
+I have included a write up for the [text encoding](concepts/cryptography.md#text-encoding) in my Cryptography [concepts](concepts/README.md) section. It covers some of the more common scenarios that I have found during capture the flag events.
 
 ### SSH
 
