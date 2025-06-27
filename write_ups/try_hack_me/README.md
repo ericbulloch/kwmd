@@ -6,6 +6,8 @@ Here are the list of write-ups that I have done for TryHackMe.
 
 - [Bounty Hacker](bounty_hacker.md)
 - [Crack The Hash](crack_the_hash.md)
+- [GamingServer](gaming_server.md)
+- [Gotta Catch'em All!](gotta_catch_em_all.md)
 - [Heartbleed](heartbleed.md)
 - [Ignite](ignite.md)
 - [Simple CTF](simple_ctf.md)
