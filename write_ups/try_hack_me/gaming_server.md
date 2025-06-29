@@ -4,7 +4,7 @@
 | ---------- | -------------------------------------------- |
 | Image | <img src="../../images/write_ups/try_hack_me/gaming_server/gaming_server.jpeg" alt="GamingServer" width="90"/> |
 | Room | GamingServer |
-| URL | [https://tryhackme.com/room/cowboyhacker](https://tryhackme.com/room/gamingserver) |
+| URL | [https://tryhackme.com/room/gamingserver](https://tryhackme.com/room/gamingserver) |
 | Difficulty | Easy |
 
 ## Concepts/Tools Used
