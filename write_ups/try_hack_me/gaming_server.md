@@ -82,3 +82,30 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 9.35 seconds
            Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
 ```
+
+SSH allows password login attempts. I start to check the site on port 80.
+
+Inspecting http://target.thm/ has an interesting comment in html:
+<!-- john, please add some actual content to the site! lorem ipsum is horrible to look at. -->
+
+It looks like I found a username. I check the robots.txt file and it shows the following:
+
+```bash
+user-agent: *
+Allow: /
+/uploads/
+```
+
+The uploads directory has a dictionary file dict.lst, I download it using the following command:
+
+```bash
+$ wget http://target.thm/dict.lst
+```
+
+Since I have a username and a dictionary, I try both on the ssh service for this machine using hydra. Here is the command I ran:
+
+```bash
+$ hydra -l john -P dict.lst target.thm ssh
+```
+
+That yield nothing.
