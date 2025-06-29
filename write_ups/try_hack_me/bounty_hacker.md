@@ -237,3 +237,12 @@ It worked. I'm in! The cursor changed to the # character to let me know that I a
 # cat /root/root.txt
 REDACTED
 ```
+
+## What is the user flag?
+
+I get the first flag by running the following command:
+
+```bash
+$ cat user.txt
+REDACTED
+```
