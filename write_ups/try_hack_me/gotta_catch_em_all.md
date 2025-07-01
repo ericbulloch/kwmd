@@ -123,5 +123,45 @@ Now I cat the grass-type.txt file that is in the P0kEmOn directory:
 
 ```bash
 $ cat P0kEmOn/grass-type.txt
+50 6f 4b 65 4d 6f 4e 7b 42 75 6c 62 61 73 61 75 72 7d
+```
+
+This text is hex encoded. I use From Hex on [CyberChef](https://gchq.github.io/CyberChef/) to get the flag.
+
+## Horizontal Privilege Escalation
+
+I continue to look through the other folders on in pokemon's home directory. I found something interesting in the Videos folder. There is a C++ file that has credentials. I get the credentials by using cat to view them:
+
+```bash
+$ cat Videos/Gotta/Catch/Them/ALL!/Could_this_be_what_Im_looking_for?.cplusplus
+# include <iostream>
+
+int main() {
+std::cout << "ash : REDACTED"
+return 0;
+}
+```
+
+I have a new username and password. I confirm that ash is in the /home directory by running:
+
+```bash
+$ ls /home
+ash pokemon roots-pokemon.txt
+```
+
+I run the following to become ash by running the following command:
+
+```bash
+$ su ash
+```
+
+Just like that I am now ash.
+
+## Who is Root's Favorite Pokemon?
+
+The /home/roots-pokemon.txt file is owned by ash. Now that I am ash, I cat the file to get the flag:
+
+```bash
+$ cat /home/roots-pokemon.txt
 REDACTED
 ```
