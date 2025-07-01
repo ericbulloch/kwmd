@@ -170,4 +170,4 @@ REDACTED
 
 I finished looking around all the other folders in pokemon's directory. Once I finished that, I looked around in ash's home directory. I didn't find anything interesting.
 
-
+I started looking around other common folders. I first checked /opt. I didn't find anything. I then moved to /var.
