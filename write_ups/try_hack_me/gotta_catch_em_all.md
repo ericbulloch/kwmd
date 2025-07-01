@@ -94,3 +94,34 @@ I decided to check the website by going to http://target.thm in Chrome. I inspec
 ```
 
 I checked the console which didn't show me much beside the names of some pokemon. Right above this comment there are 2 tags separated by a colon. This stumped me for a long time. I see usernames and passwords in the format `username:password` all the time. The tags above that comment had the format `<username>:<password>`. The tags threw me off. When I removed the tag brackets text text had the username and password format that I just mentioned. I used that username and password to ssh into the machine.
+
+I ran the following command:
+
+```bash
+$ ssh pokemon@target.thm
+```
+
+I have a shell. I'm in!
+
+## Find the Grass-Type Pokemon
+
+I ran the following to see what files are in the home directory:
+
+```bash
+$ ls -lha
+```
+
+In most capture the flag events there is a flag file in this directory. Since I don't see one here I look through all the directories in in this folder. I noticed that the Desktop directory has a P0kEmOn.zip file.
+
+I unzip the file by running:
+
+```bash
+$ unzip P0kEmOn.zip
+```
+
+Now I cat the grass-type.txt file that is in the P0kEmOn directory:
+
+```bash
+$ cat P0kEmOn/grass-type.txt
+REDACTED
+```
