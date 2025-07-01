@@ -165,3 +165,9 @@ The /home/roots-pokemon.txt file is owned by ash. Now that I am ash, I cat the f
 $ cat /home/roots-pokemon.txt
 REDACTED
 ```
+
+## Find the Water-Type Pokemon
+
+I finished looking around all the other folders in pokemon's directory. Once I finished that, I looked around in ash's home directory. I didn't find anything interesting.
+
+
