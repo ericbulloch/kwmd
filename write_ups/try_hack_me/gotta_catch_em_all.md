@@ -14,3 +14,73 @@
 ## Room Description
 
 This room is based on the original Pokemon series. Can you obtain all the Pokemon in this room?
+
+## Process
+
+Once the machine starts up I save the machine's ip address to my host file so that I can type `target.thm` instead of an ip address.
+
+I run nmap to see what ports are open:
+```bash
+$ nmap -T4 -n -sC -sV -Pn -v -p- target.thm
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-06-25 18:11 BST
+NSE: Loaded 151 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 18:11
+Completed NSE at 18:11, 0.00s elapsed
+Initiating NSE at 18:11
+Completed NSE at 18:11, 0.00s elapsed
+Initiating NSE at 18:11
+Completed NSE at 18:11, 0.00s elapsed
+Initiating ARP Ping Scan at 18:11
+Scanning target.thm (10.10.109.207) [1 port]
+Completed ARP Ping Scan at 18:11, 0.03s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 18:11
+Scanning target.thm (10.10.109.207) [65535 ports]
+Discovered open port 22/tcp on 10.10.109.207
+Discovered open port 80/tcp on 10.10.109.207
+Completed SYN Stealth Scan at 18:11, 1.47s elapsed (65535 total ports)
+Initiating Service scan at 18:11
+Scanning 2 services on target.thm (10.10.109.207)
+Completed Service scan at 18:11, 6.04s elapsed (2 services on 1 host)
+NSE: Script scanning 10.10.109.207.
+Initiating NSE at 18:11
+Completed NSE at 18:11, 0.09s elapsed
+Initiating NSE at 18:11
+Completed NSE at 18:11, 0.01s elapsed
+Initiating NSE at 18:11
+Completed NSE at 18:11, 0.00s elapsed
+Nmap scan report for target.thm (10.10.109.207)
+Host is up (0.00014s latency).
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 58:14:75:69:1e:a9:59:5f:b2:3a:69:1c:6c:78:5c:27 (RSA)
+|   256 23:f5:fb:e7:57:c2:a5:3e:c2:26:29:0e:74:db:37:c2 (ECDSA)
+|_  256 f1:9b:b5:8a:b9:29:aa:b6:aa:a2:52:4a:6e:65:95:c5 (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+| http-methods:
+|_  Supported Methods: POST OPTIONS GET HEAD
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Can You Find Them All?
+MAC Address: 02:2B:68:F5:74:69 (Unknown)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+Initiating NSE at 18:11
+Completed NSE at 18:11, 0.00s elapsed
+Initiating NSE at 18:11
+Completed NSE at 18:11, 0.00s elapsed
+Initiating NSE at 18:11
+Completed NSE at 18:11, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.36 seconds
+           Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
+```
+
+I check the ssh service on port 22, it allows password authentication. I checked it by running:
+
+```bash
+$ ssh target.thm
+```
