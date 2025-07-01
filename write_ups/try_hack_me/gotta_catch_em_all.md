@@ -84,3 +84,13 @@ I check the ssh service on port 22, it allows password authentication. I checked
 ```bash
 $ ssh target.thm
 ```
+
+## Getting a Foothold
+
+I decided to check the website by going to http://target.thm in Chrome. I inspect the html and I see the following comment:
+
+```bash
+<!--(Check console for extra surprise!)-->
+```
+
+I checked the console which didn't show me much beside the names of some pokemon. Right above this comment there are 2 tags separated by a colon. This stumped me for a long time. I see usernames and passwords in the format `username:password` all the time. The tags above that comment had the format `<username>:<password>`. The tags threw me off. When I removed the tag brackets text text had the username and password format that I just mentioned. I used that username and password to ssh into the machine.
