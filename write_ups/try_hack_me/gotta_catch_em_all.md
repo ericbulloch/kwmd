@@ -170,4 +170,11 @@ REDACTED
 
 I finished looking around all the other folders in pokemon's directory. Once I finished that, I looked around in ash's home directory. I didn't find anything interesting.
 
-I started looking around other common folders. I first checked /opt. I didn't find anything. I then moved to /var.
+I started looking around other common folders. I first checked /opt. I didn't find anything. I then moved to /var. In the /var/www/html folder has a file called water-type.txt. I viewd the contents of it with the following command:
+
+```bash
+$ cat /var/www/html/water-type.txt
+Ecgudfxq_EcGmP{Ecgudfxq}
+```
+
+This text is encoded in ROT13 so I used the ROT13 recipe on [CyberChef](https://gchq.github.io/CyberChef/) to break it. This recipe has an amount you can change, I adjust it to 14 and it give the flag.
