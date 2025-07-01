@@ -178,3 +178,21 @@ Ecgudfxq_EcGmP{Ecgudfxq}
 ```
 
 This text is encoded in ROT13 so I used the ROT13 recipe on [CyberChef](https://gchq.github.io/CyberChef/) to break it. This recipe has an amount you can change, I adjust it to 14 and it give the flag.
+
+## Find the Fire-Type Pokemon
+
+At this point all the files have had the same format for the name. I run the following command to locate the fire-type.txt file:
+
+```bash
+$ find / -type f -name fire*.txt 2>/dev/null
+/etc/why_am_i_here?/fire-type.txt
+```
+
+I cat the file:
+
+```bash
+$ cat /etc/why_am_i_here?/fire-type.txt
+UDBrM20wbntDaGFybWFuZGVyfQ==
+```
+
+This text is base64 encoded I can tell from the = characters at the end. I used the From Base64 recipe on [CyberChef](https://gchq.github.io/CyberChef/) to break it.
