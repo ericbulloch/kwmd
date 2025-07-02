@@ -92,6 +92,62 @@ Nmap done: 1 IP address (1 host up) scanned in 9.95 seconds
 
 Looking at the nmap output above, Apache is running on ports 80 and 8080. The version is 2.4.29.
 
-## What port on this machine not need to be authenticated by user and password?
+## What port on this machine does not need to be authenticated by user and password?
 
-This question slightly vague. Port 22 is ssh and it requires an ssh key or a username and password combination. But that is not the answer it is looking for. I pull up the site in Chrome by navigating to http://target.thm. This site is using basic authentication. Since this is http and a port wasn't specified it defaults to 80.
+Port 22 is ssh and it requires an ssh key or a username and password combination, so it can't be this port. That means it has to be either port 80 or 8080. I pull up the site in Chrome by navigating to http://target.thm. This page isn't using basic authentication. Since the url is http protocol and a port wasn't specified it defaults to 80. That is the answer.
+
+## There is a file on this port that seems to be secret, what is it?
+
+The question is asking for a specific file. I inspected the html source code and didn't see a commented directory. The html comments on this capture the flag site are comments of the Joker character in movies and shows.
+
+Since it is asking for a file, I run the following command to enumerate files:
+
+```bash
+$ gobuster dir -u http://target.thm -w /usr/share/wordlists/dirb/common.txt -x txt,php,zip
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://target.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirb/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Extensions:              zip,txt,php
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+...
+/phpinfo.php          (Status: 200) [Size: 94750]
+/secret.txt           (Status: 200) [Size: 320]
+...
+```
+
+I made sure to include `-x txt,php,zip` to let gobuster know what files I am specifically looking for. The file is secret.txt
+
+## There is another file which reveals information of the backend, what is it?
+
+The other file listed in the output from gobuster is the file that tell a lot about the backend. Going to http://target.thm/phpinfo.php displays all the output from the phpinfo() function. This is something that should not make it to production.
+
+## When reading the secret file, We find with a conversation that seems contains at least two users and some keywords that can be interesting, what user do you think it is?
+
+I download the secret.txt file with the following command:
+
+```bash
+$ wget http://target.thm/secret.txt
+```
+
+Then I output the text in this file by running the following:
+
+```bash
+$ cat secret.txt 
+Batman hits Joker.
+Joker: "Bats you may be a rock but you won't break me." (Laughs!)
+Batman: "I will break you with this rock. You made a mistake now."
+Joker: "This is one of your 100 poor jokes, when will you get a sense of humor bats! You are dumb as a rock."
+Joker: "HA! HA! HA! HA! HA! HA! HA! HA! HA! HA! HA! HA!"
+```
+
+There are a lot of hints in this conversation. I see two usernames batman and joker. Batman hints that he can break Joker with a rock. This is a reference that using the rockyou.txt wordlist will crack the joker. This means that joker is the user and their password is in the rockyou.txt file.
