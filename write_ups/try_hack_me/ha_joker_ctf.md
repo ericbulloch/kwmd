@@ -88,3 +88,10 @@ Nmap done: 1 IP address (1 host up) scanned in 9.95 seconds
            Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
 ```
 
+## What version of Apache is it?
+
+Looking at the nmap output above, Apache is running on ports 80 and 8080. The version is 2.4.29.
+
+## What port on this machine not need to be authenticated by user and password?
+
+This question slightly vague. Port 22 is ssh and it requires an ssh key or a username and password combination. But that is not the answer it is looking for. I pull up the site in Chrome by navigating to http://target.thm. This site is using basic authentication. Since this is http and a port wasn't specified it defaults to 80.
