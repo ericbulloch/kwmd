@@ -359,3 +359,9 @@ www-data lxd
 ```
 
 I spawn a tty shell by following [the guide here](../../README.md#stable-shell)
+
+## Privilege Escalation
+
+The lxd group (pronounced lex dee) is the clue. The lxd binary runs containers on the Linux machine. The steps that I will be taking for this are identical to what I used on the [GamingServer](./gaming_server.md#privilege-escalation) write up.
+
+
