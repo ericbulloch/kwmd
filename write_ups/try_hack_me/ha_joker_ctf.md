@@ -119,10 +119,26 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 Starting gobuster in directory enumeration mode
 ===============================================================
-...
-/phpinfo.php          (Status: 200) [Size: 94750]
+/.php                 (Status: 403) [Size: 275]
+/.hta.php             (Status: 403) [Size: 275]
+/.hta                 (Status: 403) [Size: 275]
+/.hta.zip             (Status: 403) [Size: 275]
+/.htaccess.txt        (Status: 403) [Size: 275]
+/.htaccess            (Status: 403) [Size: 275]
+/.htpasswd.php        (Status: 403) [Size: 275]
+/.htaccess.zip        (Status: 403) [Size: 275]
+/.htpasswd.zip        (Status: 403) [Size: 275]
+/.htpasswd.txt        (Status: 403) [Size: 275]
+/.htpasswd            (Status: 403) [Size: 275]
+/.htaccess.php        (Status: 403) [Size: 275]
+/.hta.txt             (Status: 403) [Size: 275]
+/css                  (Status: 301) [Size: 306] [--> http://target.thm/css/]
+/img                  (Status: 301) [Size: 306] [--> http://target.thm/img/]
+/index.html           (Status: 200) [Size: 5954]
+/phpinfo.php          (Status: 200) [Size: 94759]
+/phpinfo.php          (Status: 200) [Size: 94759]
 /secret.txt           (Status: 200) [Size: 320]
-...
+/server-status        (Status: 403) [Size: 275]
 ```
 
 I made sure to include `-x txt,php,zip` to let gobuster know what files I am specifically looking for. The file is secret.txt
@@ -175,4 +191,108 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-07-02 17:46:
 Hydra very quickly found the password and I am able to log into the site.
 
 ## Yeah!! We got the user and password and we see a cms based blog. Now check for directories and files in this port. What directory looks like as admin directory?
+
+I need to run gobuster again. The command is the same as before except it now specifies port 8080, username joker and the password found earlier. Here is the command:
+
+```bash
+$ gobuster dir -u http://target.thm:8080 -w /usr/share/wordlists/dirb/common.txt -U joker -P REDACTED -x txt,php,zip
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://target.thm:8080
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirb/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Auth User:               joker
+[+] Extensions:              php,zip,txt
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.php                 (Status: 403) [Size: 277]
+/.hta.txt             (Status: 403) [Size: 277]
+/.hta                 (Status: 403) [Size: 277]
+/.htaccess.txt        (Status: 403) [Size: 277]
+/.htaccess.zip        (Status: 403) [Size: 277]
+/.htaccess            (Status: 403) [Size: 277]
+/.htpasswd.php        (Status: 403) [Size: 277]
+/.htpasswd            (Status: 403) [Size: 277]
+/.htpasswd.zip        (Status: 403) [Size: 277]
+/.htpasswd.txt        (Status: 403) [Size: 277]
+/.htaccess.php        (Status: 403) [Size: 277]
+/.hta.zip             (Status: 403) [Size: 277]
+/.hta.php             (Status: 403) [Size: 277]
+/administrator        (Status: 301) [Size: 323] [--> http://target.thm:8080/administrator/]
+/backup               (Status: 200) [Size: 12133560]
+/backup.zip           (Status: 200) [Size: 12133560]
+/bin                  (Status: 301) [Size: 313] [--> http://target.thm:8080/bin/]
+/cache                (Status: 301) [Size: 315] [--> http://target.thm:8080/cache/]
+/components           (Status: 301) [Size: 320] [--> http://target.thm:8080/components/]
+/configuration.php    (Status: 200) [Size: 0]
+/images               (Status: 301) [Size: 316] [--> http://target.thm:8080/images/]
+/includes             (Status: 301) [Size: 318] [--> http://target.thm:8080/includes/]
+/index.php            (Status: 200) [Size: 10939]
+/index.php            (Status: 200) [Size: 10939]
+/language             (Status: 301) [Size: 318] [--> http://target.thm:8080/language/]
+/layouts              (Status: 301) [Size: 317] [--> http://target.thm:8080/layouts/]
+/libraries            (Status: 301) [Size: 319] [--> http://target.thm:8080/libraries/]
+/LICENSE              (Status: 200) [Size: 18092]
+/LICENSE.txt          (Status: 200) [Size: 18092]
+/media                (Status: 301) [Size: 315] [--> http://target.thm:8080/media/]
+/modules              (Status: 301) [Size: 317] [--> http://target.thm:8080/modules/]
+/plugins              (Status: 301) [Size: 317] [--> http://target.thm:8080/plugins/]
+/README               (Status: 200) [Size: 4494]
+/README.txt           (Status: 200) [Size: 4494]
+/robots               (Status: 200) [Size: 836]
+/robots.txt           (Status: 200) [Size: 836]
+/robots.txt           (Status: 200) [Size: 836]
+/server-status        (Status: 403) [Size: 277]
+/templates            (Status: 301) [Size: 319] [--> http://target.thm:8080/templates/]
+/tmp                  (Status: 301) [Size: 313] [--> http://target.thm:8080/tmp/]
+/web.config.txt       (Status: 200) [Size: 1690]
+/web.config           (Status: 200) [Size: 1690]
+```
+
+Looking over the results the only directory that immediately looks like an admin directory is the /administrator directory.
+
+## We need access to the administration of the site in order to get a shell, there is a backup file, What is this file?
+
+The output from the above gobuster command shows that there is a zip file called backup.zip.
+
+## We have the backup file and now we should look for some information, for example database, configuration files, etc ... But the backup file seems to be encrypted. What is the password?
+
+First things first, I need to download the backup file. I use the following command:
+
+```bash
+$ wget http://target.thm:8080/backup.zip --user=joker --password=REDACTED
+```
+
+I tried to unzip the backup.zip file and it asked for a password. Here is the command I used to try to unzip the file:
+
+```bash
+$ unzip backup.zip
+```
+
+I tried the password that I found earlier and it worked. If I ever needed to crack a zip password, I would follow the steps on my [john tool page](../../tools/john.md#zip-archive-file).
+
+This unzipped two folders, db and site.
+
+## Remember that... we need access to the administration of the site... Blah blah blah. In our new discovery we see some files that have compromising information, maybe db? Ok, what if we do a restoration of the database! Some tables must have something like user_table! What is the super duper user?
+
+After unzipping the backup.zip file, I went into the db folder. There is a single file called joomladb.sql in this folder. Since this is a .sql file, I can search the file or I can as the question states import the file into a sql database.
+
+I took the lazy approach and searched the file. I ran a single command to see if I could find the spot in the file that has the "user_table". I was trying to find lines that had "_user" in them. As it turned out, the last entry had what I was looking for:
+
+```bash
+$ grep '_user' joomladb.sql
+...
+INSERT INTO `cc1gr_users` VALUES (547,'Super Duper User','admin','admin@example.com','$2y$10$b43UqoH5UpXokj2y9e/8U.LD8T3jEQCuxG2oHzALoJaj9M5unOcbG',0,1,'2019-10-08 12:00:15','2019-10-25 15:20:02','0','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}','0000-00-00 00:00:00',0,'','',0);
+/*!40000 ALTER TABLE `cc1gr_users` ENABLE KEYS */;
+```
+
+Those are the last two lines out the grep search. The super duper user is admin.
+
 
