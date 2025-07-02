@@ -9,7 +9,9 @@
 
 ## Concepts/Tools Used
 
-
+- [gobuster](../../tools/gobuster.md)
+- [hydra](../../tools/hydra.md)
+- [john](../../tools/john.md)
 
 ## Room Description
 
@@ -320,3 +322,40 @@ Session completed.
 John was able to quickly crack this password.
 
 ## At this point, you should be upload a reverse-shell in order to gain shell access. What is the owner of this session?
+
+I go to http://target.thm:8080/administrator and log in as the user admin with the password that john just cracked. This opens us the Joomla control panel.
+
+Joomla is a content management system (CMS) that makes it easier to make a website. One of the features it provides is a way to style your content in different ways. From the homepage of the control panel I went to Extensions > Templates > Templates. There are two different templates that are listed so I need to know which one is the current one.
+
+To find out which one is active, I go back to the homepage of the control panel and click Templates on the left hand side. This shows that protostar is the default.
+
+Now that I know which one is the default, I go back to Extensions > Templates > Templates and click protostar. On the left hand side I click index.php. I copy the [php-reverse-shell](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) and paste it on the top of the index.php file. I update the script to use my attack machine ip address and port 4444. I save the file.
+
+### Getting a Foothold
+
+I start a listening netcat session on my attack machine by running the following:
+
+```bash
+$ nc -lnvp 4444
+```
+I then load the page at http://target.thm:8080
+
+I have a shell. I'm in!
+
+I run the following command to see what user I am running this shell as:
+
+```bash
+$ whoami
+www-data
+```
+
+## This user belongs to a group that differs on your own group, What is this group?
+
+I look at the groups for this user by running:
+
+```bash
+$ groups
+www-data lxd
+```
+
+I spawn a tty shell by following [the guide here](../../README.md#stable-shell)
