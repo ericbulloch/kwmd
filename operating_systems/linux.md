@@ -52,3 +52,11 @@ Step 5 - Start the container.
 ```bash
 $ lxc start kwmd
 ```
+
+Step 6 - Enter the container with a shell.
+
+```bash
+$ lxc exec kwmd /bin/sh
+```
+
+The cursor will show up as a # character to let me know I am root.
