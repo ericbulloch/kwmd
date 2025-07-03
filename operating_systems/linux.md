@@ -38,3 +38,11 @@ $ lxc init alpine kwmd -c security.privileged=true
 ```
 
 The security.privileged=true configuration option maps the container uid 0 to the host's uid 0. In other words, the container's user is root and will run as root on the host machine.
+
+Step 4 - Map the host hard drive to the container hard drive.
+
+```bash
+$ lxc config device add kwmd mydrive disk source=/ path=/mnt/root recursive=true
+```
+
+This mounts the / directory on the host to the /mnt/root directory in the container. This combined with the security.privileged=true in step 3 is very dangerous.
