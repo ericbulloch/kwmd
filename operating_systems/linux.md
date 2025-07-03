@@ -30,3 +30,11 @@ I normally check if it imported by running the following:
 ```bash
 $ lxc image list
 ```
+
+Step 3 - Create a container from the image named kwmd.
+
+```bash
+$ lxc init alpine kwmd -c security.privileged=true
+```
+
+The security.privileged=true configuration option maps the container uid 0 to the host's uid 0. In other words, the container's user is root and will run as root on the host machine.
