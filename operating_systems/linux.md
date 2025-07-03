@@ -10,8 +10,16 @@ I can create or download an image, start multiple containers from that single im
 
 The lxc command is used to start and stop containers. To use the lxd and lxc binaries my user was in the lxd group.
 
-Below is an example of how to download an alpine image from github and then run the container.
+Below is an example of how to download an alpine image from github and then run the container. Some of the file names may have changed but the concept should be the same.
+
+Step 1 - Download the image
 
 ```bash
 $ git clone https://github.com/saghul/lxd-alpine-builder.git
+```
+
+Step 2 - Import the image
+
+```bash
+$ cd lxd-alpine-builder
 ```
