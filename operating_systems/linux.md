@@ -1,6 +1,6 @@
 # Linux
 
-I wanted to list some concepts, terms and flows that are specific to Linux. Learning more about Linux has made me a better and more effcient pentration tester.
+I wanted to list some concepts, terms and flows that are specific to Linux. Learning more about Linux has made me a better and more effcient pentration tester. There is a lot of information to cover. I use this page as a reference.
 
 ## Basic Commands
 
