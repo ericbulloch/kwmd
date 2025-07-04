@@ -2,6 +2,29 @@
 
 I wanted to list some concepts, terms and flows that are specific to Linux. Learning more about Linux has made me a better and more effcient pentration tester.
 
+## Basic Commands
+
+There are some commands that I use all the time. I have put together a list of the most common commands I use while doing a capture the flag event. All the commands have optional flags that can enhance what the commands do. When I need help with a command I run `man <command>` to get a more detailed description of each command. Here are the most common commands that I use:
+
+| Command | Purpose |
+| ------------- | -------------- |
+| ls | Lists files and directories in the current location. |
+| cd | Changes the current directory. |
+| pwd | Prints the current working directory. |
+| mkdir | Creates a new directory. |
+| rm | Removes files or directories. |
+| cp | Copies files or directories. |
+| mv | Moves or renames files and directories. |
+| touch | Creates an empty file or updates timestamps. |
+| cat | Displays file contents. |
+| nano or vim | Opens a text editor, nano is more beginner friendly. |
+| chmod | Changes file permissions. |
+| chown | Changes file ownership. |
+| find | Searches for files and directories. |
+| grep | Searches text using patterns (regex). |
+| ps aux | Lists all running processes. |
+| kill | Terminates processes by PID or name. |
+
 ## LXD (pronounced lex-dee)
 
 LXD is used to manage virtual machines and system containers. It has very minimal overhead. I have used both Docker and Podman in the past and it works very similar to both.
