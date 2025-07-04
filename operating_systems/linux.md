@@ -17,6 +17,10 @@ There are some commands that I use all the time. I have put together a list of t
 | `mv` | Moves or renames files and directories. |
 | `touch` | Creates an empty file or updates timestamps. |
 | `cat` | Displays file contents. |
+| `head` | Used to look at the first lines of a file. |
+| `tail` | Used to look at the last lines of a file. |
+| `more` | Used to show a page of text at a time. A kind of interactive cat. |
+| `less` | Similar to more but with filtering for terms. |
 | `nano` or `vim` | Opens a text editor, nano is more beginner friendly. |
 | `chmod` | Changes file permissions. |
 | `chown` | Changes file ownership. |
@@ -26,6 +30,7 @@ There are some commands that I use all the time. I have put together a list of t
 | `kill` | Terminates processes by PID or name. |
 | `whoami` | What user am I logged in as. |
 | `which` | Used to display the location of a binary. |
+| `echo` | Used to print text to the terminal but can be redirected to a file. |
 
 ## Directories
 
