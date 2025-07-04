@@ -71,6 +71,34 @@ During a penetration test, knowing which directories on a Linux system contain p
 | `/tmp` | Global-writable directory that is often used for privilege escalation. Look for temp files with credentials, open sockets, or running binaries. |
 | `/var` | Logs are stored in the /var/log/ directory: check the log files of various services (auth.log, secure, apache2/, mysql/, etc...). Mail is stored in /var/mail: users' mail may contain sensitive information like usernames and passwords. Cron jobs are stored in /var/spool/cron: privileged recurring tasks that can sometimes be hijacked. Databases are stored can be stored in /var/lib/mysql: configuration files and backups files might be in here. Website files are stored in /var/www: configuration files can contain sensitive information. |
 
+## Groups
+
+There are a number of groups that are common on Linux system. Knowing what they do has helped during capture the flag events. Here are some common ones that I see often:
+
+| Group Name | Purpose |
+| ------------- | -------------- |
+| `root` | Superuser group—full system control. |
+| `users` | Default group for regular users on many distros. |
+| `adm` | Access to system logs (e.g., /var/log/syslog, /var/log/messages). |
+| `sudo` or `wheel` | Allows executing commands as root using sudo. The wheel group is used on Red Hat-based systems. |
+| `staff` | Administrative group with limited elevated permissions. |
+| `nogroup` | Assigned to processes/users with no matching group. |
+| `daemon` | Common group for background system services. |
+| `tty` | Grants access to terminal devices. |
+| `disk` | 	Grants raw disk device access. Can be abused for privilege escalation. |
+| `mail` | Access to email services or /var/mail/. |
+| `postfix` | Group for the Postfix mail server. |
+| `ssh` | Used internally by SSH daemons (varies by distro). |
+| `crontab` | Controls access to scheduled cron jobs. |
+| `messagebus` | D-Bus messaging system group. |
+| `systemd-journal` | Read access to the systemd journal logs. |
+| `systemd-network` | Manages network configuration with systemd-networkd. |
+| `docker` | Full access to Docker—root-equivalent if misused. |
+| `lxd` | LXD container group—can be exploited for privilege escalation. |
+| `www-data` | Common web server user group (e.g., Apache, Nginx). |
+| `ftp` | Access for FTP services. |
+| `nobody` | Very limited privileges—used by unprivileged daemons. |
+
 ## LXD (pronounced lex-dee)
 
 LXD is used to manage virtual machines and system containers. It has very minimal overhead. I have used both Docker and Podman in the past and it works very similar to both.
