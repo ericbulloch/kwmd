@@ -137,3 +137,7 @@ I can now modify view or modify any file on the host directory. I just need to r
 - The /root directory on the host would be /mnt/root/root from the container.
 
 Since I am root in the container and security.privileged=true was set, the host operating system maps any of my root container actions to the root user on the host machine.
+
+## Privilege Escalation
+
+I have noted the process I use for [Linux privilege escalation](../concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](../concepts/README.md) directory.
