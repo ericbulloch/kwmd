@@ -77,7 +77,9 @@ LXD is used to manage virtual machines and system containers. It has very minima
 
 I can create or download an image, start multiple containers from that single image and have them interact with each other.
 
-The lxc command is used to start and stop containers. To use the lxd and lxc binaries my user was in the lxd group. The example below will allow a user that is in the lxd group but not root to do a privilege escalation to root. The neat part is that the user will be root in the container and the host will map the actions of the root user in the container to the root user on the host.
+The lxc command is used to start and stop containers. To use the lxd and lxc binaries my user was in the lxd group. The lxd group can also mount root filesystems, this will be important for the example below.
+
+The example below will allow a user that is in the lxd group but not root to do a privilege escalation to root. The neat part is that the user will be root in the container and the host will map the actions of the root user in the container to the root user on the host.
 
 Below is an example of how to download an alpine image from github and then run the container. Some of the file names may have changed but the concept should be the same.
 
