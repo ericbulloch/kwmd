@@ -8,22 +8,57 @@ There are some commands that I use all the time. I have put together a list of t
 
 | Command | Purpose |
 | ------------- | -------------- |
-| ls | Lists files and directories in the current location. |
-| cd | Changes the current directory. |
-| pwd | Prints the current working directory. |
-| mkdir | Creates a new directory. |
-| rm | Removes files or directories. |
-| cp | Copies files or directories. |
-| mv | Moves or renames files and directories. |
-| touch | Creates an empty file or updates timestamps. |
-| cat | Displays file contents. |
-| nano or vim | Opens a text editor, nano is more beginner friendly. |
-| chmod | Changes file permissions. |
-| chown | Changes file ownership. |
-| find | Searches for files and directories. |
-| grep | Searches text using patterns (regex). |
-| ps aux | Lists all running processes. |
-| kill | Terminates processes by PID or name. |
+| `ls` | Lists files and directories in the current location. |
+| `cd` | Changes the current directory. |
+| `pwd` | Prints the current working directory. |
+| `mkdir` | Creates a new directory. |
+| `rm` | Removes files or directories. |
+| `cp` | Copies files or directories. |
+| `mv` | Moves or renames files and directories. |
+| `touch` | Creates an empty file or updates timestamps. |
+| `cat` | Displays file contents. |
+| `nano` or `vim` | Opens a text editor, nano is more beginner friendly. |
+| `chmod` | Changes file permissions. |
+| `chown` | Changes file ownership. |
+| `find` | Searches for files and directories. |
+| `grep` | Searches text using patterns (regex). |
+| `ps aux` | Lists all running processes. |
+| `kill` | Terminates processes by PID or name. |
+
+## Directories
+
+It helps to have a basic understanding of the directories at the root `/` level of Linux. Here are the directories and a description of what they do:
+
+| Directory | Description |
+| ------------- | -------------- |
+| `/bin` | Essential user binaries (e.g., `ls`, `cp`, `mv`) needed for basic system operation. Most of the commands in the previous section are here. |
+| `/boot` | Files needed for booting the system (e.g., GRUB, Linux kernel). |
+| `/dev` | Device files (e.g., `/dev/sda` for disks, `/dev/null`).  |
+| `/etc` | System-wide configuration files and settings. These files are critical for the system. |
+| `/home` | User home directories (e.g., `/home/kwmd`). The `root` user does not have their home directory here. |
+| `/lib` | Essential shared libraries used by binaries in `/bin` and `/sbin`. |
+| `/lib64` | 64-bit versions of libraries (on 64-bit systems). |
+| `/media` | Mount point for removable media (e.g., USB drives, CDs). |
+| `/mnt` | Temporary mount point for filesystems (manually mounted drives). |
+| `/opt` | Optional or third-party software packages. |
+| `/proc` | Virtual filesystem providing process and kernel information. In Linux everything is a file including processes. |
+| `/root` | Home directory of the `root` user (not the same as `/`). |
+| `/run` | Runtime variable data (e.g., PID files, sockets). |
+| `/sbin` | System binaries (administrative commands, e.g., `reboot`, `iptables`). |
+| `/srv` | Data for services like FTP, HTTP (e.g., `/srv/www`). |
+| `/sys` | Virtual filesystem exposing system and hardware info. |
+| `/tmp` | Temporary files (often cleared on reboot). Usually all users have read and write permissions in this directory. |
+| `/usr` | Secondary hierarchy for user programs and data (e.g., `/usr/bin`, `/usr/lib`). |
+| `/var` | Variable files (logs, mail, spool files, etc.). |
+
+During a penetration test, knowing which directories on a Linux system contain potentially sensitive or valuable information can help with privilege escalation, lateral movement, or data exfiltration. Here are some of the valuable contents in these directories that I am looking for when I do a penetration test:
+
+| Directory | What to Look For |
+| ------------- | -------------- |
+| `/bin`, `/sbin`, `/usr/bin`, `/usr/sbin` | SUID/SGID binaries (e.g., `find / -perm -4000 2>/dev/null`). Custom or unusual binaries that may reveal misconfigurations or be exploitable. |
+| `/boot` | Kernel version (vmlinuz-*) may help identify known kernel exploits. Grub configs (grub.cfg) may expose passwords or kernel boot options. |
+| `/dev` | Access to devices like /dev/mem, /dev/kmem, or disks (if permissions are misconfigured). Sometimes misconfigured device files can lead to privilege escalation. |
+
 
 ## LXD (pronounced lex-dee)
 
