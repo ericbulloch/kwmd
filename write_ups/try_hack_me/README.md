@@ -11,6 +11,7 @@ Here are the list of write-ups that I have done for TryHackMe.
 - [HA Joker CTF](ha_joker_ctf.md)
 - [Heartbleed](heartbleed.md)
 - [Ignite](ignite.md)
+- [Kiba](kiba.md)
 - [Simple CTF](simple_ctf.md)
 - [ToolsRus](tools_r_us.md)
 - [UltraTech](ultra_tech.md)
