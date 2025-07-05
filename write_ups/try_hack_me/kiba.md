@@ -95,3 +95,15 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 21.58 seconds
 ```
+
+## What is the vulnerability that is specific to programming languages with prototype-based inheritance?
+
+I type that question into google and it shows a result that talks about Prototype pollution.
+
+I ran the following to see that ssh on the target allows password authentication:
+
+```bash
+$ ssh target.thm
+```
+
+I make a note of that and check the site running at http://target.thm. It mentions that linux capabilities are very interesting. I am not familiar with those but I do take a note of it. I don't see much else and so I check http://target.thm:5601 to see what is on that port before I try running directory enumeration on port 80.
