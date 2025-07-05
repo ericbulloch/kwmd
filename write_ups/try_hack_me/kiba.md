@@ -107,3 +107,7 @@ $ ssh target.thm
 ```
 
 I make a note of that and check the site running at http://target.thm. It mentions that linux capabilities are very interesting. I am not familiar with those but I do take a note of it. I don't see much else and so I check http://target.thm:5601 to see what is on that port before I try running directory enumeration on port 80.
+
+## What is the version of visualization dashboard installed in the server?
+
+The site on port 5601 has Kibana running. I click the link that says "explore my own" data. The first thing I do is try to find a version number for Kibana. I clicked the management link on the left side panel. It says version 6.5.4.
