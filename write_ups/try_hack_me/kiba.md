@@ -111,3 +111,19 @@ I make a note of that and check the site running at http://target.thm. It mentio
 ## What is the version of visualization dashboard installed in the server?
 
 The site on port 5601 has Kibana running. I click the link that says "explore my own" data. The first thing I do is try to find a version number for Kibana. I clicked the management link on the left side panel. It says version 6.5.4.
+
+## What is the CVE number for this vulnerability? This will be in the format: CVE-0000-0000
+
+I run the following to command to see if searchsploit has anything:
+
+```bash
+$ searchsploit kibana 6.5.4
+```
+
+I get no results. I google "kibana 6.5.4 cve" and I find CVE-2019-7609 which is a arbitrary code execution for this version of Kibana.
+
+I do another google search for "cve-2019-7609 poc". I get a hit with this one. I find a [github repository](https://github.com/LandGrey/CVE-2019-7609) with a python script. I download the script to my attack box with the following:
+
+```bash
+$ wget https://raw.githubusercontent.com/LandGrey/CVE-2019-7609/refs/heads/master/CVE-2019-7609-kibana-rce.py
+```
