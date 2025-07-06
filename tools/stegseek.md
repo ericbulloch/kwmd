@@ -49,11 +49,8 @@ The following examples use a file called shady.jpg. This file has a file embedde
 
 Stegseek uses a dictionary to guess the passphrase of an image file that might have a hidden file. The following command uses the rockyou.txt as the word list to guess the passphrase of the shady.jpg file. Here is the command:
 
-`stegseek -sf shady.jpg -wl /usr/share/wordlists/rockyou.txt`
-
-Running the above command generated the following output:
-
 ```bash
+$ stegseek -sf shady.jpg -wl /usr/share/wordlists/rockyou.txt
 StegSeek 0.6 - https://github.com/RickdeJager/StegSeek
 
 [i] Found passphrase: "*baseball#1"
