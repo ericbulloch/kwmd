@@ -14,7 +14,7 @@ Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). I am ranked in 
 
 ## Concepts
 
-The [concepts folder](concepts/) contains a lit of concepts that are more than just a process, tool or idea. These are the things in cyber security that are very deep.
+The [concepts folder](concepts/) contains a list of concepts that are more than just a process, tool or idea. These are the things in cyber security that are very deep and wide.
 
 ## Tools
 
