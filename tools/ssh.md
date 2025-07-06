@@ -2,18 +2,37 @@
 
 ## Initial Information
 
-If nmap shows that SSH is running on a machine, I will manually connect to it. I am trying to see if it asks for a password. If that is the case, this is another attack vector I can use if I can find a username on the server.
+If nmap shows that ssh is running on a machine, I will manually connect to it. I am trying to see if it asks for a password. If that is the case, this is another attack vector I can use if I can find a username on the server.
 
 If the password prompt does not show up and I get an error that says "Permission denied (publickey)", my attack vector is reduced.
 
-Also, sometimes I need to connect to SSH on a different port. This involves using the `-p` option. If I need to connect on port 2222, I would run:
+## Typical Usage
 
-`ssh -p 2222 user@target.thm`
+The syntax for using ssh is very easy. I specify the username I want to connect as and the host that I want to connect to. For example, if I wanted to connect as the user bob to machine at the ip address 10.10.1.1, I would run the following:
 
-## SSH Brute Force
+```bash
+$ ssh bob@10.10.1.1
+```
 
-SSH does have some CVEs (Common Vulnerabilites and Exposures) but I rarely have to use them in a capture the flag event. Usually I will need to brute force SSH because I have found a username (for example, bob) but do not know the password, I will run Hydra using the rockyou.txt wordlist to see if I can find the password and log into the server. Using [the example found here](hydra.md#ssh), I run:
+The username is optional. If the username is not provided it will use the username of the machine I am currently logged in as. For example, if I was logged in as the user kwmd on my machine and I ran the following command, it would use kwmd as the username:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh`
+```bash
+$ ssh 10.10.1.1
+kwmd@10.10.1.1's password:
+```
 
-Other tools like Burp Suite can do this as well but I prefer Hydra because it doesn't rate limit me.
+### Connecting on a different port.
+
+Also, sometimes I need to connect to ssh on a different port. This involves using the `-p` option. For example, if I need to connect on port 2222, I would run:
+
+```bash
+$ ssh -p 2222 bob@10.10.1.1
+```
+
+### Using another identity file
+
+Some capture the flag events involve me finding a private key. I can then use that private key to log into the machine using ssh. I can specify an identity file with the `-i` option. For example, if I wanted to connect as the user bob to machine at the ip address 10.10.1.1 with an identity file called secretKey, I would run the following:
+
+```bash
+$ ssh -i secretKey bob@10.10.1.1
+```
