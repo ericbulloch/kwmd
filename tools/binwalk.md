@@ -10,15 +10,16 @@ On the TryHackMe attack box, I have noticed that the binwalk command will genera
 
 When this happens, I run the following command:
 
-`sed -i 's/CS_ARCH_ARM64/CS_ARCH_AARCH64/g' /usr/lib/python3/dist-packages/binwalk/modules/disasm.py`
+```bash
+$ sed -i 's/CS_ARCH_ARM64/CS_ARCH_AARCH64/g' /usr/lib/python3/dist-packages/binwalk/modules/disasm.py
+```
 
 [This fix](https://www.reddit.com/r/tryhackme/comments/1i8jj5f/comment/mcqjsir/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) solves the issue.
 
 ## Usage
 
-Running `binwalk -h` provided the following output:
-
 ```bash
+$ binwalk -h
 Binwalk v2.2.0
 Craig Heffner, ReFirmLabs
 https://github.com/ReFirmLabs/binwalk
@@ -100,20 +101,28 @@ The following examples are going to use a file called shady.jpg. This file has s
 
 Binwalk has a large list of known file types that it checks for. Running the following command will have Binwalk check the image for the well known file types:
 
-`binwalk -e shady.jpg`
+```bash
+$ binwalk -e shady.jpg
+```
 
 ### Find All File Types
 
 Sometimes in capture the flag events, I need to have binwalk look for all files embedded within an image. The following commands do the same thing, they both look for all files with the shady.jpg image:
 
-`binwalk -D='.*' shady.jpg`
+```bash
+$ binwalk -D='.*' shady.jpg
+```
 
 OR
 
-`binwalk --dd='.*' shady.jpg`
+```bash
+$ binwalk --dd='.*' shady.jpg
+```
 
 ### Find Specific File Types
 
 In the case where there are a lot of files embedded in an image and I only need to find a specific file type (i.e. python file types), I would run the following command:
 
-`binwalk -D='.py' shady.jpg`
+```bash
+$ binwalk -D='.py' shady.jpg
+```
