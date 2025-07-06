@@ -4,9 +4,8 @@ The hashcat tool is used to crack hashes. It makes use of a dictionary file to t
 
 ## Usage
 
-Running `hashcat -h` provided the following output:
-
 ```bash
+$ hashcat -h
 hashcat (v6.1.1-66-g6a419d06) starting...
 
 Usage: hashcat [options]... hash|hashfile|hccapxfile [dictionary|mask|directory]...
@@ -553,7 +552,9 @@ If a developer uses a weak secret for the signature of a JWT, then I can crack i
 
 I download the list of common JWT secrets using the following command:
 
-`wget https://raw.githubusercontent.com/wallarm/jwt-secrets/master/jwt.secrets.list`
+```bash
+$ wget https://raw.githubusercontent.com/wallarm/jwt-secrets/master/jwt.secrets.list
+```
 
 In this example, I am testing the following JWT:
 
@@ -561,7 +562,9 @@ In this example, I am testing the following JWT:
 
 I save that JWT in a file called jwt.txt. I then run the following command to test the JWT against the jwt.secrets.list file that was downloaded earlier. Here is the command:
 
-`hashcat -m 16500 -a 0 jwt.txt jwt.secrets.list`
+```bash
+$ hashcat -m 16500 -a 0 jwt.txt jwt.secrets.list
+```
 
 After a bit the following output shows up:
 
