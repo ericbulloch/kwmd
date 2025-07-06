@@ -4,9 +4,8 @@ The ffuf tool is useful for quickly fuzzing things like directories, subdomains 
 
 ## Usage
 
-Running `ffuf -h` provided the following output:
-
 ```bash
+$ ffuf -h
 Fuzz Faster U Fool - v1.3.1
 
 HTTP OPTIONS:
@@ -105,7 +104,9 @@ For each of the examples below, here are the variables that I am using:
 
 When I find a web server on a target, this is the first scan that I run. I am a big fan of ffuf's syntax for this and other scans. A simple scan looks like the following:
 
-`ffuf -u http://10.10.1.1/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt`
+```bash
+$ ffuf -u http://10.10.1.1/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt
+```
 
 - The `FUZZ` part of the command lets ffuf know where I want to fuzz the words in the wordlist.
 - The `-u` lets ffuf know what the target url is.
@@ -117,7 +118,9 @@ The above command can be altered slightly to find files with particular extensio
 
 Here is the command to search for files:
 
-`ffuf -u http://10.10.1.1/data/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt -e .html,.php,.txt,.zip`
+```bash
+$ ffuf -u http://10.10.1.1/data/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-files-lowercase.txt -e .html,.php,.txt,.zip
+```
 
 - The `FUZZ` part of the command lets ffuf know where I want to fuzz the words in the wordlist.
 - Notice that I am looking in the data directory. I use whatever directory I find that is suspicious.
@@ -129,7 +132,9 @@ Here is the command to search for files:
 
 Once in a while, a capture the flag machine has some subdomains that I have to find so that I can continue on in the challenge. The ffuf tool makes this easy to enumerate as well. Here is the syntax:
 
-`ffuf -H "Host: FUZZ.10.10.1.1" -H "User-Agent: PENTEST" -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt -u http://10.10.1.1 -fs 100`
+```bash
+$ ffuf -H "Host: FUZZ.10.10.1.1" -H "User-Agent: PENTEST" -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt -u http://10.10.1.1 -fs 100
+```
 
 - The `FUZZ` part of the command lets ffuf know where I want to fuzz the words in the wordlist.
 - The `-u` lets ffuf know what the target url is.
