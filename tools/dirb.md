@@ -4,9 +4,8 @@ The dirbuster tool is a tool for fuzzing content and subdirectories. Like all fu
 
 ## Usage
 
-Running `dirb` provided the following output:
-
 ```bash
+$ dirb
 -----------------
 DIRB v2.22    
 By The Dark Raver
@@ -73,7 +72,9 @@ The dirb tool has a few keys that I can press during a scan. Here are the keys a
 
 When I find a web server on a target, this is the first scan that I run.
 
-`dirb http://10.10.1.1/`
+```bash
+$ dirb http://10.10.1.1/
+```
 
 This will start the directory scan with the basic wordlist. It will output the results as the scan finds any hidden paths or files.
 
@@ -85,22 +86,30 @@ I wanted to provide some examples of different options and an example of how to 
 
 The `-o` option tells dirb where to save the output in a file. I am going to save the output to the results.txt file using the following command:
 
-`dirb http://10.10.1.1/ -o results.txt`
+```bash
+$ dirb http://10.10.1.1/ -o results.txt
+```
 
 #### Don't Search Recursively
 
 Once in a while I only want to search the current directory and not anything below it. In that case I run the following:
 
-`dirb http://10.10.1.1/ -r`
+```bash
+$ dirb http://10.10.1.1/ -r
+```
 
 #### Basic Authentication
 
 Some Tomcat managers require basic authentication in order to view it and all sub pages. Dirb provides a way to use basic authentication to continue looking at the manager and all sub pages. I would log in with the username owner and password letmein1 with the following command:
 
-`dirb http://10.10.1.1/ -u owner:letmein1`
+```bash
+$ dirb http://10.10.1.1/ -u owner:letmein1
+```
 
 #### Slowing Down Requests
 
 Some machines in capture the flag events have firewalls to block me when I flood the machine with too many requests. Dirb has a way to show down requests so the firewall doesn't block me. I use the following command to wait 2 seconds (2000 milliseconds) between each request:
 
-`dirb http://10.10.1.1/ -z 2000`
+```bash
+$ dirb http://10.10.1.1/ -z 2000
+```
