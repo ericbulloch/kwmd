@@ -6,9 +6,8 @@ It is a very versatile tool. It can generate wordlists and it can also use one t
 
 ## Usage
 
-Running `john -h` provided the following output:
-
 ```bash
+$ john -h
 John the Ripper 1.9.0-jumbo-1+bleeding-51f7f3dcd 2020-09-01 13:29:43 +0200 OMP [linux-gnu 64-bit x86_64 AVX2 AC]
 Copyright (c) 1996-2019 by Solar Designer and others
 Homepage: https://www.openwall.com/john/
@@ -66,8 +65,10 @@ The following examples are ones that I have used in capture the flag exercises. 
 
 Once during a capture the flag event I found a keepass file. The keepass file is not in a format that john knows how to use. Fortunately, there are tools online that I was able to use that converted the file to a format that john could understand. In this example I am going to use a keepass file called database.kdbx that is in the directory I am currently in. The steps are the following:
 
-- Run the keepass2john script on my keepass database. `keepass2john database.kdbx > john.txt`
-- Run john. `john --format=keepass john.txt`
+```bash
+$ keepass2john database.kdbx > john.txt
+$ john --format=keepass john.txt
+```
 
 ### Linux shadow file
 
@@ -80,29 +81,39 @@ I have had to crack some user's linux password in a capture the flag event. For 
 
 If I have a custom wordlist that I would like to use, here is the command to use:
 
-`john --wordlist=wordlist.txt mypasswd`
+```bash
+$ john --wordlist=wordlist.txt mypasswd
+```
 
 Once some passwords have been cracked, john stores the results in the $JOHN/john.pot file. They do not intend for me to view that file directly. The have provided to following command to see the results:
 
-`john --show mypasswd`
+```bash
+$ john --show mypasswd
+```
 
 I can also see if any root (UID 0) accounts got cracked with the following command:
 
-`john --show --users=0 mypasswd`
+```bash
+$ john --show --users=0 mypasswd
+```
 
 ### RAR archive file
 
 I have found .rar files that were password protected in a capture the flag event. Similar to Keepass, there are tools that can convert the rar file to a format that john can use. In this example I have the secrets.rar file in my current directory. Here are the steps:
 
-- Run rar2john on the rar file. `rar2john secrets.rar > john.txt
-- Run john. `john john.txt`
+```bash
+$ rar2john secrets.rar > john.txt
+$ john john.txt
+```
 
 ### ZIP archive file
 
 I have found .zip files that were password protected in a capture the flag event. Similar to Keepass, there are tools that can convert the zip file to a format that john can use. In this example I have the secrets.zip file in my current directory. Here are the steps:
 
-- Run zip2john on the rar file. `zip2john secrets.rar > john.txt
-- Run john. `john john.txt`
+```bash
+$ zip2john secrets.rar > john.txt
+$ john john.txt
+```
 
 ### PGP and ASC file
 
@@ -117,11 +128,15 @@ As an example, I have 2 files named mine.asc and credentials.pgp. Here are the c
 
 For the first step, I would run:
 
-`g2g2john mine.asc > hash.txt`
+```bash
+$ g2g2john mine.asc > hash.txt
+```
 
 The hash.txt file has a hash that john can now understand. I run the following command so john can crack the password:
 
-`john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt`
+```bash
+$ john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+```
 
 When john cracks the password it will look like the following:
 
@@ -133,8 +148,8 @@ my_password      (mine)
 Now that I have the decrypted password, I decrypt the credentials.pgp file with the following commands:
 
 ```bash
-gpg --import mine.asc
-gpg -d credentials.pgp
+$ gpg --import mine.asc
+$ gpg -d credentials.pgp
 ```
 
 I was asked for a password after running each of those commands, the password would be my_password that john just cracked.
@@ -143,32 +158,43 @@ I was asked for a password after running each of those commands, the password wo
 
 Every now and then I will find a hash that [CrackStation](https://crackstation.net/) doesn't have a solution for. I can use john to try to crack the hash. John has a built in word list but I can also supply my own. In the following example I have an md5 hash that is stored in a file called hash.txt in the current directory. I also know for sure that this is an md5 hash. This is the command to have john try to crack the hash:
 
-`john --format=raw-md5 hello.txt`
+```bash
+$ john --format=raw-md5 hello.txt
+```
 
 The `--format` option is important because if it is not supplied john will try to crack the hash with multiple different hashing algorithms that it detects.
 
 I was abled to see the cracked hash, once john finished, with the following command:
 
-`john --format=raw-md5 hello.txt --show`
+```bash
+$ john --format=raw-md5 hello.txt --show
+```
 
 I often times want to use my own word list when I am doing this. For this example, my wordlist is found in list.txt. To use a custom word list change the command to the following:
 
-`john --format=raw-md5 --wordlist=list.txt hello.txt`
+```bash
+$ john --format=raw-md5 --wordlist=list.txt hello.txt
+```
 
 I still had to run the following command to see the cracked hash once john finished:
 
-`john --format=raw-md5 hello.txt --show`
+```bash
+$ john --format=raw-md5 hello.txt --show
+```
 
 ### SSH Private Key
 
-One capture the flag event had a private ssh key available but they did not provide the passphrase for the ssh key. I needed to get the key so that I could use the ssh key and log into another machine. I saved the rsa private key in the file `id_rsa`. I used the [ssh2john](https://raw.githubusercontent.com/openwall/john/bleeding-jumbo/run/ssh2john.py) script to convert the rsa private key to a format that john could understand. Here is the command I ran to convert the private key to a format john could understand:
+One capture the flag event had a private ssh key available but they did not provide the passphrase for the ssh key. I needed to get the key so that I could use the ssh key and log into another machine. I saved the rsa private key in the file `id_rsa`. I used the [ssh2john](https://raw.githubusercontent.com/openwall/john/bleeding-jumbo/run/ssh2john.py) script to convert the rsa private key to a format that john could understand. Here are the commands that I ran:
 
-`python3 ssh2john.py id_rsa > rsa_john`
+```bash
+$ python3 ssh2john.py id_rsa > rsa_john
+$ john rsa_john
+```
 
-Then I ran john on the `rsa_john` file so that I it could find the passphrase. The command I ran was:
+### Supplying a wordlist
 
-`john rsa_john`
+John has a built-in wordlist that it uses if one is not specified. There are times when I want john to use a wordlist that I provide. Here is the command:
 
-The previous command uses john's default wordlist. I frequently supply a wordlist with the following command:
-
-`john --wordlist=/usr/share/wordlists/rockyou.txt rsa_john`
+```bash
+$ john --wordlist=/usr/share/wordlists/rockyou.txt
+```
