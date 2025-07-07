@@ -8,9 +8,8 @@ The version of nikto on the TryHackMe attack box is older. I have found that I g
 
 ## Usage
 
-Running `nikto -Help` provided the following output:
-
 ```bash
+$ nikto -Help
    Options:
        -ask+               Whether to ask about submitting updates
                                yes   Ask about each (default)
@@ -108,20 +107,28 @@ Running `nikto -Help` provided the following output:
 
 Nikto can be used to run against a web server all it needs is a host name. I run the following command to check for vulnerabilities:
 
-`nikto -h http://target.thm`
+```bash
+$ nikto -h http://target.thm
+```
 
 The `-h` option lets nikto know what host I want it to check on. This will always default to port 80 since I specified http in the protocol. I wanted to check a different port, I just add it in the host name. So if I wanted to check port 1234, I would modify the command to the following:
 
-`nikto -h http://target.thm:1234`
+```bash
+$ nikto -h http://target.thm:1234
+```
 
 Checking https traffic on the standard port 443 just needs a protocol change:
 
-`nikto -h https://target.thm`
+```bash
+$ nikto -h https://target.thm
+```
 
 ### Using Basic Authentication
 
 Sometimes the web server will use Basic Authentication to block my scans. If I know what the username and password are I can provide them to nikto so that it can continue to scan. The credentials are provided using the `-id` option. I would provide the username mike and the password letmein1 in the original example like so:
 
-`nikto -h http://target.thm -id mike:letmein1`
+```bash
+$ nikto -h http://target.thm -id mike:letmein1
+```
 
 Now nikto can log in to the site and continue to run scans on protected pages. A lot of software information and configuration files are hidden behind pages that need credentials. This will help getting past pages that are using Basic Authentication.
