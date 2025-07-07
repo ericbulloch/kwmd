@@ -93,7 +93,9 @@ Using ftps is better than ftp for security.
 
 The syntax is the following when not including options:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ftps`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ftps
+```
 
 or
 
