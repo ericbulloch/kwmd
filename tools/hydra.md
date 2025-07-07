@@ -4,9 +4,8 @@ Hydra is a very powerful tool to brute force a system. I can provide it with a w
 
 ## Usage
 
-Running `hydra -h` provided the following output:
-
 ```bash
+$ hydra -h
 Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
 
 Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [service://server[:PORT][/OPT]]
@@ -78,11 +77,15 @@ There are a lot of companies and users that still use ftp servers. Unfortunately
 
 The syntax is the following when not including options:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ftp`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ftp
+```
 
 or
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt ftp://10.10.1.1`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt ftp://10.10.1.1
+```
 
 ### ftps
 
@@ -94,7 +97,9 @@ The syntax is the following when not including options:
 
 or
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt ftps://10.10.1.1`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt ftps://10.10.1.1
+```
 
 ### http-get
 
@@ -102,11 +107,15 @@ When I go to a website that has basic HTTP authentication (a site that asks for 
 
 The syntax is the following when not including options:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 http-get`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 http-get
+```
 
 or
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt http-get://10.10.1.1`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt http-get://10.10.1.1
+```
 
 ### http-post-form
 
@@ -114,7 +123,9 @@ This is where I use hydra the most. In a capture the flag event, I have found a 
 
 The syntax is the following when not including options:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 http-post-form "/index.php:username=^USER^&password=^PASS^:F=Invalid Login"`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 http-post-form "/index.php:username=^USER^&password=^PASS^:F=Invalid Login"
+```
 
 Most of the items on here are familiar. The last section where things are more complicated. The last section is split into 3 parts and are seperated by the ':' character. Here is a breakdown of each part:
 
@@ -126,7 +137,9 @@ Most of the items on here are familiar. The last section where things are more c
 
 The previous section works for a site that is using http (port 80 by default). If the webserver is running https (port 443 by default), then a single character needs to be added to the above command. Instead of `http-post-form` the command will use `https-post-form`. So the previous command will become:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 https-post-form "/index.php:username=^USER^&password=^PASS^:F=Invalid Login"`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 https-post-form "/index.php:username=^USER^&password=^PASS^:F=Invalid Login"
+```
 
 Again, the `http-post-form` in the previous example became `https-post-form`.
 
@@ -136,11 +149,15 @@ If a system is vulnerable to an ssh brute force (meaning if I type `ssh target_m
 
 The syntax is the following when not including options:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh
+```
 
 or
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt ssh:10.10.1.1`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt ssh:10.10.1.1
+```
 
 Hydra will then use go through each of the entries in the wordlist and report if any of the entries worked. The output will look like the following when hydra finds the password:
 
@@ -154,36 +171,50 @@ Because systems like Linux are so configurable, capture the flag events will con
 
 The output provided above was generated with this option. This options always gives me the most up to date information about the hydra options I am using. The syntax is the following:
 
-`hydra -h`
+```bash
+$ hydra -h
+```
 
 #### -s PORT
 
 Sometimes a service is running on a different port. I use this option to let hydra know that the service isn't using the standard port for that service. For example, if ssh was running on port 9000 instead of the usual 22, I would run the following:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -s 9000`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -s 9000
+```
 
 #### -v and -vV
 
 Sometimes I want to make sure things are running as I was intending them to run. Maybe I need a sanity check to make sure I got the syntax correct. The verbose options can help with that. The `-v` option will add output lines that start with `[VERBOSE]` or `[STATUS]`, making the output more verbose. The `-V` option will add output lines that start with `[ATTEMPT]` that show each attempt. When I want to use either one, the sytax is the following:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -v`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -v
+```
 
 or
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -V`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -V
+```
 
 I can also use them together using:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -vV`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -vV
+```
 
 #### -c TIME
 
 Sometimes I know that I need to rate limit my login attempts due to a network intrusion detection system or perhaps the server I am brute forcing naturally rate limits my login attempts. In either case I can specify the wait time per login attempt. Each thread will use this option. Here is the syntax to wait 3 seconds between each attempt:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -c 3`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -c 3
+```
 
 #### -t TASKS
 
 If I am trying to brute force a single target, I can specify the maximum number of connections for that target. This can be really handy if my machine and the target have a lot of resources and can handle the load. By default, this number is 16. In this example I am going to double the connections. Here is the syntax I used to change it:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -t 32`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -t 32
+```
