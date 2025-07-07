@@ -8,11 +8,12 @@ I use netcat to connect to a POP3 service. There are other clients and ways to d
 
 For this example, my POP3 service is running on port 110 of my server which is located at 10.10.1.1. Here is how I connect to it:
 
-`nc 10.10.1.1 110`
+```bash
+$ nc 10.10.1.1 110
++OK KWMD Capture the Flag POP3 Electronic-Mail System
+```
 
-The banner for the email server will show something once you connect. In my case I got the following:
-
-`+OK KWMD Capture the Flag POP3 Electronic-Mail System`
+As shown in the output above, the banner for the email server will shows up once you connect.
 
 ## Log In
 
@@ -21,7 +22,7 @@ Now that I have connected to the POP3 server, I can log into the server. I'll ne
 Here is my command prompt:
 
 ```bash
-nc 10.10.1.1 110
+$ nc 10.10.1.1 110
 +OK KWMD Capture the Flag POP3 Electronic-Mail System
 user Gustavo
 +OK
@@ -36,7 +37,7 @@ Just like that, I am now in the POP3 server logged in with the Gustavo user.
 The purpose of logging into the POP3 server with a user is to get the messages so I can read them and try to move onto the next step of the capture the flag. The list command will list all messages. The first number is the id of the email message and the next number is the size of the message. Below is the continuation of the prompt but with the listed messages:
 
 ```bash
-nc 10.10.1.1 110
+$ nc 10.10.1.1 110
 +OK KWMD Capture the Flag POP3 Electronic-Mail System
 user Gustavo
 +OK
@@ -56,7 +57,7 @@ I have found 2 messages for the Gustavo user. Next I'll show how to read them.
 The retr command is how I retrieve a message from the server so that I can view it. This command needs the id of the message that I got as output in the previous command. Here is a continuation of the prompt above and the message that it contained:
 
 ```bash
-nc 10.10.1.1 110
+$ nc 10.10.1.1 110
 +OK KWMD Capture the Flag POP3 Electronic-Mail System
 user Gustavo
 +OK
@@ -87,6 +88,8 @@ Also, be cautious of possible network breaches. We have intel that DoomBlade is 
 
 To read the second message I just need to type the following:
 
-`retr 2`
+```bash
+$ retr 2
+```
 
 POP3 is very straight forward and once I learned a few commands it became very easy to do what I needed for capture the flag events.
