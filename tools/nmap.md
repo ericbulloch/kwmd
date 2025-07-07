@@ -4,9 +4,8 @@ Capture the flag events often provide a vulnerable machine's ip address. I need 
 
 ## Usage
 
-Running `nmap -h` provided the following output:
-
 ```bash
+$ nmap -h
 Nmap 7.80 ( https://nmap.org )
 Usage: nmap [Scan Type(s)] [Options] {target specification}
 TARGET SPECIFICATION:
@@ -129,7 +128,9 @@ SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES
 
 When doing a capture the flag event with a VulnHub machine, I will need to discover the ip address of the machine. In my home lab I restrict the ip addresses of the machines to a range (for example 10.22.1.110-130). When I start up the VulnHub machine I need to find out what the ip address it is using. I already know that my attack machine is using 10.22.1.110. I run the following command to see the other machines with ip addresses:
 
-`nmap -sS 10.22.1.111-130`
+```bash
+$ nmap -sS 10.22.1.111-130
+```
 
 Whatever ip address shows up in the results is the machine that I just imported from VulnHub.
 
@@ -140,7 +141,7 @@ Whatever ip address shows up in the results is the machine that I just imported 
 In a capture the flag event I usually run the following scan. I am using the hostname target.thm for this and future examples. Here is the command I run:
 
 ```bash
-nmap -T4 -n -sC -sV -Pn -v -p- target.thm
+$ nmap -T4 -n -sC -sV -Pn -v -p- target.thm
 ```
 
 This command does the following things:
@@ -156,6 +157,7 @@ This command does the following things:
 Here is some sample output from the above command when port 22 and 80 were found open on the target machine:
 
 ```bash
+$ nmap -T4 -n -sC -sV -Pn -v -p- target.thm
 Starting Nmap 7.80 ( https://nmap.org ) at 2025-06-23 19:38 BST
 NSE: Loaded 151 scripts for scanning.
 NSE: Script Pre-scanning.
@@ -225,6 +227,8 @@ I cut out some of the output to show some of the important parts of this scan. T
 
 If there are no ports open from the original TCP scan that I mentioned above, I'll try a UDP scan. A full UDP scan is significantly slower than a TCP scan. Here is the command I use for a UDP scan:
 
-`nmap -p- -sU -Pn -T5 -v target.thm`
+```bash
+$ nmap -p- -sU -Pn -T5 -v target.thm
+```
 
 This command is the same as the [original known machine ip address scan](#original-tcp-scan) command above except the `-sU` option has been added to let nmap know I want a UDP scan instead.
