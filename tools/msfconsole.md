@@ -4,9 +4,8 @@ One of my favorite tools is msfconsole. It is the console part of Metasploit. To
 
 ## Usage
 
-Running `msfconsole -h` provided the following output:
-
 ```bash
+$ msfconsole -h
 Usage: msfconsole [options]
 
 Common options:
@@ -43,9 +42,10 @@ Console options:
 
 The msfconsole's search is really good. I will often times search for something generic like 'ftp anonymous' to get the module that will check if anonymous logins are allowed. The msfconsole is loaded with useful modules to help find and exploit vulnerabilities.
 
-Going with the example that was just mentioned, when I search for 'ftp anonymous' the output will look like:
+Here is what that will look like:
 
 ```bash
+msf6 > search ftp anonymous
 Matching Modules
 ================
 
@@ -53,21 +53,17 @@ Matching Modules
    -   ----                                                     ---------------  ----    -----  -----------
    0   auxiliary/scanner/ftp/anonymous                          .                normal  No     Anonymous FTP Access Detection
    ...
+msf6 > use 0
+msf6 auxiliary(scanner/ftp/anonymous) > 
 ```
 
-To use that module, all I have to do is run `use 0`. That will change my console's appearance to let me know the module loaded. In this case, the console will display:
-
-`msf6 auxiliary(scanner/ftp/anonymous) > `
+To use that module, all I have to do is run `use 0`. That will change my console's appearance to let me know the module loaded as seen in the output above.
 
 Searches can be refined and even include version numbers. The msfconsole is very robust when it comes to searching for modules.
 
 ## Module
 
-Once I have selected a module like in the example above, I need to provide the parameters necessary for the module to run. To view those options I run the following command:
-
-`show options`
-
-This will provide a list of required and not required parameters for this module. Here is a sample output of that command:
+Once I have selected a module like in the example above, I need to provide the parameters necessary for the module to run. Here is an example:
 
 ```bash
 msf6 auxiliary(scanner/ftp/anonymous) > show options
@@ -86,13 +82,10 @@ Module options (auxiliary/scanner/ftp/anonymous):
 View the full module info with the info, or info -d command.
 ```
 
-The output shows that 3 options are required. I only have 2 of them set. I need to set the RHOSTS option or else I can't run this module. I am going to run this module on a machine with the ip address of 10.10.1.112. So to set the RHOSTS option I would run the following command:
-
-`set rhosts 10.10.1.112`
-
-When I set options I don't need to worry about casing of the options. I run `show options` again to show that it was set:
+The output shows that 3 options are required. I only have 2 of them set. I need to set the RHOSTS option or else I can't run this module. I am going to run this module on a machine with the ip address of 10.10.1.112. Here is an example of setting an option and making sure it was set properly:
 
 ```bash
+msf6 auxiliary(scanner/ftp/anonymous) > set rhosts 10.10.1.112
 msf6 auxiliary(scanner/ftp/anonymous) > show options
 
 Module options (auxiliary/scanner/ftp/anonymous):
@@ -111,8 +104,15 @@ View the full module info with the info, or info -d command.
 
 Now I can execute the module with the following command:
 
-`msf6 auxiliary(scanner/ftp/anonymous) > run`
+```bash
+msf6 auxiliary(scanner/ftp/anonymous) > run
+```
 
 The output will be dependent on the success of the module and what module was ran.
 
-When I want to run another module I type `back` and that unselects the module.
+When I want to run another module I type `back` and that unselects the module. Here is an example:
+
+```bash
+msf6 auxiliary(scanner/ftp/anonymous) > back
+msf6 >
+```
