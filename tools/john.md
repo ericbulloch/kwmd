@@ -111,7 +111,7 @@ $ john john.txt
 I have found .zip files that were password protected in a capture the flag event. Similar to Keepass, there are tools that can convert the zip file to a format that john can use. In this example I have the secrets.zip file in my current directory. Here are the steps:
 
 ```bash
-$ zip2john secrets.rar > john.txt
+$ zip2john secrets.zip > john.txt
 $ john john.txt
 ```
 
