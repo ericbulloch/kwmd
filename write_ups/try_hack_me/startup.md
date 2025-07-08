@@ -317,6 +317,8 @@ $ cat user.txt
 REDACTED
 ```
 
+## What are the contents of root.txt?
+
 The scripts directory has a couple of files in it:
 
 ```bash
