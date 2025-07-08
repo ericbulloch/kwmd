@@ -6,9 +6,8 @@ Stegseek doesn't come installed with Kali Linux. They have [documentation to ins
 
 ## Usage
 
-Running `stegseek --help` provided the following output:
-
 ```bash
+$ stegseek --help
 StegSeek 0.6 - https://github.com/RickdeJager/StegSeek
 
 
