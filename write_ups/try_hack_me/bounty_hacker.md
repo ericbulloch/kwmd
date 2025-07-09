@@ -9,8 +9,8 @@
 
 ## Concepts/Tools Used
 
-- [ftp](../../tools/ftp.md)
-- [hydra](../../tools/hydra.md)
+- [ftp](/tools/ftp.md)
+- [hydra](/tools/hydra.md)
 - [GTFOBins](https://gtfobins.github.io/)
 
 ## Room Description
@@ -207,7 +207,7 @@ REDACTED
 
 ## Privilege Escalation
 
-I ran my [usual list of commands](../../README.md#linux-privilege-escalation). Running sudo -l did yield some interesting results:
+I ran my [usual list of commands](/concepts/privilege_escalation.md#linux-privilege-escalation). Running sudo -l did yield some interesting results:
 
 ```bash
 sudo -l
