@@ -1,4 +1,4 @@
-# THM: Bounty Hacker
+# THM: Startup
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
