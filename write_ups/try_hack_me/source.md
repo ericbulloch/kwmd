@@ -9,8 +9,8 @@
 
 ## Concepts/Tools Used
 
-- [searchsploit](../../searchsploit.md)
-- [msfconsole](../../msfconsole.md)
+- [searchsploit](/tools/searchsploit.md)
+- [msfconsole](/tools/msfconsole.md)
 
 ## Room Description
 
