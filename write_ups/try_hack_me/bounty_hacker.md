@@ -2,7 +2,7 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/bounty_hacker/bounty_hacker.jpeg" alt="Bounty Hacker" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/bounty_hacker/bounty_hacker.jpeg" alt="Bounty Hacker" width="90"/> |
 | Room | Bounty Hacker |
 | URL | https://tryhackme.com/room/cowboyhacker |
 | Difficulty | Easy |
