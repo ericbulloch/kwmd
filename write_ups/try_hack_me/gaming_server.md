@@ -2,17 +2,17 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/gaming_server/gaming_server.jpeg" alt="GamingServer" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/gaming_server/gaming_server.jpeg" alt="GamingServer" width="90"/> |
 | Room | GamingServer |
 | URL | [https://tryhackme.com/room/gamingserver](https://tryhackme.com/room/gamingserver) |
 | Difficulty | Easy |
 
 ## Concepts/Tools Used
 
-- [gobuster](../../tools/gobuster.md)
-- [hydra](../../tools/hydra.md)
+- [gobuster](/tools/gobuster.md)
+- [hydra](/tools/hydra.md)
 - wget
-- [john](../../tools/john.md)
+- [john](/tools/john.md)
 - lxd
 
 ## Room Description
@@ -180,7 +180,7 @@ I have a shell. I'm in!
 
 ## Privilege Escalation
 
-I ran my [usual list of commands](../../README.md#linux-privilege-escalation). Running groups did yield some interesting results:
+I ran my [usual list of commands](/concepts/privilege_escalation.md#linux-privilege-escalation). Running groups did yield some interesting results:
 
 ```bash
 $ groups
