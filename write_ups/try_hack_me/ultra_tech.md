@@ -2,7 +2,7 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/ultra_tech/ultra_tech.png" alt="Ultra Tech" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/ultra_tech/ultra_tech.png" alt="Ultra Tech" width="90"/> |
 | Room | UltraTech |
 | URL | https://tryhackme.com/room/ultratech1 |
 | Difficulty | Easy |
@@ -10,8 +10,8 @@
 ## Concepts/Tools Used
 
 - [CrackStation](https://crackstation.net)
-- [ffuf](../../tools/ffuf.md)
-- [Gobuster](../../tools/gobuster.md)
+- [ffuf](/tools/ffuf.md)
+- [gobuster](/tools/gobuster.md)
 - [GTFOBins](https://gtfobins.github.io)
 
 ## Room Description
@@ -192,7 +192,7 @@ $ ssh REDACTED@target.thm
 
 ## Privilege Escalation
 
-I ran my [usual list of commands](../../README.md#linux-privilege-escalation). The id command shows that I have access to the 116(docker) group.
+I ran my [usual list of commands](/concepts/privilege_escalation.md#linux-privilege-escalation). The id command shows that I have access to the 116(docker) group.
 
 I checked if any containers were running with thhe following command:
 

