@@ -34,7 +34,7 @@ There are some commands that I use all the time. I have put together a list of t
 
 ## Directories
 
-It helps to have a basic understanding of the directories at the root `/` level of Linux. Here are the directories and a description of what they do:
+It helps to have a basic understanding of the directories at the root `/` level of Linux. Directories are case sensitive on Linux. I could have multiple videos directories in a single directory that are only different with their casing. For example, I could have a media directory and inside that directory I could have three folders with the name: videos, VIDEOS and Videos. Here are the directories and a description of what they do:
 
 | Directory | Description |
 | ------------- | -------------- |
