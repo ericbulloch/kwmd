@@ -2,7 +2,7 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/gotta_catch_em_all/gotta_catch_em_all.jpeg" alt="Gotta Catch'em All!" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/gotta_catch_em_all/gotta_catch_em_all.jpeg" alt="Gotta Catch'em All!" width="90"/> |
 | Room | Gotta Catch'em All! |
 | URL | [https://tryhackme.com/room/pokemon](https://tryhackme.com/room/pokemon) |
 | Difficulty | Easy |

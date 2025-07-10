@@ -2,7 +2,7 @@
 
 | Stat       | Value                                        |
 | ---------- | -------------------------------------------- |
-| Image      | <img src="../../images/write_ups/try_hack_me/heartbleed/heartbleed.png" alt="HeartBleed" width="90"/> |
+| Image      | <img src="/images/write_ups/try_hack_me/heartbleed/heartbleed.png" alt="HeartBleed" width="90"/> |
 | Room       | HeartBleed                                   |
 | URL        | https://tryhackme.com/room/heartbleed        |
 | Difficulty | Easy                                         |
@@ -10,7 +10,7 @@
 ## Concepts/Tools Used
 
 - Python
-- SearchSploit
+- [searchsploit](/tools/searchsploit.md)
 
 ## Description
 
@@ -61,23 +61,31 @@ So now I have all kinds of things that were in memory when I made my request. It
 
 I added the ip address of the machine to my host file with the alias of target.thm. So the command was:
 
-`echo "10.10.121.123   target.thm" >> /etc/hosts`
+```bash
+$ echo "10.10.121.123   target.thm" >> /etc/hosts
+```
 
 I then ran my usual starting nmap command on this machine:
 
-`nmap -p- -Pn -T5 -v target.thm`
+```bash
+$ nmap -p- -Pn -T5 -v target.thm
+```
 
 Port 443 is up. I didn't bother with the other ports. I knew I needed to exploit the https connection on the box.
 
 I used searchsploit to see if it had a script ready to go. I ran the following:
 
-`searchsploit heartbleed`
+```bash
+$ searchsploit heartbleed
+```
 
 It had a few scripts, they were a bit out of date. I expected it since HeartBleed is now a decade old at the time of this writing.
 
 I copied over the first one that was provided by searchsploit to my current directory witht the following command:
 
-`searchsploit 32764 -m`
+```bash
+$ searchsploit 32764 -m
+```
 
 The `-m` option moves the script to my current directory. 32764 is the exploit id in searchsploit.
 
@@ -93,7 +101,9 @@ Again, SSLv3 is broken and so most servers do not support it. Commenting it out 
 
 I now run the script with python2 (the print calls don't have brackets and that only works with python2). Here is how I run it:
 
-`python 32764.py target.thm -p 443 > output.txt`
+```bash
+$ python 32764.py target.thm -p 443 > output.txt
+```
 
 Looking through the output.txt file, I see the flag on the right hand side as I scroll down. Here is the output with the key redacted:
 

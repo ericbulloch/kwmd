@@ -2,16 +2,16 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/ha_joker_ctf/ha_joker_ctf.jpeg" alt="HA Joker CTF" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/ha_joker_ctf/ha_joker_ctf.jpeg" alt="HA Joker CTF" width="90"/> |
 | Room | HA Joker CTF |
 | URL | [https://tryhackme.com/room/jokerctf](https://tryhackme.com/room/jokerctf) |
 | Difficulty | Easy |
 
 ## Concepts/Tools Used
 
-- [gobuster](../../tools/gobuster.md)
-- [hydra](../../tools/hydra.md)
-- [john](../../tools/john.md)
+- [gobuster](/tools/gobuster.md)
+- [hydra](/tools/hydra.md)
+- [john](/tools/john.md)
 
 ## Room Description
 
@@ -278,7 +278,7 @@ I tried to unzip the backup.zip file and it asked for a password. Here is the co
 $ unzip backup.zip
 ```
 
-I tried the password that I found earlier and it worked. If I ever needed to crack a zip password, I would follow the steps on my [john tool page](../../tools/john.md#zip-archive-file).
+I tried the password that I found earlier and it worked. If I ever needed to crack a zip password, I would follow the steps on my [john tool page](/tools/john.md#zip-archive-file).
 
 This unzipped two folders, db and site.
 
@@ -358,7 +358,7 @@ $ groups
 www-data lxd
 ```
 
-I spawn a tty shell by following [the guide here](../../README.md#stable-shell)
+I spawn a tty shell by following [the guide here](/README.md#stable-shell)
 
 ## Privilege Escalation
 
