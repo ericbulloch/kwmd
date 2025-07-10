@@ -24,7 +24,7 @@ There are some commands that I use all the time. I have put together a list of t
 | `nano` or `vim` | Opens a text editor, nano is more beginner friendly. |
 | `chmod` | Changes file permissions. |
 | `chown` | Changes file ownership. |
-| `find` | Searches for files and directories. |
+| [`find`](/tools/find.md) | Searches for files and directories. |
 | `grep` | Searches text using patterns (regular expressions also known as regex). |
 | `ps aux` | Lists all running processes. |
 | `kill` | Terminates processes by PID or name. |
