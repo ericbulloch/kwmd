@@ -213,6 +213,8 @@ $ cat user.txt
 REDACTED
 ```
 
+## root.txt
+
 Now that I have a new user I ran my [usual list of commands](/concepts/privilege_escalation.md#linux-privilege-escalation). The id command and the sudo -l command provided interesting results:
 
 ```bash
