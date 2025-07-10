@@ -2,15 +2,15 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/startup/startup.png" alt="Startup" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/startup/startup.png" alt="Startup" width="90"/> |
 | Room | Startup |
 | URL | https://tryhackme.com/room/startup |
 | Difficulty | Easy |
 
 ## Concepts/Tools Used
 
-- [ftp](../tools/ftp.md)
-- [gobuster](../tools/gobuster.md)
+- [ftp](/tools/ftp.md)
+- [gobuster](/tools/gobuster.md)
 - Wireshark
 
 ## Room Description
@@ -239,7 +239,7 @@ I have a shell. I'm in!
 
 ## What is the secret spicy soup recipe?
 
-I get a stable shell using the [guide found here](../README.md#stable-shell).
+I get a stable shell using the [guide found here](/README.md#stable-shell).
 
 The current folder is the root folder (/). I look around the folder and I see a file called recipe.txt. I run the cat command on the file and get the first flag:
 
@@ -252,9 +252,9 @@ Someone asked what our main ingredient to our spice soup is today. I figured I c
 
 The 
 
-I tried my usual list of [privilege escalation commands](../concepts/privilege_escalation.md#linux-privilege-escalation), the main thing that I found was the home directory for lennie.
+I tried my usual list of [privilege escalation commands](/concepts/privilege_escalation.md#linux-privilege-escalation), the main thing that I found was the home directory for lennie.
 
-I looked around a few other directories and couldn't find anything. I ran [LinPEAS](../tools/linpeas.md) from the /tmp directory. It found some interesting files:
+I looked around a few other directories and couldn't find anything. I ran [LinPEAS](/tools/linpeas.md) from the /tmp directory. It found some interesting files:
 
 - /etc/skel/.bashrc
 - /etc/skel/.profile

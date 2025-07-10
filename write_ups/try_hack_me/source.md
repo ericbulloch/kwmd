@@ -2,7 +2,7 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="../../images/write_ups/try_hack_me/source/source.png" alt="Source" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/source/source.png" alt="Source" width="90"/> |
 | Room | Source |
 | URL | https://tryhackme.com/room/source |
 | Difficulty | Easy |

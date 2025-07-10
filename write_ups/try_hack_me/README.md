@@ -11,6 +11,7 @@ Here are the list of write-ups that I have done for TryHackMe.
 - [Gotta Catch'em All!](gotta_catch_em_all.md)
 - [HA Joker CTF](ha_joker_ctf.md)
 - [Heartbleed](heartbleed.md)
+- [IDE](ide.md)
 - [Ignite](ignite.md)
 - [Kiba](kiba.md)
 - [Simple CTF](simple_ctf.md)
