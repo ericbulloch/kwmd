@@ -72,5 +72,10 @@ $ find / -type d -name order\ numbers 2>/dev/null
 ### Find a file with a modified date of 2009-05-02 from the archived_orders directory
 
 ```bash
-$ find archived_orders/ -type f -newermt 2009-05-01 ! -newermt 2009-02-03
+$ find archived_orders/ -type f -newermt 2009-05-01 ! -newermt 2009-02-03 2>/dev/null
 ```
+
+### Find a file named .hidden.txt inside your home directory
+
+```bash
+$ find ~/ -type f -name .hidden.txt 2>/dev/null
