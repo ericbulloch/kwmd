@@ -135,7 +135,7 @@ $ g2g2john mine.asc > hash.txt
 The hash.txt file has a hash that john can now understand. I run the following command so john can crack the password:
 
 ```bash
-$ john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+$ john --wordlist=/usr/share/wordlists/rockyou.txt --format=gpg hash.txt
 ```
 
 When john cracks the password it will look like the following:
