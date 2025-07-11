@@ -104,3 +104,15 @@ $ / -type d -name "backup*" 2>/dev/null
 ```bash
 $ find . -maxdepth 1 -type d 2>/dev/null
 ```
+
+### Find all empty files in /tmp.
+
+```bash
+$ find /tmp -type f -empty 2>/dev/null
+```
+
+### Find all empty directories in /var/cache.
+
+```bash
+$ find /var/cache -type d -empty 2>/dev/null
+```
