@@ -45,10 +45,20 @@ you have no web access, by sending email to <bug-findutils@gnu.org>.
 
 ## Examples
 
-Find has a lot of options to help find specific files and folders. Rather than list them out I decided to write a scenario and then write the find command that would handle that. I'll try to use capture the flag examples as I go.
+Find has a lot of options to help find specific files and folders. Rather than list them out I decided to write a scenario and then write the find command that would handle that. I'll try to use capture the flag examples as I go. Most of the commands will end with `2>/dev/null` because I don't want a bunch of Permission denied output that looks like the following:
+
+```bash
+find: /mine/var/log/mysql_stuff: Permission denied
+```
 
 ### Find a file owned by the user gimli with a size of 85 kilobytes in the directory /home/gimli.
 
 ```bash
-$ find /home/gimli -type f -use gimli -size 85
+$ find /home/gimli -type f -use gimli -size 85 2>/dev/null
+```
+
+### If you get stuck, there is a file somewhere on the disk drive called ReadMeIfStuck.txt
+
+```bash
+$ find / -type f -name ReadMeIfStuck.txt 2>/dev/null
 ```
