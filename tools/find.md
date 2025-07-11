@@ -62,3 +62,9 @@ $ find /home/gimli -type f -use gimli -size 85 2>/dev/null
 ```bash
 $ find / -type f -name ReadMeIfStuck.txt 2>/dev/null
 ```
+
+### Look for a directory called "order numbers" (notice the space).
+
+```bash
+$ find / -type d -name order\ numbers 2>/dev/null
+```
