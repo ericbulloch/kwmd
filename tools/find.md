@@ -45,3 +45,10 @@ you have no web access, by sending email to <bug-findutils@gnu.org>.
 
 ## Examples
 
+Find has a lot of options to help find specific files and folders. Rather than list them out I decided to write a scenario and then write the find command that would handle that. I'll try to use capture the flag examples as I go.
+
+### Find a file owned by the user gimli with a size of 85 kilobytes in the directory /home/gimli.
+
+```bash
+$ find /home/gimli -type f -use gimli -size 85
+```
