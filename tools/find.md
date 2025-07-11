@@ -93,8 +93,14 @@ $ find ~/Documents -type f -iname 'presentation.pptx' 2>/dev/null
 $ find /var/log -type f -name "*.log" 2>/dev/null
 ```
 
-### Find all the directories that start with the name backup
+### Find all the directories that start with the name backup.
 
 ```bash
 $ / -type d -name "backup*" 2>/dev/null
+```
+
+### List all the directories in the current directory only, without recursing into subdirectories.
+
+```bash
+$ find . -maxdepth 1 -type d 2>/dev/null
 ```
