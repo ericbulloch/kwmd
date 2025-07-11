@@ -57,7 +57,7 @@ find: /mine/var/log/mysql_stuff: Permission denied
 $ find /home/gimli -type f -use gimli -size 85 2>/dev/null
 ```
 
-### If you get stuck, there is a file somewhere on the disk drive called ReadMeIfStuck.txt
+### If you get stuck, there is a file somewhere on the disk drive called ReadMeIfStuck.txt.
 
 ```bash
 $ find / -type f -name ReadMeIfStuck.txt 2>/dev/null
@@ -69,20 +69,26 @@ $ find / -type f -name ReadMeIfStuck.txt 2>/dev/null
 $ find / -type d -name order\ numbers 2>/dev/null
 ```
 
-### Find a file with a modified date of 2009-05-02 from the archived_orders directory
+### Find a file with a modified date of 2009-05-02 from the archived_orders directory.
 
 ```bash
 $ find archived_orders/ -type f -newermt 2009-05-01 ! -newermt 2009-02-03 2>/dev/null
 ```
 
-### Find a file named .hidden.txt inside your home directory
+### Find a file named .hidden.txt inside your home directory.
 
 ```bash
 $ find ~/ -type f -name .hidden.txt 2>/dev/null
 ```
 
-### I created a file called presentation.pptx but I can't remember if I capitalized it or not. It should be in my /home/user/Documents folder
+### I created a file called presentation.pptx but I can't remember if I capitalized it or not. It should be in my /home/user/Documents folder.
 
 ```bash
 $ find ~/Documents -type f -iname 'presentation.pptx' 2>/dev/null
+```
+
+### Show me all the log files in the /var/log directory.
+
+```bash
+$ find /var/log -type f -name "*.log"
 ```
