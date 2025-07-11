@@ -78,7 +78,7 @@ $ find archived_orders/ -type f -newermt 2009-05-01 ! -newermt 2009-02-03 2>/dev
 ### Find a file named .hidden.txt inside your home directory.
 
 ```bash
-$ find ~/ -type f -name .hidden.txt 2>/dev/null
+$ find ~ -type f -name .hidden.txt 2>/dev/null
 ```
 
 ### I created a file called presentation.pptx but I can't remember if I capitalized it or not. It should be in my /home/user/Documents folder.
@@ -90,5 +90,11 @@ $ find ~/Documents -type f -iname 'presentation.pptx' 2>/dev/null
 ### Show me all the log files in the /var/log directory.
 
 ```bash
-$ find /var/log -type f -name "*.log"
+$ find /var/log -type f -name "*.log" 2>/dev/null
+```
+
+### Find all the directories that start with the name backup
+
+```bash
+$ / -type d -name "backup*" 2>/dev/null
 ```
