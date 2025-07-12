@@ -140,3 +140,9 @@ $ find /etc -type f -perm 400 2>/dev/null
 ```bash
 $ find ~ -type f -perm 700 2>/dev/null
 ```
+
+### Find all .tmp files in the current directory and delete them.
+
+```bash
+$ find . -type f -name "*.tmp" -delete
+```
