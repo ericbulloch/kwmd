@@ -116,3 +116,9 @@ $ find /tmp -type f -empty 2>/dev/null
 ```bash
 $ find /var/cache -type d -empty 2>/dev/null
 ```
+
+### Find all files that do not belong to the root user in the /var directory.
+
+```bash
+$ find /var -not -user root 2>/dev/null
+```
