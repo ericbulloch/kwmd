@@ -122,3 +122,9 @@ $ find /var/cache -type d -empty 2>/dev/null
 ```bash
 $ find /var -not -user root 2>/dev/null
 ```
+
+### Find all files owned by the user john in the /opt directory.
+
+```bash
+$ find /opt -user john 2>/dev/null
+```
