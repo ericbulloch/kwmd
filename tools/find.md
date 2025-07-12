@@ -152,3 +152,9 @@ $ find . -type f -name "*.tmp" -delete
 ```bash
 $ find . -type f -name "*.txt" -exec cat {} \;
 ```
+
+### Find all .log files in the /var/log directory, print their names, and change their permissions to 644.
+
+```bash
+$ find /var/log -type f -name "*.log" -print -exec chmod 644 {} \;
+```
