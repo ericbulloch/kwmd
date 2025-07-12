@@ -146,3 +146,9 @@ $ find ~ -type f -perm 700 2>/dev/null
 ```bash
 $ find . -type f -name "*.tmp" -delete
 ```
+
+### Find all .txt files in the current directory and display their contents using the cat command.
+
+```bash
+$ find . -type f -name "*.txt" -exec cat {} \;
+```
