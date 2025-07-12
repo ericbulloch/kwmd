@@ -128,3 +128,9 @@ $ find /var -not -user root 2>/dev/null
 ```bash
 $ find /opt -user john 2>/dev/null
 ```
+
+### Find all files with read-only permissions for the owner (400) in the /etc directory.
+
+```bash
+$ find /etc -type f -perm 400 2>/dev/null
+```
