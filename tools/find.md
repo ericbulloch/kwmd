@@ -168,5 +168,11 @@ $ find ~ -path "*/Documents/*" -prune -o -name "*.txt" -print
 ### Find symbolic links in your home directory.
 
 ```bash
-find ~ -type l
+$ find ~ -type l
+```
+
+### Find symbolic links in your home directory.
+
+```bash
+$ find ~ -type l ! -exec test -e {} \; -print
 ```
