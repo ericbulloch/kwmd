@@ -134,3 +134,9 @@ $ find /opt -user john 2>/dev/null
 ```bash
 $ find /etc -type f -perm 400 2>/dev/null
 ```
+
+### Find all files with read, write, and execute permissions for the owner (700) in your home directory (~).
+
+```bash
+$ find ~ -type f -perm 700 2>/dev/null
+```
