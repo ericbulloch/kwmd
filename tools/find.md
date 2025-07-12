@@ -158,3 +158,9 @@ $ find . -type f -name "*.txt" -exec cat {} \;
 ```bash
 $ find /var/log -type f -name "*.log" -print -exec chmod 644 {} \;
 ```
+
+### Find all .txt files in your home directory, but exclude the Documents directory from the search.
+
+```bash
+$ find ~ -path "*/Documents/*" -prune -o -name "*.txt" -print
+```
