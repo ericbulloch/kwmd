@@ -164,3 +164,9 @@ $ find /var/log -type f -name "*.log" -print -exec chmod 644 {} \;
 ```bash
 $ find ~ -path "*/Documents/*" -prune -o -name "*.txt" -print
 ```
+
+### Find symbolic links in your home directory.
+
+```bash
+find ~ -type l
+```
