@@ -171,8 +171,8 @@ $ find ~ -path "*/Documents/*" -prune -o -name "*.txt" -print
 $ find ~ -type l
 ```
 
-### Find symbolic links in your home directory.
+### Find symbolic links in your home directory and print the full path.
 
 ```bash
-$ find ~ -type l ! -exec test -e {} \; -print
+$ find ~ -type l -print
 ```

@@ -10,7 +10,9 @@ Here are the list of write-ups that I have done for VulnHub.
 
 VulnHub provides a lot of machines that can be attacked. There are a lot of learning opportunities because there are so many boxes.
 
-Because of the nature of these boxes, when I install them on my machine, I will be making my machine vulnerable to attack. I want to learn but I also want to reduce the risk of my machine being attacked. I found [this video] on youtube that talks about the steps to create a home lab. The idea is to setup a hacking virtual environment where I have an attack machine that I can hack from and a vulnerable server that I will be hacking. Both machines are in a virtual environment that isn't in the same network as my host computer. Here is a summary of the steps:
+Because of the nature of these boxes, when I install them on my machine, I will be making my machine vulnerable to attack. I want to learn but I also want to reduce the risk of my machine being attacked. I found [this video](https://www.youtube.com/watch?v=0XMYtZx1M9g) on youtube that talks about the steps to create a home lab.
+
+The idea is to setup a hacking virtual environment where I have an attack machine that I can hack from and a vulnerable server that I will be hacking. Both machines are in a virtual network that isn't in the same network as my host computer. Here is a summary of the steps from the video:
 
 - Download and Install VirtualBox.
 - Download Kali Linux vbox image.
