@@ -103,7 +103,7 @@ or
 $ hydra -l bob -P /usr/share/wordlists/rockyou.txt ftps://10.10.1.1
 ```
 
-### http-get
+### http-get (Basic Auth)
 
 When I go to a website that has basic HTTP authentication (a site that asks for a username and password in a javascript popup), hydra can brute force that site. I typically see these on admin sites running outside ports 80 or 443.
 
@@ -164,6 +164,18 @@ $ hydra -l bob -P /usr/share/wordlists/rockyou.txt ssh:10.10.1.1
 Hydra will then use go through each of the entries in the wordlist and report if any of the entries worked. The output will look like the following when hydra finds the password:
 
 `[22][ssh] host: 10.10.1.1    login: bob     password: 123456`
+
+### RDP
+
+```bash
+$ hydra -l bob -P /usr/share/wordlists/rockyou.txt rdp://10.10.1.1
+```
+
+### POP3
+
+```bash
+$ hydra -l user@example.com -P passwords.txt pop3://mail.example.com
+```
 
 ### Options
 
