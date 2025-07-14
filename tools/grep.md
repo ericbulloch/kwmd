@@ -79,3 +79,13 @@ Report bugs to: bug-grep@gnu.org
 GNU grep home page: <http://www.gnu.org/software/grep/>
 General help using GNU software: <https://www.gnu.org/gethelp/>
 ```
+
+## Examples
+
+Grep has a lot of options to help find specific text in files. Rather than list them out I decided to write a scenario and then write the grep command that would handle that. I'll try to use capture the flag examples as I go.
+
+### Search for text in a file.
+
+```bash
+$ grep "error" logfile.txt
+```
