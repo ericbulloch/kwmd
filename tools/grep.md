@@ -89,3 +89,9 @@ Grep has a lot of options to help find specific text in files. Rather than list 
 ```bash
 $ grep "error" logfile.txt
 ```
+
+### Search recursively in a directory for the above text.
+
+```bash
+$ grep -r "error" /var/log/
+```
