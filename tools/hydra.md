@@ -238,3 +238,22 @@ If I am trying to brute force a single target, I can specify the maximum number 
 ```bash
 $ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -t 32
 ```
+
+#### -U
+
+Show the options for a supported module. In this example, I am checking the options of the http-get module.
+
+```bash
+$ hydra -U http-get
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-07-14 08:56:51
+
+Help for module http-get:
+============================================================================
+Module http-get requires the page to authenticate.
+The following parameters are optional:
+ (a|A)=auth-type   specify authentication mechanism to use: BASIC, NTLM or MD5
+ (h|H)=My-Hdr\: foo   to send a user defined HTTP header with each request
+For example:  "/secret" or "http://bla.com/foo/bar:H=Cookie\: sessid=aaaa" or "https://test.com:8080/members:A=NTLM"
+```
