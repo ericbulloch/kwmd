@@ -140,3 +140,61 @@ This command will match all the lines in the users.txt file that have user1, use
 ```bash
 $ grep "user[1-9]" users.txt
 ```
+
+### Search for multiple patterns.
+
+This will find all lines that match status code 404 or status code 500.
+
+```bash
+$ grep -E "404|500" webserver.log
+```
+
+### Print only the matching part of the line.
+
+This matches phone numbers with dashes between the numbers and only displays the phone number instead of the whole line of text.
+
+```bash
+$ grep -o "[0-9]\{3\}-[0-9]\{3\}-[0-9]\{4\}" phonebook.txt
+```
+
+### Print the line and add color to the part that matches.
+
+```bash
+$ grep --color=always "password" config.txt
+```
+
+### Search for whole words only.
+
+Matches admin, but not administrator or superadmin.
+
+```bash
+$ grep -w "admin" users.txt
+```
+
+### Search multiple config files in the same directory.
+
+```bash
+$ grep "listen" *.conf
+```
+
+### Display lines and after the match.
+
+This will display 8 total lines (2 before the matching line, 1 for the matching line and 5 lines after the matching line).
+
+```bash
+$ grep -A 5 -B 2 "Error" logfile.log
+```
+
+### Quiet mode (checks if the pattern exists).
+
+This command will print Found if the text ubuntu is in the /etc/passwd file.
+
+```bash
+$ grep -q "ubuntu" /etc/passwd && echo "Found"
+```
+
+### Check if apache is running on the system.
+
+```bash
+$ ps aux | grep "apache"
+```
