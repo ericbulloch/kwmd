@@ -239,7 +239,7 @@ If I am trying to brute force a single target, I can specify the maximum number 
 $ hydra -l bob -P /usr/share/wordlists/rockyou.txt 10.10.1.1 ssh -t 32
 ```
 
-#### -U
+#### -U module
 
 Show the options for a supported module. In this example, I am checking the options of the http-get module.
 
