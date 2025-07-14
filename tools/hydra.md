@@ -165,16 +165,22 @@ Hydra will then use go through each of the entries in the wordlist and report if
 
 `[22][ssh] host: 10.10.1.1    login: bob     password: 123456`
 
-### RDP
+### rdp
 
 ```bash
 $ hydra -l bob -P /usr/share/wordlists/rockyou.txt rdp://10.10.1.1
 ```
 
-### POP3
+### pop3
 
 ```bash
 $ hydra -l user@example.com -P passwords.txt pop3://mail.example.com
+```
+
+### mysql
+
+```bash
+$ hydra -l mysql -P passwords.txt mysql://10.10.1.1
 ```
 
 ### Options
