@@ -95,3 +95,9 @@ $ grep "error" logfile.txt
 ```bash
 $ grep -r "error" /var/log/
 ```
+
+### Case-insensitive search.
+
+```bash
+$ grep -i "error" logfile.txt
+```
