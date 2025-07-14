@@ -5,6 +5,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [Binwalk](binwalk.md)
 - [dirb](dirb.md)
 - [dirbuster](dirbuster.md)
+- [cat](cat.md)
 - [ffuf - Fuzz Faster U Fool](ffuf.md)
 - [find](find.md)
 - [ftp](ftp.md)
