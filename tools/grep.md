@@ -104,6 +104,19 @@ $ grep -i "error" logfile.txt
 
 ### Count matching lines.
 
+Display how many lines match the text.
+
 ```bash
 $ grep -c "error" logfile.txt
+433
+```
+
+### Show line numbers.
+
+This command will show the line number with a colon (:) after the line number then the full text of the line. The output below found matches on lines 1 and 35.
+
+```bash
+$ grep -n "root" /etc/passwd
+1:root:x:0:0:root:/root:/bin/bash
+35:nm-openvpn:x:116:123:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
 ```
