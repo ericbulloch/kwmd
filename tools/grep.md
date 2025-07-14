@@ -86,6 +86,8 @@ Grep has a lot of options to help find specific text in files. Rather than list 
 
 ### Search for text in a file.
 
+This match is case-sensitive so Error or ERROR will not match.
+
 ```bash
 $ grep "error" logfile.txt
 ```
@@ -97,6 +99,8 @@ $ grep -r "error" /var/log/
 ```
 
 ### Case-insensitive search.
+
+The following will find all lines that have error with any case. That means that Error, ERROR, error and eRrOr will all match.
 
 ```bash
 $ grep -i "error" logfile.txt
@@ -119,4 +123,20 @@ This command will show the line number with a colon (:) after the line number th
 $ grep -n "root" /etc/passwd
 1:root:x:0:0:root:/root:/bin/bash
 35:nm-openvpn:x:116:123:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+```
+
+### Show invert match (the lines that don't contain the pattern).
+
+This command will show all the log lines that don't have 10.10.100.1 (my machine ip address).
+
+```bash
+$ grep -v "10.10.100.1" /var/log
+```
+
+### Use regular expressions.
+
+This command will match all the lines in the users.txt file that have user1, user2, ..., user9.
+
+```bash
+$ grep "user[1-9]" users.txt
 ```
