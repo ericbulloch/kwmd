@@ -25,7 +25,7 @@ There are some commands that I use all the time. I have put together a list of t
 | `chmod` | Changes file permissions. |
 | `chown` | Changes file ownership. |
 | [`find`](/tools/find.md) | Searches for files and directories. |
-| `grep` | Searches text using patterns (regular expressions also known as regex). |
+| [`grep`](/tools/grep.md) | Searches text using patterns (regular expressions also known as regex). |
 | `ps aux` | Lists all running processes. |
 | `kill` | Terminates processes by PID or name. |
 | `whoami` | What user am I logged in as. |
