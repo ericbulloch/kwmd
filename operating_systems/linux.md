@@ -16,7 +16,7 @@ There are some commands that I use all the time. I have put together a list of t
 | `cp` | Copies files or directories. |
 | `mv` | Moves or renames files and directories. |
 | `touch` | Creates an empty file or updates timestamps. |
-| `cat` | Displays file contents. |
+| [`cat`](/tools/cat.md) | Displays file contents. |
 | `head` | Used to look at the first lines of a file. |
 | `tail` | Used to look at the last lines of a file. |
 | `more` | Used to show a page of text at a time. A kind of interactive cat. |
