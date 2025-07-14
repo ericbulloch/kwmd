@@ -101,3 +101,9 @@ $ grep -r "error" /var/log/
 ```bash
 $ grep -i "error" logfile.txt
 ```
+
+### Count matching lines.
+
+```bash
+$ grep -c "error" logfile.txt
+```
