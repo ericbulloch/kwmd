@@ -142,3 +142,9 @@ _______________________________________________________________
 ```bash
 $ wpscan --url http://target.thm
 ```
+
+### Basic scan with password brute forcing
+
+```bash
+$ wpscan --url http://target.thm -e u -P /usr/share/wordlists/rockyou.txt
+```
