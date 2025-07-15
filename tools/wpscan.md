@@ -104,3 +104,35 @@ Usage: wpscan [options]
 
 [!] To see full list of options use --hh.
 ```
+
+## Examples
+
+Find has a lot of options to help find specific files and folders. Rather than list them out I decided to write a scenario and then write the find command that would handle that. I'll try to use capture the flag examples as I go. Most of the commands will end with `2>/dev/null` because I don't want a bunch of Permission denied output that looks like the following:
+
+```bash
+find: /mine/var/log/mysql_stuff: Permission denied
+```
+
+### Updating
+
+The TryHackMe AttackBox will display a message about how wpscan hasn't been updated for awhile when I try to run wpscan. This causes any scan to run really slow. When I update wpscan all successive scans run significantly faster. Here is the command I run to update wpscan:
+
+```bash
+$ wpscan --update
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.28
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[i] Updating the Database ...
+[i] Update completed.
+```
