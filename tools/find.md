@@ -54,7 +54,7 @@ find: /mine/var/log/mysql_stuff: Permission denied
 ### Find a file owned by the user gimli with a size of 85 kilobytes in the directory /home/gimli.
 
 ```bash
-$ find /home/gimli -type f -use gimli -size 85 2>/dev/null
+$ find /home/gimli -type f -user gimli -size 85 2>/dev/null
 ```
 
 ### If you get stuck, there is a file somewhere on the disk drive called ReadMeIfStuck.txt.
