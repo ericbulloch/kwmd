@@ -136,3 +136,9 @@ _______________________________________________________________
 [i] Updating the Database ...
 [i] Update completed.
 ```
+
+### Basic scan
+
+```bash
+$ wpscan --url http://target.thm
+```
