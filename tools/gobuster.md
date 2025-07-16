@@ -96,3 +96,47 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 10.93 seconds
            Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
 ```
+
+Since the ftp service allows ftp user login I checked it first. I didn't find anything:
+
+```bash
+$ ftp target.thm
+Connected to target.thm.
+220 (vsFTPd 3.0.5)
+Name (target.thm:root): ftp
+331 Please specify the password.
+Password:
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls -lha
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+drwxr-xr-x    2 0        115          4096 Oct 06  2020 .
+drwxr-xr-x    2 0        115          4096 Oct 06  2020 ..
+226 Directory send OK.
+```
+
+I decided to look around the website and couldn't find anything so I ran gobuster:
+
+```bash
+$ gobuster dir -u http://target.thm -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x php,zip,txt
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://target.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Extensions:              php,zip,txt
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.php                 (Status: 403) [Size: 275]
+/wordpress            (Status: 301) [Size: 312] [--> http://target.thm/wordpress/]
+/hackathons           (Status: 200) [Size: 197]
+```
