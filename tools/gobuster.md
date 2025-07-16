@@ -279,3 +279,25 @@ I have a shell. I'm in!
 
 I get a stable shell by running the commands [found here](/README.md#stable-shell).
 
+## user.txt
+
+I go to /home/elyana and notice two files. First the user.txt file that I can't access and a hint.txt. I view the contents of hint.txt:
+
+```bash
+$ cat hint.txt
+Elyana's user password is hidden in the system. Find it ;)
+```
+
+I run the following command to search for a file that elyana owns:
+
+```bash
+$ find / -type f -user elyana 2>/dev/null
+/home/elyana/user.txt
+/home/elyana/.bash_logout
+/home/elyana/hint.txt
+/home/elyana/.bash_history
+/home/elyana/.profile
+/home/elyana/.sudo_as_admin_successful
+/home/elyana/.bashrc
+/etc/mysql/conf.d/private.txt
+```
