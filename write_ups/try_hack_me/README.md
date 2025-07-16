@@ -4,8 +4,11 @@ TryHackMe is a very beginner friendly site to start learning how to hack. They h
 
 Here are the list of write-ups that I have done for TryHackMe.
 
+- [All in One](all_in_one.md)
 - [Bounty Hacker](bounty_hacker.md)
 - [Chill Hack](chill_hack.md)
+- [Chocolate Factory](chocolate_factory.md)
+- [ColddBox:Easy](coldd_box_easy.md)
 - [Crack The Hash](crack_the_hash.md)
 - [GamingServer](gaming_server.md)
 - [Gotta Catch'em All!](gotta_catch_em_all.md)
@@ -14,6 +17,7 @@ Here are the list of write-ups that I have done for TryHackMe.
 - [IDE](ide.md)
 - [Ignite](ignite.md)
 - [Kiba](kiba.md)
+- [Poster](poster.md)
 - [Simple CTF](simple_ctf.md)
 - [Source](source.md)
 - [Startup](startup.md)
