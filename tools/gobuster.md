@@ -301,3 +301,32 @@ $ find / -type f -user elyana 2>/dev/null
 /home/elyana/.bashrc
 /etc/mysql/conf.d/private.txt
 ```
+
+The private.txt file looks suspicious so I view its contents:
+
+```bash
+$ cat /etc/mysql/conf.d/private.txt
+user: elyana
+password: REDACTED
+```
+
+Now that I have the password, I switch users.
+
+```bash
+$ su elyana
+```
+
+Now I read the file:
+
+```bash
+$ cat user.txt
+VEhNezQ5amc2NjZhbGI1ZTc2c2hydXNuNDlqZzY2NmFsYjVlNzZzaHJ1c259
+```
+
+This looks encoded and so I try to base64 decode it:
+
+```bash
+$ cat user.txt | base64 -d
+REDACTED
+```
+
