@@ -1,127 +1,98 @@
-# gobuster
+# THM: All in One
 
-The gobuster tool was the first tool that I learned for fuzzing content and subdirectories. Like all fuzzers, the wordlists are the most important part of fuzzing.
+| Stat | Value |
+| ---------- | -------------------------------------------- |
+| Image | <img src="/images/write_ups/try_hack_me/all_in_one/all_in_one.png" alt="All in One" width="90"/> |
+| Room | All in One |
+| URL | https://tryhackme.com/room/allinonemj |
+| Difficulty | Easy |
 
-## Usage
+## Concepts/Tools Used
 
-```bash
-$ gobuster -h
-Usage:
-  gobuster [command]
+- [ftp](/tools/ftp.md)
+- [gobuster](/tools/gobuster.md)
+- [wpscan](/tools/wpscan.md)
+- [find](/tools/find.md)
+- base64
 
-Available Commands:
-  completion  Generate the autocompletion script for the specified shell
-  dir         Uses directory/file enumeration mode
-  dns         Uses DNS subdomain enumeration mode
-  fuzz        Uses fuzzing mode. Replaces the keyword FUZZ in the URL, Headers and the request body
-  gcs         Uses gcs bucket enumeration mode
-  help        Help about any command
-  s3          Uses aws bucket enumeration mode
-  tftp        Uses TFTP enumeration mode
-  version     shows the current version
-  vhost       Uses VHOST enumeration mode (you most probably want to use the IP address as the URL parameter)
+## Room Description
 
-Flags:
-      --debug                 Enable debug output
-      --delay duration        Time each thread waits between requests (e.g. 1500ms)
-  -h, --help                  help for gobuster
-      --no-color              Disable color output
-      --no-error              Don't display errors
-  -z, --no-progress           Don't display progress
-  -o, --output string         Output file to write results to (defaults to stdout)
-  -p, --pattern string        File containing replacement patterns
-  -q, --quiet                 Don't print the banner and other noise
-  -t, --threads int           Number of concurrent threads (default 10)
-  -v, --verbose               Verbose output (errors)
-  -w, --wordlist string       Path to the wordlist. Set to - to use STDIN.
-      --wordlist-offset int   Resume from a given position in the wordlist (defaults to 0)
+This is a fun box where you will get to exploit the system in several ways. Few intended and unintended paths to getting user and root access.
 
-Use "gobuster [command] --help" for more information about a command.
-```
+## Process
 
-## Examples
+Once the machine starts up I save the machine's ip address to my host file so that I can type `target.thm` instead of an ip address.
 
-The following examples are ones that I have used in capture the flag exercises. The wordlists that are provided are ones that are found on Kali unless otherwise specified.
-
-For each of the examples below, here are the variables that I am using:
-
-- Password wordlist found in `/usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt`
-- The target machine is found at ip address `10.10.1.1`
-
-### Directory/File (dir) Enumeration Mode
-
-The first search I usually do once I have found that a web server is running on the target is to do a directory search on the web site. The gobuster tool makes this very easy to do. It is a specialized command for gobuster and so it has different help output from the vanilla gobuster help.
+I run nmap to see what ports are open:
 
 ```bash
-$ gobuster dir -h
-Uses directory/file enumeration mode
+$ nmap -T4 -n -sC -sV -Pn -v -p- target.thm
+Starting Nmap 7.80 ( https://nmap.org ) at 2025-07-14 18:12 BST
+NSE: Loaded 151 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 18:12
+Completed NSE at 18:12, 0.00s elapsed
+Initiating NSE at 18:12
+Completed NSE at 18:12, 0.00s elapsed
+Initiating NSE at 18:12
+Completed NSE at 18:12, 0.00s elapsed
+Initiating ARP Ping Scan at 18:12
+Scanning target.thm (10.10.242.126) [1 port]
+Completed ARP Ping Scan at 18:12, 0.04s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 18:12
+Scanning target.thm (10.10.242.126) [65535 ports]
+Discovered open port 22/tcp on 10.10.242.126
+Discovered open port 21/tcp on 10.10.242.126
+Discovered open port 80/tcp on 10.10.242.126
+Completed SYN Stealth Scan at 18:12, 2.30s elapsed (65535 total ports)
+Initiating Service scan at 18:12
+Scanning 3 services on target.thm (10.10.242.126)
+Completed Service scan at 18:12, 6.04s elapsed (3 services on 1 host)
+NSE: Script scanning 10.10.242.126.
+Initiating NSE at 18:12
+NSE: [ftp-bounce] PORT response: 500 Illegal PORT command.
+Completed NSE at 18:12, 0.84s elapsed
+Initiating NSE at 18:12
+Completed NSE at 18:12, 0.05s elapsed
+Initiating NSE at 18:12
+Completed NSE at 18:12, 0.00s elapsed
+Nmap scan report for target.thm (10.10.242.126)
+Host is up (0.00013s latency).
+Not shown: 65532 closed ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.5
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| ftp-syst:
+|   STAT:
+| FTP server status:
+|      Connected to ::ffff:10.10.137.140
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 2
+|      vsFTPd 3.0.5 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+| http-methods:
+|_  Supported Methods: GET POST OPTIONS HEAD
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+MAC Address: 02:77:89:7F:E5:71 (Unknown)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 
-Usage:
-  gobuster dir [flags]
-
-Flags:
-  -f, --add-slash                         Append / to each request
-      --client-cert-p12 string            a p12 file to use for options TLS client certificates
-      --client-cert-p12-password string   the password to the p12 file
-      --client-cert-pem string            public key in PEM format for optional TLS client certificates
-      --client-cert-pem-key string        private key in PEM format for optional TLS client certificates (this key needs to have no password)
-  -c, --cookies string                    Cookies to use for the requests
-  -d, --discover-backup                   Also search for backup files by appending multiple backup extensions
-      --exclude-length string             exclude the following content lengths (completely ignores the status). You can separate multiple lengths by comma and it also supports ranges like 203-206
-  -e, --expanded                          Expanded mode, print full URLs
-  -x, --extensions string                 File extension(s) to search for
-  -X, --extensions-file string            Read file extension(s) to search from the file
-  -r, --follow-redirect                   Follow redirects
-  -H, --headers stringArray               Specify HTTP headers, -H 'Header1: val1' -H 'Header2: val2'
-  -h, --help                              help for dir
-      --hide-length                       Hide the length of the body in the output
-  -m, --method string                     Use the following HTTP method (default "GET")
-      --no-canonicalize-headers           Do not canonicalize HTTP header names. If set header names are sent as is.
-  -n, --no-status                         Don't print status codes
-  -k, --no-tls-validation                 Skip TLS certificate verification
-  -P, --password string                   Password for Basic Auth
-      --proxy string                      Proxy to use for requests [http(s)://host:port] or [socks5://host:port]
-      --random-agent                      Use a random User-Agent string
-      --retry                             Should retry on request timeout
-      --retry-attempts int                Times to retry on request timeout (default 3)
-  -s, --status-codes string               Positive status codes (will be overwritten with status-codes-blacklist if set). Can also handle ranges like 200,300-400,404.
-  -b, --status-codes-blacklist string     Negative status codes (will override status-codes if set). Can also handle ranges like 200,300-400,404. (default "404")
-      --timeout duration                  HTTP Timeout (default 10s)
-  -u, --url string                        The target URL
-  -a, --useragent string                  Set the User-Agent string (default "gobuster/3.6")
-  -U, --username string                   Username for Basic Auth
-
-Global Flags:
-      --debug                 Enable debug output
-      --delay duration        Time each thread waits between requests (e.g. 1500ms)
-      --no-color              Disable color output
-      --no-error              Don't display errors
-  -z, --no-progress           Don't display progress
-  -o, --output string         Output file to write results to (defaults to stdout)
-  -p, --pattern string        File containing replacement patterns
-  -q, --quiet                 Don't print the banner and other noise
-  -t, --threads int           Number of concurrent threads (default 10)
-  -v, --verbose               Verbose output (errors)
-  -w, --wordlist string       Path to the wordlist. Set to - to use STDIN.
-      --wordlist-offset int   Resume from a given position in the wordlist (defaults to 0)
+NSE: Script Post-scanning.
+Initiating NSE at 18:12
+Completed NSE at 18:12, 0.00s elapsed
+Initiating NSE at 18:12
+Completed NSE at 18:12, 0.00s elapsed
+Initiating NSE at 18:12
+Completed NSE at 18:12, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 10.93 seconds
+           Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
 ```
-
-A simple directory enumerate looks like the following:
-
-```bash
-$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt
-```
-
-- The `dir` part of the command lets gobuster know that this is a directory search
-- The `-u` lets gobuster know what the target url is
-- The `-w` lets gobuster know what wordlist to use
-
-#### Useful Options for Directory/File Enumeration Mode
-
-| example  | what it means  | when I use it  |
-| -------- | -------------- | -------------- |
-| `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -t 4 --delay 3000`  | The `-t` flag decreases the thread count from 10 to 4 and the `--delay 3000` flag is increasing the delay in each thread between requests.  | If I want to be less noisy on a network or if the machine seems to have less resources because it is slow to handle requests.  |
-| `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -t 20 --delay 500`  | The `-t` flag increases the thread count from 10 to 20 and the `--delay 500` flag is decreasing the delay in each thread between requests.  | If I don't care noise on a network or if the machine seems to have sufficient resources because it is quick to handle requests.  |
-| `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -z --no-color -o ~/gobuster.out`  | The `-z` flag removes the progress bar output while the -o flag tells gobuster to save the output to the gobuster.out file in my home directory.  | I have some automated scripts that will run this command and save the file so that it can be parsed and used with other commands and tools.  |
-| `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt --wordlist-offset $(grep -n 'odbc' /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt \| cut -d':' -f1)`  | The `--wordlist-offset` flag tells gobuster to start on the line number provided (in this case grep finds the line number and returns it).  | I have accidentally stopped gobuster when it was most of the way done. This command allowed me to continue from where I was before I accidentally stopped the script.  |
-| `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -U username -P password`  | The `-U` and `-P` are used when I am trying to enumerate a site that uses basic authentication. The `-U` flag specifies the username and the `-P` flag specifies the password.  | Anytime I need to enumerate a site that uses basic authentication.  |
