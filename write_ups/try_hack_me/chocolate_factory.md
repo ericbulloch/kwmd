@@ -687,3 +687,69 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Tue Jul 15 20:25:34 2025 -- 1 IP address (1 host up) scanned in 521.60 seconds
 ```
+
+I noticed the ftp service allows the ftp user to login. I check it out:
+
+```bash
+$ ftp target.thm
+Connected to target.thm.
+220 (vsFTPd 3.0.5)
+Name (target.thm:root): ftp
+331 Please specify the password.
+Password:
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls -lha
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+drwxr-xr-x    2 65534    65534        4096 Oct 01  2020 .
+drwxr-xr-x    2 65534    65534        4096 Oct 01  2020 ..
+-rw-rw-r--    1 1000     1000       208838 Sep 30  2020 gum_room.jpg
+226 Directory send OK.
+ftp> get gum_room.jpg
+local: gum_room.jpg remote: gum_room.jpg
+200 PORT command successful. Consider using PASV.
+150 Opening BINARY mode data connection for gum_room.jpg (208838 bytes).
+226 Transfer complete.
+208838 bytes received in 0.00 secs (76.5719 MB/s)
+```
+
+I downloaded the gum_room.jpg from from the ftp server. Since it is an image I ran steghide to see if it contained any hidden files:
+
+```bash
+$ steghide info gum_room.jpg
+"gum_room.jpg":
+  format: jpeg
+  capacity: 10.9 KB
+Try to get information about embedded data ? (y/n) y
+Enter passphrase:
+  embedded file "b64.txt":
+    size: 2.5 KB
+    encrypted: rijndael-128, cbc
+    compressed: yes
+$ steghide extract -sf gum_room.jpg
+Enter passphrase:
+wrote extracted data to "b64.txt".
+```
+
+The image had a hidden file called b64.txt. The contents are base64 encoded so I decode it:
+
+```bash
+$ cat b64.txt | base64 -d
+...
+charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
+```
+
+I saved the hash `$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/` to a text file called hash.txt and tried to crack it with john. I never got a hit with this:
+
+```bash
+$ john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
+Warning: detected hash type "sha512crypt", but the string is also recognized as "sha512crypt-opencl"
+Use the "--format=sha512crypt-opencl" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 256/256 AVX2 4x])
+Cost 1 (iteration count) is 5000 for all loaded hashes
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+```
