@@ -9,7 +9,7 @@
 
 ## Concepts/Tools Used
 
-
+- [wpscan](/tools/wpscan.md)
 
 ## Room Description
 
