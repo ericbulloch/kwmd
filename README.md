@@ -45,7 +45,9 @@ I have been documenting the steps and scenarios that I often see in capture the 
 
 Unless the instructions tell me to use a specific hostname, I will often change the IP address of the machine to a more memorable hostname. For example, if I am working on a capture the flag on TryHackMe and they provide a machine with an IP address like 10.10.160.54, I will add an entry to my /etc/hosts file. In this example, I will run the following:
 
-`echo "10.10.160.54  target.thm" >> /etc/hosts`
+```bash
+$ echo "10.10.160.54  target.thm" >> /etc/hosts
+```
 
 I do this so that I do not have to remember the IP address of the machine I am attacking. I have less to remember and can focus more on what I am trying to do.
 
@@ -80,7 +82,9 @@ I have included a write up that details interacting with [pop3](services/pop3.md
 
 NFS allows users to access and manage files on a remote server as if those files were on their local computer. The server drives need to be mounted on my machine so that I can see them and use them. Here is the command to see what drives are available on the remote machine:
 
-`showmount -e 10.10.1.1`
+```bash
+$ showmount -e 10.10.1.1
+```
 
 This will output something like the following:
 
@@ -92,8 +96,8 @@ Export list for 10.10.1.1:
 The output tells me I can mount the folder /mnt/share that is on the server with the ip address 10.10.1.1. I usually create a folder with the same name as the drive and then mount that nfs drive to that folder. In this case, here is the commands I run:
 
 ```bash
-mkdir share
-sudo mount -t nfs 10.10.1.1:/mnt/share share
+$ mkdir share
+$ sudo mount -t nfs 10.10.1.1:/mnt/share share
 ```
 
 Now I can access the folder and the files. There was a capture the flag event where I couldn't cd into the share directory. I was root on my machine and when I ran `cd share` I got the following error:
@@ -103,7 +107,7 @@ Now I can access the folder and the files. There was a capture the flag event wh
 I ran the following command to see what the permissions were for the share folder:
 
 ```bash
-# ls -lh
+$ ls -lh
 ...
 drwx------ 2 1018 1018 4.0K Apr  2  2025 share
 ...
@@ -112,9 +116,9 @@ drwx------ 2 1018 1018 4.0K Apr  2  2025 share
 The 1018 user and group didn't exist on my machine. Since I was root I added a user and set their user and group id to 1018. Here are the commands I ran:
 
 ```bash
-sudo useradd kwmd
-sudo usermod -u 1018 kwmd
-sudo groupmod -g 1018 kwmd
+$ sudo useradd kwmd
+$ sudo usermod -u 1018 kwmd
+$ sudo groupmod -g 1018 kwmd
 ```
 
 After that I changed to the user by running `su kwmd`. From there, I was able to view the files in the nfs share.
@@ -141,7 +145,9 @@ I usually use dirsearch as my directory enumeration tool. The syntax is very ter
 
 This tool can be installed with pip. I use it because the syntax is easy to remember and it does a good job with its default word list. I install it with the following command:
 
-`pip3 install dirsearch`
+```bash
+$ pip3 install dirsearch
+```
 
 My favorite thing about this tool is how little I have to remember when I run it. I run it with the following command:
 
@@ -149,7 +155,9 @@ My favorite thing about this tool is how little I have to remember when I run it
 
 The `-u` option tells dirsearch what URL I want to start searching in. If it finds that the site has a path like `/admin` and I want to search that folder, then I run another search with:
 
-`dirsearch -u http://target.thm/admin`
+```bash
+$ dirsearch -u http://target.thm/admin
+```
 
 ##### Directory Enumeration with ffuf
 
@@ -167,7 +175,9 @@ Sometimes I will run subdomain enumeration to see if there are any other sites h
 
 The ffuf tool is my go-to when I run subdomain enumeration. I have provided information on how to run it on [its tools page](tools/ffuf.md#subdomain-enumeration). I have included the command here for a quick reference:
 
-`ffuf -H "Host: FUZZ.10.10.1.1" -H "User-Agent: PENTEST" -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt -u http://10.10.1.1 -fs 100`
+```bash
+$ ffuf -H "Host: FUZZ.10.10.1.1" -H "User-Agent: PENTEST" -w /usr/share/wordlists/SecLists/Discovery/Web-Content/raft-large-directories-lowercase.txt -u http://10.10.1.1 -fs 100
+```
 
 ##### Parameter Enumeration
 
@@ -195,7 +205,9 @@ Capture the flag events often have flags in the comments of the HTML. I have fou
 
 SQL injection is still a vulerability to be aware of in capture the flag events. Many exercises have forms that are vulnerable to this attack. The main forms that I routinely check are the login, feedback and address forms. I'll run a regular request and capture it in Burp. I'll save the request to a file named `request.txt` and then run the following command:
 
-`sqlmap -r request.txt`
+```bash
+$ sqlmap -r request.txt
+```
 
 I have more details about this on the [sqlmap tools page](tools/sqlmap.md).
 
