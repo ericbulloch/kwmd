@@ -273,7 +273,7 @@ I update the file to use my attack box ip address and port 4444. I start a liste
 $ nc -lnvp 4444
 ```
 
-I alter the them in the WordPress site by clicking the Appearance > Theme Editor on the left. Then I click the 404.php template and paste the contents of the shell.php mentioned above. I click the Update button and then navigate to a page that will cause a 404 error. In my case, I went to target.thm/wordpress/index.php/2020/10/05/hello-world-1/
+I alter the them in the WordPress site by clicking the Appearance > Theme Editor on the left. Then I click the 404.php template and paste the contents of the shell.php mentioned above. I click the Update button and then navigate to a page that will cause a 404 error. In my case, I went to http://target.thm/wordpress/index.php/2020/10/05/hello-world-1/
 
 I have a shell. I'm in!
 
