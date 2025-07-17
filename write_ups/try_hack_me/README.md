@@ -10,6 +10,7 @@ Here are the list of write-ups that I have done for TryHackMe.
 - [Chocolate Factory](chocolate_factory.md)
 - [ColddBox:Easy](coldd_box_easy.md)
 - [Crack The Hash](crack_the_hash.md)
+- [Cyborg](cyborg.md)
 - [GamingServer](gaming_server.md)
 - [Gotta Catch'em All!](gotta_catch_em_all.md)
 - [HA Joker CTF](ha_joker_ctf.md)
