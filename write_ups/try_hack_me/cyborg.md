@@ -2,14 +2,15 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="/images/write_ups/try_hack_me/cyborg/cyborg.png" alt="Cyborg" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/cyborg/cyborg.jpeg" alt="Cyborg" width="90"/> |
 | Room | Cyborg |
 | URL | https://tryhackme.com/room/cyborgt8 |
 | Difficulty | Easy |
 
 ## Concepts/Tools Used
 
-
+- [gobuster](/tools/gobuster.md)
+- [john](/tools/john.md)
 
 ## Room Description
 
