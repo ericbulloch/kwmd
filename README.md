@@ -58,7 +58,7 @@ This does not solve all my problems. There are two scenarios where I couldn't ju
 - A box will require a specific hostname to access their site and any subdomains. In this case, I added their specific domain name to my host file using the command above.
 - A box has a vulnerability that calls out to the url that I provide. Since the target machine does not have target.thm in their host file it will fail to resolve an ip address. In this case, I will just provide the ip address of the target machine.
 
-### Port Scanning
+### Port Scanning and Fingerprinting
 
 I have added information about this on my [nmap tool](tools/nmap.md#port-scans) page in the Port Scans section.
 
@@ -70,15 +70,15 @@ nmap -T4 -n -sC -sV -Pn -v -p- target.thm
 
 An explaination about this command can be found in the link above.
 
-### FTP
+### FTP (File Transfer Protocol)
 
 I have included a tool write up for the [ftp tool](tools/ftp.md) in my [tools](tools/README.md) section. It covers the some of the more common scenarios that I have found during capture the flag events.
 
-### POP3
+### POP3 (Post Office Protocol version 3)
 
 I have included a write up that details interacting with [pop3](services/pop3.md) in my services section. It covers the some of the more common scenarios that I have found during capture the flag events.
 
-### NFS
+### NFS (Network File System)
 
 NFS allows users to access and manage files on a remote server as if those files were on their local computer. The server drives need to be mounted on my machine so that I can see them and use them. Here is the command to see what drives are available on the remote machine:
 
@@ -244,11 +244,11 @@ The `%00` is a null character for a url and marks the end of the string. I am at
 
 I have included a write up for the [text encoding](concepts/cryptography.md#text-encoding) in my Cryptography [concepts](concepts/README.md) section. It covers some of the more common scenarios that I have found during capture the flag events.
 
-### SSH
+### SSH (Secure Shell Protocol)
 
 I have included a tool write up for the [ssh tool](tools/ssh.md) in my tools section. It covers the some of the more common scenarios that I have found during capture the flag events.
 
-### SMB
+### SMB (Server Message Block)
 
 I have included a write up that details interacting with [smb](services/smb.md) in my services section. It covers the some of the more common scenarios that I have found during capture the flag events.
 
