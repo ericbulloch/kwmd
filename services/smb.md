@@ -1,4 +1,4 @@
-# SMB
+# SMB (Server Message Block)
 
 Server Message Block is commonly used in capture the flag events. It allows users to share files and printers across the network. Enumerating SMB and Samba folders is a gold mine, but I forget the syntax and tools all the time.
 
@@ -6,7 +6,9 @@ Server Message Block is commonly used in capture the flag events. It allows user
 
 It is important to find out what disks are available and if any of them do not require me to log in. I use the smbmap tool to solve this. The following command will discover what shares are available and what the permissions for them are:
 
-`smbmap -H target.thm`
+```bash
+$ smbmap -H target.thm
+```
 
 The output will look something like the following:
 
@@ -28,7 +30,9 @@ The above example tells me that the `anonymous` disk does not require authentica
 
 To connect to an anonymous disk, I use the smbclient tool. It makes it easy to browse and download files after enumeration is complete. I connect to the anonymous disk above with:
 
-`smbclient //target.thm/anonymous/ -N`
+```bash
+$ smbclient //target.thm/anonymous/ -N
+```
 
 When it successfully finishes, it will change the command prompt to:
 
@@ -40,7 +44,9 @@ Now I can use the `ls` and `cd` commands to look around the disk.
 
 I often need to download the contents of a disk onto my machine for analysis. If the file on the disk is called important.txt, I would run the following command (I included the smb prompt in the beginning of the command):
 
-`smb: \> get important.txt`
+```bash
+smb: \> get important.txt
+```
 
 This will download the important.txt file to the directory I was in on my machine when I connected to the disk.
 
