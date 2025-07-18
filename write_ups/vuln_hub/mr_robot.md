@@ -111,11 +111,11 @@ I went to the page and I am not sure what is happening. It feels like the page i
 
 I see a login page and I started to try a few different combinations:
 
-- admin/admin
-- admin/password
-- admin/123
-- admin/1234
-- admin/123456
+- admin:admin
+- admin:password
+- admin:123
+- admin:1234
+- admin:123456
 
 None of these worked. I did notice that the error message doesn't give a generic "your username and password are incorrect" error message. It tells me "Invalid username. Lost your password?". I got the same error message when I tried a few different usernames. If I provide a correct username do I get a different message? So far the only information that I have is the dictionary file that I shortened earlier. I watch the login attempt in the Firefox developer toolbar so I can see the request. Since we have 11k lines in the dictionary file, I don't want to use Burp Suite since it throttles my brute force attempts. I want to use hydra. The command that I used is the following:
 
@@ -274,7 +274,7 @@ $ ssh robot@10.22.1.112
 
 I then entered that password that CrackStation gave me. Just like that, I now have a shell on the machine as the robot user. I closed my other shell window.
 
-I didn't actually need to close my original shell. I could have just generated a more stable shell. The steps that I use can be [found here](../../README.md#stable-shell).
+I didn't actually need to close my original shell. I could have just generated a more stable shell. The steps that I use can be [found here](/README.md#stable-shell).
 
 Either way, now that I am the robot user I can read the flag in the `key-2-of-3.txt` file.
 
