@@ -1,4 +1,4 @@
-# POP3
+# POP3 (Post Office Protocol version 3)
 
 POP3 email servers are a great way to gather information for a capture the flag event. Once I learned what to type with netcat it became really easy to login, list emails and read emails. I'll also include a way to brute force a password with hydra.
 
@@ -8,7 +8,9 @@ I use netcat to connect to a pop3 service. There are other clients and ways to d
 
 For this example, my pop3 service is running on port 110 of my server which is located at 10.10.1.1. Here is how I connect to it:
 
-`nc 10.10.1.1 110`
+```bash
+$ nc 10.10.1.1 110
+```
 
 The banner for the email server will show something once you connect. In my case I got the following:
 
@@ -21,7 +23,7 @@ Now that I have connected to the pop3 server, I can log into the server. I'll ne
 Here is my command prompt:
 
 ```bash
-nc 10.10.1.1 110
+$ nc 10.10.1.1 110
 +OK KWMD Capture the Flag POP3 Electronic-Mail System
 user Gustavo
 +OK
@@ -36,7 +38,7 @@ Just like that, I am now in the pop3 server logged in with the Gustavo user.
 The purpose of logging into the pop3 server with a user is to get the messages so I can read them and try to move onto the next step of the capture the flag. The list command will list all messages. The first number is the id of the email message and the next number is the size of the message. Below is the continuation of the prompt but with the listed messages:
 
 ```bash
-nc 10.10.1.1 110
+$ nc 10.10.1.1 110
 +OK KWMD Capture the Flag POP3 Electronic-Mail System
 user Gustavo
 +OK
@@ -56,7 +58,7 @@ I have found 2 messages for the Gustavo user. Next I'll show how to read them.
 The retr command is how I retrieve a message from the server so that I can view it. This command needs the id of the message that I got as output in the previous command. Here is a continuation of the prompt above and the message that it contained:
 
 ```bash
-nc 10.10.1.1 110
+$ nc 10.10.1.1 110
 +OK KWMD Capture the Flag POP3 Electronic-Mail System
 user Gustavo
 +OK
@@ -97,13 +99,17 @@ Brute forcing with Hydra follows the same format as other services. POP3 is very
 
 I am going to use the gustavo user above to show the syntax to try different passwords. Here is the syntax:
 
-`hydra -l gustavo -P /usr/share/wordlists/fasttrack.txt 10.10.1.1 pop3`
+```bash
+$ hydra -l gustavo -P /usr/share/wordlists/fasttrack.txt 10.10.1.1 pop3
+```
 
 ### Brute Forcing a Username
 
 I am going to use the gustavo user above to show the syntax to try different passwords. Here is the syntax:
 
-`hydra -L /usr/share/wordlists/SecLists/Usernames/top-usernames-shortlist.txt -p letmein1! 10.10.1.1 pop3`
+```bash
+$ hydra -L /usr/share/wordlists/SecLists/Usernames/top-usernames-shortlist.txt -p letmein1! 10.10.1.1 pop3
+```
 
 ## Conclusion
 
