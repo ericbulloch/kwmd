@@ -20,7 +20,6 @@ I have included guides on how to use various tools and programs. Some of the too
 - [nc - Netcat](netcat.md)
 - [Nikto](nikto.md)
 - [Nmap](nmap.md)
-- [POP3](pop3.md)
 - [SearchSploit](searchsploit.md)
 - [sqlmap](sqlmap.md)
 - [ssh](ssh.md)
