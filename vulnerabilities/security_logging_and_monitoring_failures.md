@@ -8,6 +8,12 @@ Systems should have proper event logging, alerting, or log retention. This limit
 
 ## Common Examples
 
+- No logs when someone logs in or out.
+- No alerts if someone tries to guess a password 100 times.
+- No records of who deleted a file.
+- System crashes, but no error is recorded.
+- No way to know if a hacker broke in last week.
+
 ## Practice Exploiting Security Logging and Monitoring Failures
 
 ### PortSwigger
