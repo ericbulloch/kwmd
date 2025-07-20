@@ -9,10 +9,12 @@ Systems should have proper event logging, alerting, or log retention. This limit
 ## Common Examples
 
 - No logs when someone logs in or out.
-- No alerts if someone tries to guess a password 100 times.
-- No records of who deleted a file.
+- Alert thresholds are poorly configured (e.g., 1000 failed logins trigger no alert).
+- Critical application actions (e.g., password changes, permission updates) are not auditable.
 - System crashes, but no error is recorded.
 - No way to know if a hacker broke in last week.
+- Lack of centralized log aggregation or SIEM integration.
+- Logs are overwritten or deleted due to insufficient retention policies.
 
 ## Practice Exploiting Security Logging and Monitoring Failures
 
