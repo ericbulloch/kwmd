@@ -68,3 +68,7 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Train developers and engineers on proper logging practices | Ensures logging is done securely and effectively throughout the software development lifecycle |
 
 ## Summary
+
+Security Logging and Monitoring Failures often leave organizations blind to ongoing attacks or breaches until it’s too late. The goal for logging is that logs are complete, accurate, secure, and actionable. Key practices include enabling detailed logging for authentication attempts, administrative actions, and access to sensitive data, as well as ensuring all logs include context like timestamps and IP addresses. Storing logs centrally, protecting them from tampering, and applying retention policies ensures that historical data is available and trustworthy during investigations or audits.
+
+Equally important is the proactive use of this logging data. Monitoring tools like SIEMs should analyze logs in real time and generate alerts for suspicious or high-risk behavior, such as privilege escalation or failed login patterns. Developers and engineers must be trained not to log sensitive data in plaintext and to regularly test and review their logging setup. Ultimately, strong logging and monitoring practices empower security teams to detect, investigate, and respond to threats quickly—reducing the potential impact of security incidents.
