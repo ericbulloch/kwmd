@@ -15,6 +15,11 @@ Systems should have proper event logging, alerting, or log retention. This limit
 - No way to know if a hacker broke in last week.
 - Lack of centralized log aggregation or SIEM integration.
 - Logs are overwritten or deleted due to insufficient retention policies.
+- Missing end-to-end request tracing in distributed microservices.
+- No audit logging of privilege escalation or RBAC changes in cloud environments.
+- Logs stored in plaintext without integrity protection or access control.
+- Lack of anomaly detection for rare-but-high-impact behaviors (e.g., logins from foreign IPs).
+- Failure to alert on lateral movement in internal networks detected by IDS logs.
 
 ## Practice Exploiting Security Logging and Monitoring Failures
 
