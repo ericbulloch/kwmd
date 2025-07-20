@@ -2,6 +2,10 @@
 
 ## What are Security Logging and Monitoring Failures
 
+Security logging and monitoring failures happen when a system doesn’t properly keep track of what’s going on, such as who logs in, what they do, or if something bad is happening. If the system can’t detect these things, it might not know it’s being attacked.
+
+Systems should have proper event logging, alerting, or log retention. This limits the organization’s ability to detect suspicious activity, trace incidents, or respond quickly to attacks. At an advanced level, this refers to insufficient telemetry, poorly configured audit trails, or lack of automated threat detection. The failure isn’t just not logging, but also not analyzing, alerting, or protecting the logs themselves. These gaps make incident response, threat hunting, and compliance unreliable.
+
 ## Common Examples
 
 ## Practice Exploiting Security Logging and Monitoring Failures
