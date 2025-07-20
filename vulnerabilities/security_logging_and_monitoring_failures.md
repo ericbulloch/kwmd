@@ -39,6 +39,7 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 - [Evading Logging and Monitoring](https://tryhackme.com/room/monitoringevasion)
 - [Security Operations & Monitoring Training Module](https://tryhackme.com/module/security-operations-and-monitoring)
 - [Windows Threat Detection 1](https://tryhackme.com/room/windowsthreatdetection1)
+- [Windows Threat Detection 2](https://tryhackme.com/room/windowsthreatdetection2)
 
 ## Best Practices
 
