@@ -66,5 +66,9 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Monitor and alert on unauthorized file or config changes | Detects real-time integrity violations in critical systems. |
 | Implement access controls on CI/CD infrastructure | Reduces attack surface for manipulating build artifacts. |
 | Avoid using outdated or unsupported libraries | Minimizes exposure to known but unpatched vulnerabilities. |
+| Maintain a software bill of materials (SBOM) | Increases transparency and traceability of all software components. |
+| Ensure source control integrity (e.g., signed Git commits) | Prevents unauthorized or hidden changes to source code. |
+| Use reproducible builds | Ensures that builds can be verified independently to match source. |
+| Regularly conduct supply chain security assessments | Identifies weak points in the software development lifecycle. |
 
 ## Summary
