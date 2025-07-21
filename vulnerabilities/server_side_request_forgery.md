@@ -2,6 +2,12 @@
 
 ## What is Server-Side Request Forgery
 
+Imagine you ask your friend (a website) to go grab something (data) for you from a store (another website). If your friend isn’t careful, you might trick them into going somewhere dangerous, like a restricted area. SSRF is when a hacker tricks a website into making requests to places it shouldn't.
+
+SSRF occurs when an attacker can make a vulnerable server issue HTTP or other protocol requests on its behalf. It typically results from poorly validated user input used in outbound requests. This is dangerous because internal services (like metadata APIs, admin consoles, or internal APIs) are often not protected from internal access. This can  potentially lead to sensitive data exposure or lateral movement within internal networks.
+
+Modern risks include cloud metadata theft, internal pivoting, service discovery, and chaining with other exploits like RCE or privilege escalation.
+
 ## Common Examples
 
 ## Practice Exploiting Server-Side Request Forgery
