@@ -14,3 +14,7 @@ I have included different vulnerabilities here so that I can easily reference th
 - [Software and Data Integrity Failures](software_and_data_integrity_failures.md)
 - [Security Logging and Monitoring Failures](security_logging_and_monitoring_failures.md)
 - [Server-Side Request Forgery](server_side_request_forgery.md)
+
+## Others
+
+- [Local File Inclusion (LFI)](local_file_inclusion.md)
