@@ -50,6 +50,9 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 
 | Best Practice | Why It Matters |
 | ------------- | -------------- |
-| Example | Because |
+| Use signed software packages | Ensures authenticity and integrity of software before installation. |
+| Implement Subresource Integrity (SRI) for web assets | Protects against tampering of third-party JavaScript and CSS resources. |
+| Verify digital signatures of third-party libraries | Prevents malicious modifications in dependencies. |
+| Use trusted sources for updates and dependencies | Reduces risk of downloading backdoored or fake packages. |
 
 ## Summary
