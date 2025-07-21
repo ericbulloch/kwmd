@@ -56,7 +56,13 @@ Linux will change the `//` to a single `/` character. That path will bypass the 
 
 Sometimes the text of a file will not display correctly or it will cause a server side error when trying to render. PHP has provided a mechanism to take the content of a file and encode it using base64 so that it can be rendered.
 
-If the above content was not able to render I would modify the url to:
+A path is provided and PHP will take that path, read the file at the path location and convert the contents to base64 encoding. The url has the following format:
+
+`php://filter/convert.base64-encode/resource=/encode/this/file.txt`
+
+This url tells PHP where the file is (`resource=/encode/this/file.txt`) and what function to run on the file (`filter/convert.base64-encode`). This is also a `filter/convert.base64-decode` function.
+
+If the content at `http://mysite.thm/test.php?path=/var/www/html/..//..//..//etc/passwd` was not able to render I would modify the url to:
 
 `http://mysite.thm/test.php?path=php://filter/convert.base64-encode/resource=/var/www/html/..//..//..//etc/passwd`
 
