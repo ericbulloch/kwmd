@@ -52,7 +52,7 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Best Practice | Why It Matters |
 | ------------- | -------------- |
 | Validate and sanitize all user-supplied URLs| Prevents attackers from manipulating URLs to target internal systems. |
-| Use allow-lists for external requests| Restricts requests to trusted and verified domains only. |
+| Use whitelists for external requests| Restricts requests to trusted and verified domains only. |
 | Block access to internal IP ranges (e.g., 127.0.0.1, 169.254.169.254) | Prevents access to sensitive metadata services and internal infrastructure. |
 | Disable unused URL-fetching functionality | Reduces the attack surface by removing unnecessary entry points. |
 | Use DNS resolution controls | Helps detect and prevent redirection to internal resources via DNS rebinding. |
@@ -73,3 +73,5 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 
 
 ## Summary
+
+Server-Side Request Forgery (SSRF) is a critical web vulnerability where attackers can abuse server functionality to send unauthorized requests to internal or external systems. To mitigate SSRF, best practices focus on validating and sanitizing all user-supplied URLs, using whitelists to restrict destinations, and blocking access to sensitive internal resources like cloud metadata endpoints. It is equally important to enforce strict network segmentation, apply request timeouts, and disable unused request-handling features that may inadvertently expose SSRF vectors.
