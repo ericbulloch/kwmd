@@ -65,7 +65,7 @@ I have added information about this on my [nmap tool](tools/nmap.md#port-scans) 
 I ususally just run the following command:
 
 ```bash
-nmap -T4 -n -sC -sV -Pn -v -p- target.thm
+$ nmap -T4 -n -sC -sV -Pn -v -p- target.thm
 ```
 
 An explaination about this command can be found in the link above.
