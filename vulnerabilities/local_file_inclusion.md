@@ -51,3 +51,7 @@ First, I need to make sure that `/var/www/html` is part of my path and my path c
 `http://mysite.thm/test.php?path=/var/www/html/..//..//..//etc/passwd`
 
 Linux will change the `//` to a single `/` character. That path will bypass the filtering and gloriously show the contents of `/etc/passwd` on the page.
+
+## Whitelisting
+
+A better approach is to check the path variable against a whitelist. That way, only approved files will have their contents shown. The main drawback to this approach is that the whitelist must be maintained. This means it is a code change, files that were removed need to be removed from the whitelist and files that were added need to be included on the whitelist.
