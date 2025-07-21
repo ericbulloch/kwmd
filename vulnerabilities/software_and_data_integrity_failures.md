@@ -32,6 +32,8 @@ Attackers exploit trust assumptions in CI/CD pipelines, software supply chains, 
 
 PortSwigger has multiple labs to see this vulnerability in action. The labs are online and require an account. Here are some labs:
 
+- [Using application functionality to exploit insecure deserialization](https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-using-application-functionality-to-exploit-insecure-deserialization)
+
 ### OWASP Juice Shop
 
 The OWASP Juice Shop is an open-source project that is intentionally vulnerable. It has many vulnerabilities and makes finding them a bit of a game using their scoreboard page. It can be accessed with Heroku or using Docker. I ran it using Docker and I seem to recall that one of the vulnerabilities will not work properly if you use Heroku. More information on the project and how to run it can [be found here](https://owasp.org/www-project-juice-shop/).
@@ -41,6 +43,8 @@ The OWASP Juice Shop is an open-source project that is intentionally vulnerable.
 TryHackMe has a couple rooms dedicated to this subject. The rooms are online and require an account. Here are some links to rooms that talk about Software and Data Integrity Failures:
 
 - [OWASP Top 10 - 2021](https://tryhackme.com/room/owasptop102021)
+- [Hashing Basics](https://tryhackme.com/room/hashingbasics)
+- [Cryptography Module](https://tryhackme.com/module/cryptography-101)
 
 ## Best Practices
 
