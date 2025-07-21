@@ -14,7 +14,7 @@ I can't stress this enough, filtering is good but it is not an optimal solution.
 
 I recently finished a capture the flag event that contained a LFI vulnerability. The url was something like `http://mysite.thm/test.php?path=/var/www/html/someFile.php`. The code was printing the contents of the file in the path parameter.
 
-I saw the path and tried to get the `/etc/passwd` contents to print to the screen. I started with `http://mysite.thm/test.php?path=/etc/password` and `http://mysite.thm/test.php?path=../../../../etc/passwd`. Both urls returned an error message that the provided paths were not allowed. This let me know that the server was doing some validation and the paths I provided were failing.
+I saw the path and tried to get the `/etc/passwd` contents to print to the screen. I started with `http://mysite.thm/test.php?path=/etc/password` and `http://mysite.thm/test.php?path=/var/www/html/../../../etc/passwd`. Both urls returned an error message that the provided paths were not allowed. This let me know that the server was doing some validation and the paths I provided were failing.
 
 I decided to take another approach and view the contents of the file that I was on. I changed the url to `http://mysite.thm/test.php?path=/test.php` and saw the following contents:
 
@@ -25,14 +25,14 @@ I decided to take another approach and view the contents of the file that I was 
     <title>Test page</title>
     <h1>Test Page. Do not deploy</h1>
  
-    </button></a> <a href="/test.php?view=/var/www/html/development_testing/mrrobot.php"><button id="secret">Here is a button</button></a><br>
+    </button></a> <a href="/test.php?view=/var/www/html/someFile.php"><button>Here is a button</button></a><br>
         <?php
           function containsStr($str, $substr) {
             return strpos($str, $substr) !== false;
           }
-          if(isset($_GET["view"])){
-            if(!containsStr($_GET['view'], '../..') && containsStr($_GET['view'], '/var/www/html')) {
-              include $_GET['view'];
+          if(isset($_GET["path"])){
+            if(!containsStr($_GET['path'], '../..') && containsStr($_GET['path'], '/var/www/html')) {
+              include $_GET['path'];
             } else {
               echo 'Sorry, Thats not allowed';
             }
@@ -43,3 +43,11 @@ I decided to take another approach and view the contents of the file that I was 
 
 </html>
 ```
+
+This filtering is very similar to what a lot of developers do. They believe they have restricted all requests to files in the `/var/www/html` directory. This filtering is very easy to bypass.
+
+First, I need to make sure that `/var/www/html` is part of my path and my path can't include `../..`. The following is a valid request that will bypass the filtering and display the contents of the `/etc/passwd` file:
+
+`http://mysite.thm/test.php?path=/var/www/html/..//..//..//etc/passwd`
+
+Linux will change the `//` to a single `/` character. That path will bypass the filtering and gloriously show the contents of `/etc/passwd` on the page.
