@@ -72,3 +72,7 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Regularly conduct supply chain security assessments | Identifies weak points in the software development lifecycle. |
 
 ## Summary
+
+Software and Data Integrity Failures occur when systems fail to verify the integrity or authenticity of software and data, leaving the door open for attackers to insert malicious content during updates, installations, or runtime. Using preventive measures such as using signed packages, verifying digital signatures, and sourcing dependencies from trusted repositories help reduce your attack surface. Strategies like Subresource Integrity (SRI) and Content Security Policies (CSP) add further protection to web applications by restricting or validating third-party content. Immutable infrastructure and dependency pinning also help maintain consistency and reduce the risk of accidental or malicious changes.
+
+Software and Data Integrity Failures emphasizes securing the development and deployment pipeline. Measures like auditing CI/CD pipelines, using access controls, and verifying container image signatures ensure that only intended code is built and deployed. Maintaining a software bill of materials (SBOM) and monitoring for unauthorized changes enable traceability and detection of supply chain compromises. Ultimately, these practices reinforce the principle that integrity checks must be present throughout the software lifecycle—from development to deployment—to effectively defend against tampering and compromise.
