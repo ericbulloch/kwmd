@@ -62,5 +62,9 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Use Content Security Policy (CSP) to limit external resource loading | Reduces risk of loading compromised assets from unknown domains. |
 | Validate and verify build pipelines | Prevents CI/CD system compromise and introduction of malicious code. |
 | Sign container images and verify signatures during deployment | Ensures container authenticity and immutability. |
+| Audit and review code dependencies and license compliance | Identifies untrusted or high-risk libraries. |
+| Monitor and alert on unauthorized file or config changes | Detects real-time integrity violations in critical systems. |
+| Implement access controls on CI/CD infrastructure | Reduces attack surface for manipulating build artifacts. |
+| Avoid using outdated or unsupported libraries | Minimizes exposure to known but unpatched vulnerabilities. |
 
 ## Summary
