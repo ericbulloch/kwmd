@@ -15,3 +15,31 @@ I can't stress this enough, filtering is good but it is not an optimal solution.
 I recently finished a capture the flag event that contained a LFI vulnerability. The url was something like `http://mysite.thm/test.php?path=/var/www/html/someFile.php`. The code was printing the contents of the file in the path parameter.
 
 I saw the path and tried to get the `/etc/passwd` contents to print to the screen. I started with `http://mysite.thm/test.php?path=/etc/password` and `http://mysite.thm/test.php?path=../../../../etc/passwd`. Both urls returned an error message that the provided paths were not allowed. This let me know that the server was doing some validation and the paths I provided were failing.
+
+I decided to take another approach and view the contents of the file that I was on. I changed the url to `http://mysite.thm/test.php?path=/test.php` and saw the following contents:
+
+```php
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Test page</title>
+    <h1>Test Page. Do not deploy</h1>
+ 
+    </button></a> <a href="/test.php?view=/var/www/html/development_testing/mrrobot.php"><button id="secret">Here is a button</button></a><br>
+        <?php
+          function containsStr($str, $substr) {
+            return strpos($str, $substr) !== false;
+          }
+          if(isset($_GET["view"])){
+            if(!containsStr($_GET['view'], '../..') && containsStr($_GET['view'], '/var/www/html')) {
+              include $_GET['view'];
+            } else {
+              echo 'Sorry, Thats not allowed';
+            }
+          }
+        ?>
+    </div>
+</body>
+
+</html>
+```
