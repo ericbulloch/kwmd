@@ -54,5 +54,13 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 | Implement Subresource Integrity (SRI) for web assets | Protects against tampering of third-party JavaScript and CSS resources. |
 | Verify digital signatures of third-party libraries | Prevents malicious modifications in dependencies. |
 | Use trusted sources for updates and dependencies | Reduces risk of downloading backdoored or fake packages. |
+| Regularly scan dependencies for known vulnerabilities | Detects and mitigates threats introduced through third-party code. |
+| Use immutable infrastructure where possible | Prevents unauthorized changes to systems and applications. |
+| Implement strict dependency pinning | Prevents accidental or malicious upgrades to vulnerable versions. |
+| Use secure package managers (e.g., pip, npm) with lock files | Maintains integrity and consistency across builds. |
+| Perform integrity checks on runtime data and configurations | Helps detect tampering or corruption during operation. |
+| Use Content Security Policy (CSP) to limit external resource loading | Reduces risk of loading compromised assets from unknown domains. |
+| Validate and verify build pipelines | Prevents CI/CD system compromise and introduction of malicious code. |
+| Sign container images and verify signatures during deployment | Ensures container authenticity and immutability. |
 
 ## Summary
