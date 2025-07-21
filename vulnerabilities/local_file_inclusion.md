@@ -52,6 +52,16 @@ First, I need to make sure that `/var/www/html` is part of my path and my path c
 
 Linux will change the `//` to a single `/` character. That path will bypass the filtering and gloriously show the contents of `/etc/passwd` on the page.
 
+### PHP Filter Convert Base64 Encode
+
+Sometimes the text of a file will not display correctly or it will cause a server side error when trying to render. PHP has provided a mechanism to take the content of a file and encode it using base64 so that it can be rendered.
+
+If the above content was not able to render I would modify the url to:
+
+`http://mysite.thm/test.php?path=php://filter/convert.base64-encode/resource=/var/www/html/..//..//..//etc/passwd`
+
+I can then take that output and send it over to [CyberChef](https://gchq.github.io/CyberChef/) or use the `base64 -d` command on Linux.
+
 ## Whitelisting
 
 A better approach is to check the path variable against a whitelist. That way, only approved files will have their contents shown. The main drawback to this approach is that the whitelist must be maintained. This means it is a code change, files that were removed need to be removed from the whitelist and files that were added need to be included on the whitelist.
