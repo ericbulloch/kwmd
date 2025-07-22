@@ -139,4 +139,17 @@ $ cat user.txt
 REDACTED
 ```
 
-Now that I have the user.txt flag, I need to escalate my privileges to get the root.txt flag.
+Now that I have the user.txt flag, I need to escalate my privileges to get the root.txt flag. I run my usual [privilege escalation commands](/concepts/privilege_escalation.md#linux-privilege-escalation) and `sudo -l` has something interesting:
+
+```bash
+$ sudo -l
+User pilot may run the following commands on freebsd:
+    (root) NOPASSWD: /usr/local/bin/busybox
+```
+
+I am not too familiar with busybox. I run the command to see what it does:
+
+```bash
+$ /usr/local/bin/busybox
+
+```
