@@ -150,6 +150,35 @@ User pilot may run the following commands on freebsd:
 I am not too familiar with busybox. I run the command to see what it does:
 
 ```bash
-$ /usr/local/bin/busybox
+$ /usr/local/bin/busybox 
+BusyBox v1.30.1 (2019-08-23 13:25:19 UTC) multi-call binary.
+BusyBox is copyrighted by many authors between 1998-2015.
+Licensed under GPLv2. See source distribution for detailed
+copyright notices.
 
+Usage: busybox [function [arguments]...]
+   or: busybox --list
+   or: function [arguments]...
+
+	BusyBox is a multi-call binary that combines many common Unix
+	utilities into a single executable.  Most people will create a
+	link to busybox for each function they wish to use and BusyBox
+	will act like whatever it was invoked as.
+
+Currently defined functions:
+	addgroup, ar, arch, ash, awk, base64, basename, bc, bunzip2, bzcat, bzip2, cal, cat, chgrp, chmod, chown,
+	chroot, cksum, clear, cmp, comm, cp, cpio, crond, crontab, cttyhack, cut, dc, dd, delgroup, diff,
+	dirname, dnsd, dos2unix, dpkg, dpkg-deb, du, echo, ed, env, expand, expr, factor, fakeidentd, fallocate,
+	false, fatattr, find, flock, fold, fsync, ftpd, ftpget, ftpput, getopt, grep, groups, gunzip, gzip, hd,
+	head, hexdump, hexedit, hostid, hostname, httpd, id, inetd, install, iostat, ipcalc, kill, killall,
+	killall5, klogd, less, link, ln, logger, logname, logread, lpq, lpr, ls, lzcat, lzma, lzop, makemime,
+	man, md5sum, microcom, mkdir, mkfifo, mknod, mktemp, more, mpstat, mv, nc, nice, nl, nmeter, nohup,
+	nologin, nslookup, ntpd, nuke, od, paste, patch, pgrep, pidof, ping, ping6, pipe_progress, pkill, pmap,
+	popmaildir, poweroff, printenv, printf, ps, pscan, pwd, pwdx, readlink, readprofile, realpath, reboot,
+	reformime, renice, reset, resize, resume, rev, rm, rmdir, rpm, rpm2cpio, run-parts, scriptreplay, sed,
+	sendmail, seq, setsid, sh, sha1sum, sha256sum, sha3sum, sha512sum, shred, shuf, sleep, smemcap, sort,
+	split, ssl_client, stat, strings, stty, su, sulogin, sum, svok, sync, syslogd, tail, tar, tee, telnet,
+	telnetd, test, tftp, tftpd, timeout, top, touch, tr, traceroute, traceroute6, true, truncate, tty,
+	ttysize, uname, uncompress, unexpand, uniq, unix2dos, unlink, unlzma, unxz, unzip, usleep, uudecode,
+	uuencode, vi, volname, watch, wc, wget, which, whoami, xargs, xxd, xz, xzcat, yes, zcat
 ```
