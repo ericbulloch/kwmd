@@ -182,3 +182,9 @@ Currently defined functions:
 	ttysize, uname, uncompress, unexpand, uniq, unix2dos, unlink, unlzma, unxz, unzip, usleep, uudecode,
 	uuencode, vi, volname, watch, wc, wget, which, whoami, xargs, xxd, xz, xzcat, yes, zcat
 ```
+
+So it looks like busybox is a wrapper for other binaries. I know that I can get a shell using vi and that is one of the binaries mentioned. So I run busybox with sudo and have it run vi so I can get a root shell:
+
+```bash
+sudo /usr/local/bin/busybox  vi
+```
