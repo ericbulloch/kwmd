@@ -2,7 +2,7 @@
 
 | Stat | Value |
 | ---------- | -------------------------------------------- |
-| Image | <img src="/images/write_ups/try_hack_me/jpg_chat/jpg_chat" alt="JPGChat" width="90"/> |
+| Image | <img src="/images/write_ups/try_hack_me/jpg_chat/jpg_chat.png" alt="JPGChat" width="90"/> |
 | Room | JPGChat |
 | URL | https://tryhackme.com/room/jpgchat |
 | Difficulty | Easy |
