@@ -9,7 +9,8 @@
 
 ## Concepts/Tools Used
 
-
+- [msfconsole](/tools/msfconsole.md)
+- [find](/tools/find.md)
 
 ## Room Description
 
