@@ -9,7 +9,11 @@
 
 ## Concepts/Tools Used
 
-
+- [ftp](/tools/ftp.md)
+- [steghide](/tools/steghide.md)
+- base64
+- [john](/tools/john.md)
+- PHP
 
 ## Room Description
 
@@ -790,7 +794,7 @@ That is the key the question is looking for.
 Since john still didn't have a hit, I viewing the site and then ran gobuster:
 
 ```bash
-$ $ gobuster dir -u http://target.thm -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x php,txt,zip
+$ gobuster dir -u http://target.thm -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x php,txt,zip
 ===============================================================
 Gobuster v3.6
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
