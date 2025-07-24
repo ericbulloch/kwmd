@@ -5,6 +5,7 @@ TryHackMe is a very beginner friendly site to start learning how to hack. They h
 Here are the list of write-ups that I have done for TryHackMe.
 
 - [All in One](all_in_one.md)
+- [Archangel](archangel.md)
 - [Bebop](bebop.md)
 - [Bounty Hacker](bounty_hacker.md)
 - [Chill Hack](chill_hack.md)
