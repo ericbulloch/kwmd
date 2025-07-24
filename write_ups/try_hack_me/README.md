@@ -19,6 +19,7 @@ Here are the list of write-ups that I have done for TryHackMe.
 - [Heartbleed](heartbleed.md)
 - [IDE](ide.md)
 - [Ignite](ignite.md)
+- [JPGChat](jpg_chat.md)
 - [Kiba](kiba.md)
 - [Poster](poster.md)
 - [Simple CTF](simple_ctf.md)
