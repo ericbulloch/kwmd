@@ -22,13 +22,11 @@ Because databases are so widely used SQL Injection attacks might be the most fam
 
 Consider the following SQL table:
 
-```bash
 | id | username | password | role |
 | --- | --- | --- | --- |
 | 1 | admin | f702df58bd23c8a4dc7162c9d1b1d333 | administrator |
 | 2 | bob | 96293e35600c05f1e19f0964c4232b07 | user |
 | 3 | alice | c57b2cf12ff14d748ea68b41c8093bf1 | user |
-```
 
 A PHP program could have the following SQL command that it will run:
 
