@@ -70,7 +70,7 @@ The SQL command will get passed to the database and it will execute with whateve
 
 There are are few scenarios to consider regarding the user_id input. First, if the user passes in an integer value, one of two things can happen. It will either find a record that matches the id or it will not. If a user passes in the value of 3, the database will return the record for alice. If they pass in the value of 4, the database will return nothing.
 
-What if they don't pass in an integer? What if they pass in a string? Better yet, what if they pass in another SQL command? This is the idea of sql injection. Here are 3 different ways this script could be used for a SQL injection attack:
+What if they don't pass in an integer? What if they pass in a string? Better yet, what if they pass in another SQL command? This is the idea of sql injection. Here are some different ways this script could be used for a SQL injection attack:
 
 #### Get all records
 
@@ -82,7 +82,7 @@ SELECT * FROM users WHERE id = 'a' or 1 = 1
 
 The database would look up a user with the id 'a' and not find anything, then it would see the condition of 1 = 1 and return all records in the users table because 1 = 1 is the same as saying true. Since each record will now match to true, that record will be included in the results.
 
-The user who see a result on the web page that looked like this:
+The user would see a result on the web page that looked like this:
 
 ```json
 [
@@ -103,6 +103,29 @@ The user who see a result on the web page that looked like this:
     "username": "alice",
     "password": "c57b2cf12ff14d748ea68b41c8093bf1",
     "role": "user"
+  }
+]
+```
+
+#### Getting admin users
+
+If the user_id that was supplied to the script was "'a' or role = 'admin'", the script would return all records that have an admin role value. The SQL statment would become the following:
+
+```sql
+SELECT * FROM users WHERE id = 'a' or role = 'admin'
+```
+
+The database would look up a user with the id 'a' and not find anything, then it would see the condition of role = 'admin' and return all records in the users table that have an admin role (in this case one record).
+
+The user would see a result on the web page that looked like this:
+
+```json
+[
+  {
+    "id": "1",
+    "username": "admin",
+    "password": "f702df58bd23c8a4dc7162c9d1b1d333",
+    "role": "administrator"
   }
 ]
 ```
