@@ -129,3 +129,21 @@ The user would see a result on the web page that looked like this:
   }
 ]
 ```
+
+#### Dropping a table
+
+If the user_id that was supplied to the script was "'a'; DROP TABLE users", the script would return drop the users table. Yikes! The SQL statment would become the following:
+
+```sql
+SELECT * FROM users WHERE id = 'a'; DROP TABLE users
+```
+
+As you can see the single statement now became two statements. The database would run the first statement and look up a user with the id 'a' and not find anything. Then it would run the second statement and drop the users table.
+
+If I recall, MySQL doesn't return anything when a table is dropped. I would expect the user to see a result on the web page that looked like this:
+
+```json
+[]
+```
+
+The next time someone tried to look up a user, an execption would get thrown because the table does not exist. Since this is a critical table for the application, I would expect most parts of the application to break.
