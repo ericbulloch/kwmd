@@ -16,7 +16,7 @@ Some of the more common injection types include:
 
 Database commands are used to create, read, update and delete information within the database. Theses commands are very well defined. The syntax of the commands varies slightly between different database vendors.
 
-Because databases are so widely used SQL Injection attacks might be the most famous type of injection attack. The idea is very simple. A program takes untrusted input from a user or another system and inserts that input into a sql command. That input will alter the meaning of the original sql command. It will run a sql command that was not intended to be ran by the program.
+Because databases are so widely used SQL Injection (sometimes styled SQLi) attacks remain as one of the most prevelent and dangerous cybersecurity threats. The idea is very simple. A program takes untrusted input from a user or another system and inserts that input into a sql command. That input will alter the meaning of the original sql command. It will run a sql command that was not intended to be ran by the program.
 
 ### SQL Injection Examples
 
