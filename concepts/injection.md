@@ -40,12 +40,12 @@ $username = $_GET['user_id'];
 
 $sql = "SELECT * FROM users WHERE id = $username";
 
-$record = $connection->query($sql);
+$result = $connection->query($sql);
 
 $data = array();
 
-if ($record->num_rows > 0) {
-  while ($row = $record->fetch_assoc()) {
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
     $data[] = $row
   }
 }
@@ -147,3 +147,70 @@ If I recall, MySQL doesn't return anything when a table is dropped. I would expe
 ```
 
 The next time someone tried to look up a user, an execption would get thrown because the table does not exist. Since this is a critical table for the application, I would expect most parts of the application to break.
+
+### SQL Injection Prevention
+
+SQL injection attacks mitigations are very well documented. The problem is when untrusted data is used as input for a query to the database.
+
+#### Validate input
+
+The examples above could have been easily prevented by checking if the user_id provided was an integer. None of the attacks would have even hit the database. The script could have been changed to the following:
+
+```php
+$config = parse_ini_file('config.ini', true);
+$connection = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['password'], $config['database']['database']);
+
+if (filter_var($_GET['user_id'], FILTER_VALIDATE_INT) === false) {
+  throw new InvalidArgumentException("Invalid user_id provided: " . $_GET['user_id']);
+}
+
+$username = (int)$_GET['user_id'];
+
+$sql = "SELECT * FROM users WHERE id = $username";
+...
+```
+
+The user_id can now be trusted because we can be assured it is an integer.
+
+#### Parameterized query
+
+Scripts can also used parameterized queries. A parameterized query uses placeholders in the SQL command which are then replaced with actual values at runtime. This ensures that user input is treated as data rather than executable code, thus mitigating the risk of SQL injection.
+
+To use a parameterized query (PHP calls it a prepared statement) the script could be changed to:
+
+```php
+$config = parse_ini_file('config.ini', true);
+$connection = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['password'], $config['database']['database']);
+
+$username = $_GET['user_id'];
+
+$sql = "SELECT * FROM users WHERE id = ?";
+$statement = $conn->prepare($sql);
+
+if ($statement === false) {
+  die("Error preparing statement")
+}
+
+// Bind parameters to the placeholders
+// The 'i' string specifies the types of the bound variables:
+// 's' for string, 'i' for integer, 'd' for double, 'b' for blob
+$statement->bind_param('i', $_GET['user_id']);
+
+$statement->execute();
+$result = $statement->get_result();
+
+$data = array();
+
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    $data[] = $row
+  }
+}
+
+$json_data = json_encode($data);
+header('Content-Type: application/json');
+echo $json_data;
+
+$statement->close();
+$connection->close();
+```
