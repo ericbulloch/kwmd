@@ -28,17 +28,46 @@ Consider the following SQL table:
 | 2 | bob | 96293e35600c05f1e19f0964c4232b07 | user |
 | 3 | alice | c57b2cf12ff14d748ea68b41c8093bf1 | user |
 
-A PHP program could have the following SQL command that it will run:
+Please ignore the MD5 hashed passwords, the point of this table is to provide a table an data to demonstrate SQL injection.
+
+Consider the following PHP script snippet:
 
 ```php
+$config = parse_ini_file('config.ini', true);
+$connection = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['password'], $config['database']['database']);
+
 $username = $_GET['user_id'];
+
 $sql = "SELECT * FROM users WHERE id = $username";
+
+$record = $connection->query($sql);
+
+$data = array();
+
+if ($record->num_rows > 0) {
+  while ($row = $record->fetch_assoc()) {
+    $data[] = $row
+  }
+}
+
+$json_data = json_encode($data);
+header('Content-Type: application/json');
+echo $json_data;
+
+$connection->close();
 ```
 
-That SQL command will get passed to the database and it will execute with whatever was passed from the user. Notice that there is no validation. The input from a user is blindly trusted. This doesn't even check to make sure that the user_id provided is an integer like the database is expecting.
+Here is a summary of what this script is doing:
 
-There are are few scenarios to consider. First, if the user passes in an integer value, one of two things can happen. It will either find a record that matches the id or it will not. The second scenario is where strange things can happen.
+- Creating a database connection.
+- Grabbing the user_id that the user supplied.
+- Putting that user_id into a SQL command.
+- Running that SQL command on the database.
+- Converting the result from the database to json.
+- Printing the json result to the user.
 
-So if a user passes in the value of 3, it will return the record for alice. If they pass in the value of 4, it will return nothing. Very straight forward and easy.
+The SQL command will get passed to the database and it will execute with whatever user_id was passed from the user. Notice that there is no validation. The input from a user is blindly trusted. This doesn't even check to make sure that the user_id provided is an integer like the database is expecting.
 
-What if they don't pass in an integer? What if they pass in a string? Better yet, what if they pass in another SQL command?
+There are are few scenarios to consider regarding the user_id input. First, if the user passes in an integer value, one of two things can happen. It will either find a record that matches the id or it will not. If a user passes in the value of 3, the database will return the record for alice. If they pass in the value of 4, the database will return nothing.
+
+What if they don't pass in an integer? What if they pass in a string? Better yet, what if they pass in another SQL command? This is the idea of sql injection.
