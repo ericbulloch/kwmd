@@ -153,7 +153,7 @@ I tried to ssh with music_archive and the password that john just found but it f
 
 I went to http://target.thm/admin/admin.html and I found something interesting:
 
-```bash
+```text
 ############################################
 ############################################
 [Yesterday at 4.32pm from Josh]
