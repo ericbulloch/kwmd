@@ -46,6 +46,21 @@ TryHackMe has a couple rooms dedicated to this subject. The rooms are online and
 - [SQL Injection Lab](https://tryhackme.com/room/sqlilab)
 - [SQL Injection](https://tryhackme.com/room/sqlinjectionlm)
 
+## Write Ups
+
+Here are some write ups that I have done that involve injection:
+
+### Vulnerabilities
+
+- [Local File Injection](/vulnerabilities/local_file_injection.md)
+
+### TryHackMe
+
+- [Archangel](/write_ups/try_hack_me/archangel.md)
+- [Chill Hack](/write_ups/try_hack_me/chill_hack.md)
+- [Ignite](/write_ups/try_hack_me/ignite.md)
+- [JPGChat](/write_ups/try_hack_me/jpg_chat.md)
+
 ## Best Practices
 
 | Best Practice | Why It Matters |
