@@ -44,13 +44,15 @@ I decided to take another approach and view the contents of the file that I was 
 </html>
 ```
 
-This filtering is very similar to what a lot of developers do. They believe they have restricted all requests to files in the `/var/www/html` directory. This filtering is very easy to bypass.
+This filtering is very similar to what a lot of developers do. Most developers would probably think that this filtering is secure. They believe they have restricted all requests to files in the `/var/www/html` directory. The problem is that this filtering is very easy to bypass.
 
-First, I need to make sure that `/var/www/html` is part of my path and my path can't include `../..`. The following is a valid request that will bypass the filtering and display the contents of the `/etc/passwd` file:
+First, I need to make sure that `/var/www/html` is part of my path and second, my path can't include `../..`. The following is a valid request that will bypass the filtering above that most developers would think is safe and display the contents of the `/etc/passwd` file:
 
 `http://mysite.thm/test.php?path=/var/www/html/..//..//..//etc/passwd`
 
 Linux will change the `//` to a single `/` character. That path will bypass the filtering and gloriously show the contents of `/etc/passwd` on the page.
+
+**Again, I can't stress this enough, filtering is not enough.**
 
 ### PHP Filter Convert Base64 Encode
 
@@ -60,14 +62,29 @@ A path is provided and PHP will take that path, read the file at the path locati
 
 `php://filter/convert.base64-encode/resource=/encode/this/file.txt`
 
-This url tells PHP where the file is (`resource=/encode/this/file.txt`) and what function to run on the file (`filter/convert.base64-encode`). This is also a `filter/convert.base64-decode` function.
+This url tells PHP where the file is (`resource=/encode/this/file.txt`) and what function to run on the file (`filter/convert.base64-encode`). There is also a `filter/convert.base64-decode` function to decode base64 files on a target machine with similar syntax.
 
 If the content at `http://mysite.thm/test.php?path=/var/www/html/..//..//..//etc/passwd` was not able to render I would modify the url to:
 
 `http://mysite.thm/test.php?path=php://filter/convert.base64-encode/resource=/var/www/html/..//..//..//etc/passwd`
 
-I can then take that output and send it over to [CyberChef](https://gchq.github.io/CyberChef/) or use the `base64 -d` command on Linux.
+I can then take that output and send it over to [CyberChef](https://gchq.github.io/CyberChef/) or use the `base64 -d` command on Linux. The command line option would look like the following:
+
+```bash
+$ curl http://mysite.thm/test.php?path=php://filter/convert.base64-encode/resource=/var/www/html/..//..//..//etc/passwd | base64 -d
+Here are my contents in plain text!
+```
 
 ## Whitelisting
 
-A better approach is to check the path variable against a whitelist. That way, only approved files will have their contents shown. The main drawback to this approach is that the whitelist must be maintained. This means it is a code change, files that were removed need to be removed from the whitelist and files that were added need to be included on the whitelist.
+A better approach is to check the path variable against a whitelist. That way, only approved files will have their contents shown.
+
+So if I am expecting this url to be used with only three different files and all of them are in th the `/var/www/html` directory, I would change the resource to just take a file name instead of a whole path. If the three files where:
+
+- players.txt
+- coaches.txt
+- teams.txt
+
+Now the request just needs to check if what the user typed is in the list above. If they include any other path traversal items (../), the request will get an error response.
+
+The main drawback to this approach is that the whitelist must be maintained. This means it is a code change if the list is hard coded in the file, files that were removed need to be removed from the whitelist and files that were added need to be included on the whitelist. However, if the list is too unweildy, it can be placed in a datastore so that a code change is not needed. Also, the security benefits of a whitelist outweigh the security drawbacks of using filtering.
