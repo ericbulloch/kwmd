@@ -109,3 +109,5 @@ There are a number of groups that are common on Linux system. Knowing what they 
 ## Privilege Escalation
 
 I have noted the process I use for [Linux privilege escalation](/concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](/concepts/README.md) directory.
+
+## Systemctl
