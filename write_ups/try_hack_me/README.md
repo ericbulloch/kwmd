@@ -28,3 +28,5 @@ Here are the list of write-ups that I have done for TryHackMe.
 - [Startup](startup.md)
 - [ToolsRus](tools_r_us.md)
 - [UltraTech](ultra_tech.md)
+- [VulnNet:Internal](vulnnet_internal.md)
+- [VulnNet:Node](vulnnet_node.md)
