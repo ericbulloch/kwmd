@@ -25,4 +25,5 @@ I have included guides on how to use various tools and programs. Some of the too
 - [ssh](ssh.md)
 - [Steghide](steghide.md)
 - [Stegseek](stegseek.md)
+- [strings](strings.md)
 - [wpscan](wpscan.md)
