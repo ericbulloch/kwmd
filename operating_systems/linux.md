@@ -173,6 +173,12 @@ This might be more clear with examples. Here are a few:
 - `--x`: Has execute permission, does not have read or write permissions.
 - `rwx`: Has read, write and execute permissions.
 
+So if I had a file line that started like this:
+
+`-rwxrw-r--`
+
+I can determine this is a regular file (the `-` at the beginning). The user has read, write and execute permissions (the first 3 characters after the file type `rwx`). The group has read and write permissions but not execute permission (the next 3 characters after the user permissions `rw-`). The everyone group has read permission but not write and execute permissions (the next 3 characters after the group permissions `r--`).
+
 ## Privilege Escalation
 
 I have noted the process I use for [Linux privilege escalation](/concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](/concepts/README.md) directory.
