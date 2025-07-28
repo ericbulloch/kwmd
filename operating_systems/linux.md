@@ -104,7 +104,11 @@ There are a number of groups that are common on Linux system. Knowing what they 
 | `lxd` | LXD container group—can be exploited for privilege escalation. |
 | `www-data` | Common web server user group (e.g., Apache, Nginx). |
 | `ftp` | Access for FTP services. |
-| `nobody` | Very limited privileges—used by unprivileged daemons. |
+| `nobod` | Very limited privileges—used by unprivileged daemons. |
+
+## Permissions
+
+Directory and file permissions in Linux are very easy to understand. The `ls` is fantastic at showing owners and groups for files and directories as well as determining if a file has read, write or executable permissions.
 
 ## Privilege Escalation
 
@@ -113,5 +117,3 @@ I have noted the process I use for [Linux privilege escalation](/concepts/privil
 ## Systemctl
 
 ## Crons
-
-## Permissions
