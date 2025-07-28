@@ -132,7 +132,7 @@ The `total 912K` line is stating the size of all the directories and files in my
 
 All the lines after the total line follow a similar pattern. The pattern is the following:
 
-```bash
+```text
 The file type, in this case a - means a file.
 |The owner permissions, in this case rwx means read, write and execute.
 ||||The group permissions, in this case rw- means read and write.
@@ -142,7 +142,10 @@ The file type, in this case a - means a file.
 ||||||||||  | |    The group that has access to this file, in this case kwmd.
 ||||||||||  | |    |    The size of the file, in this case 215K.
 ||||||||||  | |    |    |    The month the file was created, in this case July.
-vvvvvvvvvv  v v    v    v    v
+||||||||||  | |    |    |    |   The day the file was created, in this case the 4th.
+||||||||||  | |    |    |    |   |  The time the file was created, in this case 6:16 pm.
+||||||||||  | |    |    |    |   |  |     The name of the file, in this case my_file.py.
+vvvvvvvvvv  v v    v    v    v   v  v     v
 -rwxrw-r--  3 kwmd kwmd 215K Jul 04 18:16 my_file.py
  
 ```
