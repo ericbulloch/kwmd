@@ -130,6 +130,27 @@ The output shows a lot of important information. I am going to break it down som
 
 The `total 912K` line is stating the size of all the directories and files in my home directory.
 
+All the lines after the total line follow a similar pattern. The pattern is the following:
+
+```bash
+File type
+|The owner permissions
+||||The group permissions
+|||||||The everyone permissions
+||||||||||  The hard link count
+vvvvvvvvvv  v
+-rwxrwxrwx  3 kwmd kwmd 215K Jul 04 18:16 my_file.py
+ 
+```
+
+The lines that start with a `d` are directories.
+
+The lines that start with a `-` are files.
+
+The line that start with a `l` is a symbolic link.
+
+
+
 ## Privilege Escalation
 
 I have noted the process I use for [Linux privilege escalation](/concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](/concepts/README.md) directory.
