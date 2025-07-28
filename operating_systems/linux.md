@@ -114,7 +114,14 @@ When I run the `ls -lha` command on my home directory I get the following output
 
 ```bash
 $ ls -lha ~
-
+total 912K
+drwxr-xr-x 50 kwmd kwmd 4.0K Jul 28 18:57 .
+drwxr-xr-x 24 kwmd kwmd 4.0K Jul 28 18:57 ..
+drwxr-xr-x  3 kwmd kwmd 4.0K Aug 23  2021 .aspnet
+-rw-r--r--  1 kwmd kwmd  416 Nov 15  2024 .bash_aliases
+lrwxrwxrwx  1 kwmd kwmd    9 Aug 16  2020 .bash_history -> /dev/null
+-rw-r--r--  1 kwmd kwmd 4.2K Jun 22 22:12 .bashrc
+drwxr-xr-x  3 kwmd kwmd 4.0K May 16 12:28 Pictures
 ```
 
 ## Privilege Escalation
