@@ -163,6 +163,16 @@ The file type if the left most piece of information. It give context to the othe
 
 The next 9 characters after the file type are the user, group and everyone permissions. The user permissions are 3 characters, the group permissions are 3 characters and the everyone permissions are 3 characters.
 
+The 3 characters are always go in the same order (read, write and execute). The first character determines read permission, the second character determines write permission and the last character determines execute permission. If permission is not granted, a `-` character will be displayed.
+
+This might be more clear with examples. Here are a few:
+
+- `r--`: Has read permission, does not have write or execute permissions.
+- `r-x`: Has read and execute permissions, does not have write permission.
+- `rw-`: Has read and write permissions, does not have execute permissions.
+- `--x`: Has execute permission, does not have read or write permissions.
+- `rwx`: Has read, write and execute permissions.
+
 ## Privilege Escalation
 
 I have noted the process I use for [Linux privilege escalation](/concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](/concepts/README.md) directory.
