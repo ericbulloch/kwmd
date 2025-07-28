@@ -110,6 +110,13 @@ There are a number of groups that are common on Linux system. Knowing what they 
 
 Directory and file permissions in Linux are very easy to understand. The `ls` is fantastic at showing owners and groups for files and directories as well as determining if a file has read, write or executable permissions.
 
+When I run the `ls -lha` command on my home directory I get the following output:
+
+```bash
+$ ls -lha ~
+
+```
+
 ## Privilege Escalation
 
 I have noted the process I use for [Linux privilege escalation](/concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](/concepts/README.md) directory.
