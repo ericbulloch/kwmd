@@ -147,16 +147,21 @@ The file type, in this case a - means a file.
 ||||||||||  | |    |    |    |   |  |     The name of the file, in this case my_file.py.
 vvvvvvvvvv  v v    v    v    v   v  v     v
 -rwxrw-r--  3 kwmd kwmd 215K Jul 04 18:16 my_file.py
- 
 ```
 
-The lines that start with a `d` are directories.
+That is a lot of information that is compressed very nicely. I want to talk about each item.
 
-The lines that start with a `-` are files.
+### File Type
 
-The line that start with a `l` is a symbolic link.
+The file type if the left most piece of information. It give context to the other items in the line. Here are some of the possible values for the file type:
 
+- The lines that start with a `d` are directories.
+- The lines that start with a `-` are files. This includes scripts, images, configuration files and spreadsheets.
+- The lines that start with a `l` are symbolic links. This are files that point to another file. They are used a lot of time for convenience.
 
+### User, Group and Everyone Permissions
+
+The next 9 characters after the file type are the user, group and everyone permissions. The user permissions are 3 characters, the group permissions are 3 characters and the everyone permissions are 3 characters.
 
 ## Privilege Escalation
 
