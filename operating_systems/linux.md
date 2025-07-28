@@ -121,8 +121,14 @@ drwxr-xr-x  3 kwmd kwmd 4.0K Aug 23  2021 .aspnet
 -rw-r--r--  1 kwmd kwmd  416 Nov 15  2024 .bash_aliases
 lrwxrwxrwx  1 kwmd kwmd    9 Aug 16  2020 .bash_history -> /dev/null
 -rw-r--r--  1 kwmd kwmd 4.2K Jun 22 22:12 .bashrc
+...
 drwxr-xr-x  3 kwmd kwmd 4.0K May 16 12:28 Pictures
+...
 ```
+
+The output shows a lot of important information. I am going to break it down some of the lines.
+
+The `total 912K` line is stating the size of all the directories and files in my home directory.
 
 ## Privilege Escalation
 
