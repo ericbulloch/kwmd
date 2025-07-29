@@ -252,3 +252,23 @@ Let me break down the above commands and what they are doing.
 - The `lxc init alpine kwmd` initializes (creates) the container named `kwmd`.
 - `lxc start kwmd` starts the container named `kwmd`.
 - Finally, `lxc exec kwmd /bin/sh` runs a shell on the `kwmd` container. Now I am running commands from the container!
+
+### Import the image from LXD Images.
+
+I visit [the site](https://images.lxd.canonical.com/) and find an image that I like. For example, I found the Kali current image that is NOT for cloud. I click the timestamp for that image and it shows a page that has the following command: `lxc launch images:kali/current/default c1`. Here is the command in action:
+
+```bash
+$ lxc launch images:kali/current/default c1
+Creating c1
+                                            
+The instance you are starting doesn't have any network attached to it.
+  To create a new network, use: lxc network create
+  To attach a network to an instance, use: lxc network attach
+
+Starting c1
+$ lxc exec c1 /bin/bash
+root@c1:~# whoami
+root
+```
+
+Running that command will download the Kali image and create a new container named `c1`. This is a much faster way to get a container up and running, there are only two commands.
