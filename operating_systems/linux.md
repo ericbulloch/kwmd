@@ -4,14 +4,14 @@ I wanted to list some concepts, terms and flows that are specific to Linux. Lear
 
 ## Table of Contents
 
-- Basic Commands
-- Directories
-- Groups
-- Permissions
-- Privilege Escalation
-- Systemctl
-- Crons
-- LXD
+- [Basic Commands](/operating_systems/linux.md#basic-commands)
+- [Directories](/operating_systems/linux.md#directories)
+- [Groups](/operating_systems/linux.md#groups)
+- [Permissions](/operating_systems/linux.md#permissions)
+- [Privilege Escalation](/operating_systems/linux.md#privilege-escalation)
+- [Systemctl](/operating_systems/linux.md#systemctl)
+- [Crons](/operating_systems/linux.md#crons)
+- [LXD](/operating_systems/linux.md#lxd)
 
 ## Basic Commands
 
