@@ -2,6 +2,17 @@
 
 I wanted to list some concepts, terms and flows that are specific to Linux. Learning more about Linux has made me a better and more effcient pentration tester. There is a lot of information to cover. I use this page as a reference.
 
+## Table of Contents
+
+- Basic Commands
+- Directories
+- Groups
+- Permissions
+- Privilege Escalation
+- Systemctl
+- Crons
+- LXD
+
 ## Basic Commands
 
 There are some commands that I use all the time. I have put together a list of the most common commands I use while doing a capture the flag event. All the commands have optional flags that can enhance what the commands do. When I need help with a command I run `man <command>` to get a more detailed description of each command. Here are the most common commands that I use:
