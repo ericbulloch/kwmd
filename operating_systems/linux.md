@@ -243,3 +243,14 @@ $ lxc exec kwmd /bin/sh
 ~ # whoami
 root
 ```
+
+Let me break down the above commands and what they are doing.
+
+- I download the container I want from GitHub using the `git clone https://github.com/saghul/lxd-alpine-builder.git` command. This will create a directory on my machine called `lxd-alpine-builder`.
+- I go into the newly downloaded directory with `cd lxd-alpine-builder`.
+- The `lxc image import alpine-v3.13-x86_64-20210218_0139.tar.gz --alias alpine` command is telling lxc to import the container found at `alpine-v3.13-x86_64-20210218_0139.tar.gz` and give it the alias of `alpine` instead of calling it `alpine-v3.13-x86_64-20210218_0139`.
+- Before the container can be initialized it needs a storage pool and a device. The `lxc storage create mypool dir` command creates a directory pool and names it `mypool`. This tells lxc where to store the container as well. The pool is located at `/var/snap/lxd/common/lxd/storage-pools/mypool`.
+- The `lxc profile device add default root disk path=/ pool=mypool` command creates a directory device using the pool that was just created for a container to use. This also makes this device the default.
+- The `lxc init alpine kwmd` initializes (creates) the container named `kwmd`.
+- `lxc start kwmd` starts the container named `kwmd`.
+- Finally, `lxc exec kwmd /bin/sh` runs a shell on the `kwmd` container. Now I am running commands from the container!
