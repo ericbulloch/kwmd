@@ -202,7 +202,13 @@ I have noted the process I use for [Linux privilege escalation](/concepts/privil
 
 LXC (pronounced lex-cee) is used to manage Linux Containers. It has very minimal overhead. It provides a way to segregate different processes from each other in a Linux environment. I have used both Docker and Podman in the past and it works very similar to both.
 
-With lxc, I can create or download an image, start multiple containers from that single image and have them interact with each other. Images can have databases, web applications, cron jobs, applications or mount parts of the file system.
+With lxc, I can create or download an image, start multiple containers from that single image and have the containers interact with each other. Images can have databases, web applications, cron jobs, applications or mount parts of the file system.
+
+Containers have a lot of benefits.
+
+Developers can use containers to spin up their entire application stack and run it on a single machine while preserving the network topology so that they are developing in a system that mirrors production. If the production system has a web application server, database server, caching server and messaging queue server, each of those servers can be a container on the developer's machine. The development environment will need to make a network call to a container which will simulate production. This makes it easier to duplicate and troubleshoot issues that are happening in production.
+
+System administrators like containers for a number of reasons. Processes can run in their own container so that they can't take all the resources of a machine and cause downtime. They can isolate risks when software is compromised and it only has access to its own container. A new instance of a container can be used to scale horizontally. Containers create a repeatable environment for new deploys of software. 
 
 The lxd command is used in conjunction with ethe lxc command. LXD (pronounced lex-dee) runs on top of lxc and has the goal of providing a better developer experience. One thing it does maintain a repository of images that can be used by lxc. The list of lxd images can be [found here](https://images.lxd.canonical.com/).
 
