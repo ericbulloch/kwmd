@@ -11,7 +11,7 @@ I wanted to list some concepts, terms and flows that are specific to Linux. Lear
 - [Privilege Escalation](/operating_systems/linux.md#privilege-escalation)
 - [Systemctl](/operating_systems/linux.md#systemctl)
 - [Crons](/operating_systems/linux.md#crons)
-- [LXD](/operating_systems/linux.md#lxd)
+- [LXC](/operating_systems/linux.md#lxc)
 
 ## Basic Commands
 
@@ -198,15 +198,13 @@ I have noted the process I use for [Linux privilege escalation](/concepts/privil
 
 ## Crons
 
-## LXD
+## LXC
 
-LXD (pronounced lex-dee) is used to manage virtual machines and system containers. LXD is built on top of LXC (which stands for Linux Containers). It has very minimal overhead. It provides a way to segregate different processes from each other in a Linux environment. I have used both Docker and Podman in the past and it works very similar to both.
+LXC (pronounced lex-cee) is used to manage Linux Containers. It has very minimal overhead. It provides a way to segregate different processes from each other in a Linux environment. I have used both Docker and Podman in the past and it works very similar to both.
 
-With lxd, I can create or download an image, start multiple containers from that single image and have them interact with each other. Images can have databases, web applications, cron jobs, applications or mount parts of the file system.
+With lxc, I can create or download an image, start multiple containers from that single image and have them interact with each other. Images can have databases, web applications, cron jobs, applications or mount parts of the file system.
 
-The lxd command is used in conjunction with ethe lxc command. The lxc command is used to start and stop containers. To use the lxd and lxc binaries, my user needs to be in the lxd group.
-
-A list of lxd images can be [found here](https://images.lxd.canonical.com/).
+The lxd command is used in conjunction with ethe lxc command. LXD (pronounced lex-dee) runs on top of lxc and has the goal of providing a better developer experience. One thing it does maintain a repository of images that can be used by lxc. The list of lxd images can be [found here](https://images.lxd.canonical.com/).
 
 There are a few different ways that an image can be imported and ran. I have provided provided some examples below:
 
