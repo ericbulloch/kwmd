@@ -186,3 +186,49 @@ I have noted the process I use for [Linux privilege escalation](/concepts/privil
 ## Systemctl
 
 ## Crons
+
+## LXD (pronounced lex-dee)
+
+LXD is used to manage virtual machines and system containers. LXD is built on top of LXC (which stands for Linux Containers). It has very minimal overhead. It provides a way to segregate different processes from each other in a Linux environment. I have used both Docker and Podman in the past and it works very similar to both.
+
+With lxd, I can create or download an image, start multiple containers from that single image and have them interact with each other. Images can have databases, web applications, cron jobs, applications or mount parts of the file system.
+
+The lxd command is used in conjunction with ethe lxc command. The lxc command is used to start and stop containers. To use the lxd and lxc binaries, my user needs to be in the lxd group.
+
+A list of lxd images can be [found here](https://images.lxd.canonical.com/).
+
+There are a few different ways that an image can be imported and ran. I have provided provided some examples below:
+
+### Download the image from GitHub.
+
+```bash
+$ git clone https://github.com/saghul/lxd-alpine-builder.git
+Cloning into 'lxd-alpine-builder'...
+remote: Enumerating objects: 57, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 57 (delta 6), reused 8 (delta 4), pack-reused 42 (from 1)
+Unpacking objects: 100% (57/57), 3.12 MiB | 17.34 MiB/s, done.
+$ cd lxd-alpine-builder/
+$ lxc image import alpine-v3.13-x86_64-20210218_0139.tar.gz --alias alpine
+If this is your first time running LXD on this machine, you should also run: lxd init
+To start your first container, try: lxc launch ubuntu:20.04
+Or for a virtual machine: lxc launch ubuntu:20.04 --vm
+
+Image imported with fingerprint: cd73881adaac667ca3529972c7b380af240a9e3b09730f8c8e4e6a23e1a7892b
+$ lxc storage create mypool dir
+Storage pool mypool created
+$ lxc profile device add default root disk path=/ pool=mypool
+Device root added to default
+$ lxc init alpine kwmd
+Creating kwmd
+                                           
+The instance you are starting doesn't have any network attached to it.
+  To create a new network, use: lxc network create
+  To attach a network to an instance, use: lxc network attach
+
+$ lxc start kwmd
+$ lxc exec kwmd /bin/sh
+~ # whoami
+root
+```
