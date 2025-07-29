@@ -198,9 +198,9 @@ I have noted the process I use for [Linux privilege escalation](/concepts/privil
 
 ## Crons
 
-## LXD (pronounced lex-dee)
+## LXD
 
-LXD is used to manage virtual machines and system containers. LXD is built on top of LXC (which stands for Linux Containers). It has very minimal overhead. It provides a way to segregate different processes from each other in a Linux environment. I have used both Docker and Podman in the past and it works very similar to both.
+LXD (pronounced lex-dee) is used to manage virtual machines and system containers. LXD is built on top of LXC (which stands for Linux Containers). It has very minimal overhead. It provides a way to segregate different processes from each other in a Linux environment. I have used both Docker and Podman in the past and it works very similar to both.
 
 With lxd, I can create or download an image, start multiple containers from that single image and have them interact with each other. Images can have databases, web applications, cron jobs, applications or mount parts of the file system.
 
