@@ -159,9 +159,9 @@ root
 
 ## Examples
 
-### LXD (pronounced lex-dee)
+### LXD
 
-LXD is used to manage virtual machines and system containers. It has very minimal overhead. I have used both Docker and Podman in the past and it works very similar to both.
+LXD (pronounced lex-dee) is used to manage virtual machines and system containers. It has very minimal overhead. I have used both Docker and Podman in the past and it works very similar to both.
 
 I can create or download an image, start multiple containers from that single image and have them interact with each other.
 
