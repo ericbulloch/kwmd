@@ -272,3 +272,7 @@ root
 ```
 
 Running that command will download the Kali image and create a new container named `c1`. This is a much faster way to get a container up and running, there are only two commands.
+
+### Privilege Escalation
+
+I have included how LXD/LXC can be used to with privelege escalation in [this write up](/concepts/privilege_escalation.md#lxd).
