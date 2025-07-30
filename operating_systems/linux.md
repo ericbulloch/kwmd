@@ -224,6 +224,25 @@ The special bit is set on the user group of permissions. Normally, this executab
 
 Escalating privileges using the user SUID bit are so common that websites like [GTFOBins](https://gtfobins.github.io/) exist.
 
+### Group SUID
+
+Much like the user SUID bit, the group SUID bit is a special permission causes the file to execute as the group who owns the file. This happens regardless of the user passing the command.
+
+If the group SUID bit is set on a directory, any files created in the directory will have their group ownership set to that of the directory owner.
+
+This is handy in cases where members of a group are collaborating. Any member of the group can access any new file within the folder.
+
+### Sticky bit
+
+The sticky bit does not affect individual files. However, when placed on a directory, it restricts file deletion. On the owner (and root) of a file can remove the file within that directory. The `/tmp` directory is an exampleof this:
+
+```bash
+$ ls -ld /tmp
+drwxrwxrwt 15 root root 4.0K Jan 11 08:57 /tmp/
+```
+
+As you can see above, the `t` sticky bit is shown in the execute permission group for everyone.
+
 ## Privilege Escalation
 
 I have noted the process I use for [Linux privilege escalation](/concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](/concepts/README.md) directory.
