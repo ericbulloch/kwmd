@@ -146,17 +146,17 @@ All the lines after the total line follow a similar pattern. The pattern is the 
 ```text
 The file type, in this case a - means a file.
 |The owner permissions, in this case rwx means read, write and execute.
-||||The group permissions, in this case rw- means read and write.
-|||||||The everyone permissions, in this case r-- means read.
-||||||||||  The hard link count, defaults to 1.
-||||||||||  | The user that owns this file, in this case kwmd.
-||||||||||  | |    The group that has access to this file, in this case kwmd.
-||||||||||  | |    |    The size of the file, in this case 215K.
-||||||||||  | |    |    |    The month the file was created, in this case July.
-||||||||||  | |    |    |    |   The day the file was created, in this case the 4th.
-||||||||||  | |    |    |    |   |  The time the file was created, in this case 6:16 pm.
-||||||||||  | |    |    |    |   |  |     The name of the file, in this case my_file.py.
-vvvvvvvvvv  v v    v    v    v   v  v     v
+||  The group permissions, in this case rw- means read and write.
+||  |  The everyone permissions, in this case r-- means read.
+||  |  |    The hard link count, defaults to 1.
+||  |  |    | The user that owns this file, in this case kwmd.
+||  |  |    | |    The group that has access to this file, in this case kwmd.
+||  |  |    | |    |    The size of the file, in this case 215K.
+||  |  |    | |    |    |    The month the file was created, in this case July.
+||  |  |    | |    |    |    |   The day the file was created, in this case the 4th.
+||  |  |    | |    |    |    |   |  The time the file was created, in this case 6:16 pm.
+||  |  |    | |    |    |    |   |  |     The name of the file, in this case my_file.py.
+vv  v  v    v v    v    v    v   v  v     v
 -rwxrw-r--  3 kwmd kwmd 215K Jul 04 18:16 my_file.py
 ```
 
@@ -174,7 +174,9 @@ The file type if the left most piece of information. It give context to the othe
 
 The next 9 characters after the file type are the user, group and everyone permissions. The user permissions are 3 characters, the group permissions are 3 characters and the everyone permissions are 3 characters.
 
-The 3 characters are always go in the same order (read, write and execute). The first character determines read permission, the second character determines write permission and the last character determines execute permission. If permission is not granted, a `-` character will be displayed.
+The 3 characters are always go in the same order (read, write and execute). The first character determines read permission, the second character determines write permission and the last character determines execute permission. If the permission is granted, it will show the corresponding letter (i.e. `r` for read, `w` for write, `x` for execute). If the permission is not granted, a `-` character will be displayed.
+
+The execute bits for user and group can have `s` and `S` values as well. These are called the user SUID and SGID bits. The execute bit for everyone can have a `t` value as well. This is called the sticky bit. All of these special values are discussed below.
 
 This might be more clear with examples. Here are a few:
 
@@ -224,7 +226,7 @@ The special bit is set on the user group of permissions. Normally, this executab
 
 Escalating privileges using the user SUID bit are so common that websites like [GTFOBins](https://gtfobins.github.io/) exist.
 
-### Group SUID
+### Group SGID
 
 Much like the user SUID bit, the group SUID bit is a special permission causes the file to execute as the group who owns the file. This happens regardless of the user passing the command.
 
