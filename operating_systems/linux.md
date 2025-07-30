@@ -226,6 +226,8 @@ The special bit is set on the user group of permissions. Normally, this executab
 
 Escalating privileges using the user SUID bit are so common that websites like [GTFOBins](https://gtfobins.github.io/) exist.
 
+An important note, if the file owner doesn't have execute permissions, the execute bit will be `S`.
+
 ### Group SGID
 
 Much like the user SUID bit, the group SUID bit is a special permission causes the file to execute as the group who owns the file. This happens regardless of the user passing the command.
@@ -233,6 +235,8 @@ Much like the user SUID bit, the group SUID bit is a special permission causes t
 If the group SUID bit is set on a directory, any files created in the directory will have their group ownership set to that of the directory owner.
 
 This is handy in cases where members of a group are collaborating. Any member of the group can access any new file within the folder.
+
+An important note, just like the SUID bit, if the file group doesn't have execute permissions, the execute bit will be `S`.
 
 ### Sticky bit
 
