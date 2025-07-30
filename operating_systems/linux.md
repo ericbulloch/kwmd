@@ -190,6 +190,23 @@ So if I had a file line that started like this:
 
 I can determine this is a regular file (the `-` at the beginning). The user has read, write and execute permissions (the first 3 characters after the file type `rwx`). The group has read and write permissions but not execute permission (the next 3 characters after the user permissions `rw-`). The everyone group has read permission but not write and execute permissions (the next 3 characters after the group permissions `r--`).
 
+As already mentioned, the root user is the user with the highest privileges on a Linux system. If a file or folder is owned by the root user or group you generally can't delete that file or folder when you aren't root. Here is an example where that is not the case.
+
+In my home directory, my user kwmd is the owner. The root user can create a file called `root.sh` and set the permissions to read, write and execute in my home directory. The directory would look something like this:
+
+```bash
+$ ls ~
+total 912K
+drwxr-xr-x 50 kwmd kwmd 4.0K Jul 28 18:57 .
+drwxr-xr-x 24 kwmd kwmd 4.0K Jul 28 18:57 ..
+-rwx------  3 root root  812 Aug 23  2021 root.sh
+...
+```
+
+My kwmd user owns the folder but I don't own the root.sh file. My user can't read, write or execute the root.sh file. But since I own the directory, and root's file is in my directory, I can delete the file.
+
+This is a common technique that in capture the flag events: there is a cron or script that is ran as the root user that is in a directory that the unprivileged user is the owner for. I can escalate my privileges by deleting root's file and then make a new file with the same name that provides a shell.
+
 ## Privilege Escalation
 
 I have noted the process I use for [Linux privilege escalation](/concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](/concepts/README.md) directory.
