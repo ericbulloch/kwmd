@@ -257,6 +257,72 @@ I have noted the process I use for [Linux privilege escalation](/concepts/privil
 
 ## Crons
 
+Cron is used to schedule recurring jobs. It is used heavily by system administrators to do maintenance work. Jobs are scheduled in the cron file (crontab) with a time format and a command. An example of this would be:
+
+```bash
+* * * * * echo 'hello, world!' >> /tmp/hello.txt
+```
+
+This example is nonsense and it will append the text "hello, world!" every minute in the /tmp/hello.txt file.
+
+### Cron Schedule
+
+The five `*` characters in the command above tell cron to run every minute. Here is a breakdown of what each `*` represents:
+
+```txt
+minute
+| hour
+| | day of the month
+| | | month
+| | | | day of the week
+| | | | |
+* * * * *
+```
+
+#### Cron schedule examples
+
+Run every day at 3 am.
+
+```txt
+0 3 * * *
+```
+
+Run every 15 minutes.
+
+```txt
+*/15 * * * *
+```
+
+Run every other hour.
+
+```txt
+* */2 * * *
+```
+
+Run at 7pm on Sunday.
+
+```txt
+0 19 * * 0
+```
+
+Run on the first of each month at 2 am.
+
+```txt
+0 2 1 * *
+```
+
+Run at the end of the business day.
+
+```txt
+0 17 * * 1-5
+```
+
+Run 30 minutes before the start of the business day.
+
+```txt
+30 7 * * 1-5
+```
+
 ## LXC
 
 LXC (pronounced lex-cee) is used to manage Linux Containers. It has very minimal overhead. It provides a way to segregate different processes from each other in a Linux environment. I have used both Docker and Podman in the past and it works very similar to both.
