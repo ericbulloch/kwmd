@@ -190,6 +190,8 @@ So if I had a file line that started like this:
 
 I can determine this is a regular file (the `-` at the beginning). The user has read, write and execute permissions (the first 3 characters after the file type `rwx`). The group has read and write permissions but not execute permission (the next 3 characters after the user permissions `rw-`). The everyone group has read permission but not write and execute permissions (the next 3 characters after the group permissions `r--`).
 
+### Interesting cases
+
 As already mentioned, the root user is the user with the highest privileges on a Linux system. If a file or folder is owned by the root user or group you generally can't delete that file or folder when you aren't root. Here is an example where that is not the case.
 
 In my home directory, my user kwmd is the owner. The root user can create a file called `root.sh` and set the permissions to read, write and execute in my home directory. The directory would look something like this:
@@ -206,6 +208,21 @@ drwxr-xr-x 24 kwmd kwmd 4.0K Jul 28 18:57 ..
 My kwmd user owns the folder but I don't own the root.sh file. My user can't read, write or execute the root.sh file. But since I own the directory, and root's file is in my directory, I can delete the file.
 
 This is a common technique that in capture the flag events: there is a cron or script that is ran as the root user that is in a directory that the unprivileged user is the owner for. I can escalate my privileges by deleting root's file and then make a new file with the same name that provides a shell.
+
+### User SUID
+
+The user SUID is a special permission causes the file to execute as the user who owns the file. This happens regardless of the user passing the command.
+
+You can view this with the passwd binary:
+
+```bash
+$ ls -l /usr/bin/passwd
+-rwsr-xr-x . root root 33544 Dec 13  2019 /usr/bin/passwd
+```
+
+The special bit is set on the user group of permissions. Normally, this executable would have `-rsxr-x-r-x` for the permissions. In this case, the user `s` bit for the execute permission means that the /usr/bin/passwd binary will run as the owner of the file (in this case root).
+
+Escalating privileges using the user SUID bit are so common that websites like [GTFOBins](https://gtfobins.github.io/) exist.
 
 ## Privilege Escalation
 
