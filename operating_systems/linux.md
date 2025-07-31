@@ -257,7 +257,13 @@ I have noted the process I use for [Linux privilege escalation](/concepts/privil
 
 ## Crons
 
-Cron is used to schedule recurring jobs. It is used heavily by system administrators to do maintenance work. Jobs are scheduled in the cron file (crontab) with a time format and a command. An example of this would be:
+Cron is used to schedule recurring jobs. It is used heavily by system administrators to do maintenance work. Jobs are scheduled in the cron file (crontab) with a time format and a command. The format looks like this:
+
+```bash
+[schedule] [command]
+```
+
+An example of this would be:
 
 ```bash
 * * * * * echo 'hello, world!' >> /tmp/hello.txt
@@ -278,6 +284,25 @@ minute
 | | | | |
 * * * * *
 ```
+
+Each `*` can be an expression. Each have different ranges. Here are the range values:
+
+| value | range |
+| --- | --- |
+| minutes | 0-59 |
+| hour | 0-23 |
+| day of the month | 1-31 |
+| month | 1-12 |
+| day of the week | 0-6 (Sunday is 0 and Saturday is 6) |
+
+Using the range of minutes as an example, all of these can be written as the following:
+
+| type | example | explaination |
+| --- | --- | --- |
+| integer | 12 | The 12th minute of the hour. |
+| step | */5 | Every 5 minutes. **Don't include spaces** |
+| range | 0-10 | Minutes 0 through 10 of the hour. **Don't include spaces** |
+| list | 5,30,55 | The 5th, 30th and 55th minute of the hour. **Don't include spaces** |
 
 #### Cron schedule examples
 
@@ -359,10 +384,16 @@ Run every Monday and Thursday at 4am.
 0 4 * * 1,4
 ```
 
-Run every 1st and 15th of the month at 9pm
+Run every 1st and 15th of the month at 9pm.
 
 ```txt
 0 21 1,15 * *
+```
+
+Run every 15 minutes during business hours.
+
+```txt
+*/15 8-17 * * 1-5
 ```
 
 ## LXC
