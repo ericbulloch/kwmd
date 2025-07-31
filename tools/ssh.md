@@ -43,3 +43,6 @@ SSH port forwarding, sometimes called ssh tunneling, is a method of creating sec
 
 | Type | Command | Explaination |
 | --- | --- | --- |
+| Local Port Forwarding | `ssh -L 8080:example.com:80 user@remote_server` | This redirects traffic from a port on the local machine to a specified port on the remote server, which then forwards the traffic to a destination host. In the example traffic on local port 8080 is forwarded to a web server running on port 80 on example.com via remote_server |
+| Remote Port Forwarding | ` ssh -R 9090:localhost:80 user@remote_server` | Remote Port Forwarding (-R): This redirects traffic from a port on the remote server to a specified port on the local client machine, which then forwards the traffic to a destination host (which can be the local client itself or another host accessible from the local client). |
+| Dynamic Port Forwarding | `ssh -D 1080 user@remote_server` | This creates a SOCKS proxy on the local client machine, allowing various applications to forward their traffic through the SSH connection to the remote server. This provides a more flexible way to tunnel multiple connections. |
