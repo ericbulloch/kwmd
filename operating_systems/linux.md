@@ -348,7 +348,10 @@ Run every Monday at 8 am.
 ```
 
 Run every last day of the month at midnight.
+
+```bash
 0 0 28-31 * * [ "$(date +\%d -d tomorrow)" == "01" ] && your-command
+```
 
 ## LXC
 
