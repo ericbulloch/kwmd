@@ -255,6 +255,17 @@ I have noted the process I use for [Linux privilege escalation](/concepts/privil
 
 ## Systemctl
 
+The systemctl utility that is used to control and inspect the `systemd` system and service manager. It can be used to start, stop, restart, enable disable and check the status of system services. It can also be used to manage system targets, which are groups of services, and control the overall system state (e.g., rebooting, shutting down). The systemctl provides detailed information about `systemd` units, including their configuration, status and dependencies.
+
+Here are some of the command commands with `systemctl` using the `nginx` service as the example for the commands:
+
+| Command | Explaination |
+| --- | --- |
+| `systemctl start nginx` | Start nginx. |
+| `systemctl stop nginx` | Stop nginx. |
+| `systemctl restart nginx` | Restart nginx. |
+| `systemctl status nginx` | Displays the status of nginx. |
+
 ## Crons
 
 Cron is used to schedule recurring jobs. It is used heavily by system administrators to do maintenance work. Jobs are scheduled in the cron file (crontab) with a time format and a command. The format looks like this:
