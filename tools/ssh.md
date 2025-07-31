@@ -40,3 +40,6 @@ $ ssh -i secretKey bob@10.10.1.1
 ## SSH Port Forwarding
 
 SSH port forwarding, sometimes called ssh tunneling, is a method of creating secure, encrypted connections between a local machine and a remote server. This connection allows traffic from specific ports to be securely transmitted through the ssh connection. There are three types of ssh port forwarding; local port forwarding, remote port forwarding and dynamic port forwarding.
+
+| Type | Command | Explaination |
+| --- | --- | --- |
