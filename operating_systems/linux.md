@@ -269,11 +269,15 @@ An example of this would be:
 * * * * * echo 'hello, world!' >> /tmp/hello.txt
 ```
 
-This example is nonsense and it will append the text "hello, world!" every minute in the /tmp/hello.txt file.
+This example is nonsense and it will append the text "hello, world!" every minute in the /tmp/hello.txt file. The command portion can be anything that runs in a terminal (Linux command, Python script, etc...). When I use a binary in the cron, like Python, I will include the full path to the binary. If I wanted to run a Python script at the top of every hour, my cron entry would look like this:
+
+```bash
+0 * * * * /usr/bin/python3 my_script.py
+```
 
 ### Cron Schedule
 
-The five `*` characters in the command above tell cron to run every minute. Here is a breakdown of what each `*` represents:
+The five `*` characters in the command above tell cron to run every minute. This is usually the part where people have the most issues with cron. I am providing some information in an attempt to make it more clear. Here is a breakdown of what each `*` represents:
 
 ```txt
 minute
@@ -305,6 +309,8 @@ Using the range of minutes as an example, all of these can be written as the fol
 | list | 5,30,55 | The 5th, 30th and 55th minute of the hour. **Don't include spaces** |
 
 #### Cron schedule examples
+
+Below are some cron schedule examples. In most cases I did not include a command because I wanted to focus on the schedule part. These are some of ones I have used over the years doing system administration.
 
 Run every minute.
 
