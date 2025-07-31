@@ -283,7 +283,7 @@ minute
 
 Run every minute.
 
-```text
+```txt
 * * * * *
 ```
 
@@ -343,7 +343,7 @@ Run 30 minutes before the start of the business day.
 
 Run every Monday at 8 am.
 
-```text
+```txt
 0 8 * * 1
 ```
 
@@ -351,6 +351,18 @@ Run every last day of the month at midnight.
 
 ```bash
 0 0 28-31 * * [ "$(date +\%d -d tomorrow)" == "01" ] && your-command
+```
+
+Run every Monday and Thursday at 4am.
+
+```txt
+0 4 * * 1,4
+```
+
+Run every 1st and 15th of the month at 9pm
+
+```txt
+0 21 1,15 * *
 ```
 
 ## LXC
