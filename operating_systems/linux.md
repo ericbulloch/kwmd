@@ -265,6 +265,13 @@ Here are some of the command commands with `systemctl` using the `nginx` service
 | `systemctl stop nginx` | Stop nginx. |
 | `systemctl restart nginx` | Restart nginx. |
 | `systemctl status nginx` | Displays the status of nginx. |
+| `systemctl enable nginx` | Enables nginx to start on boot. |
+| `systemctl disable nginx` | Disables nginx from starting automatically on boot. |
+| `systemctl list-units --type=service` | Lists all available service units. |
+| `systemctl daemon-reload` | Reloads the `systemd` configuration files. |
+| `systemctl mask nginx` | Prevents nginx from starting, even manually. |
+| `systemctl unmask nginx` | Reverses the masking of a service. |
+| `systemctl edit nginx` | Allows editing of nginx's unit file. |
 
 ## Crons
 
