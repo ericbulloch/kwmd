@@ -281,6 +281,12 @@ minute
 
 #### Cron schedule examples
 
+Run every minute.
+
+```text
+* * * * *
+```
+
 Run every day at 3 am.
 
 ```txt
@@ -299,6 +305,12 @@ Run every other hour.
 * */2 * * *
 ```
 
+Run at midnight on Saturday.
+
+```txt
+0 0 * * 6
+```
+
 Run at 7pm on Sunday.
 
 ```txt
@@ -309,6 +321,12 @@ Run on the first of each month at 2 am.
 
 ```txt
 0 2 1 * *
+```
+
+Run on the 15th of each month at midnight.
+
+```txt
+0 0 15 * *
 ```
 
 Run at the end of the business day.
@@ -322,6 +340,15 @@ Run 30 minutes before the start of the business day.
 ```txt
 30 7 * * 1-5
 ```
+
+Run every Monday at 8 am.
+
+```text
+0 8 * * 1
+```
+
+Run every last day of the month at midnight.
+0 0 28-31 * * [ "$(date +\%d -d tomorrow)" == "01" ] && your-command
 
 ## LXC
 
