@@ -58,7 +58,15 @@ Some ports are so well known for the protocol that runs on them that they are as
 | 110 | POP3 (Post Office Protocol version 3) for email retrieval. |
 | 143 | IMAP (Internet Message Access Protocol) for email management. |
 | 443 | HTTPS (Hypertext Transfer Protocol Secure) for secure web traffic. |
+| 3000 | Ruby on Rails default development server. |
+| 3000 | Grafana default port. |
 | 3306 | MySQL database system. |
+| 4444 | Metasploit's default listening port. |
+| 4444 | My default reverse shell listening port. |
+| 5000 | Flask's default development server. |
 | 5432 | PostgreSQL database system. |
+| 5601 | Kibana default port. |
+| 6379 | Redis default port. |
 | 8000 | Alternative port for HTTP, often used for web servers. |
+| 8000 | Django default port. |
 | 8080 | Alternative port for HTTP, often used for web servers. |
