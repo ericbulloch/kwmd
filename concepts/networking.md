@@ -27,7 +27,16 @@ The three-way handshake is used by TCP to create a connection between two machin
 - The receiver responds with a a SYN/ACK (Synchronize-Acknowledge) packet. The SYN/ACK packet lets the sender know that the receiver is ready for the communication.
 - The sender sends a ACK (Acknowledge) packet. This is to let the receiver know that the sender got their SYN/ACK packet. This completes the handshake and a reliable connection is established.
 
+## UDP
 
+UDP (User Datagram Protocol) is a connectionless protocol that prioritizes speed over reliability. Unlike TCP, it doesn't establish a connection before sending data. There is no guarantee that packets will be delivered from the sender to the receiver. This makes UDP faster and more efficient for applications where some data loss is acceptable.
+
+Applications that use UDP include:
+
+- Live Streaming
+- Online Gaming
+- DNS Queries
+- Network Monitoring
 
 ## Ports
 
