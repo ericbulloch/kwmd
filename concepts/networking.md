@@ -52,3 +52,9 @@ Some ports are so well known for the protocol that runs on them that they are as
 | 21 | FTP (File Transfer Protocol) command connection. |
 | 22 | Secure Shell (ssh) for secure logins, file transfers (scp, sftp) and port forwarding. |
 | 23 | Telnet protocol for unencrypted text communication. |
+| 25 | SMTP (Simple Mail Transfer Protocol) for email routing. |
+| 53 | DNS (Domain Name System) service. |
+| 80 | HTTP (Hypertext Transfer Protocol) for web traffic. |
+| 110 | POP3 (Post Office Protocol version 3) for email retrieval. |
+| 143 | IMAP (Internet Message Access Protocol) for email management. |
+| 443 | HTTPS (Hypertext Transfer Protocol Secure) for secure web traffic. |
