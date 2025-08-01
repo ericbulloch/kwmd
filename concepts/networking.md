@@ -8,9 +8,16 @@ TCP (Transmission Control Protocol) is one of the most common internet protocols
 
 TCP guarantees that all data packets are sent in the right order and without errors. If any packets are lost or corrupted, TCP will retransmit them. Some common protocols that care about data integrity are:
 
-- HTTP and HTTPS: Browsing the web.
-- FTP: Transferring files between machines.
-- SMTP: Using email.
+- HTTP
+- FTP
+- SMTP
+
+Applications that use TCP include:
+
+- Web Browsing
+- Email
+- File Transfers
+- Streaming Media
 
 ### TCP Three-Way Handshake
 
@@ -19,6 +26,8 @@ The three-way handshake is used by TCP to create a connection between two machin
 - The sender sends a SYN (Synchronize) packet. The SYN packet lets the receiver know that the sender would like to synchronize a connection and the sender includes an initial sequence number.
 - The receiver responds with a a SYN/ACK (Synchronize-Acknowledge) packet. The SYN/ACK packet lets the sender know that the receiver is ready for the communication.
 - The sender sends a ACK (Acknowledge) packet. This is to let the receiver know that the sender got their SYN/ACK packet. This completes the handshake and a reliable connection is established.
+
+
 
 ## Ports
 
