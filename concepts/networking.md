@@ -58,3 +58,7 @@ Some ports are so well known for the protocol that runs on them that they are as
 | 110 | POP3 (Post Office Protocol version 3) for email retrieval. |
 | 143 | IMAP (Internet Message Access Protocol) for email management. |
 | 443 | HTTPS (Hypertext Transfer Protocol Secure) for secure web traffic. |
+| 3306 | MySQL database system. |
+| 5432 | PostgreSQL database system. |
+| 8000 | Alternative port for HTTP, often used for web servers. |
+| 8080 | Alternative port for HTTP, often used for web servers. |
