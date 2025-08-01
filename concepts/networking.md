@@ -70,3 +70,20 @@ Some ports are so well known for the protocol that runs on them that they are as
 | 8000 | Alternative port for HTTP, often used for web servers. |
 | 8000 | Django default port. |
 | 8080 | Alternative port for HTTP, often used for web servers. |
+
+## OSI Model
+
+- Layer 1: Physical Layer
+- Layer 2: Data Link Layer
+- Layer 3: Network Layer
+- Layer 4: Transport Layer
+- Layer 5: Session Layer
+- Layer 6: Presentation Layer
+- Layer 7: Application Layer
+
+### Mnemonics To Remember OSI Model Layers
+
+- Please Do Not Throw Sausage Pizza Away
+- Play Dough Nunchucks To Smash Antiques
+- Piper Doesn't Need To Sell Pepper Anymore
+- Pete Doesn't Need To Sell Pickles Anymore
