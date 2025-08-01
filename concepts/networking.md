@@ -44,3 +44,11 @@ A computer can run multiple multiple applications at the same time. Any applicat
 
 Each computer has 65,535 ports they can listen on. One application can listen on port 4444 and the traffic from another application listening on a different port doesn't interfer with the first application.
 
+Some ports are so well known for the protocol that runs on them that they are associated with that protocol. A machine can run any protocol on any port number but some protocols have a tendency to run on specific ports. Some of the more well-known ports include:
+
+| Port | Description |
+| --- | --- |
+| 20 | FTP (File Transfer Protocol) data transfer. |
+| 21 | FTP (File Transfer Protocol) command connection. |
+| 22 | Secure Shell (ssh) for secure logins, file transfers (scp, sftp) and port forwarding. |
+| 23 | Telnet protocol for unencrypted text communication. |
