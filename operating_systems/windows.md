@@ -3,3 +3,4 @@
 
 - Privilege Escalation
 - Services
+- Permissions
