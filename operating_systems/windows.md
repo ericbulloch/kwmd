@@ -12,3 +12,4 @@
 - Startup Applications
 - Protocols
 - Event Viewer
+- Registry
