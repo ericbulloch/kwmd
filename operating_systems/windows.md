@@ -9,3 +9,4 @@
 - Antivirus
 - Active Directory
 - Scheduled Tasks
+- Startup Applications
