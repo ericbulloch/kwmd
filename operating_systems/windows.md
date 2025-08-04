@@ -5,3 +5,4 @@
 - Services
 - Permissions
 - Windows Defender
+- User Account Control (UAC)
