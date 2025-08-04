@@ -7,3 +7,4 @@
 - Windows Defender
 - User Account Control (UAC)
 - Antivirus
+- Active Directory
