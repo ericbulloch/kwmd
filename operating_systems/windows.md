@@ -11,3 +11,4 @@
 - Scheduled Tasks
 - Startup Applications
 - Protocols
+- Event Viewer
