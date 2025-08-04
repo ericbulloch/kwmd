@@ -8,3 +8,4 @@
 - User Account Control (UAC)
 - Antivirus
 - Active Directory
+- Scheduled Tasks
