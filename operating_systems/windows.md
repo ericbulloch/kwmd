@@ -10,3 +10,4 @@
 - Active Directory
 - Scheduled Tasks
 - Startup Applications
+- Protocols
