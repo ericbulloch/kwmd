@@ -15,7 +15,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [hydra](hydra.md)
 - [john](john.md)
 - [linpeas](linpeas.md)
-- [MSConsole](msconsole.md)
+- [msconsole](msconsole.md)
 - [MSFvenom](msfvenom.md)
 - [nc - Netcat](netcat.md)
 - [netstat](netstat.md)
