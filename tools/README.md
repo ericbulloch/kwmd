@@ -18,6 +18,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [MSConsole](msconsole.md)
 - [MSFvenom](msfvenom.md)
 - [nc - Netcat](netcat.md)
+- [netstat](netstat.md)
 - [Nikto](nikto.md)
 - [Nmap](nmap.md)
 - [SearchSploit](searchsploit.md)
