@@ -13,7 +13,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [grep](grep.md)
 - [hashcat](hashcat.md)
 - [hydra](hydra.md)
-- [John the Ripper](john.md)
+- [john](john.md)
 - [LinPEAS.sh](linpeas.md)
 - [MSConsole](msconsole.md)
 - [MSFvenom](msfvenom.md)
