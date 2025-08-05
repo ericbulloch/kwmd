@@ -12,7 +12,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [gobuster](gobuster.md)
 - [grep](grep.md)
 - [hashcat](hashcat.md)
-- [Hydra](hydra.md)
+- [hydra](hydra.md)
 - [John the Ripper](john.md)
 - [LinPEAS.sh](linpeas.md)
 - [MSConsole](msconsole.md)
