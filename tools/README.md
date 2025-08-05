@@ -9,7 +9,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [ffuf](ffuf.md)
 - [find](find.md)
 - [ftp](ftp.md)
-- [Gobuster](gobuster.md)
+- [gobuster](gobuster.md)
 - [grep](grep.md)
 - [Hashcat](hashcat.md)
 - [Hydra](hydra.md)
