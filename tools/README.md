@@ -11,7 +11,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [ftp](ftp.md)
 - [gobuster](gobuster.md)
 - [grep](grep.md)
-- [Hashcat](hashcat.md)
+- [hashcat](hashcat.md)
 - [Hydra](hydra.md)
 - [John the Ripper](john.md)
 - [LinPEAS.sh](linpeas.md)
