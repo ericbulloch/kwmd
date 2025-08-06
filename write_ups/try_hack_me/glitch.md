@@ -318,3 +318,46 @@ $ wget http://target.thm:8000/firefox.tar
 $ tar -xf firefox.tar
 $ firefox --profile .firefox/b5w4643p.default-release
 ```
+
+From here I opened up Firefox and did the following:
+
+- Clicked the lock icon next to the url in the address bar.
+- Clicked Connection secure.
+- Clicked More information.
+- This opened a page with a Security tab, I clicked it.
+- Then I clicked the View Saved Passwords button.
+- This has credentials for the glitch.thm site.
+
+The user is v0id, the password is REDACTED.
+
+I used the password I just discovered and ran the following command on the target machine to become the v0id user:
+
+```bash
+$ su v0id
+```
+
+## Second Privilege Escalation
+
+I ran my [list of commands](/concepts/privilege_escalation.md#linux-privilege-escalation) again and got the same results. I looked at `doas` again.
+
+I ran the following to become root:
+
+```bash
+$ doas -u root /bin/bash
+```
+
+It worked. I'm in! The cursor changed to the # character to let me know that I am root.
+
+## What is the content of root.txt?
+
+I ran the following to get the flag:
+
+```bash
+# whoami
+root
+# cd /root
+# ls
+clean.sh  root.txt
+# cat root.txt
+REDACTED
+```
