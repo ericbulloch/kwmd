@@ -281,3 +281,24 @@ user.txt
 $ cat user.txt
 REDACTED
 ```
+
+## Priviledge Escalation
+
+I ran my [usual list of commands](/concepts/privilege_escalation.md#linux-privilege-escalation). Running `find / -perm -u=s -type f 2>/dev/null` did yield some interesting results:
+
+```bash
+$ find / -perm -u=s -type f 2>/dev/null
+...
+/usr/local/bin/doas
+```
+
+I was not familiar with `doas` but it allows you to run commands as another user. It looks like a config file can be used. I run the following command to find any config files:
+
+```bash
+$ find / -type f -name doas.conf 2>/dev/null
+/usr/local/etc/doas.conf
+$ cat
+permit v0id as root
+```
+
+I spent sometime going down this road but I couldn't get this to work. I got frustrated and looked up a guide.
