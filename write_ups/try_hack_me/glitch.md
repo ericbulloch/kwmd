@@ -71,3 +71,34 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 96.25 seconds
            Raw packets sent: 131137 (5.770MB) | Rcvd: 70 (3.076KB)
 ```
+
+## What is your access token?
+
+I check the html for http://target.thm and I see an interesting script tag near the bottom:
+
+```html
+<script>
+  function getAccess() {
+    fetch('/api/access')
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+      });
+  }
+</script>
+```
+
+Within the browser console I run getAccess() and get the following logged to the console:
+
+```json
+{
+  "token": "dGhpc19pc19ub3RfcmVhbA=="
+}
+```
+
+That token value looks like it is base64 encoded so I ran it on the console:
+
+```bash
+$ echo 'dGhpc19pc19ub3RfcmVhbA==' | base64 -d
+REDACTED
+```
