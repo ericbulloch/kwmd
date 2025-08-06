@@ -264,3 +264,20 @@ Connection: close
 ```
 
 I have a shell. I'm in!
+
+## What is the content of user.txt?
+
+I stabilized the shell using the steps [found here](/README.md#stable-shell). Then I checked for the user.txt flag:
+
+```bash
+$ whoami
+user
+cd /home
+$ ls
+user  v0id
+$ cd user/
+user@ubuntu:~$ ls
+user.txt
+$ cat user.txt
+REDACTED
+```
