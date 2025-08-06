@@ -102,3 +102,60 @@ That token value looks like it is base64 encoded so I ran it on the console:
 $ echo 'dGhpc19pc19ub3RfcmVhbA==' | base64 -d
 REDACTED
 ```
+
+That is the access token.
+
+## Getting a Foothold
+
+I tried to find more routes for the API since I now have a token:
+
+```bash
+$ gobuster dir -u http://target.thm/api -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://target.thm/api
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/access               (Status: 200) [Size: 36]
+/items                (Status: 200) [Size: 169]
+Progress: 207643 / 207644 (100.00%)
+===============================================================
+Finished
+===============================================================
+```
+
+The /api/items route does give a response but it doesn't seem to help much. Since I couldn't find any other routes I tried to find more routes on the site:
+
+```bash
+$ gobuster dir -u http://target.thm -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://target.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/img                  (Status: 301) [Size: 173] [--> /img/]
+/js                   (Status: 301) [Size: 171] [--> /js/]
+/secret               (Status: 200) [Size: 724]
+Progress: 207643 / 207644 (100.00%)
+===============================================================
+Finished
+===============================================================
+```
