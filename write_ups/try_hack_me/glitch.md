@@ -159,3 +159,48 @@ Progress: 207643 / 207644 (100.00%)
 Finished
 ===============================================================
 ```
+
+The /secret page is identical to the homepage. I tried running gobuster on the /secret directory as well but I didn't find any new routes. I have the following routes:
+
+- /
+- /secret
+- /api/access
+- /api/items
+- /css
+- /js
+
+I am not getting any where with directory enumeration so I try manual verb enumeration on each route. The following was interesting:
+
+```bash
+$ curl -X POST http://target.thm/api/items
+{"message":"there_is_a_glitch_in_the_matrix"}
+```
+
+It looks like this route is the one that I need to test. I have already done directory enumeration on it and I didn't find anything. I fuzz to see if there are any query string parameters:
+
+```bash
+$ ffuf -X POST -u http://target.thm/api/items?FUZZ=1 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+
+        /'___\  /'___\           /'___\      
+       /\ \__/ /\ \__/  __  __  /\ \__/      
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\      
+          \/_/    \/_/   \/___/    \/_/      
+
+       v1.3.1
+________________________________________________
+
+ :: Method           : POST
+ :: URL              : http://target.thm/api/items?FUZZ=1
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405
+________________________________________________
+
+cmd                     [Status: 200, Size: 25, Words: 2, Lines: 1]
+:: Progress: [207643/207643] :: Job [1/1] :: 5852 req/sec :: Duration: [0:00:59] :: Errors: 0 ::
+```
