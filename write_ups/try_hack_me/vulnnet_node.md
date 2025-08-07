@@ -9,7 +9,7 @@
 
 ## Concepts/Tools Used
 
-
+- base64
 
 ## Room Description
 
