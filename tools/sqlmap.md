@@ -204,6 +204,10 @@ Now I can get records for the users table. If I don't want to filter the columns
 $ sqlmap -r request.txt -D gallery_db -T users --dump
 ```
 
+This will dump data for all columns in the table. This can be very slow for tables with a lot of columns or a lot of records.
+
+### Getting Filtered Column Records for a Table
+
 In my case I want to filter it. This is because it will ask yes or no questions over and over to get each character of data. That takes a lot of time and I want to speed things up. Here is the command I run to filter the columns that I want for each record:
 
 ```bash
@@ -243,3 +247,4 @@ do you want to use common password suffixes? (slow!) [y/N]
 [05:29:25] [INFO] starting 2 processes 
 [05:29:56] [WARNING] no clear password(s) found
 ```
+
