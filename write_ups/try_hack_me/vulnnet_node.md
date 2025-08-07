@@ -75,3 +75,27 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 12.63 seconds
            Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
 ```
+
+I explored the website on port 8080. I checked a few things and I couldn't find anything. I examined the requests and responses and I noticed that I had a session value. Here is what my header looked like:
+
+```text
+Cookie: session=eyJ1c2VybmFtZSI6Ikd1ZXN0IiwiaXNHdWVzdCI6dHJ1ZSwiZW5jb2RpbmciOiAidXRmLTgifQ%3D%3D
+```
+The %3D is the `=` character with html encoding. That means the session is:
+
+```text
+eyJ1c2VybmFtZSI6Ikd1ZXN0IiwiaXNHdWVzdCI6dHJ1ZSwiZW5jb2RpbmciOiAidXRmLTgifQ==
+```
+
+That looks like it is base64 encoded. I ran the following in the command line:
+
+```bash
+$ echo 'eyJ1c2VybmFtZSI6Ikd1ZXN0IiwiaXNHdWVzdCI6dHJ1ZSwiZW5jb2RpbmciOiAidXRmLTgifQ==' | base64 -d
+{"username":"Guest","isGuest":true,"encoding": "utf-8"}
+```
+
+I couldn't change these values to anything that would allow a login. It turns out this was a red herring.
+
+Looking back at the nmap output I see that the site is running on Node.js Express framework. I ran some google searches and found a repository that can get a reverse shell on Node.js servers. The repository can be [found here](https://github.com/ajinabraham/Node.Js-Security-Course/blob/master/nodejsshell.py).
+
+
