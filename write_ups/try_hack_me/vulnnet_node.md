@@ -96,6 +96,8 @@ $ echo 'eyJ1c2VybmFtZSI6Ikd1ZXN0IiwiaXNHdWVzdCI6dHJ1ZSwiZW5jb2RpbmciOiAidXRmLTgi
 
 I couldn't change these values to anything that would allow a login. It turns out this was a red herring.
 
+## Getting a Foothold
+
 Looking back at the nmap output I see that the site is running on Node.js Express framework. I found that Node.js is vulnerable to a json serialization attack if it is using the serializer library. If it is vulnerable it will be easy to test. The http://target.thm:8080 page will work for testing since it deserialized the session value to use the username. Now it will deserialize a function and call the function. The payload format is the following:
 
 ```json
@@ -138,3 +140,19 @@ If-None-Match: W/"84f-177350083bb"
 If-Modified-Since: Sun, 24 Jan 2021 15:26:02 GMT
 Connection: keep-alive
 ```
+
+I have a shell. I'm in!
+
+I [stabalized the shell](/README.md#stable-shell).
+
+## Privilege Escalation
+
+I tried to find the user.txt file using the following command:
+
+```bash
+$ find / -type f -name user.txt 2>/dev/null
+```
+
+It didn't find anything. I tried to find the file in different home directories and I couldn't find it. I couldn't access the `/home/serv-manage` directory.
+
+## What is the user flag? (user.txt)
