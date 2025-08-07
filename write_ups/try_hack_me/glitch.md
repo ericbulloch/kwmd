@@ -301,7 +301,7 @@ $ cat
 permit v0id as root
 ```
 
-I spent sometime going down this road but I couldn't get this to work. I got frustrated and looked up a guide.
+I spent sometime going down this road but I couldn't get this to work. It looks like I need to escalate to the v0id user to run doas as root. I got frustrated and looked up a guide.
 
 I can't believe I missed it. The `/home/user/` directory has a directory called `.firefox`. Looking in the directory, it appears to be a backup of a profile. I want to open this up in firefox but the machine I am targeting is headless. I zip up this directory and move it over to my attack box so I can import the profile:
 
