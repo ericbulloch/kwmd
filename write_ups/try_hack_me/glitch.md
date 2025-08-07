@@ -9,7 +9,10 @@
 
 ## Concepts/Tools Used
 
-
+- base64
+- [gobuster](/tools/gobuster.md)
+- curl
+- [ffuf](/tools/ffuf.md)
 
 ## Room Description
 
