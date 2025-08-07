@@ -157,4 +157,16 @@ It didn't find anything. I tried to find the file in different home directories 
 
 I ran my [usual list](/concepts/privilege_escalation.md#linux-privilege-escalation) of privilege escalation commands and got lucky with `sudo -l`:
 
+```bash
+$ sudo -l
+Matching Defaults entries for www on ip-10-10-115-148:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User www may run the following commands on ip-10-10-115-148:
+    (serv-manage) NOPASSWD: /usr/bin/npm
+```
+
+This means I can run npm as the serv-manage user. I'll create a script to generate a shell and run that shell as serv-manage.
+
 ## What is the user flag? (user.txt)
