@@ -155,4 +155,6 @@ $ find / -type f -name user.txt 2>/dev/null
 
 It didn't find anything. I tried to find the file in different home directories and I couldn't find it. I couldn't access the `/home/serv-manage` directory.
 
+I ran my [usual list](/concepts/privilege_escalation.md#linux-privilege-escalation) of privilege escalation commands and got lucky with `sudo -l`:
+
 ## What is the user flag? (user.txt)
