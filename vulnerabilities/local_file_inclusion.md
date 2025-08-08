@@ -4,6 +4,7 @@
 - [Filtering](#filtering)
 - [PHP Filter Convert Base64 Encode](#php-filter-convert-base64-encode)
 - [Whitelisting](#whitelisting)
+- [Sameple Payloads](#sample-payloads)
 
 ## Introduction
 
