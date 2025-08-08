@@ -1,5 +1,11 @@
 # Local File Inclusion (LFI)
 
+- [Introduction](#Introduction)
+- [Filtering](#Filtering)
+- [Whitelisting](#Whitelisting)
+
+## Introduction
+
 Originally I thought that local file inclusion was just tricking web servers into exposing files. This vulnerability is more than just that. It also includes running files on the web server.
 
 In some capture the flag events, these show up in web applications for a pages that show the contents of files. These pages often have a url similar to `http://target.thm/some/page?path=/var/www/html/secret.txt`.
