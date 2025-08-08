@@ -96,3 +96,13 @@ So if I am expecting this url to be used with only three different files and all
 Now the request just needs to check if what the user typed is in the list above. If they include any other path traversal items (../), the request will get an error response.
 
 The main drawback to this approach is that the whitelist must be maintained. This means it is a code change if the list is hard coded in the file, files that were removed need to be removed from the whitelist and files that were added need to be included on the whitelist. However, if the list is too unweildy, it can be placed in a datastore so that a code change is not needed. Also, the security benefits of a whitelist outweigh the security drawbacks of using filtering.
+
+## Sample Payloads
+
+Using the url `http://mysite.thm/test.php?path=<path_goes_here>` I am going to give some different path examples. There are a lot of ways that a url can be encoded to bypass filtering and so I want to provide simple examples and ones that are specific for servers and configuration.
+
+Here are some basic payloads that can be tried:
+
+### http://mysite.thm/test.php?path=../../../../etc/passwd
+
+This is the baseline example to show what a basic attack looks like.
