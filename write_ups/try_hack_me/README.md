@@ -22,6 +22,7 @@ Here are the list of write-ups that I have done for TryHackMe.
 - [Ignite](ignite.md)
 - [JPGChat](jpg_chat.md)
 - [Kiba](kiba.md)
+- [Mustacchio](mustacchio.md)
 - [Poster](poster.md)
 - [Simple CTF](simple_ctf.md)
 - [Source](source.md)
