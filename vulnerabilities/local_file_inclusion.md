@@ -1,8 +1,9 @@
 # Local File Inclusion (LFI)
 
-- [Introduction](#Introduction)
-- [Filtering](#Filtering)
-- [Whitelisting](#Whitelisting)
+- [Introduction](#introduction)
+- [Filtering](#filtering)
+- [PHP Filter Convert Base64 Encode](#php-filter-convert-base64-encode)
+- [Whitelisting](#whitelisting)
 
 ## Introduction
 
