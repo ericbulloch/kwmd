@@ -8,6 +8,7 @@ Here are the list of write-ups that I have done for TryHackMe.
 - [Archangel](archangel.md)
 - [Bebop](bebop.md)
 - [Bounty Hacker](bounty_hacker.md)
+- [Cat Pictures](cat_pictures.md)
 - [Chill Hack](chill_hack.md)
 - [Chocolate Factory](chocolate_factory.md)
 - [ColddBox:Easy](coldd_box_easy.md)
