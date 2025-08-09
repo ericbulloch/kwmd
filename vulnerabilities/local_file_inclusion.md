@@ -114,3 +114,7 @@ This payload was mentioned in the [PHP Filter Convert Base64 Encode](#php-filter
 ### `http://mysite.thm/test.php?path=.%2E/.%2E/.%2E/etc/passwd`
 
 This payload is fantastic to get around filtering checks that are looking for a double period in the url. The interesting part is that `%2E` or `%2e` are the url encoded version of a period. So this path resolves from `.%2E/` to `../`.
+
+### `http://mysite.thm/test.php?path=.%%32%65/.%%32%65/.%%32%65/etc/passwd`
+
+This is the same as the previous example except it url encoded `%2E` to become `%%32%65`. Depending on how things are filtered, this can resolve to a period.
