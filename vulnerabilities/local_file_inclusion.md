@@ -106,3 +106,7 @@ Here are some basic payloads that can be tried:
 ### `http://mysite.thm/test.php?path=../../../../etc/passwd`
 
 This is the baseline example to show what a basic attack looks like. The slashes and dots are not encoded. If this works, I can promise that the website was not built with security in mind.
+
+### `http://mysite.thm/test.php?path=..//..//..//etc/passwd`
+
+This payload was mentioned in the [PHP Filter Convert Base64 Encode](#php-filter-convert-base64-encode) section earlier on this page. The double forward slash (//) becomes a single forward slash.
