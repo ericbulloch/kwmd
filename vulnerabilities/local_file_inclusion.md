@@ -110,3 +110,7 @@ This is the baseline example to show what a basic attack looks like. The slashes
 ### `http://mysite.thm/test.php?path=..//..//..//etc/passwd`
 
 This payload was mentioned in the [PHP Filter Convert Base64 Encode](#php-filter-convert-base64-encode) section earlier on this page. The double forward slash (//) becomes a single forward slash.
+
+### `http://mysite.thm/test.php?path=.%2E/.%2E/.%2E/etc/passwd`
+
+This payload is fantastic to get around filtering checks that are looking for a double period in the url. The interesting part is that `%2E` or `%2e` are the url encoded version of a period. So this path resolves from `.%2E/` to `../`.
