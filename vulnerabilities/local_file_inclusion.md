@@ -103,6 +103,6 @@ Using the url `http://mysite.thm/test.php?path=<path_goes_here>` I am going to g
 
 Here are some basic payloads that can be tried:
 
-### http://mysite.thm/test.php?path=../../../../etc/passwd
+### `http://mysite.thm/test.php?path=../../../../etc/passwd`
 
-This is the baseline example to show what a basic attack looks like.
+This is the baseline example to show what a basic attack looks like. The slashes and dots are not encoded. If this works, I can promise that the website was not built with security in mind.
