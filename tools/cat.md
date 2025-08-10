@@ -1,5 +1,11 @@
 # cat
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 The cat tool is commonly used to view the contents of a file. It is also used to append text, write text and concatenate text to a file.
 
 ## Usage
