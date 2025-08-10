@@ -4,6 +4,7 @@
 - [How Google Got The Information?](#how-google-got-the-information)
 - [Searching](#searching)
 - [Operators](#operators)
+- [Examples](#examples)
 
 ## Introduction
 
@@ -70,3 +71,23 @@ Google provides many operators to make searching more precise. There are operato
 | source: | This operator will search results from a particular source in Google News. |
 | before: | This operator will search results before a particular date. |
 | after: | This operator will search results after a particular date. |
+
+## Examples
+
+### Looking for emails with that username
+
+If I discovered the username `firstlast` for a person name `First Last`, I could search for all emails address that use that username and are part of a .com top level domain with this search query:
+
+```text
+"firstlast*com
+```
+
+This would find things like `firstlast@yahoo.com` and `firstlast.123@aol.com`.
+
+### Looing for credentials
+
+```
+intext: password firstlast
+```
+
+
