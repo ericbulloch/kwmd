@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [Enumeration](#enumeration)
+- [Connecting to Disk](#connecting-to-disk)
 - [Downloading Individual Files](#downloading-individual-files)
 - [Downloading Folders](#downloading-folders)
 
