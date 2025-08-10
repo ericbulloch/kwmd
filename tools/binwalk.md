@@ -1,5 +1,12 @@
 # binwalk
 
+- [Introduction](#introduction)
+- [TryHackMe Attack Box](#tryhackme-attack-box)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 Is a tool that looks at the binary of an image and detects embedded files and executable code. Its primary focus is firmware analysis but it works really well in capture the flag events for different image types.
 
 ## TryHackMe Attack Box
