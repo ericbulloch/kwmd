@@ -1,5 +1,15 @@
 # POP3 (Post Office Protocol version 3)
 
+- [Introduction](#introduction)
+- [Connecting](#connecting)
+- [Log In](#log-in)
+- [Listing Messages for a User](#listing-messages-for-a-user)
+- [Displaying Messages for a User](#displaying-messages-for-a-user)
+- [Brute Forcing with Hydra](#brute-forcing-with-hydra)
+- [Conclusion](#conclusion)
+
+## Introduction
+
 POP3 email servers are a great way to gather information for a capture the flag event. Once I learned what to type with netcat it became really easy to login, list emails and read emails. I'll also include a way to brute force a password with hydra.
 
 ## Connecting
