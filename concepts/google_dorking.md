@@ -1,5 +1,12 @@
 # Google Dorking
 
+- [Introduction](#introduction)
+- [How Google Got The Information?](#how-google-got-the-information)
+- [Searching](#searching)
+- [Operators](#operators)
+
+## Introduction
+
 I have heard this called many things over the years. Some of them include Google fu, Google hacking and Consulting the oracle. The idea is that Google has already indexed website and if you know how to search with Google, you can find information that is publicly available. The trick isn't just knowing what keywords to type, it also involves knowing what keywords to remove from results.
 
 ## How Google Got The Information?
@@ -33,8 +40,8 @@ This is the most common search that people do. It is called a keyword search and
 
 ## Operators
 
-Google provides many operators to make searching more precise. There are operators that can remove results based on words or phrases. Search results can pertain to just a single or group of sites. Learning operators can make searching more enjoyable and help get answers faster. Here are a list of operators, an explaination of what they do and an example.
+Google provides many operators to make searching more precise. There are operators that can remove results based on words or phrases. Search results can pertain to just a single or group of sites. Learning operators can make searching more enjoyable and help get answers faster. Here are a list of operators and an explaination of what they do.
 
-| Operator | Explaination | Example |
-| --- | --- | --- |
-| " " | Double quotes are used to tell Google that I am looking for an exact phase. This can be used to find out what the name of a movie that said the quote. It can be used when Google sees that what I searched for doesn't have a lot of results and so it shows something else instead. | Putting names in quotes can be useful. Sometimes if the result count is low Google will show results for the first name or the last name. This is not good when you were looking for the combination. |
+| Operator | Explaination |
+| --- | --- |
+| " " | Double quotes are used to tell Google that I am looking for an exact phase. This can be used to find out what the name of a movie that said the quote. It can be used when Google sees that what I searched for doesn't have a lot of results and so it shows something else instead. |
