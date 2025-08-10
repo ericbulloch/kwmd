@@ -33,4 +33,8 @@ This is the most common search that people do. It is called a keyword search and
 
 ## Operators
 
-Google provides many operators to make searching more precise. There are operators that can remove results based on words or phrases. Search results can pertain to just a single or group of sites. Learning operators can make searching more enjoyable and help get answers faster.
+Google provides many operators to make searching more precise. There are operators that can remove results based on words or phrases. Search results can pertain to just a single or group of sites. Learning operators can make searching more enjoyable and help get answers faster. Here are a list of operators, an explaination of what they do and an example.
+
+| Operator | Explaination | Example |
+| --- | --- | --- |
+| " " | Double quotes are used to tell Google that I am looking for an exact phase. This can be used to find out what the name of a movie that said the quote. It can be used when Google sees that what I searched for doesn't have a lot of results and so it shows something else instead. | Putting names in quotes can be useful. Sometimes if the result count is low Google will show results for the first name or the last name. This is not good when you were looking for the combination. |
