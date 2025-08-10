@@ -45,7 +45,28 @@ Google provides many operators to make searching more precise. There are operato
 | Operator | Explaination |
 | --- | --- |
 | " " | Double quotes are used to tell Google that I am looking for an exact phase. This can be used to find out what the name of a movie that said the quote. It can be used when Google sees that what I searched for doesn't have a lot of results and so it shows something else instead. |
-| OR or `|` | The or operator is used to tell Google that both results are good. Results can have just one of the keywords or both of the keywords. |
+| OR or `\|` | The or operator is used to tell Google that both results are good. Results can have just one of the keywords or both of the keywords. |
 | AND | This operator is used to tell Google that both terms must be in the results. Having just one of the terms isn't enough, a result must have both. |
 | `-` | The `-` operator will tell Google to remove any results that that contain the term after the `-` operator. |
 | `*` | The `*` operator will tell Google to match any word or phrase at the position of the `*` operator. |
+| ( ) | The ( ) operator will group multiple searches. This is often used in combination with the AND and OR operators. |
+| define: | This operator is used to get the definition of a word or phrase. |
+| cache: | This operator is used to get the most recent cache or a webpage. |
+| filetype: | This operator is used to look for results that are of a particular file type (i.e. .pdf, .zip, .tar). |
+| ext: | Same as filetype: |
+| site: | This operator will filter all results to a single website. |
+| related: | This operator will search sites that are related to the provided domain. |
+| intitle: | This operator will find results that have a particular keyword in the title. |
+| allintitle: | Same as intitle: but it searches for multiple keywords. |
+| inurl: | Search for pages with a particular keyword in the url. |
+| allinurl: | Same as inurl: but it searches multiple keywords. |
+| intext: | This operator search for pages with a keyword in the content of the page. |
+| allintext: | Same as intext: but it searches multiple keywords. |
+| weather: | This operator searches the weather for a location. |
+| stocks: | This operator searches a keyword for stock information. |
+| map: | This operator will show Google Map results to show up. |
+| movie: | This operator will show results for a particular movie. |
+| in | This operator can be used to convert a value from one unit of measurement to another. |
+| source: | This operator will search results from a particular source in Google News. |
+| before: | This operator will search results before a particular date. |
+| after: | This operator will search results after a particular date. |
