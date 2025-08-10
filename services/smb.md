@@ -1,5 +1,12 @@
 # SMB (Server Message Block)
 
+- [Introduction](#introduction)
+- [Enumeration](#enumeration)
+- [Downloading Individual Files](#downloading-individual-files)
+- [Downloading Folders](#downloading-folders)
+
+## Introduction
+
 Server Message Block is commonly used in capture the flag events. It allows users to share files and printers across the network. Enumerating SMB and Samba folders is a gold mine, but I forget the syntax and tools all the time.
 
 ## Enumeration
