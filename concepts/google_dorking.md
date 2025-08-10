@@ -14,7 +14,11 @@ Google has software called a spider. A spider is a program that will go to the d
 
 Here is a simple real world example: Google sends a spider out to https://espn.com, it saves the content of the different pages in data storage. The next program looks at the pages that the spider collected for https://espn.com and determines that the site writes articles that are summaries of sports events. So a few hours when a user wants to know what the score was of the Celtics game, Google makes sure to show the latest Celtics game summary as a result on the page.
 
-Usually, a website will provide a robots.txt file that tells Google what folders it does not want indexed. In other words it is a black list of pages and links that the owner of a website doesn't want Google to show to the whole world. This is why I like to check the robots.txt file of a website, it lists all the pages that they don't want the public to know about.
+### Does Google index everything?
+
+Yes and no. By default it will index everything that it can. You can tell it not to index things with a robots.txt file.
+
+Usually, a website will provide a robots.txt file that tells Google what folders it can and cannot index. Most sites who do have a robots.txt file include the parts of the site that are sensitive in the disallowed section.  In other words the disallow section is a black list of pages and links that the owner of a website doesn't want Google to show to the whole world. This is why I like to check the robots.txt file of a website, it lists all the pages that they don't want the public to know about.
 
 ## Operators
 
