@@ -1,5 +1,13 @@
 # Networking
 
+- [Introduction](#introduction)
+- [TCP](#tcp)
+- [UDP](#udp)
+- [Ports](#ports)
+- [OSI Model](#osi-model)
+
+## Introduction
+
 How computer and systems connect is at the heart of cyber security. The scope of networking is massive and so I including items that I have found useful.
 
 ## TCP
