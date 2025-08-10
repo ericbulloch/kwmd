@@ -1,5 +1,11 @@
 # Privilege Escalation
 
+- [Introduction](#introduction)
+- [Linux Privilege Escalation](#linux-privilege-escalation)
+- [Examples](#examples)
+
+## Introduction
+
 Most capture the flag events involve scenarios where I have a foothold on a machine and now I need to become a user with more privileges so that I can get flags.
 
 There are two main types of escalations, horizontal privilege escalation and vertical privilege escalation.
