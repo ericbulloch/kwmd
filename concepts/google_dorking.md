@@ -84,10 +84,8 @@ If I discovered the username `firstlast` for a person name `First Last`, I could
 
 This would find things like `firstlast@yahoo.com` and `firstlast.123@aol.com`.
 
-### Looing for credentials
+### Looking for pages that talk about SQL Injection
 
+```text
+intext:"sql injection"
 ```
-intext: password firstlast
-```
-
-
