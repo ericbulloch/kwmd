@@ -1,6 +1,18 @@
 # Google Dorking
 
-I have heard this called many things over the years. Some of them include Google fu, Google hacking and Consulting the oracle. The idea is that Google has already indexed website and if you know how to search with Google, you can find information that is publicly available.
+I have heard this called many things over the years. Some of them include Google fu, Google hacking and Consulting the oracle. The idea is that Google has already indexed website and if you know how to search with Google, you can find information that is publicly available. The trick isn't just knowing what keywords to type, it also involves knowing what keywords to remove from results.
+
+## How Google Got The Information?
+
+Websites are incentivized to have Google index their site. Performing a Google search has become synonymous with browsing the web. If a website can reach a high position in a search result, it will be easy for users to find the site. There are many reasons people want others to find their site, but if I am being honest, those reasons mostly involve money.
+
+### How does Google index a site?
+
+The process I am describing is very simplistic, it is meant to give a very small idea of what is going on under the hood.
+
+Google has software called a spider. A spider is a program that will go to the different pages of a website and put those pages into data storage. Another program will parse the content of the site so that it can be indexed. It will then use some in house system to determine that my website would be a good result if someone typed in a specific keyword. Now when a user types that keyword, the website shows up in the results.
+
+Here is a simple real world example: Google sends a spider out to https://espn.com, it saves the content of the different pages in data storage. The next program looks at the pages that the spider collected for https://espn.com and determines that the site writes articles that are summaries of sports events. So a few hours when a user wants to know what the score was of the Celtics game, Google makes sure to show the latest Celtics game summary as a result on the page.
 
 Usually, a website will provide a robots.txt file that tells Google what folders it does not want indexed. In other words it is a black list of pages and links that the owner of a website doesn't want Google to show to the whole world. This is why I like to check the robots.txt file of a website, it lists all the pages that they don't want the public to know about.
 
