@@ -45,3 +45,7 @@ Google provides many operators to make searching more precise. There are operato
 | Operator | Explaination |
 | --- | --- |
 | " " | Double quotes are used to tell Google that I am looking for an exact phase. This can be used to find out what the name of a movie that said the quote. It can be used when Google sees that what I searched for doesn't have a lot of results and so it shows something else instead. |
+| OR or `|` | The or operator is used to tell Google that both results are good. Results can have just one of the keywords or both of the keywords. |
+| AND | This operator is used to tell Google that both terms must be in the results. Having just one of the terms isn't enough, a result must have both. |
+| `-` | The `-` operator will tell Google to remove any results that that contain the term after the `-` operator. |
+| `*` | The `*` operator will tell Google to match any word or phrase at the position of the `*` operator. |
