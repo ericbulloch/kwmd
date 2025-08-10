@@ -1,5 +1,10 @@
 # Cryptography
 
+- [Introduction](#introduction)
+- [Text Encoding](#text-encoding)
+
+## Introduction
+
 Cryptography is taking information (generally text) and securing it from unwanted users. Several different forms implementations of cryptography are discussed.
 
 Part of cryptography is encryption, which is the actual process of converting information into an unreadable format (ciphertext) to protect it from unauthorized access. Encryption is one of the key backbone concepts of computing not just cyber security. When done incorrectly or poorly, it can be cause data breaches, financial losses, identity theft and reputation damage.
