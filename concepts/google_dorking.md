@@ -20,6 +20,17 @@ Yes and no. By default it will index everything that it can. You can tell it not
 
 Usually, a website will provide a robots.txt file that tells Google what folders it can and cannot index. Most sites who do have a robots.txt file include the parts of the site that are sensitive in the disallowed section.  In other words the disallow section is a black list of pages and links that the owner of a website doesn't want Google to show to the whole world. This is why I like to check the robots.txt file of a website, it lists all the pages that they don't want the public to know about.
 
+## Searching
+
+There must be very few people on the planet that regularly browse the internet and have not used search. The concept is so simple (which means it was very complex to build). Search for what you are looking for. In the example above, a user could have searched any of the following and got the score:
+
+- Boston Celtics
+- Celtics score
+- Celtics basketball
+- Boston Celtics score
+
+This is the most common search that people do. It is called a keyword search and as shown in the list above, there are multiple keywords that can be used to get the same thing. Keyword searching can only get you so far. Operators can be used to expand or reduce search results. Operators over a way to get fine grain granularity over what is trying to be found.
+
 ## Operators
 
 Google provides many operators to make searching more precise. There are operators that can remove results based on words or phrases. Search results can pertain to just a single or group of sites. Learning operators can make searching more enjoyable and help get answers faster.
