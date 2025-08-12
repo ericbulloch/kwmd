@@ -4,6 +4,7 @@
 - [Filtering](#filtering)
 - [PHP Filter Convert Base64 Encode](#php-filter-convert-base64-encode)
 - [Whitelisting](#whitelisting)
+- [Path Checks](#path-checks)
 - [Sameple Payloads](#sample-payloads)
 
 ## Introduction
@@ -96,6 +97,10 @@ So if I am expecting this url to be used with only three different files and all
 Now the request just needs to check if what the user typed is in the list above. If they include any other path traversal items (../), the request will get an error response.
 
 The main drawback to this approach is that the whitelist must be maintained. This means it is a code change if the list is hard coded in the file, files that were removed need to be removed from the whitelist and files that were added need to be included on the whitelist. However, if the list is too unweildy, it can be placed in a datastore so that a code change is not needed. Also, the security benefits of a whitelist outweigh the security drawbacks of using filtering.
+
+## Path Checks
+
+
 
 ## Sample Payloads
 
