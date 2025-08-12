@@ -141,6 +141,12 @@ There are a few important things happening in this snippet:
 - The `if not requested_path.startswith(BASE_DIR):` check makes sure a user is looking for a file in the `/var/html/files` directory. If the `requested_path` doesn't start with the path stored in `BASE_DIR`, this will fail.
 - Finally, `if not os.path.isfile(requested_path):` checks if the file is a directory.
 
+The important thing to note with this code is not the programming language. Other languages like C#, Java, PHP and Ruby all have the ability to do what this Python code is doing. The important bits from the code are the following:
+
+- Normalize the file path by removing any url encoding characters.
+- Resolve the final file path that the user is asking for.
+- Make sure the path the final file path that they are asking for starts with the directory where the files are stored.
+
 ## Sample Payloads
 
 Using the url `http://mysite.thm/test.php?path=<path_goes_here>` I am going to give some different path examples. There are a lot of ways that a url can be encoded to bypass filtering and so I want to provide simple examples and ones that are specific for servers and configuration.
