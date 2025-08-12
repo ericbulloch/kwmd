@@ -1,5 +1,11 @@
 # john
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 The john tool (aka John the Ripper) is an extremely effective password cracking tool. I have used it in multiple capture the flag events to crack hashes, ciphers and passwords. I have used it to get ssh, Keepass, Linux user and ftp passwords.
 
 It is a very versatile tool. It can generate wordlists and it can also use one that you provide.
@@ -198,3 +204,4 @@ John has a built-in wordlist that it uses if one is not specified. There are tim
 ```bash
 $ john --wordlist=/usr/share/wordlists/rockyou.txt
 ```
+
