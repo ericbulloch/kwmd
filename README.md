@@ -1,5 +1,15 @@
 # kwmd
 
+- [Introduction](#introduction)
+- [TryHackMe](#tryhackme)
+- [Concepts](#concepts)
+- [Tools](#tools)
+- [Vulnerabilities](#vulnerabilities)
+- [Write-Ups](#write-ups)
+- [Methodology](#methodology)
+
+## Introduction
+
 Welcome! This is my personal repository for all things cybersecurity. I keep notes for commands that I regularly use and write-ups for machines I have hacked on platforms like TryHackMe and VulnHub.
 
 **Everything in here is for educational purposes.**
@@ -37,9 +47,9 @@ A lot of people who do write-ups only include the answers and not all the steps 
 - [TryHackMe Write-Ups](write_ups/try_hack_me/)
 - [VulnHub Write-Ups](write_ups/vuln_hub/)
 
-## Hacking Flow
+## Methodology
 
-I have been documenting the steps and scenarios that I often see in capture the flag events. I call this my hacking flow. I use it as a reference and guide while I work on capture the flag events. My goal is for this to continue to evolve and become my one-stop shop for bug bounties and capture the flag events.
+I have been documenting the steps and scenarios that I often see in capture the flag events. I use it as a reference and guide while I work on capture the flag events. My goal is for this to continue to evolve and become my one-stop shop for bug bounties and capture the flag events.
 
 ### Starting
 
@@ -268,3 +278,4 @@ If Python is on the machine, this is my preferred method. There are four steps, 
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
