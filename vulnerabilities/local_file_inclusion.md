@@ -134,6 +134,13 @@ def get_file():
     return send_file(requested_path)
 ```
 
+There are a few important things happening in this snippet:
+
+- `urllib.parse.unquote` is sanitizing the url that was provided, this will remove an url encoding characters.
+- `os.path.realpath` will get the final path of what was requested. If this script is running in `/var/html` and a user passes in `../../etc/passwd` for the file parameter, the `requested_path` variable will be `/etc/passwd`
+- The `if not requested_path.startswith(BASE_DIR):` check makes sure a user is looking for a file in the `/var/html/files` directory. If the `requested_path` doesn't start with the path stored in `BASE_DIR`, this will fail.
+- Finally, `if not os.path.isfile(requested_path):` checks if the file is a directory.
+
 ## Sample Payloads
 
 Using the url `http://mysite.thm/test.php?path=<path_goes_here>` I am going to give some different path examples. There are a lot of ways that a url can be encoded to bypass filtering and so I want to provide simple examples and ones that are specific for servers and configuration.
