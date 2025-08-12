@@ -1,5 +1,11 @@
 # hydra
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 Hydra is a very powerful tool to brute force a system. I can provide it with a wordlist to try for the username or password in a login attempt. It will run the attempts in parrallel. Hydra is also aware of many different services and protocols. I can use this same tool to brute force ssh, ftp, PostgreSQL, smb and more. Some tools like community edition of Burp Suite rate limits my login attempts and so understanding how to use Hydra saves me from purchasing a Burp Suite license.
 
 ## Usage
@@ -257,3 +263,4 @@ The following parameters are optional:
  (h|H)=My-Hdr\: foo   to send a user defined HTTP header with each request
 For example:  "/secret" or "http://bla.com/foo/bar:H=Cookie\: sessid=aaaa" or "https://test.com:8080/members:A=NTLM"
 ```
+
