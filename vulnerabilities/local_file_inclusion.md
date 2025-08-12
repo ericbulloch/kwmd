@@ -100,7 +100,39 @@ The main drawback to this approach is that the whitelist must be maintained. Thi
 
 ## Path Checks
 
+There is another way to prevent local file inclusion attacks. Multiple programming languages have the ability to resolve paths (including symlinks) to file out what the actual path of the file being requested is. For example, here is a Python snippet for a Flask endpoint that prevents local file inclusion attacks:
 
+```python
+import os
+import urllib.parse
+
+from flask import Flask, request, send_file
+
+
+app = Flask(__name__)
+# All files that are are available to be shown will be in the 'files' directory
+BASE_DIR = os.path.realpath(os.path.join(os.getcwd(), "files"))
+
+
+@app.route("/get_file")
+def get_file():
+    filename = request.args.get("file")
+    if not filename:
+        return "Missing filename", 400
+
+    # Normalize and resolve the full path
+    requested_path = os.path.realpath(os.path.join(BASE_DIR, urllib.parse.unquote(filename)))
+
+    # Ensure the resolved path is within the files directory
+    if not requested_path.startswith(BASE_DIR):
+        return "Invalid file path", 403
+
+    # Ensure it's a file and not a directory
+    if not os.path.isfile(requested_path):
+        return "File not found", 404
+
+    return send_file(requested_path)
+```
 
 ## Sample Payloads
 
