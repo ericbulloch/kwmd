@@ -1,5 +1,11 @@
 # hashcat
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 The hashcat tool is used to crack hashes. It makes use of a dictionary file to test the hashes against.
 
 ## Usage
