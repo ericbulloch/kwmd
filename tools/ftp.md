@@ -1,5 +1,16 @@
 # FTP
 
+- [Introduction](#introduction)
+- [Anonymous Login](#anonymous-login)
+- [Login With Credentials](#login-with-credentials)
+- [Navigation](#navigation)
+- [Downloading File](#downloading-file)
+- [Viewing File Contents Without Downloading File](#viewing-file-contents-without-downloading-file)
+- [Connecting to Non-Standard Port](#connecting-to-non-standard-port)
+- [Upload File](#upload-file)
+
+## Introduction
+
 FTP is a very common way in the real world for businesses to exchange files with each other without having to integrate with an API. It is also a place where a lot of people store a lot of files in capture the flag events that are loaded with juicy bits of information.
 
 ## Anonymous Login
