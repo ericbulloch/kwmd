@@ -1,5 +1,10 @@
 # msfvenom
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+
+## Introduction
+
 I use msfvenom in capture the flag events when I am trying to get access to a machine or when trying to escalate my privileges. What makes this tool so great is that I can craft a payload and output it in a wide array of formats. Some of those outputs include:
 
 - php script
@@ -45,3 +50,4 @@ Options:
     -t, --timeout         <second>   The number of seconds to wait when reading the payload from STDIN (default 30, 0 to disable)
     -h, --help                       Show this message
 ```
+
