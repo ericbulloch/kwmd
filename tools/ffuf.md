@@ -1,5 +1,11 @@
 # ffuf
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 The ffuf tool is useful for quickly fuzzing things like directories, subdomains and parameters on forms. The ffuf tools has some very intuitive syntax to use. Like all fuzzers, the wordlists are the most important part of fuzzing.
 
 ## Usage
@@ -142,3 +148,4 @@ $ ffuf -H "Host: FUZZ.10.10.1.1" -H "User-Agent: PENTEST" -w /usr/share/wordlist
 - Notice that I am using FUZZ in a header. This will check if the subdomain exists.
 - I also included an User-Agent header this was a recommendation that I got from some videos on youtube. I can't remember which ones.
 - The `fs` parameter lets me filter responses by size. This needs to be ajusted based on what I get back. Most responses come back as false positives but the actual responses that are subdomains will have a larger size. This parameter is used to filter them out.
+
