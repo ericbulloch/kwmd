@@ -1,5 +1,11 @@
 # gobuster
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 The gobuster tool was the first tool that I learned for fuzzing content and subdirectories. Like all fuzzers, the wordlists are the most important part of fuzzing.
 
 ## Usage
@@ -125,3 +131,4 @@ $ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/We
 | `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -z --no-color -o ~/gobuster.out`  | The `-z` flag removes the progress bar output while the -o flag tells gobuster to save the output to the gobuster.out file in my home directory.  | I have some automated scripts that will run this command and save the file so that it can be parsed and used with other commands and tools.  |
 | `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt --wordlist-offset $(grep -n 'odbc' /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt \| cut -d':' -f1)`  | The `--wordlist-offset` flag tells gobuster to start on the line number provided (in this case grep finds the line number and returns it).  | I have accidentally stopped gobuster when it was most of the way done. This command allowed me to continue from where I was before I accidentally stopped the script.  |
 | `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -U username -P password`  | The `-U` and `-P` are used when I am trying to enumerate a site that uses basic authentication. The `-U` flag specifies the username and the `-P` flag specifies the password.  | Anytime I need to enumerate a site that uses basic authentication.  |
+
