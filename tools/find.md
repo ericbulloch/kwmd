@@ -1,5 +1,11 @@
 # find
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 The find tool does exactly what the name says. It locates files, folders, symlinks, sockets and other types on the files system. There are many flags and options that can be used with this tool to help refine the search space.
 
 ## Usage
