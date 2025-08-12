@@ -1,5 +1,14 @@
 # netcat
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Connecting](#connecting)
+- [Listening](#listening)
+- [Sending a File](#sending-a-file)
+- [POP3](#pop3)
+
+## Introduction
+
 There isn't much that netcat can't do. It allows different types of communication between devices, open shells on remove machines or something simple like get http from a server. I use it often to send and receive data between machines.
 
 ## Usage
@@ -120,3 +129,4 @@ Cat will grab the text in output.txt and send it to my attack machine on port 44
 Netcat is the tool I use when interacting with POP3. I have a write up that details interacting with [pop3](/services/pop3.md) in my services section. It covers the some of the more common scenarios that I have found during capture the flag events.
 
 All the examples and interactions use netcat.
+
