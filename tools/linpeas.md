@@ -1,5 +1,10 @@
 # LinPEAS
 
+- [Introduction](#introduction)
+- [Examples](#examples)
+
+## Introduction
+
 Once I have a shell running on a capture the flag box, I often need to escalate my privilege to another user up until root. Privilege escalation is a little bit of art and a little bit of science. There are so many things that I need to check and be aware of on a target machine. Here are something linpeas checks:
 
 - Check environment variables
@@ -54,3 +59,4 @@ There are a few checks that LinPEAS doesn't perform. Some of them are time consu
 ```bash
 $ ./linpeas.sh -a
 ```
+
