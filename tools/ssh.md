@@ -1,5 +1,9 @@
 # SSH
 
+- [Initial Information](#initial-information)
+- [Typical Usage](#typical-usage)
+- [SSH Port Forwarding](#ssh-port-forwarding)
+
 ## Initial Information
 
 If nmap shows that ssh is running on a machine, I will manually connect to it. I am trying to see if it asks for a password. If that is the case, this is another attack vector I can use if I can find a username on the server.
