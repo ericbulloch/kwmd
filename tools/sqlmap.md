@@ -1,5 +1,11 @@
 # sqlmap
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 The sqlmap tool makes sql injection and detection very trivial. I use this tool in capture the flag events to dump sql tables and get information. This tool also detects and reports what database management system is being used. Until recently, injection and sql injection has been the top vulnerability in the OWASP Top 10 list. This tool makes it easy to detect and fix sql injection.
 
 ## Usage
@@ -247,4 +253,5 @@ do you want to use common password suffixes? (slow!) [y/N]
 [05:29:25] [INFO] starting 2 processes 
 [05:29:56] [WARNING] no clear password(s) found
 ```
+
 
