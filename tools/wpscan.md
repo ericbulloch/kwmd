@@ -1,5 +1,11 @@
 # wpscan
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 The wpscan tool is used to find vulnerabilities in a WordPress installation. It has a number of different scans and checks that it runs. Since nearly half of all websites in the world use WordPress, it is helpful to get familiar with this tool.
 
 ## Usage
