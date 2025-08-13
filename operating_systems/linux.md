@@ -330,95 +330,23 @@ Using the range of minutes as an example, all of these can be written as the fol
 
 Below are some cron schedule examples. In most cases I did not include a command because I wanted to focus on the schedule part. These are some of ones I have used over the years doing system administration.
 
-Run every minute.
-
-```txt
-* * * * *
-```
-
-Run every day at 3 am.
-
-```txt
-0 3 * * *
-```
-
-Run every 15 minutes.
-
-```txt
-*/15 * * * *
-```
-
-Run every other hour.
-
-```txt
-* */2 * * *
-```
-
-Run at midnight on Saturday.
-
-```txt
-0 0 * * 6
-```
-
-Run at 7pm on Sunday.
-
-```txt
-0 19 * * 0
-```
-
-Run on the first of each month at 2 am.
-
-```txt
-0 2 1 * *
-```
-
-Run on the 15th of each month at midnight.
-
-```txt
-0 0 15 * *
-```
-
-Run at the end of the business day.
-
-```txt
-0 17 * * 1-5
-```
-
-Run 30 minutes before the start of the business day.
-
-```txt
-30 7 * * 1-5
-```
-
-Run every Monday at 8 am.
-
-```txt
-0 8 * * 1
-```
-
-Run every last day of the month at midnight.
-
-```bash
-0 0 28-31 * * [ "$(date +\%d -d tomorrow)" == "01" ] && your-command
-```
-
-Run every Monday and Thursday at 4am.
-
-```txt
-0 4 * * 1,4
-```
-
-Run every 1st and 15th of the month at 9pm.
-
-```txt
-0 21 1,15 * *
-```
-
-Run every 15 minutes during business hours.
-
-```txt
-*/15 8-17 * * 1-5
-```
+| Schedule | Cron |
+| --- | --- |
+| Run every minute. | `* * * * *` |
+| Run every day at 3 am. | `0 3 * * *` |
+| Run every 15 minutes. | `*/15 * * * *` |
+| Run every other hour. | `* */2 * * *` |
+| Run at midnight on Saturday. | `0 0 * * 6` |
+| Run at 7pm on Sunday. | `0 19 * * 0` |
+| Run on the first of each month at 2 am. | `0 2 1 * *` |
+| Run on the 15th of each month at midnight. | `0 0 15 * *` |
+| Run at the end of the business day. | `0 17 * * 1-5` |
+| Run 30 minutes before the start of the business day. | `30 7 * * 1-5` |
+| Run every Monday at 8 am. | `0 8 * * 1` |
+| Run every last day of the month at midnight. | `0 0 28-31 * * [ "$(date +\%d -d tomorrow)" == "01" ] && your-command` |
+| Run every Monday and Thursday at 4am. | `0 4 * * 1,4` |
+| Run every 1st and 15th of the month at 9pm. | `0 21 1,15 * *` |
+| Run every 15 minutes during business hours. | `*/15 8-17 * * 1-5` |
 
 ## LXC
 
