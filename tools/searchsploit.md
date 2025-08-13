@@ -1,5 +1,12 @@
 # Searchsploit
 
+- [Introduction](#introduction)
+- [Python 2 Scripts](#python-2-scripts)
+- [Usage](#usage)
+- [Examples](#examples)
+
+## Introduction
+
 The searchsploit tool is a useful commandline database that allows me to look up a vulnerabilities in the [Exploit Database](https://www.exploit-db.com/searchsploit) based on the name and version of software. This information provides a list of known vulnerabilites and scripts that can be used to run against target machines. Once I install searchsploit on my machine I can look up vulnerabilites without using an internet connection.
 
 ## Python 2 Scripts
