@@ -1,5 +1,9 @@
 # Stegseek
 
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+
 ## Installation
 
 Stegseek doesn't come installed with Kali Linux. They have [documentation to install](https://github.com/RickdeJager/stegseek?tab=readme-ov-file#wrench-installation) Stegseek.
