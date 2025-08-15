@@ -23,18 +23,9 @@ I am encoding the text "Anyone can learn about cyber security!" into different f
 | --- | --- |
 | Base 32 | `IFXHS33OMUQGGYLOEBWGKYLSNYQGCYTPOV2CAY3ZMJSXEIDTMVRXK4TJOR4SC===` |
 | Base 45 | `AC8$FF1/DB44CECK44X C:KE944:JC8%EB44OFF5$CR44Z C6%E-ED4EF` |
-
-### Base62
-
-K0964MlTDohPr4N5YafBjpSbo0l9algtO199y73ed1yOXwW2CfJ
-
-### Base64
-
-QW55b25lIGNhbiBsZWFybiBhYm91dCBjeWJlciBzZWN1cml0eSE=
-
-### Base85
-
-```6#LsdDIjr#@;[3(ARTUs+CS_tF`\a9H"(?*+EM+(F`M2<Gp*```
+| Base 62 | `K0964MlTDohPr4N5YafBjpSbo0l9algtO199y73ed1yOXwW2CfJ` |
+| Base 64 | `QW55b25lIGNhbiBsZWFybiBhYm91dCBjeWJlciBzZWN1cml0eSE=` |
+| Base 85 | ```6#LsdDIjr#@;[3(ARTUs+CS_tF`\a9H"(?*+EM+(F`M2<Gp*``` |
 
 ### Base92
 
