@@ -31,10 +31,7 @@ I am encoding the text "Anyone can learn about cyber security!" into different f
 | Octal | `101 156 171 157 156 145 40 143 141 156 40 154 145 141 162 156 40 141 142 157 165 164 40 143 171 142 145 162 40 163 145 143 165 162 151 164 171 41` |
 | Hexadecimal | `41 6e 79 6f 6e 65 20 63 61 6e 20 6c 65 61 72 6e 20 61 62 6f 75 74 20 63 79 62 65 72 20 73 65 63 75 72 69 74 79 21` |
 | ROT13 | `Nalbar pna yrnea nobhg plore frphevgl!` |
-
-### ROT47
-
-p?J@?6 42? =62C? 23@FE 4J36C D64FC:EJP
+| ROT47 | `p?J@?6 42? =62C? 23@FE 4J36C D64FC:EJP` |
 
 ### URL Encode
 
