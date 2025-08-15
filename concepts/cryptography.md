@@ -33,10 +33,7 @@ I am encoding the text "Anyone can learn about cyber security!" into different f
 | ROT13 | `Nalbar pna yrnea nobhg plore frphevgl!` |
 | ROT47 | `p?J@?6 42? =62C? 23@FE 4J36C D64FC:EJP` |
 | URL Encode | `Anyone%20can%20learn%20about%20cyber%20security!` |
-
-### HTML Entity
-
-`&#65;&#110;&#121;&#111;&#110;&#101;&#32;&#99;&#97;&#110;&#32;&#108;&#101;&#97;&#114;&#110;&#32;&#97;&#98;&#111;&#117;&#116;&#32;&#99;&#121;&#98;&#101;&#114;&#32;&#115;&#101;&#99;&#117;&#114;&#105;&#116;&#121;&excl;`
+| HTML Entity | `&#65;&#110;&#121;&#111;&#110;&#101;&#32;&#99;&#97;&#110;&#32;&#108;&#101;&#97;&#114;&#110;&#32;&#97;&#98;&#111;&#117;&#116;&#32;&#99;&#121;&#98;&#101;&#114;&#32;&#115;&#101;&#99;&#117;&#114;&#105;&#116;&#121;&excl;` |
 
 The list of formats is long. This is only a fraction of the ones that are available. These are the ones that I have seen multiple times.
 
