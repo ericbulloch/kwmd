@@ -19,13 +19,10 @@ Most capture the flag events have text that has been encoded in different format
 
 I am encoding the text "Anyone can learn about cyber security!" into different formats that I have seen in capture the flag events:
 
-### Base32
-
-IFXHS33OMUQGGYLOEBWGKYLSNYQGCYTPOV2CAY3ZMJSXEIDTMVRXK4TJOR4SC===
-
-### Base45
-
-AC8$FF1/DB44CECK44X C:KE944:JC8%EB44OFF5$CR44Z C6%E-ED4EF
+| Type | Text |
+| --- | --- |
+| Base 32 | `IFXHS33OMUQGGYLOEBWGKYLSNYQGCYTPOV2CAY3ZMJSXEIDTMVRXK4TJOR4SC===` |
+| Base 45 | `AC8$FF1/DB44CECK44X C:KE944:JC8%EB44OFF5$CR44Z C6%E-ED4EF` |
 
 ### Base62
 
