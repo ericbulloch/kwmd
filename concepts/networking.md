@@ -82,12 +82,22 @@ Some ports are so well known for the protocol that runs on them that they are as
 
 ## DNS
 
-DNS (Domain Name System) is way for a computer to know where to communicate with another computer. It informs a computer of the ip address of that computer.
+DNS (Domain Name System) is way for a computer to know where to communicate with another computer. It informs a computer of the ip address of the computer.
 
 ### Phonebook example
-DNS acts the same way that phonebooks used to act in the real world.
+DNS acts the same way that phonebooks were used in the real world.
 
-A person could find a phone number by looking up a person (or their parent's name) in the phonebook. Once they found it, they would see their phone number. If this was a person that was important or you thought you would call often, you would write down their name and number on a sheet of paper and place it by the phone. Thus, caching it so that you could quickly look them up again without opening the phonebook. Each year, a new phone book would arrive and it became the new authority for phone numbers and the old phonebook was discarded.
+A person could find a person's phone number by looking up a person's name (or the name of the parent of that person) in the phonebook. Once they found the person, they would see their phone number. If this person was important or you thought you would call them often, you would write down their name and number on a sheet of paper and place it by the phone. This made it easy and quick to look them up again without opening the phonebook. Each year, a new phone book would arrive and it became the new authority for phone numbers. The old phonebook would be discarded but it was kept around in case a person's phone number got left out of the new phonebook or if the information was incorrect.
+
+So if I wanted to call someone I had a list of steps that I would follow to get a person's phone number. At each step I could find the number so I wouldn't continue with the steps after that one. Here are the steps:
+
+- Check if I had memorized the phone number.
+- Check the sheets of papers taped to the wall by the phonebook.
+- Check the sheets of papers in the drawer next to the phone.
+- Check the latest phonebook.
+- Check an older phonebook.
+- Call a mutual friend and ask them.
+- Call the operator.
 
 ## OSI Model
 
