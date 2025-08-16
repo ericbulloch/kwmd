@@ -117,9 +117,11 @@ A response at each step can be cached for the higher steps to make lookups even 
 
 Here is a list of the different DNS record types:
 
-| Type | Explaination |
-| --- | --- |
-| A | Maps a domain to an IPv4 address (i.e. `github.com` to `140.82.114.3`) |
+| Type | Explaination | Example |
+| --- | --- | --- |
+| A | Maps a domain to an IPv4 address. |  `github.com` to `140.82.114.3` |
+| AAAA | Maps a domain to an IPv6 address. | `google.com` to `2607:f8b0:4023:100d::65:` |
+| CNAME | Short for canonical name. It maps an alias to a canonical name. | Mapping `mail.google.com` and `www.google.com` to `google.com`. |
 
 ## OSI Model
 
