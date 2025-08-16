@@ -84,7 +84,7 @@ Some ports are so well known for the protocol that runs on them that they are as
 
 DNS (Domain Name System) is way for a computer to know where to communicate with another computer. It informs a computer of the ip address of the computer.
 
-### Phonebook example
+### Phonebook Example
 DNS acts the same way that phonebooks were used in the real world.
 
 A person could find a person's phone number by looking up a person's name (or the name of the parent of that person) in the phonebook. Once they found the person, they would see their phone number. If this person was important or you thought you would call them often, you would write down their name and number on a sheet of paper and place it by the phone. This made it easy and quick to look them up again without opening the phonebook. Each year, a new phone book would arrive and it became the new authority for phone numbers. The old phonebook would be discarded but it was kept around in case a person's phone number got left out of the new phonebook or if the information was incorrect.
@@ -101,7 +101,7 @@ So if I wanted to call someone I had a list of steps that I would follow to get 
 
 Each step is a type of cache and it is more efficient than the next step. At any step, a person could find the number and write it down at one of the higher steps.
 
-### How it works with computers
+### How It Works With Computers
 
 Much like the real world phonebook example above, computers have very similar steps. Computers need to change a domain name to an ip address. Humans are good at remembering things like `github.com` but they are terrible at remembering what the ip address of that domain is. Here are the steps computers use to convert a domain name to an ip address (each step can have the answer and so the latter steps will not get used):
 
@@ -112,6 +112,14 @@ Much like the real world phonebook example above, computers have very similar st
 - Check the authoritative server for a domain. Meaning it will ask GitHub's authoritative server: "What is the ip address for `github.com`?
 
 A response at each step can be cached for the higher steps to make lookups even faster.
+
+### DNS Records
+
+Here is a list of the different DNS record types:
+
+| Type | Explaination |
+| --- | --- |
+| A | Maps a domain to an IPv4 address (i.e. `github.com` to `140.82.114.3`) |
 
 ## OSI Model
 
