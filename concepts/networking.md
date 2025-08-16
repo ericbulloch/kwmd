@@ -3,7 +3,7 @@
 - [Introduction](#introduction)
 - [TCP](#tcp)
 - [UDP](#udp)
-- [Ports](#ports)
+- [Common Ports](#common-ports)
 - [DNS](#dns)
 - [OSI Model](#osi-model)
 
@@ -47,7 +47,7 @@ Applications that use UDP include:
 - DNS Queries
 - Network Monitoring
 
-## Ports
+## Common Ports
 
 A computer can run multiple multiple applications at the same time. Any application that uses a network to send or receive data doesn't want to get another application's traffic. How does a computer do this? They use ports.
 
