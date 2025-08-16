@@ -99,6 +99,20 @@ So if I wanted to call someone I had a list of steps that I would follow to get 
 - Call a mutual friend and ask them.
 - Call the operator.
 
+Each step is a type of cache and it is more efficient than the next step. At any step, a person could find the number and write it down at one of the higher steps.
+
+### How it works with computers
+
+Much like the real world phonebook example above, computers have very similar steps. Computers need to change a domain name to an ip address. Humans are good at remembering things like `github.com` but they are terrible at remembering what the ip address of that domain is. Here are the steps computers use to convert a domain name to an ip address (each step can have the answer and so the latter steps will not get used):
+
+- Check local cache to see if it already knows the ip address of the remote machine.
+- Ask the resolver - usually your internet service provider or a service like Google DNS. This will also check another resolver that has more authority regarding ip address lookups.
+- Check the root servers. There are 13 of them worldwide.
+- Check the top level domain (TLD) servers. This can be the resolver of `.com` domains.
+- Check the authoritative server for a domain. Meaning it will ask GitHub's authoritative server: "What is the ip address for `github.com`?
+
+A response at each step can be cached for the higher steps to make lookups even faster.
+
 ## OSI Model
 
 - Layer 1: Physical Layer
@@ -112,6 +126,5 @@ So if I wanted to call someone I had a list of steps that I would follow to get 
 ### Mnemonics To Remember OSI Model Layers
 
 - Please Do Not Throw Sausage Pizza Away
-- Play Dough Nunchucks To Smash Antiques
 - Piper Doesn't Need To Sell Pepper Anymore
 - Pete Doesn't Need To Sell Pickles Anymore
