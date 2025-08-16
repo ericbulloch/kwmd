@@ -4,6 +4,7 @@
 - [TCP](#tcp)
 - [UDP](#udp)
 - [Ports](#ports)
+- [DNS](#dns)
 - [OSI Model](#osi-model)
 
 ## Introduction
@@ -78,6 +79,15 @@ Some ports are so well known for the protocol that runs on them that they are as
 | 8000 | Alternative port for HTTP, often used for web servers. |
 | 8000 | Django default port. |
 | 8080 | Alternative port for HTTP, often used for web servers. |
+
+## DNS
+
+DNS (Domain Name System) is way for a computer to know where to communicate with another computer. It informs a computer of the ip address of that computer.
+
+### Phonebook example
+DNS acts the same way that phonebooks used to act in the real world.
+
+A person could find a phone number by looking up a person (or their parent's name) in the phonebook. Once they found it, they would see their phone number. If this was a person that was important or you thought you would call often, you would write down their name and number on a sheet of paper and place it by the phone. Thus, caching it so that you could quickly look them up again without opening the phonebook. Each year, a new phone book would arrive and it became the new authority for phone numbers and the old phonebook was discarded.
 
 ## OSI Model
 
