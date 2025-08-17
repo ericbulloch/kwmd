@@ -3,9 +3,9 @@
 I have included guides on how to use various tools and programs. Some of the tools are specific cyber security tools (hydra or john for example) while others are more general use (ssh, ftp or netcat). I reference these guides and commands while I work on bug bounties and capture the flag events. I frequently use them and regularly update them.
 
 - [binwalk](binwalk.md)
+- [cat](cat.md)
 - [dirb](dirb.md)
 - [dirbuster](dirbuster.md)
-- [cat](cat.md)
 - [ffuf](ffuf.md)
 - [find](find.md)
 - [ftp](ftp.md)
