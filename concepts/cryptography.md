@@ -43,4 +43,4 @@ The list of formats is long. This is only a fraction of the ones that are availa
 
 ## Hashing
 
-Hashing is the process that converts plain text data into a unique fixed size string of chararacters called a hash.
+Hashing is the process that converts plain text data into a unique fixed size string of chararacters called a hash. Once a value is hashed it cannot be unhashed.
