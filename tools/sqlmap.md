@@ -106,6 +106,8 @@ Options:
 
 ## Examples
 
+The sqlmap tool if really effective at testing forms to see if one of the parameters is vulnerable to sql injection. 
+
 ### With Sample Request
 
 When I see a login form and I want to test if it vulnerable to a sql injection attack, I'll capture a login request using the developer toolbar or Burp. I'll copy that request to a file and name it `request.txt`. The sqlmap tool will take care of the rest. Here is a sample request that I have saved in the `request.txt` file:
@@ -253,5 +255,6 @@ do you want to use common password suffixes? (slow!) [y/N]
 [05:29:25] [INFO] starting 2 processes 
 [05:29:56] [WARNING] no clear password(s) found
 ```
+
 
 
