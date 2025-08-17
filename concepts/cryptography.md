@@ -42,3 +42,5 @@ The list of formats is long. This is only a fraction of the ones that are availa
 **Please note**: It is not uncommon to see text that has been encoded with multiple formats. Two or more encoding can be used. CyberChef has a Magic recipe to help solve these.
 
 ## Hashing
+
+Hashing is the process that converts plain text data into a unique fixed size string of chararacters called a hash.
