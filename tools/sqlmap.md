@@ -106,7 +106,7 @@ Options:
 
 ## Examples
 
-The sqlmap tool if really effective at testing forms to see if one of the parameters is vulnerable to sql injection. A typical use case for sqlmap is to find a form, capture a request for it and then hand that request to sqlmap. The sqlmap tool will check each parameter to see if they are vulnerable.
+The sqlmap tool if really effective at testing forms to see if one of the parameters is vulnerable to sql injection. A typical use case for sqlmap is to find a form, capture a request for it and then hand that request to sqlmap. The sqlmap tool will check each parameter to see if they are vulnerable. If any of the parameters are vulnerable, it will get different data.
 
 ### With Sample Request
 
@@ -255,6 +255,7 @@ do you want to use common password suffixes? (slow!) [y/N]
 [05:29:25] [INFO] starting 2 processes 
 [05:29:56] [WARNING] no clear password(s) found
 ```
+
 
 
 
