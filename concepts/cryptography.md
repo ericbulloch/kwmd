@@ -40,3 +40,5 @@ I am encoding the text "Anyone can learn about cyber security!" into different f
 The list of formats is long. This is only a fraction of the ones that are available. These are the ones that I have seen in capture the flag events (yes, I really have seen Morse code in a capture the flag event).
 
 **Please note**: It is not uncommon to see text that has been encoded with multiple formats. Two or more encoding can be used. CyberChef has a Magic recipe to help solve these.
+
+## Hashing
