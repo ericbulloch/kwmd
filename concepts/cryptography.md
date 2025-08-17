@@ -45,4 +45,4 @@ The list of formats is long. This is only a fraction of the ones that are availa
 
 Hashing is the process that converts plain text data into a unique fixed size string of chararacters called a hash. Once a value is hashed it cannot be unhashed. The mathematical algorithm that does the hashing is a one-way hash algorithm and that is why it can't be reversed.
 
-To get the original value of a hash, an attack hash a dictionary of words that might be the original value. The attacker runs each value through the hash algorithm and compares the output with the original hash value.
+To get the original value of a hash, an attack hash a dictionary of words that might be the original value. The attacker runs each value through the hash algorithm and compares the output with the original hash value. If they are a match, you have found the original value.
