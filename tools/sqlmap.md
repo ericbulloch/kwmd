@@ -108,7 +108,14 @@ Options:
 
 The sqlmap tool if really effective at testing forms to see if one of the parameters is vulnerable to sql injection. A typical use case for sqlmap is to find a form, capture a request for it and then hand that request to sqlmap. The sqlmap tool will check each parameter to see if they are vulnerable. If any of the parameters are vulnerable, it will get different data. At each step, we'll use the data from the previous step to get more data. Eventually an entire database can be dumped using this tool. Here are the steps that are used:
 
-- Find a form
+- Find a form.
+- Capture a submission request to that form.
+- Hand that request to sqlmap.
+- If sqlmap determines that any parameter is vulnerable, exploit that vulnerablity.
+- Get all database names.
+- Get all table names.
+- Get table structure for each table.
+- Get dump of each table.
 
 ### With Sample Request
 
@@ -257,6 +264,7 @@ do you want to use common password suffixes? (slow!) [y/N]
 [05:29:25] [INFO] starting 2 processes 
 [05:29:56] [WARNING] no clear password(s) found
 ```
+
 
 
 
