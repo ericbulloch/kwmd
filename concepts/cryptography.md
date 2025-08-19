@@ -56,8 +56,7 @@ Here are some sample hashes:
 | MD5 | `68e109f0f40ca72a15e05cc22786f8e6` |
 | SHA-1 | `db8ac1c259eb89d4a131b253bacfca5f319d54f2` |
 | SHA-256 | `872e4e50ce9990d8b041330c47c9ddd11bec6b503ae9386a99da8584e9bb12c4` |
-
-SHA-512
+| SHA-512 | `2dbdb5ec869325d81087a62e544292efc78f7cf529a823cfbc97c22e1584191e0a9b52eae0d4f5942283c8f96217ac351c399accdc16b24ca39f45ef0d4e7a76` |
 SHA-3-256
 Bcrypt
 Scrypt
