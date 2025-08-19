@@ -56,3 +56,5 @@ Here are some sample hashes:
 | MD5 | `68e109f0f40ca72a15e05cc22786f8e6` |
 | SHA-1 | `db8ac1c259eb89d4a131b253bacfca5f319d54f2` |
 | SHA-256 | `872e4e50ce9990d8b041330c47c9ddd11bec6b503ae9386a99da8584e9bb12c4` |
+
+SHA-512
