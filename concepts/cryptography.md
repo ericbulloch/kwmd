@@ -63,3 +63,4 @@ Bcrypt
 Scrypt
 Argon2id
 RIPEMD-160
+CRC32
