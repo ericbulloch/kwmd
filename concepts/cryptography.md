@@ -62,3 +62,4 @@ SHA-3-256
 Bcrypt
 Scrypt
 Argon2id
+RIPEMD-160
