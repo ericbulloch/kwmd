@@ -48,3 +48,9 @@ Hashing is the process that converts plain text data into a unique fixed size st
 To get the original value of a hash, an attack hash a dictionary of words that might be the original value. The attacker runs each value through the hash algorithm and compares the output with the original hash value. If they are a match, you have found the original value.
 
 Hashing is primarily used for data security, particularly password storage and verifying data integrity. It is also used in data structures like hash tables for efficient data storage and retrieval.
+
+Here are some sample hashes:
+
+| Hash | Sample |
+| --- | --- |
+| MD5 | `68e109f0f40ca72a15e05cc22786f8e6` |
