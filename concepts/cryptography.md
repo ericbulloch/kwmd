@@ -54,3 +54,4 @@ Here are some sample hashes:
 | Hash | Sample |
 | --- | --- |
 | MD5 | `68e109f0f40ca72a15e05cc22786f8e6` |
+| SHA-1 | `db8ac1c259eb89d4a131b253bacfca5f319d54f2` |
