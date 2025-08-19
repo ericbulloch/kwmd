@@ -60,3 +60,4 @@ Here are some sample hashes:
 SHA-512
 SHA-3-256
 Bcrypt
+Scrypt
