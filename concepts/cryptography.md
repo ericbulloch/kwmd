@@ -61,3 +61,4 @@ SHA-512
 SHA-3-256
 Bcrypt
 Scrypt
+Argon2id
