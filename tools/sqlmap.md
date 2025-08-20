@@ -112,6 +112,8 @@ The sqlmap tool also has a second help selection. Typing the following will brin
 $ sqlmap -hh
 ```
 
+The advanced help has many more options. A few of them are mentioned in examples below.
+
 ## Examples
 
 The sqlmap tool if really effective at testing forms to see if one of the parameters is vulnerable to sql injection. A typical use case for sqlmap is to find a form, capture a request for it and then hand that request to sqlmap. The sqlmap tool will check each parameter to see if they are vulnerable. If any of the parameters are vulnerable, it will get different data. At each step, we'll use the data from the previous step to get more data. Eventually an entire database can be dumped using this tool. Here are the steps that are used:
@@ -272,6 +274,7 @@ do you want to use common password suffixes? (slow!) [y/N]
 [05:29:25] [INFO] starting 2 processes 
 [05:29:56] [WARNING] no clear password(s) found
 ```
+
 
 
 
