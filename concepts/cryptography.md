@@ -60,6 +60,6 @@ Here are some sample hashes:
 | SHA-3-256 | `64390cf162d4f27420a70e2fdf53cdbcb0a8e8e34f0c0c891085468f52492fd0` |
 | Bcrypt | `$2y$10$6JVpOQoYyj3QsgmH1qDl4Oqo3lB.WbFJ/5vkgINtkAgxM5R75Um9C` |
 | Scrypt | `cde6c94a95a0ddacc589c07d14eb2f5bcfc42348793de46ee0c148e55287be7d673d6716708d7b5b2bf3ddeba9214f1b3bff7f00e2bfc70b62b1bef86553fb00` |
-Argon2id
+| Argon2id | `$argon2id$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$yedbN5EPpSh4V8nMP5pKnA` |
 RIPEMD-160
 CRC32
