@@ -61,5 +61,5 @@ Here are some sample hashes:
 | Bcrypt | `$2y$10$6JVpOQoYyj3QsgmH1qDl4Oqo3lB.WbFJ/5vkgINtkAgxM5R75Um9C` |
 | Scrypt | `cde6c94a95a0ddacc589c07d14eb2f5bcfc42348793de46ee0c148e55287be7d673d6716708d7b5b2bf3ddeba9214f1b3bff7f00e2bfc70b62b1bef86553fb00` |
 | Argon2id | `$argon2id$v=19$m=16,t=2,p=1$MTIzNDU2Nzg$yedbN5EPpSh4V8nMP5pKnA` |
-RIPEMD-160
+| RIPEMD-160 | `68e0a48f2d2df7b1c9f97ec4bbd9a3a5edcef4c9` |
 CRC32
