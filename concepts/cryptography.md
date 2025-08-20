@@ -59,7 +59,7 @@ Here are some sample hashes:
 | SHA-512 | `2dbdb5ec869325d81087a62e544292efc78f7cf529a823cfbc97c22e1584191e0a9b52eae0d4f5942283c8f96217ac351c399accdc16b24ca39f45ef0d4e7a76` |
 | SHA-3-256 | `64390cf162d4f27420a70e2fdf53cdbcb0a8e8e34f0c0c891085468f52492fd0` |
 | Bcrypt | `$2y$10$6JVpOQoYyj3QsgmH1qDl4Oqo3lB.WbFJ/5vkgINtkAgxM5R75Um9C` |
-Scrypt
+| Scrypt | `cde6c94a95a0ddacc589c07d14eb2f5bcfc42348793de46ee0c148e55287be7d673d6716708d7b5b2bf3ddeba9214f1b3bff7f00e2bfc70b62b1bef86553fb00` |
 Argon2id
 RIPEMD-160
 CRC32
