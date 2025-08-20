@@ -282,3 +282,11 @@ If I know what database management system is being used, I can tell sqlmap so th
 ```bash
 $ sqlmap -r request.txt --dbms=mysql
 ```
+
+### Check if User is a Database Administrator
+
+Sometimes I want to know if I am running the database commands as a database administrator. This lets me know if I have additional privileges and commands that I can run. I can check with the `--is-dba` option. This option is mentioned in the advanced help (`-hh`) option. Here is an example of running it:
+
+```bash
+$ sqlmap -r requests.txt --is-dba
+```
