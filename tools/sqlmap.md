@@ -275,14 +275,10 @@ do you want to use common password suffixes? (slow!) [y/N]
 [05:29:56] [WARNING] no clear password(s) found
 ```
 
+### Set the Database Management System
 
+If I know what database management system is being used, I can tell sqlmap so that it doesn't need to run tests for the other DBMS systems. This can be done with the `--dbms` option. Here is an example that sets the DBMS to use MySQL:
 
-
-
-
-
-
-
-
-
-
+```bash
+$ sqlmap -r request.txt --dbms=mysql
+```
