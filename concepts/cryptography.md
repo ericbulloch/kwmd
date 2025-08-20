@@ -49,7 +49,7 @@ To get the original value of a hash, an attack hash a dictionary of words that m
 
 Hashing is primarily used for data security, particularly password storage and verifying data integrity. It is also used in data structures like hash tables for efficient data storage and retrieval.
 
-Here are some sample hashes:
+Below are some sample hashes that hashed the plain text "HelloWorld":
 
 | Hash | Sample |
 | --- | --- |
