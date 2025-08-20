@@ -11,7 +11,7 @@
 - Startup Applications
 - Protocols
 - Event Viewer
-- Registry
+- [Registry](#registry)
 - Privilege Escalation
 
 ## Introduction
