@@ -48,3 +48,7 @@ Here are a few ways Windows services can be used for privilege escalation:
 - A service running with Local System privileges can be exploited if it executes user-controlled code.
 
 In fact, malware will often install itself as a service to ensure that it is running even after a system reboot.
+
+## Registry
+
+The Windows Registry can be very useful for pentration tests. It contains user configurations for users, software and the system. There are many sensitive details that can be gleaned from the Registry.
