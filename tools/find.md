@@ -64,111 +64,21 @@ find: /some/random/directory: Permission denied
 | `find / -type d -name order\ numbers 2>/dev/null` | Look for a directory called "order numbers" (notice the space). |
 | `find archived_orders/ -type f -newermt 2009-05-01 ! -newermt 2009-02-03 2>/dev/null` | Find a file with a modified date of 2009-05-02 from the archived_orders directory. |
 | `find ~ -type f -name .hidden.txt 2>/dev/null` | Find a file named .hidden.txt inside your home directory. |
-
-### I created a file called presentation.pptx but I can't remember if I capitalized it or not. It should be in my /home/user/Documents folder.
-
-```bash
-$ find ~/Documents -type f -iname 'presentation.pptx' 2>/dev/null
-```
-
-### Show me all the log files in the /var/log directory.
-
-```bash
-$ find /var/log -type f -name "*.log" 2>/dev/null
-```
-
-### Find all the directories that start with the name backup.
-
-```bash
-$ / -type d -name "backup*" 2>/dev/null
-```
-
-### List all the directories in the current directory only, without recursing into subdirectories.
-
-```bash
-$ find . -maxdepth 1 -type d 2>/dev/null
-```
-
-### Find all empty files in /tmp.
-
-```bash
-$ find /tmp -type f -empty 2>/dev/null
-```
-
-### Find all empty directories in /var/cache.
-
-```bash
-$ find /var/cache -type d -empty 2>/dev/null
-```
-
-### Find all files that do not belong to the root user in the /var directory.
-
-```bash
-$ find /var -not -user root 2>/dev/null
-```
-
-### Find all files owned by the user john in the /opt directory.
-
-```bash
-$ find /opt -user john 2>/dev/null
-```
-
-### Find all files with read-only permissions for the owner (400) in the /etc directory.
-
-```bash
-$ find /etc -type f -perm 400 2>/dev/null
-```
-
-### Find all files with read, write, and execute permissions for the owner (700) in your home directory (~).
-
-```bash
-$ find ~ -type f -perm 700 2>/dev/null
-```
-
-### Find all .tmp files in the current directory and delete them.
-
-```bash
-$ find . -type f -name "*.tmp" -delete
-```
-
-### Find all .txt files in the current directory and display their contents using the cat command.
-
-```bash
-$ find . -type f -name "*.txt" -exec cat {} \;
-```
-
-### Find all .log files in the /var/log directory, print their names, and change their permissions to 644.
-
-```bash
-$ find /var/log -type f -name "*.log" -print -exec chmod 644 {} \;
-```
-
-### Find all .txt files in your home directory, but exclude the Documents directory from the search.
-
-```bash
-$ find ~ -path "*/Documents/*" -prune -o -name "*.txt" -print
-```
-
-### Find symbolic links in your home directory.
-
-```bash
-$ find ~ -type l
-```
-
-### Find symbolic links in your home directory and print the full path.
-
-```bash
-$ find ~ -type l -print
-```
-
-### Find all world-writable files and directories.
-
-```bash
-$ find / -perm -o+w 2>/dev/null
-```
-
-### Find all files that have been created or changed in the last five minutes.
-
-```bash
-$ find / -type f -cmin -5 2>/dev/null
-```
+| `find ~/Documents -type f -iname 'presentation.pptx' 2>/dev/null` | I created a file called presentation.pptx but I can't remember if I capitalized it or not. It should be in my /home/user/Documents folder. |
+| `find /var/log -type f -name "*.log" 2>/dev/null` | Show me all the log files in the /var/log directory. |
+| `/ -type d -name "backup*" 2>/dev/null` | Find all the directories that start with the name backup. |
+| `find . -maxdepth 1 -type d 2>/dev/null` | List all the directories in the current directory only, without recursing into subdirectories. |
+| `find /tmp -type f -empty 2>/dev/null` | Find all empty files in /tmp. |
+| `find /var/cache -type d -empty 2>/dev/null` | Find all empty directories in /var/cache. |
+| `find /var -not -user root 2>/dev/null` | Find all files that do not belong to the root user in the /var directory. |
+| `find /opt -user john 2>/dev/null` | Find all files owned by the user john in the /opt directory. |
+| `find /etc -type f -perm 400 2>/dev/null` | Find all files with read-only permissions for the owner (400) in the /etc directory. |
+| `find ~ -type f -perm 700 2>/dev/null` | Find all files with read, write, and execute permissions for the owner (700) in your home directory (~). |
+| `find . -type f -name "*.tmp" -delete` | Find all .tmp files in the current directory and delete them. |
+| `find . -type f -name "*.txt" -exec cat {} \;` | Find all .txt files in the current directory and display their contents using the cat command. |
+| `find /var/log -type f -name "*.log" -print -exec chmod 644 {} \;` | Find all .log files in the /var/log directory, print their names, and change their permissions to 644. |
+| `find ~ -path "*/Documents/*" -prune -o -name "*.txt" -print` | Find all .txt files in your home directory, but exclude the Documents directory from the search. |
+| `find ~ -type l` | Find symbolic links in your home directory. |
+| `find ~ -type l -print` | Find symbolic links in your home directory and print the full path. |
+| `find / -perm -o+w 2>/dev/null` | Find all world-writable files and directories. |
+| `find / -type f -cmin -5 2>/dev/null` | Find all files that have been created or changed in the last five minutes. |
