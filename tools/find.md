@@ -57,11 +57,9 @@ Find has a lot of options to help find specific files and folders. Rather than l
 find: /mine/var/log/mysql_stuff: Permission denied
 ```
 
-### Find a file owned by the user gimli with a size of 85 kilobytes in the directory /home/gimli.
-
-```bash
-$ find /home/gimli -type f -user gimli -size 85 2>/dev/null
-```
+| Command | Description |
+| --- | --- |
+| `find /home/gimli -type f -user gimli -size 85 2>/dev/null` | Find a file owned by the user gimli with a size of 85 kilobytes in the directory /home/gimli. |
 
 ### If you get stuck, there is a file somewhere on the disk drive called ReadMeIfStuck.txt.
 
