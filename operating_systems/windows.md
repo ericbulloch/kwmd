@@ -69,4 +69,12 @@ Some of the important registry hives to know are:
 | HKEY_USERS (HKU) | All user profiles. |
 | HKEY_CURRENT_CONFIG (HKCC) | Hardware profile info. |
 
+Some targeted or monitored registry paths include:
 
+| Path | Reason |
+| --- | --- |
+| HKCU\Software\Microsoft\Windows\CurrentVersion\Run | This is used by startup programs. Malware often adds entries here to persist after reboot. |
+| HKLM\Software\Microsoft\Windows\CurrentVersion\Run | This is used by startup programs. Malware often adds entries here to persist after reboot. |
+| HKLM\SYSTEM\CurrentControlSet\Services | This is used by services and drivers. Used to install malicious services. |
+| HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon | This is used for shell modifications. Attackers may hijack shell or userinit values. |
+| HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache | This is used by scheduled tasks. Registry entries for scheduled tasks can be abused for persistence. |
