@@ -78,3 +78,10 @@ Some targeted or monitored registry paths include:
 | HKLM\SYSTEM\CurrentControlSet\Services | This is used by services and drivers. Used to install malicious services. |
 | HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon | This is used for shell modifications. Attackers may hijack shell or userinit values. |
 | HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache | This is used by scheduled tasks. Registry entries for scheduled tasks can be abused for persistence. |
+
+Some concerns with the registry include:
+
+- Malware can survive reboots by adding itself to startup keys.
+- Misconfigured permissions can allow attackers to modify sensitive keys.
+- Registry can reveal installed software, user activity and system configuration.
+- Malware can disable security tools by modifying their registry settings.
