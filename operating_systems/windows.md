@@ -51,4 +51,10 @@ In fact, malware will often install itself as a service to ensure that it is run
 
 ## Registry
 
-The Windows Registry can be very useful for pentration tests. It contains user configurations for users, software and the system. There are many sensitive details that can be gleaned from the Registry.
+The Windows Registry can be very useful for pentration tests. There are many sensitive details that can be gleaned from the Registry. It contains configurations for the following:
+
+- System hardware
+- Installed software
+- User preferences
+- Startup programs
+- Services and drivers
