@@ -54,7 +54,7 @@ you have no web access, by sending email to <bug-findutils@gnu.org>.
 Find has a lot of options to help find specific files and folders. Rather than list them out I decided to write a scenario and then write the find command that would handle that. I'll try to use capture the flag examples as I go. Most of the commands will end with `2>/dev/null` because I don't want a bunch of Permission denied output that looks like the following:
 
 ```bash
-find: /mine/var/log/mysql_stuff: Permission denied
+find: /some/random/directory: Permission denied
 ```
 
 | Command | Description |
