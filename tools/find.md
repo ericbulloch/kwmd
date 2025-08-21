@@ -182,3 +182,9 @@ $ find ~ -type l
 ```bash
 $ find ~ -type l -print
 ```
+
+### Find all files that have been created or changed in the last five minutes.
+
+```bash
+$ find / -type f -cmin -5 2>/dev/null
+```
