@@ -183,6 +183,12 @@ $ find ~ -type l
 $ find ~ -type l -print
 ```
 
+### Find all world-writable files and directories.
+
+```bash
+$ find / -perm -o+w 2>/dev/null
+```
+
 ### Find all files that have been created or changed in the last five minutes.
 
 ```bash
