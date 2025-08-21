@@ -58,3 +58,15 @@ The Windows Registry can be very useful for pentration tests. There are many sen
 - User preferences
 - Startup programs
 - Services and drivers
+
+Some of the important registry hives to know are:
+
+| Hive | Description |
+| --- | --- |
+| HKEY_LOCAL_MACHINE (HKLM) | System-wide settings. |
+| HKEY_CURRENT_USER (HKCU) | Settings for the current user. |
+| HKEY_CLASSES_ROOT (HKCR) | File associations. |
+| HKEY_USERS (HKU) | All user profiles. |
+| HKEY_CURRENT_CONFIG (HKCC) | Hardware profile info. |
+
+
