@@ -139,3 +139,9 @@ $ nikto -h http://target.thm -id mike:letmein1
 ```
 
 Now nikto can log in to the site and continue to run scans on protected pages. A lot of software information and configuration files are hidden behind pages that need credentials. This will help getting past pages that are using Basic Authentication.
+
+### Force SSL Mode
+
+```bash
+$ nikto-h https://target.thm:1337 -ssl
+```
