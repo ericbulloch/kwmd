@@ -14,3 +14,7 @@ I have used it to do the following:
 - Analyze results from tools to help show me what the output means. Each tool outputs things in different ways and having a tool that can provide feedback about the output has been very valuable for learning.
 - Getting a different perspective. I am like any other person and I miss things. AI has been useful when I provide it with output from scans and my own analysis on the output regarding what steps I have done. AI has given me additional considerations that might yield good results. I don't know what I don't know and AI can show me areas that are a blind spot for me.
 - A quiz game where the AI will generate a scenario that has an objective and provide me with clues within that scenario. I read the clues and try to pick what moves I should make next. The AI reviews what I decided and then it will let me know what I did right and what other things I should consider. I talk more about this in the quiz game section below.
+
+### Quiz Game
+
+Quiz Game prompt and sample goes here.
