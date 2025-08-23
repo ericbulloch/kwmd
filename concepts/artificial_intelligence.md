@@ -18,3 +18,11 @@ I have used it to do the following:
 ### Quiz Game
 
 Quiz Game prompt and sample goes here.
+
+## What I Don't Use It For
+
+What you are not is just as important as what you are! I wanted to note a few things that I have not used AI for. I am not the guy that run all things through AI, I want to ask it specific questions because it currently does not do well understanding an entire process or a complete system. It is amazing at providing insights and analysis about parts of a system, but it struggles to explain the complex relationship between parts.
+
+### Writing This Repository
+
+The notes that I take for this repository are written by me. I do run it through AI from time to time to get feedback on writing style and other things. While I think that AI is very good at writing many things, the goal of this repository is to make my notes and talk about things that I have learned. If AI were to write this repository, I would have failed in what I was trying to do.
