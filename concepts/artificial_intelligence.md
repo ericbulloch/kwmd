@@ -26,3 +26,11 @@ What you are not is just as important as what you are! I wanted to note a few th
 ### Writing This Repository
 
 The notes that I take for this repository are written by me. I do run it through AI from time to time to get feedback on writing style and other things. While I think that AI is very good at writing many things, the goal of this repository is to make my notes and talk about things that I have learned. If AI were to write this repository, I would have failed in what I was trying to do.
+
+### Writing Commands
+
+This might seem crazy to people but I am rarely have AI generate a command for me. I do have a list of commands in this repository that I regularly run that probably could be automated in some fashion. However, my goal is to learn and understand. I write out most of my commands to learn what the various switches and options do. I find that I am getting more comfortable with the tools and that I am able to quickly fix an issue if something goes wrong. I do from time to time, run commands through AI to ask if it is correct. I will also ask it for other considerations that I may have missed.
+
+### Writing All Code
+
+I have been a software developer for 15+ years. I enjoy it a lot and I also enjoy the challenge of solving some of the problems with code. There are some things that I like to write and there are things that I will ask the AI to write for me. My machine has a large collection of scripts that I have accumulated over the years that have worked out really well. For those reasons, I don't have AI write all the code.
