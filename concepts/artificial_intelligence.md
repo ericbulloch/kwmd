@@ -8,4 +8,6 @@ I must talk about artificial intelligence as a tool. I will not go into large la
 
 I have been utilizing AI in a number of ways as I have been learning cyber security. It has helped me learn concepts faster and provided feedback on ways that I can improve. What I like the most about the tool is that it is available when I need it.
 
+I have used it to do the following:
 
+- Explain broad cyber security concepts. This includes going into details on parts that do not make much sense or areas of a concept that I am very new to.
