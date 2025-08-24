@@ -21,7 +21,7 @@ I have used it to do the following:
 
 As I have learned more and more about cyber security, I have come to realize the parts that I need to improve on. For example, I feel that I could be better at privilege escalation in Linux systems. This is something that I normally practice near the end of a capture the flag box in TryHackMe. So normally I have to compromise a web application and get a foothold on a server with remote code execution or a reverse shell. That can take a fair amount of time. I wanted to practice Linux privilege escalation without having to get to remote code execution or a reverse shell on a machine before I started.
 
-This is where AI came into play. I expained to AI that I wanted to learn about privilege escalation and I wanted it to provide me with clues. I would then look at the clues and say what I think the next step is to obtain privilege escalation. AI would then look at my response and analyze both my answer and the logic I gave for going in that direction.
+This is where AI came into play. I expained to AI that I wanted to learn about privilege escalation and I wanted it to provide me with clues. I would then look at the clues and say what I think the next step is to obtain privilege escalation. AI would then look at my response and analyze both my answer and the logic I gave for going in that direction. AI would then provide feedback to let me know if I was on the right track, if I had the correct analysis or if I was way off. It provides feedback about what other kinds of things to look for and where I can improve.
 
 ## What I Don't Use It For
 
