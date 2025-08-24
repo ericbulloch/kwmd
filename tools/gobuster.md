@@ -2,7 +2,7 @@
 
 - [Introduction](#introduction)
 - [Usage](#usage)
-- [Examples](#examples)
+- [Directory Examples](#directory-examples)
 
 ## Introduction
 
@@ -45,7 +45,7 @@ Flags:
 Use "gobuster [command] --help" for more information about a command.
 ```
 
-## Examples
+## Directory Examples
 
 The following examples are ones that I have used in capture the flag exercises. The wordlists that are provided are ones that are found on Kali unless otherwise specified.
 
@@ -133,4 +133,5 @@ $ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/We
 | `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -U username -P password`  | The `-U` and `-P` are used when I am trying to enumerate a site that uses basic authentication. The `-U` flag specifies the username and the `-P` flag specifies the password.  | Anytime I need to enumerate a site that uses basic authentication.  |
 | `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -x php,zip,txt` | This appends `.php`, `.zip` and `.txt` to the end of each word in the provided wordlist. This is my default command with gobuster and I have the most success with those extensions on TryHackMe boxes. | Again, this is my default gobuster command usage. |
 | `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -k` | This will cause `gobuster` to ignore checking if the certificate is valid. This happens all the time in capture the flag events. | I use this when I am getting a certificate error from the website that is using HTTPS. |
+
 
