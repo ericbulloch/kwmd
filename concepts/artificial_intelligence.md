@@ -15,6 +15,7 @@ I have used it to do the following:
 - Getting a different perspective. I am like any other person and I miss things. AI has been useful when I provide it with output from scans and my own analysis on the output regarding what steps I have done. AI has given me additional considerations that might yield good results. I don't know what I don't know and AI can show me areas that are a blind spot for me.
 - A quiz game where the AI will generate a scenario that has an objective and provide me with clues within that scenario. I read the clues and try to pick what moves I should make next. The AI reviews what I decided and then it will let me know what I did right and what other things I should consider. I talk more about this in the quiz game section below.
 - Generate scripts with vulnerabilities. I have used an AI to generate blocks of code that are vulnerable to attacks. This has been extremely beneficial to see both the red and blue side of cyber security.
+- Explain malicious payloads. Sometimes the payloads can be a lot to take in and AI can break down the different parts very easily. If something is still unclear to me, I can have it further explain concepts so that I can more easily form connections between concepts.
 
 ### Quiz Game
 
