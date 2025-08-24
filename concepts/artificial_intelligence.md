@@ -23,6 +23,12 @@ As I have learned more and more about cyber security, I have come to realize the
 
 This is where AI came into play. I expained to AI that I wanted to learn about privilege escalation and I wanted it to provide me with clues. I would then look at the clues and say what I think the next step is to obtain privilege escalation. AI would then look at my response and analyze both my answer and the logic I gave for going in that direction. AI would then provide feedback to let me know if I was on the right track, if I had the correct analysis or if I was way off. It provides feedback about what other kinds of things to look for and where I can improve.
 
+Here is the prompt that I use
+
+```text
+Include prompt here.
+```
+
 ## What I Don't Use It For
 
 What you are not is just as important as what you are! I wanted to note a few things that I have not used AI for. I am not the guy that run all things through AI, I want to ask it specific questions because it currently does not do well understanding an entire process or a complete system. It is amazing at providing insights and analysis about parts of a system, but it struggles to explain the complex relationship between parts.
