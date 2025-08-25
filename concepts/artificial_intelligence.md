@@ -26,10 +26,62 @@ This is where AI came into play. I expained to AI that I wanted to learn about p
 Here is the prompt that I use
 
 ```text
-I want to get better at Linux privilege escalation. I need you to provide me with a scenario and some clues. I will review the clues and then tell you what I think the right path is to get escalated privileges. I'll need you to then take my answer and consider it with other possible solutions to tell me how good the solution is.
+I want to get better at Linux privilege escalation.
+I need you to provide me with a scenario and some clues.
+I will review the clues and then tell you what I think the right path is to get escalated privileges.
+I'll need you to then take my answer and consider it with other possible solutions to tell me how good the solution is.
 
-I want you to provide the strengths of my solution along with alternate paths and real world considerations. Bonus tips are always welcome.
+I want you to provide the strengths of my solution along with alternate paths and real world considerations.
+Bonus tips are always welcome.
 ```
+
+This caused the AI to out the following:
+
+```text
+🧪 Scenario #1: "The Misconfigured Utility"
+You're logged in as a low-privilege user kwmd on a Debian-based system.
+
+🔍 Evidence
+
+$ whoami
+kwmd
+
+$ sudo -l
+Matching Defaults entries for kwmd on vulnbox:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+User kwmd may run the following commands on vulnbox:
+    (ALL) NOPASSWD: /usr/bin/vim
+
+
+$ ls -l /usr/bin/vim
+-rwxr-xr-x 1 root root 2.1M Jan 10 2024 /usr/bin/vim
+
+
+$ id
+uid=1001(kwmd) gid=1001(kwmd) groups=1001(kwmd)
+
+🎯 Your Task
+Based on this evidence, what would you do to escalate privileges to root?
+
+Once you respond, I’ll evaluate your answer and compare it to known techniques. Ready when you are!
+```
+
+From here I mentioned that vim can execute shell commands and I explained how I would start vim and then execute a shell.
+
+The AI said that answer was correct but I could also start a shell with the following command:
+
+```bash
+$ vim -c ':!/bin/bash'
+```
+
+It also provided some real world considerations like the following:
+
+- Some hardened systems may restrict shell escapes in vim.
+- Always verify the actual behavior in a live environment — some distros alias vim to vi, which may behave differently.
+
+I ran through scenarios like this with AI to keep practicing.
 
 ## What I Don't Use It For
 
