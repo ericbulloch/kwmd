@@ -85,6 +85,10 @@ It also provided some real world considerations like the following:
 
 I run through scenarios like this all the time with AI to keep practicing.
 
+### Generating Scripts
+
+There are a lot of times where AI generating scripts is the right call. In general, it does a good job generating small scripts. I have a high level of confidence with AI when the problem is small and focused.
+
 ## What I Don't Use It For
 
 What you are not is just as important as what you are! I wanted to note a few things that I have not used AI for. I am not the guy that run all things through AI, I want to ask it specific questions because it currently does not do well understanding an entire process or a complete system. It is amazing at providing insights and analysis about parts of a system, but it struggles to explain the complex relationship between parts.
