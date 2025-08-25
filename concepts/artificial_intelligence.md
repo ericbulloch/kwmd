@@ -78,10 +78,12 @@ $ vim -c ':!/bin/bash'
 
 It also provided some real world considerations like the following:
 
+```text
 - Some hardened systems may restrict shell escapes in vim.
 - Always verify the actual behavior in a live environment — some distros alias vim to vi, which may behave differently.
+```
 
-I ran through scenarios like this with AI to keep practicing.
+I run through scenarios like this all the time with AI to keep practicing.
 
 ## What I Don't Use It For
 
