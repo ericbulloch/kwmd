@@ -97,6 +97,8 @@ I will ask you to generate scripts from time to time. I need them to run using p
 
 I know that stating python 3 is strange when python 2 support ended years ago. I have found many scripts and proof of concepts online that still use python 2. I want the AI to not question which version of python is the correct one.
 
+I mention that I don't favor external packages because AI will generally not put a comment in the script regarding what version number the package is using. Down the line this can be frustrating when I try to run my old scripts. Either I have to include a `requirements.txt` file or add a comment in the script. Doing as with vanilla python prevents both of those headaches.
+
 ## What I Don't Use It For
 
 What you are not is just as important as what you are! I wanted to note a few things that I have not used AI for. I am not the guy that run all things through AI, I want to ask it specific questions because it currently does not do well understanding an entire process or a complete system. It is amazing at providing insights and analysis about parts of a system, but it struggles to explain the complex relationship between parts.
