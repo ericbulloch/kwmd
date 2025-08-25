@@ -99,6 +99,8 @@ I know that stating python 3 is strange when python 2 support ended years ago. I
 
 I mention that I don't favor external packages because AI will generally not put a comment in the script regarding what version number the package is using. Down the line this can be frustrating when I try to run my old scripts. Either I have to include a `requirements.txt` file or add a comment in the script. Doing as with vanilla python prevents both of those headaches.
 
+Finally, I mention arguments because I may want to run this script against multiple machines or capture the flag events. Using arguments means that I can keep the logic but change the variables to the new capture the flag machine. The argparse library is just icing on the cake because it can check types and validate input for the script.
+
 ## What I Don't Use It For
 
 What you are not is just as important as what you are! I wanted to note a few things that I have not used AI for. I am not the guy that run all things through AI, I want to ask it specific questions because it currently does not do well understanding an entire process or a complete system. It is amazing at providing insights and analysis about parts of a system, but it struggles to explain the complex relationship between parts.
