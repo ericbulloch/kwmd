@@ -89,6 +89,12 @@ I run through scenarios like this all the time with AI to keep practicing.
 
 There are a lot of times where AI generating scripts is the right call. In general, it does a good job generating small scripts. I have a high level of confidence with AI when the problem is small and focused.
 
+For a while I used the following prompt:
+
+```text
+I will ask you to generate scripts from time to time. I need them to run using python 3. I would prefer (not required) that the script doesn't have any external packages dependencies. If I mention parameters I will tell you the name of the parameter and type. I want those arguments to get parsed by argparse.
+```
+
 ## What I Don't Use It For
 
 What you are not is just as important as what you are! I wanted to note a few things that I have not used AI for. I am not the guy that run all things through AI, I want to ask it specific questions because it currently does not do well understanding an entire process or a complete system. It is amazing at providing insights and analysis about parts of a system, but it struggles to explain the complex relationship between parts.
