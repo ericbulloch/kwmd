@@ -134,6 +134,8 @@ $ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/We
 | `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -x php,zip,txt` | This appends `.php`, `.zip` and `.txt` to the end of each word in the provided wordlist. This is my default command with gobuster and I have the most success with those extensions on TryHackMe boxes. | Again, this is my default gobuster command usage. |
 | `$ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt -k` | This will cause `gobuster` to ignore checking if the certificate is valid. This happens all the time in capture the flag events. | I use this when I am getting a certificate error from the website that is using HTTPS. |
 
+### DNS Enumeration Mode
 
+This mode is used for brute-forcing DNS subdomains to discover hidden or less-obvious hostnames belonging to the target. This can be helpful because subdomains can be vulnerable to flaws that were patched in the main domain. Sometimes, subdomains can also be forgotten or abandoned which means the software can be really out of date.
 
 
