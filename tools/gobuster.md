@@ -112,7 +112,7 @@ Global Flags:
       --wordlist-offset int   Resume from a given position in the wordlist (defaults to 0)
 ```
 
-A simple directory enumerate looks like the following:
+A simple directory enumeration looks like the following:
 
 ```bash
 $ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt
@@ -138,4 +138,8 @@ $ gobuster dir -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/We
 
 This mode is used for brute-forcing DNS subdomains to discover hidden or less-obvious hostnames belonging to the target. This can be helpful because subdomains can be vulnerable to flaws that were patched in the main domain. Sometimes, subdomains can also be forgotten or abandoned which means the software can be really out of date.
 
+A simple dns enumeration looks like the following:
 
+```bash
+$ gobuster dns -u http://10.10.1.1 -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
+```
