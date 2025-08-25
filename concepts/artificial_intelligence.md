@@ -26,7 +26,9 @@ This is where AI came into play. I expained to AI that I wanted to learn about p
 Here is the prompt that I use
 
 ```text
-Include prompt here.
+I want to get better at Linux privilege escalation. I need you to provide me with a scenario and some clues. I will review the clues and then tell you what I think the right path is to get escalated privileges. I'll need you to then take my answer and consider it with other possible solutions to tell me how good the solution is.
+
+I want you to provide the strengths of my solution along with alternate paths and real world considerations. Bonus tips are always welcome.
 ```
 
 ## What I Don't Use It For
