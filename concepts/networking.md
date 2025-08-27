@@ -117,6 +117,8 @@ Cloud flare has provided the following image which makes this very easy to visua
 
 ![DNS Root Server](/images/concepts/networking/dns_root_server.png)
 
+In the image above a DNS query starts at the top and works its way down. The the root node in the picture is the 3rd step in the list above when it reached out to the root node. Again, there are 13 of them in the world.
+
 ### DNS Records
 
 Here is a list of the different DNS record types:
