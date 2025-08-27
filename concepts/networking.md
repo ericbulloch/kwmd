@@ -113,6 +113,8 @@ Much like the real world phonebook example above, computers have very similar st
 
 A response at each step can be cached for the higher steps to make lookups even faster.
 
+Cloud flare has provided the following image which makes this very easy to visualize:
+
 ### DNS Records
 
 Here is a list of the different DNS record types:
