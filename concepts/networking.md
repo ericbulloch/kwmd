@@ -105,52 +105,51 @@ Each step is a type of cache and it is more efficient than the next step. At any
 (0) You want "Alice's" phone number
     │
     ▼
-┌──────────────────────────────┐
-│  Personal memory             │  — I memorized it
-│  (instant local answer)      │  ← DNS: browser/app cache / very-local cache
-└──────────────────────────────┘
+┌───────────────────────────────┐
+│  Personal memory              │
+│  (instant local answer)       │ 
+└───────────────────────────────┘
     │  hit? return ✅
     └──no
         ▼
-┌──────────────────────────────┐
-│  Sheets taped to the wall    │  — sticky notes by the phone
-│  (handy, manually kept)      │  ← DNS: hosts file / manual local override
-└──────────────────────────────┘
+┌───────────────────────────────┐
+│  Sheets taped to the wall     │
+│  (handy, manually kept)       │ 
+└───────────────────────────────┘
     │  hit? return ✅
     └──no
         ▼
-┌──────────────────────────────┐
-│  Papers in the drawer        │  — home address book / rolodex
-│  (kept nearby, semi-official)│  ← DNS: OS/local address book or local cache
-└──────────────────────────────┘
+┌───────────────────────────────┐
+│  Papers in the drawer         │
+│  (kept nearby, semi-official) │
+└───────────────────────────────┘
     │  hit? return ✅
     └──no
         ▼
-┌──────────────────────────────┐
-│  Latest phonebook            │  — current printed directory / yellow pages
-│  (authoritative-ish directory)│ ← DNS: recursive resolver / ISP cache (queries outward)
-└──────────────────────────────┘
+┌───────────────────────────────┐
+│  Latest phonebook             │  
+│  (authoritative-ish directory)│
+└───────────────────────────────┘
     │  found? return ✅ (and maybe copy it to your notes)
     └──no
         ▼
 ┌──────────────────────────────┐
-│  Older phonebook             │  — archived book (may be out of date)
-│  (fallback copy)             │  ← DNS: older/stale cache / archived records
+│  Older phonebook             │
+│  (fallback copy)             │
 └──────────────────────────────┘
     │  hit? return (but check if outdated)
     └──no
         ▼
 ┌──────────────────────────────┐
-│  Call a mutual friend        │  — ask somebody in your social network
-│  (someone who might know)    │  ← DNS: ask another person/resolver or peer operator
+│  Call a mutual friend        │
+│  (someone who might know)    │
 └──────────────────────────────┘
     │  they give you the number? ✅
     └──no
         ▼
 ┌──────────────────────────────┐
-│  Call the operator           │  — directory assistance / telco central database
-│  (final fallback / authoritative lookup)
-│                              │  ← DNS: authoritative name server / registry (returns final answer)
+│  Call the operator           │
+│  (authoritative lookup)      │
 └──────────────────────────────┘
     │
     ▼
