@@ -123,6 +123,7 @@ Here is a list of the different DNS record types:
 | AAAA | Maps a domain to an IPv6 address. | `google.com` to `2607:f8b0:4023:100d::65:`. |
 | CNAME | Short for canonical name. It maps an alias to a canonical name. | Mapping `mail.google.com` and `www.google.com` to `google.com`. |
 | MX | Short for mail exchange. This is used for mail delivery. | `mail.google.com`. |
+| TXT | Human readable DNS record. Limited to 255 characters. | "This is a sample text DNS record." |
 
 ## OSI Model
 
