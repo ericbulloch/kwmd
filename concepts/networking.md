@@ -119,6 +119,79 @@ Cloud flare has provided the following image which makes this very easy to visua
 
 In the image above a DNS query starts at the top and works its way down. The the root node in the picture is the 3rd step in the list above when it reached out to the root node. Again, there are 13 root server ip addresses in the world. There are many root servers but only 13 ip addresses used to query the different root server networks.
 
+This whole process is long and so I had AI generate a workflow that includes local caches when looking up DNS. This is what it provided:
+
+```sql
+(0) You type "www.example.com"
+    │
+    ▼
+┌───────────────────────┐
+│  Browser/App Cache    │  — per-site DNS cache (some apps have it)
+└───────────────────────┘
+    │  hit? return ✅
+    └──no
+        ▼
+┌───────────────────────┐
+│  OS Stub Resolver     │  — your device’s DNS client
+│  (hosts file checked) │
+└───────────────────────┘
+    │
+    ├───► Check OS DNS Cache ── hit? return ✅
+    │
+    └──no cache hit → ask configured **recursive resolver**
+                      (e.g., router/ISP/1.1.1.1/8.8.8.8)
+
+        (1)
+        ▼
+┌──────────────────────────┐
+│  Recursive Resolver      │  — does the hard work
+│  (big shared cache)      │
+└──────────────────────────┘
+    │  cache hit? return to OS ✅
+    └──no
+        ▼  iterative resolution (referrals)
+        (2) ask ROOT
+        ▼
+┌──────────────────────────┐
+│  Root Name Servers       │
+│  (.)                     │  — don’t know the IP
+└──────────────────────────┘
+        │  return referral: “ask the TLD”
+        ▼
+(3) ask TLD (e.g., .com)
+        ▼
+┌──────────────────────────┐
+│  TLD Name Servers        │
+│  (.com, .org, etc.)      │ — don’t know the IP
+└──────────────────────────┘
+        │  return referral: “ask the authoritative NS for example.com”
+        ▼
+(4) ask Authoritative NS for example.com
+        ▼
+┌──────────────────────────┐
+│  Authoritative Servers   │
+│  (example.com)           │ — have the A/AAAA/CNAME, etc.
+└──────────────────────────┘
+        │  return final answer + TTL
+        ▼
+┌──────────────────────────┐
+│  Recursive Resolver      │  — caches per TTL
+└──────────────────────────┘
+        │
+        ▼
+┌──────────────────────────┐
+│  OS Stub Resolver        │  — caches per TTL
+└──────────────────────────┘
+        │
+        ▼
+┌──────────────────────────┐
+│  Browser/App Cache       │  — may cache per TTL/policy
+└──────────────────────────┘
+        │
+        ▼
+      ✅ You get the IP
+```
+
 ### DNS Records
 
 Here is a list of the different DNS record types:
