@@ -107,7 +107,7 @@ Much like the real world phonebook example above, computers have very similar st
 
 - Check local cache to see if it already knows the ip address of the remote machine.
 - Ask the resolver - usually your internet service provider or a service like Google DNS. This will also check another resolver that has more authority regarding ip address lookups.
-- Check the root servers. There are 13 of them worldwide.
+- Check the root servers. There are 13 root server ip addresses in the world.
 - Check the top level domain (TLD) servers. This can be the resolver of `.com` domains.
 - Check the authoritative server for a domain. Meaning it will ask GitHub's authoritative server: "What is the ip address for `github.com`?
 
@@ -117,7 +117,7 @@ Cloud flare has provided the following image which makes this very easy to visua
 
 ![DNS Root Server](/images/concepts/networking/dns_root_server.png)
 
-In the image above a DNS query starts at the top and works its way down. The the root node in the picture is the 3rd step in the list above when it reached out to the root node. Again, there are 13 of them in the world.
+In the image above a DNS query starts at the top and works its way down. The the root node in the picture is the 3rd step in the list above when it reached out to the root node. Again, there are 13 root server ip addresses in the world. There are many root servers but only 13 ip addresses used to query the different root server networks.
 
 ### DNS Records
 
