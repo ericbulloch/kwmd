@@ -115,6 +115,8 @@ A response at each step can be cached for the higher steps to make lookups even 
 
 Cloud flare has provided the following image which makes this very easy to visualize:
 
+![DNS Root Server](/images/concepts/networking/dns_root_server.png)
+
 ### DNS Records
 
 Here is a list of the different DNS record types:
