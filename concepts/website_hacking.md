@@ -22,6 +22,18 @@ There are a lot of automated tools I can use for directory enumeration. Generall
 
 I now almost exclusively run directory enumeration searches with [gobuster](/tools/gobuster.md). It is very easy to use. I have provided information on how to run gobuster for directory enumeration on [its tool page](tools/gobuster.md#directoryfile-dir-enumeration-mode).
 
+### Security Measures
+
+Here are some things that can be done to slow down or even prevent directory enumeration on a website:
+
+- Limiting how many requests an ip address can make per second.
+- Disable directory listing on the web server so that it does not list the contents of directories without an index file.
+- Monitoring requests for enumeration behavior (common wordlist patterns, repeated 404 status codes, suspicious user agents).
+- Using a web applicatin firewall to detect and block enumeration patterns.
+- Obfuscate sensitive paths that are found in wordlists like /admin, /backup and /test.
+- Remove unused files and directories (beware of things like .git, .env, .bak, .old, debug.php, etc...).
+- Use a custom 404 page that avoids revealing information in error messages and provide generic responses that don't confirm the existance of a path.
+
 ## Forms
 
 Forms are a natural source of issues for security. Users are able to send data and input to the website and get a response. Sometimes forms can give too much information that can then be used to perform a more informed attack on the website. Many times, developers lack the imagination or understanding of what attackers will throw at a form.
