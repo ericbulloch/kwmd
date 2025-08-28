@@ -1,6 +1,7 @@
 # Website Hacking
 
 - [Introduction](#introduction)
+- [Directory Enumeration](#directory-enumeration)
 - [Forms](#forms)
 
 ## Introduction
@@ -8,6 +9,42 @@
 So many capture the flag events involve looking at a website and trying to find a vulnerability in the site. There are so many moving parts in a website and with how websites are developed, a single page can be composed of components from different teams. A site could also be populated with API calls or a request that gives a new or updated page as the response. No matter how it gets its data, I'll just refer to it as the website.
 
 Since this is a really big topic, I wanted to break it out and talk about the different things that are done when working on a capture the flag event with a website. I'll try to give a general approach and then talk about specifics for things that need it.
+
+## Directory Enumeration
+
+I almost always run a directory enumeration to see if there are any folders or files that are not directly linked by the website. Directory enumeration can provide very important things like the location of the admin login form, hidden folders that have sensitive data or test pages that run commands directly on the server. Files like `robots.txt` and `sitemap.xml` can also provide useful information.
+
+If the tool finds a directory like `/app`, I will often run the tool again on that directory to see if there are additional results.
+
+There are a lot of automated tools I can use for directory enumeration. Generally, the word list is the most important part. If I get stuck, I use a combination of tools and word lists to see if they find anything different. Here are some tools I like to use and some sample usage:
+
+##### Directory Enumeration with dirsearch
+
+I usually use dirsearch as my directory enumeration tool. The syntax is very terse, so I do not have to remember much to run it. It does not come by default on Kali, so I have to install it before use.
+
+This tool can be installed with pip. I use it because the syntax is easy to remember and it does a good job with its default word list. I install it with the following command:
+
+```bash
+$ pip3 install dirsearch
+```
+
+My favorite thing about this tool is how little I have to remember when I run it. I run it with the following command:
+
+`dirsearch -u http://target.thm`
+
+The `-u` option tells dirsearch what URL I want to start searching in. If it finds that the site has a path like `/admin` and I want to search that folder, then I run another search with:
+
+```bash
+$ dirsearch -u http://target.thm/admin
+```
+
+##### Directory Enumeration with ffuf
+
+Sometimes I run a few different tools just to see if I get different results. The ffuf tool is my go-to when I want a second opinion. I have provided information on how to run it on [its tools page](tools/ffuf.md#directory-enumeration).
+
+##### Directory Enumeration with gobuster
+
+The gobuster tool is also a great tool to get a second opinion. I generally go with ffuf instead of gobuster when I want a second opinion, but I have not been disappointed using either tool. I have provided information on how to run gobuster for directory enumeration on [its tool page](tools/gobuster.md#directoryfile-dir-enumeration-mode).
 
 ## Forms
 
