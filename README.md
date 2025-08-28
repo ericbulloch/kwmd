@@ -275,7 +275,17 @@ If Python is on the machine, this is my preferred method. There are four steps, 
 - Move my shell session to the background by hitting `^Z` (Ctrl+Z). I need to run one more command, and this process needs to be in the background for the command to work.
 - Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through to standard in and out. The `fg` command moves the previous process from the background to the foreground.
 
+So the commands are as follows:
+
+```bash
+$ python3 -c 'import pty;pty.spawn("/bin/bash")'
+$ export TERM=xterm
+$ ]^z
+$ stty raw -echo; fg
+```
+
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
