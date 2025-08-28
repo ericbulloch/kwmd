@@ -145,5 +145,5 @@ Now nikto can log in to the site and continue to run scans on protected pages. A
 Some capture the flag boxes will host https sites on unusual ports and their ssl will be broken. Including the `-ssl` option can fix this and let the scanner find vulnerabilities.
 
 ```bash
-$ nikto-h https://target.thm:1337 -ssl
+$ nikto -h https://target.thm:1337 -ssl
 ```
