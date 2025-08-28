@@ -286,13 +286,15 @@ So the commands are as follows:
 ```bash
 $ python3 -c 'import pty;pty.spawn("/bin/bash")'
 $ export TERM=xterm
-$ ]^z
+$ ^z
+[1]+  Stopped                 nc -lnvp 4444
 $ stty raw -echo; fg
 ```
 
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
