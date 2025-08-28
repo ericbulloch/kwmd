@@ -16,7 +16,11 @@ Welcome! This is my personal repository for all things cybersecurity. I keep not
 
 ## TryHackMe
 
-Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). I am ranked in the top 1%. Here is my badge for TryHackMe (generated June 6, 2025):
+Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd).
+
+- I am ranked in the top 1%.
+
+Here is my badge for TryHackMe (generated June 6, 2025):
 
 <a href="https://tryhackme.com/p/kwmd">
   <img src="images/kwmd.png" alt="kwmd TryHackMe Badge" />
@@ -287,5 +291,6 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
