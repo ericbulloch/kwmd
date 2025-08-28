@@ -36,6 +36,35 @@ The three-way handshake is used by TCP to create a connection between two machin
 - The receiver responds with a a SYN/ACK (Synchronize-Acknowledge) packet. The SYN/ACK packet lets the sender know that the receiver is ready for the communication.
 - The sender sends a ACK (Acknowledge) packet. This is to let the receiver know that the sender got their SYN/ACK packet. This completes the handshake and a reliable connection is established.
 
+This ladder diagram makes it easy to visualize what is going on with the handshake:
+
+```yaml
+Client (C)                                           Server (S)
+----------                                           ----------
+State: CLOSED                                        State: LISTEN
+
+Step 1: SYN
+C picks an Initial Sequence Number x
+C → S :  SYN, Seq = x, Options: MSS/WS/SACK/TS...
+----------->---------------------------------------->
+State: SYN-SENT                                      State: SYN-RECEIVED
+                                                     (S allocates state; picks ISN y)
+
+Step 2: SYN-ACK
+S → C :  SYN, ACK, Seq = y, Ack = x + 1, (same options)
+<-----------------------------------------<----------
+State: SYN-SENT (awaiting final ACK)                 State: SYN-RECEIVED
+
+Step 3: ACK  (no payload)
+C → S :  ACK, Seq = x + 1, Ack = y + 1
+----------->---------------------------------------->
+State: ESTABLISHED                                   State: ESTABLISHED
+
+(Handshake complete; data can flow)
+C → S :  Payload (e.g., HTTP GET), Seq = x + 1, Ack = y + 1
+----------->---------------------------------------->
+```
+
 ## UDP
 
 UDP (User Datagram Protocol) is a connectionless protocol that prioritizes speed over reliability. Unlike TCP, it doesn't establish a connection before sending data. There is no guarantee that packets will be delivered from the sender to the receiver. This makes UDP faster and more efficient for applications where some data loss is acceptable.
