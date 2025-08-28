@@ -42,6 +42,7 @@ There are some commands that I use all the time. I have put together a list of t
 | `whoami` | What user am I logged in as. |
 | `which` | Used to display the location of a binary. |
 | `echo` | Used to print text to the terminal but can be redirected to a file. |
+| `cut` | Used to extract specific sections of line input text. |
 
 ## Directories
 
