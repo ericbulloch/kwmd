@@ -7,7 +7,9 @@
 
 Injection is when input either from a user or an external system is processed by a program as an executable command. Attackers are able to use the natural processing of the program to run commands that it normally wouldn't. The execution of commands can be things like queries to a database, reading files, creating archives, downloading files, uploading files and escalating privileges.
 
-For many years, this was the number one item on OWASP Top Ten lists. The main cause of this vulnerability is that programs and systems take input from users or systems and fail to sanitize or validate it. Many injection vulnerabilities can be prevented by limiting what users and systems are able to provide as input.
+For many years, this was the number one item on OWASP Top Ten lists. It will probably have another rise due to AI prompt injection. The main cause of this vulnerability is that programs and systems take input from users or systems and fail to sanitize or validate it. Many injection vulnerabilities can be prevented by limiting what users and systems are able to provide as input.
+
+Over the past few years this type of attack is getting more and more common again with AI prompt injection. The difficulty about with prompts is that the layer of input and command have become blurred with AI prompts. As AI becomes more common this attack will continue to rise and have an effect on our lives.
 
 Some of the more common injection types include:
 
@@ -16,6 +18,7 @@ Some of the more common injection types include:
 - Server Side Template Injection
 - Remote File Injection
 - Shell Injection
+- Prompt Injection
 
 ## SQL Injection
 
