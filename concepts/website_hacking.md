@@ -14,7 +14,11 @@ Since this is a really big topic, I wanted to break it out and talk about the di
 
 One of the easiest ways to get information in by inspecting the source HTML for a site. Opening up the website and hitting `ctrl + u` will enable you to view the source html for a site. The source code is loaded with all kinds of information. It can provide links, directories, subdomains and comments.
 
-Developers will work on things and then comment them out thinking that people will not see them. This couldn't be further from the truth. This can lead to finding all kinds of sensitive information or view parts of the site that were meant for employees and not the general public.
+Developers will work on things and then comment them out thinking that people will not see them. This couldn't be further from the truth. This can lead to finding all kinds of sensitive information or view parts of the site that were meant for employees and not the general public. Many capture the flag events have flags and other sensitive information in the comments of the HTML. During these events I have found flags, usernames, passwords, directories and links that my automated tools missed. This is a very overlooked way to find useful things. Here is a sample comment that I found during a capture the flag event:
+
+```html
+
+```
 
 ## Directory Enumeration
 
