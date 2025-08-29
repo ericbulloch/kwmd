@@ -16,8 +16,14 @@ One of the easiest ways to get information in by inspecting the source HTML for 
 
 Developers will work on things and then comment them out thinking that people will not see them. This couldn't be further from the truth. This can lead to finding all kinds of sensitive information or view parts of the site that were meant for employees and not the general public. Many capture the flag events have flags and other sensitive information in the comments of the HTML. During these events I have found flags, usernames, passwords, directories and links that my automated tools missed. This is a very overlooked way to find useful things. Here is a sample comment that I found during a capture the flag event:
 
-```html
+```text
+<!--
 
+  Note from me, to me, remember my login name.
+
+  Username: Sk3l3t0r
+
+-->
 ```
 
 ## Directory Enumeration
