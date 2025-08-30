@@ -1,6 +1,7 @@
 # Website Hacking
 
 - [Introduction](#introduction)
+- [Browsing The Site](#browsing-the-site)
 - [Directory Enumeration](#directory-enumeration)
 - [Forms](#forms)
 
