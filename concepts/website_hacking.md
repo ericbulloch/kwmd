@@ -55,7 +55,7 @@ There are a lot of automated tools I can use for directory enumeration. Generall
 
 ### Directory Enumeration with gobuster
 
-I now almost exclusively run directory enumeration searches with [gobuster](/tools/gobuster.md). It is very easy to use. I have provided information on how to run gobuster for directory enumeration on [its tool page](tools/gobuster.md#directoryfile-dir-enumeration-mode).
+I now almost exclusively run directory enumeration searches with [gobuster](/tools/gobuster.md). It is very easy to use. I have provided information on how to run gobuster for directory enumeration on [its tool page](/tools/gobuster.md#directoryfile-dir-enumeration-mode).
 
 ### Security Measures
 
@@ -88,7 +88,7 @@ Because a form accepts user input, it can be vulnerable to SQL Injection. One of
 $ sqlmap -r request.txt
 ```
 
-I have more details about this on the [sqlmap tools page](tools/sqlmap.md).
+I have more details about this on the [sqlmap tools page](/tools/sqlmap.md).
 
 The sqlmap tool will check the form to see if it is vulnerable to sql injection. If the form is vulnerable, an attacker can can do the following:
 
