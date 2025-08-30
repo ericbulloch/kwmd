@@ -10,9 +10,22 @@ So many capture the flag events involve looking at a website and trying to find 
 
 Since this is a really big topic, I wanted to break it out and talk about the different things that are done when working on a capture the flag event with a website. I'll try to give a general approach and then talk about specifics for things that need it.
 
+## Browsing The Site
+
+But seriously, browse the site. It is easier to hack a site if I know how it is suppose to behave. It can help me understand the psycology of what the developers wanted me to experience with the website. I would recommend the following:
+
+- Have a look around.
+- Click the links.
+- Use the functionality of the site.
+- Create a user.
+- Capture requests and responses.
+- Learn about the processes and flow of the site.
+
+Armed with this information, I can makes better decisions about how to attack the site because I'll understand how it is expected to work. As I document what is on a site and where it is located, I am really documenting all the attack vectors of the site.
+
 ## Inspecting HTML
 
-One of the easiest ways to get information in by inspecting the source HTML for a site. Opening up the website and hitting `ctrl + u` will enable you to view the source html for a site. The source code is loaded with all kinds of information. It can provide links, directories, subdomains and comments.
+One of the easiest ways to get information in by inspecting the source HTML for a site. Opening up the website and hitting `ctrl + u` will enable me to view the source html for a site. The source code is loaded with all kinds of information. It can provide links, directories, subdomains and comments.
 
 Developers will work on things and then comment them out thinking that people will not see them. This couldn't be further from the truth. This can lead to finding all kinds of sensitive information or view parts of the site that were meant for employees and not the general public. Many capture the flag events have flags and other sensitive information in the comments of the HTML. During these events I have found flags, usernames, passwords, directories and links that my automated tools missed. This is a very overlooked way to find useful things. Here is a sample comment that I found during a capture the flag event:
 
