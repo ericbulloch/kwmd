@@ -80,6 +80,19 @@ Since forms are accepting user input, some of the attacks they need to be aware 
 - Command Injection
 - Authentication Bypass
 
+### SQL Injection Example
+
+Because a form accepts user input, it can be vulnerable to SQL Injection. One of the first things I try on a form during a capture the flag event is to capture the request and save it to a file called `request.txt`. Once I have that file, I run the following command:
+
+```bash
+$ sqlmap -r request.txt
+```
+The sqlmap tool will check the form to see if it is vulnerable to sql injection. If the form is vulnerable, an attacker can can do the following:
+
+- Read sensitive data in the database.
+- Get a dump of the database
+- Log into the site with elevated privileges.
+
 ### Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
