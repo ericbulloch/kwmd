@@ -87,6 +87,9 @@ Because a form accepts user input, it can be vulnerable to SQL Injection. One of
 ```bash
 $ sqlmap -r request.txt
 ```
+
+I have more details about this on the [sqlmap tools page](tools/sqlmap.md).
+
 The sqlmap tool will check the form to see if it is vulnerable to sql injection. If the form is vulnerable, an attacker can can do the following:
 
 - Read sensitive data in the database.
