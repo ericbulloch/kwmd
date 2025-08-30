@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [Browsing The Site](#browsing-the-site)
+- [Inspecting HTML](#inspecting-html)
 - [Directory Enumeration](#directory-enumeration)
 - [Forms](#forms)
 
