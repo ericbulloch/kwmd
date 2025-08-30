@@ -51,7 +51,9 @@ I almost always run a directory enumeration to see if there are any folders or f
 
 If the tool finds a directory like `/app`, I will often run a directory enumeration again on that directory to see if there are additional results.
 
-There are a lot of automated tools I can use for directory enumeration. Generally, the word list is the **most important** part. If I get stuck, I use a combination of tools and word lists to see if they find anything different. Here are some tools I like to use and some sample usage:
+There are a lot of automated tools I can use for directory enumeration. Generally, the word list is the **most important** part. If I get stuck, I use a combination of tools and word lists to see if they find anything different.
+
+The main idea of directory enumeration isn't just to find hidden things. The main point is to find as many things as I can and making notes of them. All of this information is part of the attack surface of the website. The larger the website, the more attack surface it needs to defend.
 
 ### Directory Enumeration with gobuster
 
