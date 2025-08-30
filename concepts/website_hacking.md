@@ -26,6 +26,10 @@ Developers will work on things and then comment them out thinking that people wi
 -->
 ```
 
+### Security Measures
+
+Developers need to remove commented out parts of the source code. The risk of what they reveal is not worth it. Also, if a directory or feature is not ready or available for a user it should not allow them to use it. What happens to the user when they try to use one of these items is up to the developer and can be chosen on a case by case basis.
+
 ## Directory Enumeration
 
 I almost always run a directory enumeration to see if there are any folders or files that are not directly linked by the website. Directory enumeration can provide very important things like the location of the admin login form, hidden folders that have sensitive data or test pages that run commands directly on the server. Files like `robots.txt` and `sitemap.xml` can also provide useful information.
