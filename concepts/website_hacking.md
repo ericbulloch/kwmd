@@ -115,3 +115,7 @@ There are checks that can be done to help prevent file upload abuse. As mentione
 - Verify file headers. A list can be found [here](https://en.wikipedia.org/wiki/List_of_file_signatures)
 - Rename uploaded file names (i.e. evilscript.jpg → 2a943bff-9034-40cb-9abc-3a95b20a82df.jpg). An attacker now has to get the file name in order to call it.
 - Store files in a directory outside the webroot. This way the web server cannot directly access them and run the malicious script.
+- If possible, access the files with a proxy script.
+- Make sure that the uploaded file can't be executed as code (e.g., not `+x` file permissions).
+- Disable script execution on the uploads folder in Apache/Nginx.
+- Limit the size of the file being uploaded to prevent denial of service attacks.
