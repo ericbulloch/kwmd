@@ -129,3 +129,5 @@ There are checks that can be done to help prevent file upload abuse. As mentione
 - Track upload attempts, rejections and anomalies. This includes repeated attempts to bypass filters.
 - Strip dangerous content from pdfs, Office documents and Excel files as these can contain embedded scripts and macros.
 - Prevent double extensions (i.e. `file.php.jpg` or `file.jpg.php`).
+- Run image libraries like ImageMagick or PIL inside restricted environment (low privilege user or in a container).
+- Ensure the endpoint is covered by a web application firewall.
