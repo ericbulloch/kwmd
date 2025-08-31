@@ -123,3 +123,5 @@ There are checks that can be done to help prevent file upload abuse. As mentione
 - Rate limit uploads from a single IP address to dential of service attacks.
 - Strip metadata from image/pdf files since it can contain malicious payloads.
 - Disallow special characters in file names like `../` and `%00` or unicode tricks. This prevents path traversal and null byte injection attacks.
+- Store files in randomized subdirectories to make guessing where the file is stored harder.
+- Serve files from a download endpoint such as `download_file.php?id=123`. This prevents direct browsing in the `uploads/` directory.
