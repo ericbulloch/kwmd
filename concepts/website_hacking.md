@@ -125,3 +125,5 @@ There are checks that can be done to help prevent file upload abuse. As mentione
 - Disallow special characters in file names like `../` and `%00` or unicode tricks. This prevents path traversal and null byte injection attacks.
 - Store files in randomized subdirectories to make guessing where the file is stored harder.
 - Serve files from a download endpoint such as `download_file.php?id=123`. This prevents direct browsing in the `uploads/` directory.
+- Ensure that only logged in users are able to upload a file. This helps add logging and traceability to the system.
+- Track upload attempts, rejections and anomalies. This includes repeated attempts to bypass filters.
