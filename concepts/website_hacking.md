@@ -111,3 +111,5 @@ File upload forms can provide a foothold for uploading malicious scripts and fil
 There are checks that can be done to help prevent file upload abuse. As mentioned above, do not rely on just the file extension. Here are some things that can be done:
 
 - Have an allowlist of file types (.jpg, .png, .pdf, etc...)
+- Validate on the server side with MIME type checks.
+- Verify file headers. A list can be found [here](https://en.wikipedia.org/wiki/List_of_file_signatures)
