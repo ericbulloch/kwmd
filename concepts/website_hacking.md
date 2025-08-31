@@ -127,3 +127,5 @@ There are checks that can be done to help prevent file upload abuse. As mentione
 - Serve files from a download endpoint such as `download_file.php?id=123`. This prevents direct browsing in the `uploads/` directory.
 - Ensure that only logged in users are able to upload a file. This helps add logging and traceability to the system.
 - Track upload attempts, rejections and anomalies. This includes repeated attempts to bypass filters.
+- Strip dangerous content from pdfs, Office documents and Excel files as these can contain embedded scripts and macros.
+- Prevent double extensions (i.e. `file.php.jpg` or `file.jpg.php`).
