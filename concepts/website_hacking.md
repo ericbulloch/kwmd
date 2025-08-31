@@ -119,3 +119,7 @@ There are checks that can be done to help prevent file upload abuse. As mentione
 - Make sure that the uploaded file can't be executed as code (e.g., not `+x` file permissions).
 - Disable script execution on the uploads folder in Apache/Nginx.
 - Limit the size of the file being uploaded to prevent denial of service attacks.
+- Scan the files with antivirus/malware detection tools.
+- Rate limit uploads from a single IP address to dential of service attacks.
+- Strip metadata from image/pdf files since it can contain malicious payloads.
+- Disallow special characters in file names like `../` and `%00` or unicode tricks. This prevents path traversal and null byte injection attacks.
