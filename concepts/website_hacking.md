@@ -113,3 +113,5 @@ There are checks that can be done to help prevent file upload abuse. As mentione
 - Have an allowlist of file types (.jpg, .png, .pdf, etc...)
 - Validate on the server side with MIME type checks.
 - Verify file headers. A list can be found [here](https://en.wikipedia.org/wiki/List_of_file_signatures)
+- Rename uploaded file names (i.e. evilscript.jpg → 2a943bff-9034-40cb-9abc-3a95b20a82df.jpg). An attacker now has to get the file name in order to call it.
+- Store files in a directory outside the webroot. This way the web server cannot directly access them and run the malicious script.
