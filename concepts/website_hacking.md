@@ -5,6 +5,7 @@
 - [Inspecting HTML](#inspecting-html)
 - [Directory Enumeration](#directory-enumeration)
 - [Forms](#forms)
+  - [File Upload Forms](#file-upload-forms)
 
 ## Introduction
 
