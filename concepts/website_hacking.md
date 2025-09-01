@@ -104,15 +104,13 @@ Many input issues can be solved by sanitizing user input and making sure what th
 
 ### File Upload Forms
 
-File upload forms can provide a foothold for uploading malicious scripts and files. If the form does not properly validate the uploaded file, an attacker can upload scripts that can provide remote code execution or allow a reverse shell. File upload forms are a common place to get a foothold in a capture the flag event.
+File upload forms can provide a foothold for uploading malicious scripts and files. If the form does not properly validate the uploaded file, an attacker can upload scripts that can provide remote code execution or allow a reverse shell. File upload forms are a common place to get a foothold in a capture the flag event. Here is a file upload form example to help explain this:
 
-Here is a file upload form example:
-
-An image uploading form can be an entry point into a website. This is because the file upload form code that uploads files does not check file extensions or if the file is actually a .png, .jpeg or .jpg file. This means that I can upload a PHP reverse shell and tell the site that it is an image file. Once the file has been uploaded, I can then ask the server for the file I just uploaded to the `/uploads` directory.
+Imagine a capture the flag box that has a file upload form. The file upload form code that uploads files does not check file extensions or if the file is actually a .png, .jpeg or .jpg file. This means that I can upload a PHP reverse shell and tell the site that it is an image file. Once the file has been uploaded, I can then ask the server for the file I just uploaded to the `/uploads` directory.
 
 The [PHP Reverse Shell](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) makes it easy to get a reverse shell for systems that are vulnerable.
 
-I first grab the file from the repository above or the one on the TryHackMe attack box located at `/usr/share/webshells/php/php-reverse-shell.php`. There are only 2 lines that need to be altered in this file. They are the lines that define the `$ip` and `$port` variables.
+I first grab the PHP reverse shell file from the repository above or the one on the TryHackMe attack box located at `/usr/share/webshells/php/php-reverse-shell.php`. There are only 2 lines that need to be altered in this file. They are the lines that define the `$ip` and `$port` variables.
 
 I set those to the values that my attack box is using. I'll run a netcat listener with the following `nc -lnvp 4444`. The port 4444 value also got set as the `$port` variable in the script.
 
