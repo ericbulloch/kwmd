@@ -2,6 +2,8 @@
 
 - [Introduction](#introduction)
 - [Linux Privilege Escalation](#linux-privilege-escalation)
+  - [`id`](#id)
+  - [`ls /home`](#ls-home)
 - [Examples](#examples)
 
 ## Introduction
