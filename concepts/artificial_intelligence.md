@@ -5,6 +5,9 @@
   - [Quiz Game](#quiz-game)
   - [Generating Scripts](#generating-scripts)
 - [What I Don't Use It For](#what-i-dont-use-it-for)
+  - [Writing This Repository](#writing-this-repository)
+  - [Writing Commands](#writing-commands)
+  - [Writing All Code](#writing-all-code)
 
 ## Introduction
 
