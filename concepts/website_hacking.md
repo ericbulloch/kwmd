@@ -4,6 +4,7 @@
 - [Browsing The Site](#browsing-the-site)
 - [Inspecting HTML](#inspecting-html)
 - [Directory Enumeration](#directory-enumeration)
+  - [Directory Enumeration with Gobuster](#directory-enumeration-with-gobuster)
 - [Forms](#forms)
   - [File Upload Forms](#file-upload-forms)
 
