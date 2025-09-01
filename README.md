@@ -86,6 +86,8 @@ $ nmap -T4 -n -sC -sV -Pn -v -p- target.thm
 
 An explaination about this command can be found in the link above.
 
+Once I have output from this command, I look at the services that are running on each port. From here it is a matter of using the information that I have documented for each service that is running and trying to find more and more things for the attack surface. The goal is to try hacking what I find and noting anything that might be useful. It is very common to find credentials on a website that will work on the FTP server. I then might find credentials on the FTP server that can be used in the POP3 service which leads to credentials for the admin portal on the website.
+
 ### FTP (File Transfer Protocol)
 
 I have included a tool write up for the [ftp tool](tools/ftp.md) in my [tools](tools/README.md) section. It covers the some of the more common scenarios that I have found during capture the flag events.
@@ -223,5 +225,6 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
