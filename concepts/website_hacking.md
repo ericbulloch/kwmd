@@ -137,10 +137,10 @@ From here I'll see if I can upload the shell file. I'll start by seeing if I can
 
 In the event that they want a specific file extension like .jpg, I will try the following extensions:
 
-- .php.jpg
-- .php.jpeg
-- .php%00.jpg
-- .jpg.php (or some variant of the php extension list above).
+- `.php.jpg`
+- `.php.jpeg`
+- `.php%00.jpg`
+- `.jpg.php` (or some variant of the php extension list above).
 
 The `%00` is a null character for a url and marks the end of the string. Meaning that once it is uploaded the file will not have anything after the `%00`.
 
