@@ -183,32 +183,7 @@ I have more details about the sqlmap tool on the [sqlmap tools page](tools/sqlma
 
 #### File Upload
 
-An image uploading form can be an entry point into a website. This is because the code that uploads files does not check file extensions or if the file is actually a PNG or JPEG file. The [PHP Reverse Shell](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) makes it easy to get a reverse shell for systems that are vulnerable.
-
-I first grab the file from the repository above or the one on the TryHackMe attack box located at `/usr/share/webshells/php/php-reverse-shell.php`. There are only 2 lines that need to be altered in this file. They are the lines that define the `$ip` and `$port` variables.
-
-I set those to the values that my attack box is using. I'll run a netcat listener with the following `nc -lnvp 4444`. The port 4444 value also got set as the `$port` variable in the script.
-
-From here I'll see if I can upload the shell directly. If that fails I'll try different file extensions hoping that they have not accounted for it. Here is the list of file extensions that I try:
-
-- .php
-- .php3
-- .php4
-- .php5
-- .php7
-- .phtml
-- .phps
-- .pht
-- .phar
-
-In the event that they want a specific file extension like .jpg, I will try the following extensions:
-
-- .php.jpg
-- .php.jpeg
-- .php%00.jpg
-- .jpg.php (or some variant of the php extension list above).
-
-The `%00` is a null character for a url and marks the end of the string. I am at the mercy of however the server side was implemented. They might only be checking for .jpg in the file name or they might want it to end with that. The server side might also try to validate that the file starts with the correct file signature. The list of file signatures can be [found here](https://en.wikipedia.org/wiki/List_of_file_signatures).
+I talk about the importance of file upload forms in my [website hacking concepts page](/concepts/website_hacking.md#file-upload-forms).
 
 ### Decoding Text
 
@@ -248,4 +223,5 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
