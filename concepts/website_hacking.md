@@ -6,6 +6,7 @@
 - [Directory Enumeration](#directory-enumeration)
   - [Directory Enumeration with Gobuster](#directory-enumeration-with-gobuster)
 - [Forms](#forms)
+  - [SQL Injection Example](#directory-enumeration-with-gobuster)
   - [File Upload Forms](#file-upload-forms)
 
 ## Introduction
