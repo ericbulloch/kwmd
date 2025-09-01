@@ -169,7 +169,7 @@ When I get stuck, I sometimes try to run parameter enumeration on a form to see 
 
 #### Browsing
 
-In a capture the flag event, I look at the different pages and try to find forms and input fields. Each one of these is an attack vector that can be used for things like SQL injection or XSS attacks. Mapping the site is one of the first things I do while running directory enumeration.
+I talk about the importance of browsing a website before hacking it in my [website hacking concepts page](/concepts/website_hacking.md#browsing-the-site)
 
 #### Inspecting HTML
 
@@ -262,6 +262,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
