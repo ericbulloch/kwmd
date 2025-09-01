@@ -112,9 +112,15 @@ The [PHP Reverse Shell](https://github.com/pentestmonkey/php-reverse-shell/blob/
 
 I first grab the PHP reverse shell file from the repository above or the one on the TryHackMe attack box located at `/usr/share/webshells/php/php-reverse-shell.php`. There are only 2 lines that need to be altered in this file. They are the lines that define the `$ip` and `$port` variables.
 
-I set those to the values that my attack box is using. I'll run a netcat listener with the following `nc -lnvp 4444`. The port 4444 value also got set as the `$port` variable in the script.
+I set those to the `$ip` value to my attack box's ip address and the `$port` value to 4444.
 
-From here I'll see if I can upload the shell directly. If that fails I'll try different file extensions hoping that they have not accounted for it. Here is the list of file extensions that I try:
+I'll run a netcat listener with the following:
+
+```bash
+$ nc -lnvp 4444
+```
+
+From here I'll see if I can upload the shell file. I'll start by seeing if I can just upload it with a .php extension. If that fails I'll try different file extensions hoping that they have not accounted for it. Here is the list of file extensions that I try:
 
 - .php
 - .php3
@@ -133,7 +139,9 @@ In the event that they want a specific file extension like .jpg, I will try the 
 - .php%00.jpg
 - .jpg.php (or some variant of the php extension list above).
 
-The `%00` is a null character for a url and marks the end of the string. I am at the mercy of however the server side was implemented. They might only be checking for .jpg in the file name or they might want it to end with that. The server side might also try to validate that the file starts with the correct file signature. The list of file signatures can be [found here](https://en.wikipedia.org/wiki/List_of_file_signatures).
+The `%00` is a null character for a url and marks the end of the string. Meaning that once it is uploaded the file will not have anything after the `%00`.
+
+I am at the mercy of however the server side was implemented. They might only be checking for .jpg in the file name or they might want it to end with that. The server side might also try to validate that the file starts with the correct file signature. The list of file signatures can be [found here](https://en.wikipedia.org/wiki/List_of_file_signatures). These file signature can be set with a hex editor. I only have to set the first few byes that are mentioned in this link.
 
 ### Security Measures
 
