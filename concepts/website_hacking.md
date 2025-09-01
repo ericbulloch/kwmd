@@ -106,6 +106,37 @@ Many input issues can be solved by sanitizing user input and making sure what th
 
 File upload forms can provide a foothold for uploading malicious scripts and files. If the form does not properly validate the uploaded file, an attacker can upload scripts that can provide remote code execution or allow a reverse shell. File upload forms are a common place to get a foothold in a capture the flag event.
 
+Here is a file upload form example:
+
+An image uploading form can be an entry point into a website. This is because the file upload form code that uploads files does not check file extensions or if the file is actually a .png, .jpeg or .jpg file. This means that I can upload a PHP reverse shell and tell the site that it is an image file. Once the file has been uploaded, I can then ask the server for the file I just uploaded to the `/uploads` directory.
+
+The [PHP Reverse Shell](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) makes it easy to get a reverse shell for systems that are vulnerable.
+
+I first grab the file from the repository above or the one on the TryHackMe attack box located at `/usr/share/webshells/php/php-reverse-shell.php`. There are only 2 lines that need to be altered in this file. They are the lines that define the `$ip` and `$port` variables.
+
+I set those to the values that my attack box is using. I'll run a netcat listener with the following `nc -lnvp 4444`. The port 4444 value also got set as the `$port` variable in the script.
+
+From here I'll see if I can upload the shell directly. If that fails I'll try different file extensions hoping that they have not accounted for it. Here is the list of file extensions that I try:
+
+- .php
+- .php3
+- .php4
+- .php5
+- .php7
+- .phtml
+- .phps
+- .pht
+- .phar
+
+In the event that they want a specific file extension like .jpg, I will try the following extensions:
+
+- .php.jpg
+- .php.jpeg
+- .php%00.jpg
+- .jpg.php (or some variant of the php extension list above).
+
+The `%00` is a null character for a url and marks the end of the string. I am at the mercy of however the server side was implemented. They might only be checking for .jpg in the file name or they might want it to end with that. The server side might also try to validate that the file starts with the correct file signature. The list of file signatures can be [found here](https://en.wikipedia.org/wiki/List_of_file_signatures).
+
 ### Security Measures
 
 There are checks that can be done to help prevent file upload abuse. As mentioned above, do not rely on just the file extension. Here are some things that can be done:
