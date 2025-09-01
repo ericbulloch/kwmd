@@ -177,13 +177,9 @@ I talk about the importance of inspecting HTML in my [website hacking concepts p
 
 #### SQL Injection
 
-SQL injection is still a vulerability to be aware of in capture the flag events. Many exercises have forms that are vulnerable to this attack. The main forms that I routinely check are the login, feedback and address forms. I'll run a regular request and capture it in Burp. I'll save the request to a file named `request.txt` and then run the following command:
+I talk about the importance of SQL injection on a website in my [website hacking concepts page](/concepts/website_hacking.md#sql-injection-example).
 
-```bash
-$ sqlmap -r request.txt
-```
-
-I have more details about this on the [sqlmap tools page](tools/sqlmap.md).
+I have more details about the sqlmap tool on the [sqlmap tools page](tools/sqlmap.md).
 
 #### File Upload
 
@@ -252,6 +248,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
