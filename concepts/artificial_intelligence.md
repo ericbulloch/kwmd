@@ -1,6 +1,10 @@
 # Artificial Intelligence
 
 - [Introduction](#introduction)
+- [Learning Cyber Securiity](#learning-cyber-security)
+  - [Quiz Game](#quiz-game)
+  - [Generating Scripts](#generating-scripts)
+- [What I Don't Use It For](#what-i-dont-use-it-for)
 
 ## Introduction
 
