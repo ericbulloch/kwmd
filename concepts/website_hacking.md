@@ -125,15 +125,15 @@ $ nc -lnvp 4444
 
 From here I'll see if I can upload the shell file. I'll start by seeing if I can just upload it with a .php extension. If that fails I'll try different file extensions hoping that they have not accounted for it. Here is the list of file extensions that I try:
 
-- .php
-- .php3
-- .php4
-- .php5
-- .php7
-- .phtml
-- .phps
-- .pht
-- .phar
+- `.php`
+- `.php3`
+- `.php4`
+- `.php5`
+- `.php7`
+- `.phtml`
+- `.phps`
+- `.pht`
+- `.phar`
 
 In the event that they want a specific file extension like .jpg, I will try the following extensions:
 
