@@ -149,39 +149,7 @@ There are a few different types of enumeration on websites that can be really us
 
 ##### Directory Enumeration
 
-I almost always run a directory enumeration to see if there are any folders or files that are not directly linked by the website. This is how I usually find the admin login form. Also, I double-check the robots.txt file because this file is notorious in capture the flag events for giving away information.
-
-If the tool finds a directory like `/app`, I will often run the tool again on that directory to see if there are additional results.
-
-There are a lot of automated tools I can use for directory enumeration. Generally, the word list is the most important part. If I get stuck, I use a combination of tools and word lists to see if they find anything different. Here are some tools I like to use and some sample usage:
-
-##### Directory Enumeration with dirsearch
-
-I usually use dirsearch as my directory enumeration tool. The syntax is very terse, so I do not have to remember much to run it. It does not come by default on Kali, so I have to install it before use.
-
-This tool can be installed with pip. I use it because the syntax is easy to remember and it does a good job with its default word list. I install it with the following command:
-
-```bash
-$ pip3 install dirsearch
-```
-
-My favorite thing about this tool is how little I have to remember when I run it. I run it with the following command:
-
-`dirsearch -u http://target.thm`
-
-The `-u` option tells dirsearch what URL I want to start searching in. If it finds that the site has a path like `/admin` and I want to search that folder, then I run another search with:
-
-```bash
-$ dirsearch -u http://target.thm/admin
-```
-
-##### Directory Enumeration with ffuf
-
-Sometimes I run a few different tools just to see if I get different results. The ffuf tool is my go-to when I want a second opinion. I have provided information on how to run it on [its tools page](tools/ffuf.md#directory-enumeration).
-
-##### Directory Enumeration with gobuster
-
-The gobuster tool is also a great tool to get a second opinion. I generally go with ffuf instead of gobuster when I want a second opinion, but I have not been disappointed using either tool. I have provided information on how to run gobuster for directory enumeration on [its tool page](tools/gobuster.md#directoryfile-dir-enumeration-mode).
+I have provided information about directory enumeration on a website as well as references in my [website hacking concepts page](/concepts/website_hacking.md#directory-enumeration).
 
 ##### Subdomain Enumeration
 
@@ -294,6 +262,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
