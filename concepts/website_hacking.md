@@ -80,7 +80,7 @@ Forms are a natural source of issues for security. Users are able to send data a
 
 Since forms are accepting user input, some of the attacks they need to be aware of are the following:
 
-- SQL Injection
+- [SQL Injection](#sql-injection-example)
 - Cross-Site Scripting (XSS)
 - Command Injection
 - Authentication Bypass
