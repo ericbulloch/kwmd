@@ -4,7 +4,17 @@
 - [Linux Privilege Escalation](#linux-privilege-escalation)
   - [`id`](#id)
   - [`ls /home`](#ls-home)
+  - [`cat /etc/passwd`](#cat-etcpasswd)
+  - [`cat /etc/passwd | grep '/bin/bash'`](#cat-etcpasswd--grep-binbash)
+  - [`sudo -l`](#sudo--l)
+  - [`cat /etc/crontab`](#cat-etccrontab)
+  - [`uname -a`](#uname--a)
+  - [`env`](#env)
+  - [`groups`](#groups)
+  - [`grep -Ri "password" /home /opt 2>/dev/null`](#grep--ri-password-home-opt-2devnull)
+  - [`find / -perm -u=s -type f 2>/dev/null`](#find---perm--us--type-f-2devnull)
 - [Examples](#examples)
+  - [LXD](#lxd)
 
 ## Introduction
 
