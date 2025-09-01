@@ -139,9 +139,9 @@ $ sudo groupmod -g 1018 kwmd
 
 After that I changed to the user by running `su kwmd`. From there, I was able to view the files in the nfs share.
 
-### Website
+### Website Hacking
 
-This section will most likely become its own file instead of just a section. For now, I am just starting with the process.
+I have a more detailed page that talks about [website hacking concepts](/concepts/website_hacking.md).
 
 #### Enumeration
 
@@ -248,3 +248,4 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
