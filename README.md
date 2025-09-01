@@ -169,21 +169,11 @@ When I get stuck, I sometimes try to run parameter enumeration on a form to see 
 
 #### Browsing
 
-I talk about the importance of browsing a website before hacking it in my [website hacking concepts page](/concepts/website_hacking.md#browsing-the-site)
+I talk about the importance of browsing a website before hacking it in my [website hacking concepts page](/concepts/website_hacking.md#browsing-the-site).
 
 #### Inspecting HTML
 
-Capture the flag events often have flags in the comments of the HTML. I have found flags, usernames, passwords, directories, and links that my automated runs did not find. This is a very overlooked way to find useful things when I get stuck. Here is an altered sample of some comments that I have found in HTML:
-
-```html
-<!--
-
-  Note from me, to me, remember my login name.
-
-  Username: Sk3l3t0r
-
--->
-```
+I talk about the importance of inspecting HTML in my [website hacking concepts page](/concepts/website_hacking.md#inspecting-html).
 
 #### SQL Injection
 
@@ -262,6 +252,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
