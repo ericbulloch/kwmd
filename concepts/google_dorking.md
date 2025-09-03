@@ -10,7 +10,7 @@
   - [Looking For Emails With That Username](#looking-for-emails-with-that-username)
   - [Looking For Pages That Talk About SQL Injection](#looking-for-pages-that-talk-about-sql-injection)
   - [Looking For Pages That Talk About SQL Injection On TryHackMe](#looking-for-pages-that-talk-about-sql-injection-on-tryhackme)
-  - [Looking for audit information](#looking-for-audit-information)
+  - [Looking For Audit Information](#looking-for-audit-information)
 
 ## Introduction
 
@@ -102,7 +102,7 @@ intext:"sql injection"
 site:https://tryhackme.com intext:"sql injection"
 ```
 
-### Looking for audit information
+### Looking For Audit Information
 
 ```
 security audit -financial
