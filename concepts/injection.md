@@ -3,6 +3,7 @@
 - [Introduction](#introduction)
 - [SQL Injection](#sql-injection)
   - [SQL Injection Examples](#sql-injection-examples)
+    - [Get all records](#get-all-records)
 
 ## Introduction
 
