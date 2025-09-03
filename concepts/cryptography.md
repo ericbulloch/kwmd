@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [Text Encoding](#text-encoding)
+  - [Sample Text](#sample-text)
 - [Hashing](#hashing)
 
 ## Introduction
