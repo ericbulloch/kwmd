@@ -2,9 +2,11 @@
 
 - [Introduction](#introduction)
 - [TCP](#tcp)
+  - [TCP Three-Way Handshake](#tcp-three-way-handshake)
 - [UDP](#udp)
 - [Common Ports](#common-ports)
 - [DNS](#dns)
+  - [Phonebook Example](#phonebook-example)
 - [OSI Model](#osi-model)
 
 ## Introduction
