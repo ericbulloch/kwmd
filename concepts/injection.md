@@ -7,6 +7,7 @@
     - [Getting admin users](#getting-admin-users)
     - [Dropping a table](#dropping-a-table)
   - [SQL Injection Prevention](#sql-injection-prevention)
+    - [Validate input](#validate-input)
 
 ## Introduction
 
