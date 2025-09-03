@@ -5,6 +5,7 @@
   - [SQL Injection Examples](#sql-injection-examples)
     - [Get all records](#get-all-records)
     - [Getting admin users](#getting-admin-users)
+    - [Dropping a table](#dropping-a-table)
 
 ## Introduction
 
