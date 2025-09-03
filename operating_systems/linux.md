@@ -8,6 +8,8 @@ I wanted to list some concepts, terms and flows that are specific to Linux. Lear
 - [Directories](/operating_systems/linux.md#directories)
 - [Groups](/operating_systems/linux.md#groups)
 - [Permissions](/operating_systems/linux.md#permissions)
+  - [File Type](#file-type)
+  - [User, Group and Everyone Permissions](#user-group-and-everyone-permissions)
 - [Privilege Escalation](/operating_systems/linux.md#privilege-escalation)
 - [Systemctl](/operating_systems/linux.md#systemctl)
 - [Crons](/operating_systems/linux.md#crons)
