@@ -4,7 +4,7 @@
 - [SQL Injection](#sql-injection)
   - [SQL Injection Examples](#sql-injection-examples)
     - [Get all records](#get-all-records)
-    - [Getting admin users](#get-admin-users)
+    - [Getting admin users](#getting-admin-users)
 
 ## Introduction
 
