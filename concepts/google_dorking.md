@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [How Google Got The Information?](#how-google-got-the-information)
+  - [How Does Google Index A Site](#how-does-google-index-a-site)
 - [Searching](#searching)
 - [Operators](#operators)
 - [Examples](#examples)
@@ -14,7 +15,7 @@ I have heard this called many things over the years. Some of them include Google
 
 Websites are incentivized to have Google index their site. Performing a Google search has become synonymous with browsing the web. If a website can reach a high position in a search result, it will be easy for users to find the site. There are many reasons people want others to find their site, but if I am being honest, those reasons mostly involve money.
 
-### How does Google index a site?
+### How Does Google Index A Site?
 
 The process I am describing is very simplistic, it is meant to give a very small idea of what is going on under the hood.
 
