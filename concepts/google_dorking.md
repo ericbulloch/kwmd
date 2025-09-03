@@ -7,6 +7,7 @@
 - [Searching](#searching)
 - [Operators](#operators)
 - [Examples](#examples)
+  - [Looking For Emails With That Username](#looking-for-emails-with-that-username)
   - [Looking For Pages That Talk About SQL Injection](#looking-for-pages-that-talk-about-sql-injection)
 
 ## Introduction
