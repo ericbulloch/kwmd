@@ -7,6 +7,7 @@
 - [Searching](#searching)
 - [Operators](#operators)
 - [Examples](#examples)
+  - [Looking For Pages That Talk About SQL Injection](#looking-for-pages-that-talk-about-sql-injection)
 
 ## Introduction
 
@@ -86,7 +87,7 @@ If I discovered the username `firstlast` for a person name `First Last`, I could
 
 This would find things like `firstlast@yahoo.com` and `firstlast.123@aol.com`.
 
-### Looking for pages that talk about SQL Injection
+### Looking For Pages That Talk About SQL Injection
 
 ```text
 intext:"sql injection"
