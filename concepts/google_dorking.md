@@ -3,6 +3,7 @@
 - [Introduction](#introduction)
 - [How Google Got The Information?](#how-google-got-the-information)
   - [How Does Google Index A Site](#how-does-google-index-a-site)
+  - [Does Google Index Everything?](#does-google-index-everything)
 - [Searching](#searching)
 - [Operators](#operators)
 - [Examples](#examples)
@@ -23,7 +24,7 @@ Google has software called a spider. A spider is a program that will go to the d
 
 Here is a simple real world example: Google sends a spider out to https://espn.com, it saves the content of the different pages in data storage. The next program looks at the pages that the spider collected for https://espn.com and determines that the site writes articles that are summaries of sports events. So a few hours when a user wants to know what the score was of the Celtics game, Google makes sure to show the latest Celtics game summary as a result on the page.
 
-### Does Google index everything?
+### Does Google Index Everything?
 
 Yes and no. By default it will index everything that it can. You can tell it not to index things with a robots.txt file.
 
