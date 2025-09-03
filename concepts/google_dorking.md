@@ -9,7 +9,7 @@
 - [Examples](#examples)
   - [Looking For Emails With That Username](#looking-for-emails-with-that-username)
   - [Looking For Pages That Talk About SQL Injection](#looking-for-pages-that-talk-about-sql-injection)
-  - [Looking for pages that talk about SQL Injection on TryHackMe](#looking-for-pages-that-talk-about-sql-injection-on-tryhackme)
+  - [Looking For Pages That Talk About SQL Injection On TryHackMe](#looking-for-pages-that-talk-about-sql-injection-on-tryhackme)
 
 ## Introduction
 
