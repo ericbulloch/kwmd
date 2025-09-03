@@ -78,7 +78,7 @@ Google provides many operators to make searching more precise. There are operato
 
 ## Examples
 
-### Looking for emails with that username
+### Looking For Emails With That Username
 
 If I discovered the username `firstlast` for a person name `First Last`, I could search for all emails address that use that username and are part of a .com top level domain with this search query:
 
