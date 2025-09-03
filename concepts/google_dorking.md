@@ -95,7 +95,7 @@ This would find things like `firstlast@yahoo.com` and `firstlast.123@aol.com`.
 intext:"sql injection"
 ```
 
-### Looking for pages that talk about SQL Injection on TryHackMe
+### Looking For Pages That Talk About SQL Injection On TryHackMe
 
 ```
 site:https://tryhackme.com intext:"sql injection"
