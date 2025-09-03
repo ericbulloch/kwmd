@@ -8,6 +8,7 @@
     - [Dropping a table](#dropping-a-table)
   - [SQL Injection Prevention](#sql-injection-prevention)
     - [Validate input](#validate-input)
+    - [Parameterized query](#parameterized-query)
 
 ## Introduction
 
