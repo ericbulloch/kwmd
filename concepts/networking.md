@@ -7,7 +7,10 @@
 - [Common Ports](#common-ports)
 - [DNS](#dns)
   - [Phonebook Example](#phonebook-example)
+  - [How It Works With Computers](#how-it-works-with-computers)
+  - [DNS Records](#dns-records)
 - [OSI Model](#osi-model)
+  - [Mnemonics To Remember OSI Model Layers](#mnemonics-to-remember-osi-model-layers)
 
 ## Introduction
 
