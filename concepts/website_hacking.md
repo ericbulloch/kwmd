@@ -83,7 +83,10 @@ Since forms are accepting user input, some of the attacks they need to be aware 
 - [SQL Injection](#sql-injection-example)
 - Cross-Site Scripting (XSS)
 - Command Injection
+- HTML Injection
 - Authentication Bypass
+- Broken Authentication
+- Privilege Escalation
 
 ### SQL Injection Example
 
