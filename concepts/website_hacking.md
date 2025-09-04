@@ -87,6 +87,10 @@ Since forms are accepting user input, some of the attacks they need to be aware 
 - Authentication Bypass
 - Broken Authentication
 - Privilege Escalation
+- Cross-Site Requst Forgery (CSRF)
+- Business Logic Flaws
+- Sensitive Data Exposure
+- Client-Side Only Validation
 
 ### SQL Injection Example
 
