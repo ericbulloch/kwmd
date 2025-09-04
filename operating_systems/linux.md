@@ -16,6 +16,8 @@ I wanted to list some concepts, terms and flows that are specific to Linux. Lear
   - [Sticky bit](#sticky-bit)
   - [Privilege Escalation](#privilege-escalation)
   - [Systemctl](#systemctl)
+  - [Crons](#crons)
+    - [Cron Schedule](#cron-schedule)
 - [Privilege Escalation](/operating_systems/linux.md#privilege-escalation)
 - [Systemctl](/operating_systems/linux.md#systemctl)
 - [Crons](/operating_systems/linux.md#crons)
