@@ -14,6 +14,8 @@ I wanted to list some concepts, terms and flows that are specific to Linux. Lear
   - [User SUID](#user-suid)
   - [Group SGID](#group-sgid)
   - [Sticky bit](#sticky-bit)
+  - [Privilege Escalation](#privilege-escalation)
+  - [Systemctl](#systemctl)
 - [Privilege Escalation](/operating_systems/linux.md#privilege-escalation)
 - [Systemctl](/operating_systems/linux.md#systemctl)
 - [Crons](/operating_systems/linux.md#crons)
