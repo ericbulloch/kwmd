@@ -17,13 +17,10 @@ I wanted to list some concepts, terms and flows that are specific to Linux. Lear
 - [Privilege Escalation](#privilege-escalation)
 - [Systemctl](#systemctl)
 - [Crons](#crons)
-  - [Cron Schedule](#cron-schedule)
-    - [Cron Schedule Examples](#cron-schedule-examples)
-- [LX](#lxc)
-- [Privilege Escalation](/operating_systems/linux.md#privilege-escalation)
-- [Systemctl](/operating_systems/linux.md#systemctl)
-- [Crons](/operating_systems/linux.md#crons)
-- [LXC](/operating_systems/linux.md#lxc)
+- [LXC](#lxc)
+  - [Download The Image From GitHub](#download-the-image-from-github)
+  - [Import The Image From LXD Images](#import-the-image-from-lxd-images)
+  - [LXC Privilege Escalation](#lxc-privilege-escalation)
 
 ## Basic Commands
 
@@ -442,6 +439,6 @@ root
 
 Running that command will download the Kali image and create a new container named `c1`. This is a much faster way to get a container up and running, there are only two commands.
 
-### Privilege Escalation
+### LXC Privilege Escalation
 
 I have included how LXD/LXC can be used to with privelege escalation in [this write up](/concepts/privilege_escalation.md#lxd).
