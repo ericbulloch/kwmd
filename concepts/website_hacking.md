@@ -109,6 +109,14 @@ The sqlmap tool will check the form to see if it is vulnerable to sql injection.
 - Get a dump of the database
 - Log into the site with elevated privileges.
 
+Sometimes I just want to test for SQL injection vulnerabilities manually. In this case, I would enter something like the following for the username field or password field of a login form:
+
+```sql
+' OR '1'='1
+```
+
+This snippet will is a very broad attempt to just login with any user since it will match all users in the system.
+
 ### Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
