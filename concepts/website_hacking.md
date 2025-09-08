@@ -137,6 +137,8 @@ I could craft a SQL injection query that has the following:
 
 This query would make the response take 5 extra seconds because the database is MySQL. The query is doing a union select which then checks if selecting 1 from the information_schema.tables happens. In the case that it does return a 1 the query sleeps for 5 seconds. Otherwise it would do nothing.
 
+The `sqlmap` tool is doing something similar to this when it gets data from a vulnerable form. It will ask a question like "Does a table start with a 'u'"? If it does, it will then ask "Does a table start with 'ua'"? If that fails it will try 'ub' until it gets the name of a table like 'users'.
+
 ### Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
