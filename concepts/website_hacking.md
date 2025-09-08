@@ -208,9 +208,44 @@ or
 | SQL Server | WAITFOR DELAY |
 | Oracle | DBMS_SESSION.SLEEP |
 
-### Security Measures
+### SQL Injection Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
+
+SQL injection can be prevented very easily with parameterized queries. Any database abstraction library worth its salt has a way to easily do this. The idea is that all user input is treated as data. Even if they have provided commands, the database doesn't substitute the user input as part of the query.
+
+Below is a simple Python script that asks for a username and password and then runs a query. I have left the unsafe way to do this commented out to show the difference between the wrong way and a parameterized query.
+
+```python
+username = input('username ?')
+password = input('password ?')
+conn = sqlite3.connect("users.db")
+cursor = conn.cursor()
+
+# Example: Ensure the users table exists
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        password TEXT NOT NULL
+    )
+""")
+conn.commit()
+
+# UNSAFE (example only): vulnerable to SQL injection
+# cursor.execute(f"SELECT * FROM users WHERE username='{username}' AND password='{password}'")
+
+# SAFE: Use placeholders (?) to parameterize
+cursor.execute("SELECT * FROM users WHERE username=? AND password=?", (username, password))
+result = cursor.fetchone()
+
+conn.close()
+
+if result:
+    print(f"Welcome, {username}")
+else:
+    print(f"Invalid username or password")
+```
 
 ### Command Injection Example
 
