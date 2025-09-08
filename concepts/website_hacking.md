@@ -141,6 +141,16 @@ The `sqlmap` tool is doing something similar to this when it gets data from a vu
 
 When `sqlmap` dumps a table, it is sending thousands of requests to get column names and values for each record in the table. It is a very slow process but it is much faster than doing it manually. If the page does show the results from a query, `sqlmap` is smart enough to parse the results and hand them over.
 
+#### Manual Step-By-Step SQL Injection Workflow
+
+- Test for SQL injection vulnerability.
+- Find the number of columns.
+- Confirm injection with time based attack.
+- Identify the database.
+- List tables.
+- List columns.
+- Dump data.
+
 ### Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
