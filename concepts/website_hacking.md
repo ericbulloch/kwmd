@@ -115,7 +115,13 @@ Sometimes I just want to test for SQL injection vulnerabilities manually. In thi
 ' OR '1'='1
 ```
 
-This snippet will is a very broad attempt to just login with any user since it will match all users in the system.
+This snippet will is a very broad attempt to just login with any user since it will match all users in the system. If the system returns some kind of error or a 503 error that can be an indication that the site is vulnerable and it returned more than 1 result and the code didn't know how to handle it. At that point, I'll iterate more and try to return a single result by changing the query to the following:
+
+```sql
+' OR '1'='1' LIMIT 1; --
+```
+
+That way the query will match all results but only return a single record. If the login is successful, I can craft other queries to log in with users that have elevated privileges.
 
 ### Security Measures
 
