@@ -127,6 +127,16 @@ That way the query will match all results but only return a single record. If th
 
 The `sqlmap` tool uses time-based blind injection attacks to get information from the database. This means that it figures out how long a form submit request takes and then adds a buffer of a second or so when it query returns true. This means that it can perform a potential SQL injection attack to get information and if the response is quick, the query is true. If the response is not quick, the query is false. This way, the tool uses boolean (true and false) logic to get information from the the database without getting the actual result set from the database.
 
+This probably sounds really abstract, so lets try an example. If I find that a form is vulnerable to SQL injection, I can ask it yes and no questions to get answers. Since I want this to be as fast as possible and I am more likely to get a no (or a false) answer, I want to have the yes case cause the response to be slow so that I can confirm that I got a yes (or a true) answer. For this example, lets say that I am using a MySQL database. All MySQL databases have a table called `information_schema`.
+
+I could craft a SQL injection query that has the following:
+
+```sql
+' OR UNION SELECT IF(EXISTS(SELECT 1 FROM information_schema.tables), SLEEP(5), 0), 2--
+```
+
+This query would make the response take 5 extra seconds because the database is MySQL. The query is doing a union select which then checks if selecting 1 from the information_schema.tables happens. In the case that it does return a 1 the query sleeps for 5 seconds. Otherwise it would do nothing.
+
 ### Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
