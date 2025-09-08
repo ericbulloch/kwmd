@@ -115,7 +115,7 @@ Sometimes I just want to test for SQL injection vulnerabilities manually. In thi
 ' OR '1'='1
 ```
 
-This snippet will is a very broad attempt to just login with any user since it will match all users in the system. If the system returns some kind of error or a 503 error that can be an indication that the site is vulnerable and it returned more than 1 result and the code didn't know how to handle it. At that point, I'll iterate more and try to return a single result by changing the query to the following:
+This snippet will is a very broad attempt to just login with any user since it will match all users in the system. If the system returns some kind of error or a 503 error that can be an indication that the site is vulnerable and it returned more than 1 result and the code didn't know how to handle it. It might also display an error that talks about the database, if that is the case I have a good feeling that this is vulnerable to SQL injection. At that point, I'll iterate more and try to return a single result by changing the query to the following:
 
 ```sql
 ' OR '1'='1' LIMIT 1; --
