@@ -151,6 +151,28 @@ When `sqlmap` dumps a table, it is sending thousands of requests to get column n
 - List columns.
 - Dump data.
 
+##### Test for SQL Injection vulnerability
+
+To test for SQL injection add the following as a value to a input field on a form:
+
+```sql
+' OR '1'='1' --
+```
+
+This should look familiar as it was used above when talking about manually checking for SQL injection. If the login succeeds or an error message appears this likely means there is a SQL injection vulnerability.
+
+##### Find the number of columns
+
+To test for the number of columns I'll add an order by statement. I'll keep adding one to the column count and once there is an exception I'll know how many columns there are. Here are some samples of what I mean by adding an order by statement in the input field of the login form:
+
+```sql
+' ORDER BY 1 --        # test if at least 1 column exists
+' ORDER BY 2 --        # test if at least 2 columns exist
+' ORDER BY 3 --        # keep going until error
+```
+
+##### Confirm injection with time based attack
+
 ### Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
