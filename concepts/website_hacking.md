@@ -234,6 +234,14 @@ Now I can finally start to get data from the database. The first step is to get 
 
 This command will start to find tables for the current database. It is a good place to start.
 
+##### List columns
+
+Next I list the columns. This is for strategic purposes. Usually I don't want all the data from all the columns because that can be really slow when dumping an entire table. I list out the columns so that I can pick which ones will probably have really good data. Here is the command to get columns for the `users` table in MySQL:
+
+```sql
+' UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name='users' --
+```
+
 ### SQL Injection Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
