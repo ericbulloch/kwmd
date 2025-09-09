@@ -6,6 +6,8 @@ A buffer overflow occurs when the stack of a program has assigned a section of m
 
 ## Program Memory
 
+Modern operating systems will allocate a section of memory for each process. The section of memory will have a high address and a low address. All the memory for the process will fit within the high and low addresses. The section will contain four segments; the stack, the heap, data segment and code segment. It can be visualized like the following:
+
 ```txt
 +----------------------------+  <-- High address
 |        Stack               |  <-- Grows downward
