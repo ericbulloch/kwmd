@@ -222,7 +222,7 @@ or
 ' UNION SELECT database(), NULL --  
 ```
 
-
+The commands provided are for different database vendors. I adapt the command based on the information that I got in the previous step. Once a version is know, I can look up a CVE for the specific database version that I have found.
 
 ### SQL Injection Security Measures
 
