@@ -224,6 +224,14 @@ or
 
 The commands provided are for different database vendors. I adapt the command based on the information that I got in the previous step. Once a version is know, I can look up a CVE for the specific database version that I have found.
 
+##### List tables
+
+Now I can finally start to get data from the database. The first step is to get tables. Here is the command I run for MySQL (once again two columns are assumed to be returned):
+
+```sql
+' UNION SELECT table_name, NULL FROM information_schema.tables WHERE table_schema=database() --
+```
+
 ### SQL Injection Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
