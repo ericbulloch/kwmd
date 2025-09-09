@@ -232,6 +232,8 @@ Now I can finally start to get data from the database. The first step is to get 
 ' UNION SELECT table_name, NULL FROM information_schema.tables WHERE table_schema=database() --
 ```
 
+This command will start to find tables for the current database. It is a good place to start.
+
 ### SQL Injection Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
