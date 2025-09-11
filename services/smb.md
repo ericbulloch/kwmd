@@ -1,6 +1,7 @@
 # SMB (Server Message Block)
 
 - [Introduction](#introduction)
+- [Installing smbmap](#installing-smbmap)
 - [Enumeration](#enumeration)
 - [Connecting to Disk](#connecting-to-disk)
 - [Downloading Individual Files](#downloading-individual-files)
