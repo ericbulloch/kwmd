@@ -10,6 +10,14 @@
 
 Server Message Block is commonly used in capture the flag events. It allows users to share files and printers across the network. Enumerating SMB and Samba folders is a gold mine, but I forget the syntax and tools all the time.
 
+## Installing smbmap
+
+The `smbmap` tool can be installed with the following command:
+
+```bash
+$ sudo apt install smbmap
+```
+
 ## Enumeration
 
 It is important to find out what disks are available and if any of them do not require me to log in. I use the smbmap tool to solve this. The following command will discover what shares are available and what the permissions for them are:
