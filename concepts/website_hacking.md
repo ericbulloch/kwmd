@@ -244,6 +244,16 @@ Next I list the columns. This is for strategic purposes. Usually I don't want al
 
 As mentioned before, this will grab all the columns for the `users` table. I'll iterate through all the tables that I need the columns for. This process can take a fair amount of time if I can only get yes and no answers from a blind SQL injection attack.
 
+##### Dump data
+
+Now I can start to pull values from tables. Here is an example of pulling `username` and `password` from the `users` table:
+
+```sql
+' UNION SELECT username, password FROM users --
+```
+
+Columns can be adjusted based on needs.
+
 ### SQL Injection Security Measures
 
 Many input issues can be solved by sanitizing user input and making sure what they type is in an approved range of values. For example, if a person needs to enter their name, don't allow them to use numbers and most of the special characters that are on the keyboard. I also want to point out that security measures need to be on both the frontend of the website and the backend. If only the frontend is preventing certain characters but the backend allows them, it is only a matter of time before an attacker will find this out.
