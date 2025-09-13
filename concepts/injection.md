@@ -235,6 +235,8 @@ $connection->close();
 Below is a simple Python script that asks for a username and password and then runs a sqlite query. I have left the unsafe way to do this commented out to show the difference between the wrong way and a parameterized query.
 
 ```python
+import sqlite3
+
 username = input('username ?')
 password = input('password ?')
 conn = sqlite3.connect("users.db")
