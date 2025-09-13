@@ -7,8 +7,6 @@
   - [Directory Enumeration with Gobuster](#directory-enumeration-with-gobuster)
 - [Forms](#forms)
   - [SQL Injection Example](#sql-injection-example)
-    - [Blind SQL Injection](#blind-sql-injection)
-    - [Manual Step-By-Step SQL Injection Workflow](#manual-step-by-step-sql-injection-workflow)
   - [Command Injection Example](#command-injection-example)
   - [File Upload Forms](#file-upload-forms)
 
