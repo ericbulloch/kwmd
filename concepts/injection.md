@@ -266,3 +266,134 @@ if result:
 else:
     print(f"Invalid username or password")
 ```
+
+### Blind SQL Injection
+
+The `sqlmap` tool uses time-based blind injection attacks to get information from the database. This means that it figures out how long a form submit request takes and then adds a buffer of a second or so when it query returns true. This means that it can perform a potential SQL injection attack to get information and if the response is quick, the query is true. If the response is not quick, the query is false. This way, the tool uses boolean (true and false) logic to get information from the the database without getting the actual result set from the database.
+
+This probably sounds really abstract, so lets try an example. If I find that a form is vulnerable to SQL injection, I can ask it yes and no questions to get answers. Since I want this to be as fast as possible and I am more likely to get a no (or a false) answer, I want to have the yes case cause the response to be slow so that I can confirm that I got a yes (or a true) answer. For this example, lets say that I am using a MySQL database. All MySQL databases have a table called `information_schema`.
+
+I could craft a SQL injection query that has the following:
+
+```sql
+' OR UNION SELECT IF(EXISTS(SELECT 1 FROM information_schema.tables), SLEEP(5), 0), 2--
+```
+
+This query would make the response take 5 extra seconds because the database is MySQL. The query is doing a union select which then checks if selecting 1 from the information_schema.tables happens. In the case that it does return a 1 the query sleeps for 5 seconds. Otherwise it would do nothing.
+
+The `sqlmap` tool is doing something similar to this when it gets data from a vulnerable form. It will ask a question like "Does a table start with a 'u'"? If it does, it will then ask "Does a table start with 'ua'"? If that fails it will try 'ub' until it gets the name of a table like 'users'.
+
+When `sqlmap` dumps a table, it is sending thousands of requests to get column names and values for each record in the table. It is a very slow process but it is much faster than doing it manually. If the page does show the results from a query, `sqlmap` is smart enough to parse the results and hand them over.
+
+### Manual Step-By-Step SQL Injection Workflow
+
+- Test for SQL injection vulnerability.
+- Find the number of columns.
+- Confirm injection with time based attack.
+- Identify the database version.
+- List tables.
+- List columns.
+- Dump data.
+
+#### Test for SQL Injection vulnerability
+
+To test for SQL injection add the following as a value to a input field on a form:
+
+```sql
+' OR '1'='1' --
+```
+
+or
+
+```sql
+' OR 'a'='a' --
+```
+
+These should look familiar as one was used above when talking about manually checking for SQL injection. If the login succeeds or an error message appears this likely means there is a SQL injection vulnerability.
+
+#### Find the number of columns
+
+To test for the number of columns I'll add an order by statement. I'll keep adding one to the column count and once there is an exception I'll know how many columns there are. Here are some samples of what I mean by adding an order by statement in the input field of the login form:
+
+```sql
+' ORDER BY 1 --        # test if at least 1 column exists
+' ORDER BY 2 --        # test if at least 2 columns exist
+' ORDER BY 3 --        # keep going until error
+```
+
+or
+
+```sql
+' UNION SELECT NULL --  
+' UNION SELECT NULL, NULL --  
+' UNION SELECT NULL, NULL, NULL --  
+```
+
+#### Confirm injection with time based attack
+
+Now that I know the column count, I can add the SLEEP command as part of a union select statement. If there is a delay, then the injection has been confirmed.
+
+```sql
+' UNION SELECT SLEEP(5), NULL--  
+```
+
+or
+
+```sql
+' OR IF(1=1, SLEEP(5), 0)--  
+```
+
+**NOTE**: not all database management systems (DBMS) have the same SLEEP function. For example, PostgreSQL uses `pg_sleep`. If SLEEP doesn't work I'll try out other ones. Here is a table of the different ones:
+
+| DBMS | Sleep Function |
+| --- | --- |
+| MySQL | SLEEP |
+| PostgreSQL | pg_sleep |
+| SQL Server | WAITFOR DELAY |
+| Oracle | DBMS_SESSION.SLEEP |
+
+#### Identify the database version
+
+To find the database version, run one of the following commands (it assumed there were two columns being returned so a null was included in the select):
+
+```sql
+' UNION SELECT @@version, NULL --  
+```
+
+or
+
+```sql
+' UNION SELECT database(), NULL --  
+```
+
+The commands provided are for different database vendors. I adapt the command based on the information that I got in the previous step. Once a version is know, I can look up a CVE for the specific database version that I have found.
+
+#### List tables
+
+Now I can finally start to get data from the database. The first step is to get tables. Here is the command I run for MySQL (once again two columns are assumed to be returned):
+
+```sql
+' UNION SELECT table_name, NULL FROM information_schema.tables WHERE table_schema=database() --
+```
+
+This command will start to find tables for the current database. It is a good place to start.
+
+#### List columns
+
+Next I list the columns. This is for strategic purposes. Usually I don't want all the data from all the columns because that can be really slow when dumping an entire table. I list out the columns so that I can pick which ones will probably have really good data. Here is the command to get columns for the `users` table in MySQL:
+
+```sql
+' UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name='users' --
+```
+
+As mentioned before, this will grab all the columns for the `users` table. I'll iterate through all the tables that I need the columns for. This process can take a fair amount of time if I can only get yes and no answers from a blind SQL injection attack.
+
+#### Dump data
+
+Now I can start to pull values from tables. Here is an example of pulling `username` and `password` from the `users` table:
+
+```sql
+' UNION SELECT username, password FROM users --
+```
+
+Columns can be adjusted based on needs.
