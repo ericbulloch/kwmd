@@ -114,7 +114,7 @@ PORT     STATE SERVICE VERSION
 
 I would start at the top of the port listing and work my way down. So I would see that ssh is running on port 22. I would try to ssh to that port and note if it allowed password authentication or if it was expecting and ssh key. I would note the response either way. I would also do a search to see if OpenSSH 7.2p2 has a vulnerability.
 
-After that, I would move on to port 80. This time I would following my [web hacking](/concepts/web_hacking.md) notes on my [concepts](/concepts) page.
+After that, I would move on to port 80. This time I would following my [website hacking](/concepts/website_hacking.md) notes on my [concepts](/concepts) page.
 
 ### FTP (File Transfer Protocol)
 
@@ -253,6 +253,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
