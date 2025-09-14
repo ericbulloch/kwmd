@@ -88,6 +88,34 @@ An explaination about this command can be found in the link above.
 
 Once I have output from this command, I look at the services that are running on each port. From here it is a matter of using the information that I have documented for each service that is running and trying to find more and more things for the attack surface. The goal is to try hacking what I find and noting anything that might be useful. It is very common to find credentials on a website that will work on the FTP server. I then might find credentials on the FTP server that can be used in the POP3 service which leads to credentials for the admin portal on the website.
 
+The nmap tool gave me the following output:
+
+```bash
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 cd:d9:c0:87:11:dc:40:53:4e:b9:ce:54:bb:cf:26:52 (RSA)
+|   256 e1:18:eb:5d:ae:b8:c3:a1:e5:0b:73:6b:21:dd:18:29 (ECDSA)
+|_  256 7e:b2:13:a5:ad:05:32:88:1a:22:e6:27:f1:50:16:b4 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: POST OPTIONS GET HEAD
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+1234/tcp open  http    Apache Tomcat/Coyote JSP engine 1.1
+|_http-favicon: Apache Tomcat
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache-Coyote/1.1
+|_http-title: xxxxx xxxxxx/x.x.xx
+8009/tcp open  ajp13   Apache Jserv (Protocol v1.3)
+|_ajp-methods: Failed to get a valid response for the OPTION request
+```
+
+I would start at the top of the port listing and work my way down. So I would see that ssh is running on port 22. I would try to ssh to that port and note if it allowed password authentication or if it was expecting and ssh key. I would note the response either way. I would also do a search to see if OpenSSH 7.2p2 has a vulnerability.
+
+After that, I would move on to port 80. This time I would following my [web hacking](/concepts/web_hacking.md) notes on my [concepts](/concepts) page.
+
 ### FTP (File Transfer Protocol)
 
 I have included a tool write up for the [ftp tool](tools/ftp.md) in my [tools](tools/README.md) section. It covers the some of the more common scenarios that I have found during capture the flag events.
@@ -225,6 +253,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
