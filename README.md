@@ -76,7 +76,15 @@ This does not solve all my problems. There are two scenarios where I couldn't ju
 
 ### Port Scanning, Banner Grabbing and Finger Printing
 
-I have added information about this on my [nmap tool](tools/nmap.md#port-scans) page in the Port Scans section.
+I need to know what services are running on a machine. This is done with a combination of port scanning, banner grabbing and finger printing. Ports on computers are how network connections are established.
+
+A program like [nmap](/tools/nmap.md), will scan the machine to see what ports are open - they are ready to receive a network connection. Once a port is determined to be open, [nmap](/tools/nmap.md) can send requests with different payloads to determine what software service is running. It can then report that information back to me so that I can note it and perform the next steps.
+
+Some responses from services will say things like `vsftpd 3.0.3` when a port scanner tries to connect. If a port responds with the software name and version, that is called banner grabbing. The software is telling me what is running (i.e. vsftpd) and the version number (i.e. 3.0.3).
+
+Since not all software responds in the same way, the port scanner can send different payloads to determine what is running. It will compare the responses to a list of known responses in a database. This process is called finger printing.
+
+I have added information about this on my [nmap tool](/tools/nmap.md#port-scans) page in the Port Scans section.
 
 I ususally just run the following command:
 
@@ -253,6 +261,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
