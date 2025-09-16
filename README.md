@@ -74,7 +74,7 @@ This does not solve all my problems. There are two scenarios where I couldn't ju
 - A box will require a specific hostname to access their site and any subdomains. In this case, I added their specific domain name to my host file using the command above.
 - A box has a vulnerability that calls out to the url that I provide. Since the target machine does not have target.thm in their host file it will fail to resolve an ip address. In this case, I will just provide the ip address of the target machine.
 
-### Port Scanning and Fingerprinting
+### Port Scanning, Banner Grabbing and Finger Printing
 
 I have added information about this on my [nmap tool](tools/nmap.md#port-scans) page in the Port Scans section.
 
@@ -253,6 +253,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
