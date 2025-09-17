@@ -1,5 +1,9 @@
 # mysql
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Examples](#examples)
+
 ## Introduction
 
 Tool used to connect to MySQL instances to run queries and perform maintenance. I have included query examples here even though they are not specific to this tool.
