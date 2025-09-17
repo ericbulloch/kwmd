@@ -3,6 +3,7 @@
 - [Introduction](#introduction)
 - [Usage](#usage)
 - [Examples](#examples)
+- [MySQL Examples](#mysql-examples)
 
 ## Introduction
 
