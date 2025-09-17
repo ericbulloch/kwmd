@@ -253,9 +253,9 @@ An important note, if the file owner doesn't have execute permissions, the execu
 
 Much like the user SUID bit, the group SUID bit is a special permission causes the file to execute as the group who owns the file. This happens regardless of the user passing the command.
 
-If the group SUID bit is set on a directory, any files created in the directory will have their group ownership set to that of the directory owner.
+If the group SGID bit is set on a directory, any files created in the directory will have their group ownership set to that of the directory owner.
 
-This is handy in cases where members of a group are collaborating. Any member of the group can access any new file within the folder.
+This is handy in cases where members of a group are collaborating. Any member of the group can access any new file within the folder because the file is set to the group owner.
 
 An important note, just like the SUID bit, if the file group doesn't have execute permissions, the execute bit will be `S`.
 
