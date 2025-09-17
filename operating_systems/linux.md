@@ -10,6 +10,7 @@ I wanted to list some concepts, terms and flows that are specific to Linux. Lear
 - [Permissions](/operating_systems/linux.md#permissions)
   - [File Type](#file-type)
   - [User, Group and Everyone Permissions](#user-group-and-everyone-permissions)
+    - [Regarding folders](#regarding-folders)
   - [Interesting Cases](#interesting-cases)
   - [User SUID](#user-suid)
   - [Group SGID](#group-sgid)
