@@ -202,6 +202,16 @@ So if I had a file line that started like this:
 
 I can determine this is a regular file (the `-` at the beginning). The user has read, write and execute permissions (the first 3 characters after the file type `rwx`). The group has read and write permissions but not execute permission (the next 3 characters after the user permissions `rw-`). The everyone group has read permission but not write and execute permissions (the next 3 characters after the group permissions `r--`).
 
+#### Regarding folders
+
+The permission structure that is described is for files. Folders are similar but they have two differences that are important to discuss.
+
+If a folder has the `x` or execute permission, I can `cd` into that folder. I can also access files in that folder if I know their name.
+
+If a folder has the `r` or read permission, I can list the contents of the directory.
+
+It is possible that a user has permission to execute a folder and files in the directory but they don't have read permission. If that is the case, the user can enter a directory and access files in the directory (if the user knows the name of the files) but not list them.
+
 ### Interesting cases
 
 As already mentioned, the root user is the user with the highest privileges on a Linux system. If a file or folder is owned by the root user or group you generally can't delete that file or folder when you aren't root. Here is an example where that is not the case.
