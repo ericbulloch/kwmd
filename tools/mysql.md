@@ -232,3 +232,17 @@ and boolean options {FALSE|TRUE}          Value (after reading options)
 | --- | --- |
 | Connect to local instance. | `mysql -u myUser -p` |
 | Connect to remote instance. | `mysql -h 10.10.1.100 -u myUser -p` |
+
+## MySQL Examples
+
+| Use Case | Command |
+| --- | --- |
+| Show databases. | `show databases;` |
+| Create database. | `CREATE DATABASE [database];` |
+| Use database. | `USE [database];` |
+| Show what database is in use. | `SELECT DATABASE();` |
+| Show tables. | `SHOW tables;` |
+| Show the structure of a table. | `DESCRIBE [table];` |
+| Show the indexes of a table. | `SHOW INDEX FROM [table];` |
+| Select everything from a table. | `SELECT * FROM [table];` |
+| Select just the id and name columns from a table. | `SELECT id, name FROM [table];` |
