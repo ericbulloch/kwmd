@@ -17,6 +17,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [linpeas](linpeas.md)
 - [msfconsole](msfconsole.md)
 - [msfvenom](msfvenom.md)
+- [mysql](mysql.md)
 - [nc](netcat.md)
 - [netstat](netstat.md)
 - [nikto](nikto.md)
