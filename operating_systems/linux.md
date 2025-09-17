@@ -180,7 +180,7 @@ The file type if the left most piece of information. It give context to the othe
 - The lines that start with a `-` are files. This includes scripts, images, configuration files and spreadsheets.
 - The lines that start with a `l` are symbolic links. This are files that point to another file. They are used a lot of time for convenience.
 
-### User, Group and Everyone Permissions
+### User, Group and Everyone (Others) Permissions
 
 The next 9 characters after the file type are the user, group and everyone permissions. The user permissions are 3 characters, the group permissions are 3 characters and the everyone permissions are 3 characters.
 
