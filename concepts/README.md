@@ -9,6 +9,7 @@ There are so many processes, ideas, tools, techniques and parts. This folder is 
 - [Buffer Overflow](buffer_overflow.md)
 - [Canary Tokens](canary_tokens.md)
 - [Cryptography](cryptography.md)
+- [Databases](databases.md)
 - [Google Dorking](google_dorking.md)
 - [Injection](injection.md)
 - [Networking](networking.md)
