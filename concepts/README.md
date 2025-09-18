@@ -13,4 +13,5 @@ There are so many processes, ideas, tools, techniques and parts. This folder is 
 - [Injection](injection.md)
 - [Networking](networking.md)
 - [Privilege Escalation](privilege_escalation.md)
+- [Python](python.md)
 - [Website Hacking](website_hacking.md)
