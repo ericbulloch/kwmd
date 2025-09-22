@@ -120,7 +120,7 @@ So if I wanted to call someone I had a list of steps that I would follow to get 
 
 Each step is a type of cache and it is more efficient than the next step. At any step, a person could find the number and write it down at one of the higher steps. I got the following step-by-step diagram from AI to help clarify this:
 
-```sql
+```txt
 (0) You want "Alice's" phone number
     │
     ▼
