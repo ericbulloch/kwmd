@@ -273,7 +273,7 @@ As you can see above, the `t` sticky bit is shown in the execute permission grou
 
 ### Changing permissions
 
-Changing the permissions of a folder or file is very easy to do. There are two different notations that can be used to alter the permissions of a file. I'll talk about both of them. The two notations are symbolic notation and octal notation. I'll start with symbolic notation.
+Changing the permissions of a folder or file is very easy to do. The `chmod` command changes permissions for a file or directory. There are two different notations that can be used to alter the permissions of a file or directory with the `chmod` command. I'll talk about both of them. The two notations are symbolic notation and octal notation. I'll start with symbolic notation.
 
 As already mentioned, permissions are grouped into three symbols to determine the user, group and other permissions for a file of folder. In symbolic notation, I provide a symbol to specify if I am doing something for the user, group or other class of permissions. I also provide an operator to specify if I want to add or remove a permissions. Finally, I provide a symbol to mention if it is for read, write or execute.
 
@@ -311,7 +311,7 @@ $ ls -l .
 -r-------- . kwmd kwmd 108 Sep 22  2025 file1.txt
 ```
 
-Here are some commands and what it would result in:
+Here are some `chmod` commands with symbolic notation and what it would result in:
 
 | Command | Result |
 | --- | --- |
@@ -358,7 +358,7 @@ $ ls -l .
 -r-------- . kwmd kwmd 108 Sep 22  2025 file1.txt
 ```
 
-Here are some commands and what it would result in:
+Here are some `chmod` commands with octal notation and what it would result in:
 
 | Command | Result |
 | --- | --- |
