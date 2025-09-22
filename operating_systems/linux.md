@@ -15,6 +15,7 @@ I wanted to list some concepts, terms and flows that are specific to Linux. Lear
   - [User SUID](#user-suid)
   - [Group SGID](#group-sgid)
   - [Sticky bit](#sticky-bit)
+  - [Changing permissions](#changing-permissions)
 - [Privilege Escalation](#privilege-escalation)
 - [Systemctl](#systemctl)
 - [Crons](#crons)
@@ -307,10 +308,27 @@ I have a file with the following permissions:
 
 ```bash
 $ ls -l .
--r-------- . kwmd kwmd 108 Sep 22  2025 /home/kwmd/file1.txt
+-r-------- . kwmd kwmd 108 Sep 22  2025 file1.txt
 ```
 
-The file only has read permissions for my user. If I wanted my user to also write to the file
+Here are some commands and what it would result in:
+
+| Command | Result |
+| --- | --- |
+| `$ chmod u-r file1.txt` | Removes read permission for my user. |
+| `$ chmod u+w file1.txt` | Add write permission for my user. |
+| `$ chmod u+x file1.txt` | Add execute permission for my user. |
+| `$ chmod g+r file1.txt` | Add read permission for the group. |
+| `$ chmod g+w file1.txt` | Add write permission for the group. |
+| `$ chmod g+x file1.txt` | Add execute permission for the group. |
+| `$ chmod o+r file1.txt` | Add read permission for others. |
+| `$ chmod o+w file1.txt` | Add write permission for others. |
+| `$ chmod o+x file1.txt` | Add execute permission for others. |
+| `$ chmod a+r file1.txt` | Add read permission for my user, the group and others. |
+| `$ chmod a+w file1.txt` | Add write permission for my user, the group and others. |
+| `$ chmod a+x file1.txt` | Add execute permission for my user, the group and others. |
+| `$ chmod ug+w file1.text` | Add write permission for my user and the group. |
+| `$ chmod ug=rw file1.text` | Set the read and write permissions for my user and the group. |
 
 ## Privilege Escalation
 
