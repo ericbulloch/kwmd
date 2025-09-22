@@ -44,30 +44,15 @@ The three-way handshake is used by TCP to create a connection between two machin
 This ladder diagram makes it easy to visualize what is going on with the handshake:
 
 ```yaml
-Client (C)                                           Server (S)
-----------                                           ----------
-State: CLOSED                                        State: LISTEN
-
-Step 1: SYN
-C picks an Initial Sequence Number x
-C → S :  SYN, Seq = x, Options: MSS/WS/SACK/TS...
------------>---------------------------------------->
-State: SYN-SENT                                      State: SYN-RECEIVED
-                                                     (S allocates state; picks ISN y)
-
-Step 2: SYN-ACK
-S → C :  SYN, ACK, Seq = y, Ack = x + 1, (same options)
-<-----------------------------------------<----------
-State: SYN-SENT (awaiting final ACK)                 State: SYN-RECEIVED
-
-Step 3: ACK  (no payload)
-C → S :  ACK, Seq = x + 1, Ack = y + 1
------------>---------------------------------------->
-State: ESTABLISHED                                   State: ESTABLISHED
-
-(Handshake complete; data can flow)
-C → S :  Payload (e.g., HTTP GET), Seq = x + 1, Ack = y + 1
------------>---------------------------------------->
+Client                                Server
+  |                                     |
+  | ----------- SYN ------------------> |  (Step 1: Client sends SYN to initiate connection)
+  |                                     |
+  | <-------- SYN-ACK ----------------- |  (Step 2: Server acknowledges SYN and sends its own SYN)
+  |                                     |
+  | ----------- ACK ------------------> |  (Step 3: Client acknowledges server's SYN)
+  |                                     |
+Connection Established            Connection Established
 ```
 
 ## UDP
