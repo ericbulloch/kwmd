@@ -270,6 +270,48 @@ drwxrwxrwt 15 root root 4.0K Jan 11 08:57 /tmp/
 
 As you can see above, the `t` sticky bit is shown in the execute permission group for everyone.
 
+### Changing permissions
+
+Changing the permissions of a folder or file is very easy to do. There are two different notations that can be used to alter the permissions of a file. I'll talk about both of them. The two notations are symbolic notation and octal notation. I'll start with symbolic notation.
+
+As already mentioned, permissions are grouped into three symbols to determine the user, group and other permissions for a file of folder. In symbolic notation, I provide a symbol to specify if I am doing something for the user, group or other class of permissions. I also provide an operator to specify if I want to add or remove a permissions. Finally, I provide a symbol to mention if it is for read, write or execute.
+
+Here are the symbols and their meaning for the class permissions:
+
+| Symbol | Meaning |
+| --- | --- |
+| u | User permissions for the file or folder. |
+| g | Group permissions for the file or folder. |
+| o | Other permissions for the file or folder. |
+| a | All three symbols (same as ugo) permissions for the file or folder. |
+
+Here are the operator symbols and their meaning:
+
+| Symbol | Meaning |
+| --- | --- |
+| + | Add operator/flag. |
+| - | Remove operator/flag. |
+| = | Sets the operator/flag and denies others. |
+
+Here are the permission symbols and their meaning:
+
+| Symbol | Meaning |
+| --- | --- |
+| r | Read permission. |
+| w | Write permission. |
+| x | Execute permission. |
+| s | Set SUID or SGID bit. |
+| t | Set sticky bit. |
+
+I have a file with the following permissions:
+
+```bash
+$ ls -l .
+-r-------- . kwmd kwmd 108 Sep 22  2025 /home/kwmd/file1.txt
+```
+
+The file only has read permissions for my user. If I wanted my user to also write to the file
+
 ## Privilege Escalation
 
 I have noted the process I use for [Linux privilege escalation](/concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](/concepts/README.md) directory.
