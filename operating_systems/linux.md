@@ -330,6 +330,45 @@ Here are some commands and what it would result in:
 | `$ chmod ug+w file1.text` | Add write permission for my user and the group. |
 | `$ chmod ug=rw file1.text` | Set the read and write permissions for my user and the group. |
 
+Symbolic notation is great but I generally use octal notation when dealing with permissions. In octal notation the read, write and execute permissions can be thought of a binary number with a length of three bits. The first bit represents the read permission, the second bit represents the write permission and finally the third bit represents the execute permission.
+
+If the permission is given than the value of that bit is a 1 otherwise it is a 0. To make this more clear, here is a table to show the eight possible combinations for permissions:
+
+| Permission | Decimal value | Binary string | Equation | Explaination |
+| --- | --- | --- | --- | --- |
+| `---` | 0 | 000 | 0 + 0 + 0 | No read, write or execute permissions. |
+| `--x` | 1 | 001 | 0 + 0 + 1 | It does have execute permissions. No read or write permissions. |
+| `-w-` | 2 | 010 | 0 + 2 + 0 | It does have write permissions. No read or execute permissions. |
+| `-wx` | 3 | 011 | 0 + 1 + 1 | It does have write and execute permissions. No read permissions. |
+| `r--` | 4 | 100 | 4 + 0 + 0 | It does have read permissions. No write or execute permissions. |
+| `r-x` | 5 | 101 | 4 + 0 + 1 | It does have read and execute permissions. No write permissions. |
+| `rw-` | 6 | 000 | 4 + 2 + 0 | It does have read and write permissions. No execute permissions. |
+| `rwx` | 7 | 111 | 4 + 2 + 1 | It does have read, write and execute permissions. |
+
+This determines the permissions for just the user, group or others. I repeat the process for each class. So a permission of `754` means the following:
+
+- The user has read, write and execute permissions. The `7` part of `754`.
+- The group has read and write permissions. The `5` part of `754`.
+- The others have read permissions. The `4` part of `754`.
+
+I have a file with the following permissions:
+
+```bash
+$ ls -l .
+-r-------- . kwmd kwmd 108 Sep 22  2025 file1.txt
+```
+
+Here are some commands and what it would result in:
+
+| Command | Result |
+| --- | --- |
+| `$ chmod 000 file1.txt` | Removes all permissions from user, group and others. |
+| `$ chmod 333 file1.txt` | Sets write and execute permissions for user, group and others. |
+| `$ chmod 666 file1.txt` | Sets read and write permissions for user, group and others. |
+| `$ chmod 777 file1.txt` | Sets read, write and execute permissions for user, group and others. |
+| `$ chmod 700 file1.txt` | Sets read, write and execute permissions for user. |
+| `$ chmod 755 file1.txt` | Sets read, write and execute permissions for user. Sets read and execute permissions for group and others. |
+
 ## Privilege Escalation
 
 I have noted the process I use for [Linux privilege escalation](/concepts/privilege_escalation.md#linux-privilege-escalation) in the [concepts](/concepts/README.md) directory.
