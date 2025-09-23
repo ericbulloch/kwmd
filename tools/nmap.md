@@ -251,4 +251,20 @@ An nmap scan can be frustrated by a firewall. Firewalls can filter traffic based
 - Source Address
 - MAC Address
 
+Here are some of the nmap options that help evade a firewall so that a target machine can get scanned:
 
+### Use Decoy IP Addresses
+
+As mentioned above a firewall might block traffic to a machine if it is coming from the wrong source ip address. The nmap tool has the `-D` option that can be used to source ip addresses that act as a decoy. I can specify the decoy addresses that I would like to use and what order I want them sent. I can also have nmap generate a decoy ip address for me. The examples below are using the following criteria:
+
+- The target is located at `10.10.10.10`.
+- Nmap is running a SYN scan (`-sS`).
+- I want to skip host discovery checks (`-Pn`).
+- I want to check the first 100 ports (`-F`).
+
+| Command | Explaination |
+| --- | --- |
+| `nmap -sS -Pn -F -D 10.10.1.1,192.168.1.1,ME 10.10.10.10` | The command is including two decoy ip addresses (`10.10.1.1` and `192.168.1.1`). The `ME` part of the decoy addresses is my machine's ip address. The scans will start with the `10.10.1.1` ip address and then use `192.168.1.1` and then finish with my ip address. |
+| `nmap -sS -Pn -F -D 10.10.1.1,192.168.1.1 10.10.10.10` | This is the same command as the one before except I didn't specify where in the decoy ordering my ip address should go. Nmap will pick when it gets ran for me. |
+| `nmap -sS -Pn -F -D RND,10.10.1.1,ME 10.10.10.10` | This command will generate a random ip address and then run `10.10.1.1` before finishing with my ip address. |
+| `nmap -sS -Pn -F -D RND,10.10.1.1 10.10.10.10` | This command is the same as the previous command except my ip address will be ran randomly between the three decoy addresses. |
