@@ -3,6 +3,9 @@
 - [Introduction](#introduction)
 - [Usage](#usage)
 - [Port Scans](#port-scans)
+  - [Known Machine IP Address](#known-machine-ip-address)
+    - [Initial TCP Scan](#initial-tcp-scan)
+    - [UDP Scan](#udp-scan)
 - [Firewall Evasion](#firewall-evasion)
 
 ## Introduction
@@ -247,4 +250,5 @@ An nmap scan can be frustrated by a firewall. Firewalls can filter traffic based
 - Protocol
 - Source Address
 - MAC Address
+
 
