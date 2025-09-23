@@ -3,6 +3,7 @@
 - [Introduction](#introduction)
 - [Usage](#usage)
 - [Port Scans](#port-scans)
+- [Firewall Evasion](#firewall-evasion)
 
 ## Introduction
 
@@ -238,4 +239,12 @@ $ nmap -p- -sU -Pn -T5 -v target.thm
 ```
 
 This command is the same as the [original known machine ip address scan](#original-tcp-scan) command above except the `-sU` option has been added to let nmap know I want a UDP scan instead.
+
+## Firewall Evasion
+
+An nmap scan can be frustrated by a firewall. Firewalls can filter traffic based on a large range of criteria. Fortunately nmap has options that can be used to get information about open ports on machines. Some of the criteria that a firewall filters on include:
+
+- Protocol
+- Source Address
+- MAC Address
 
