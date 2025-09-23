@@ -280,3 +280,10 @@ I can also run my scan from behind a proxy. I just need to specify the proxy add
 $ nmap -sS -Pn -F --proxies 10.200.20.3 10.10.10.10
 ```
 
+### Spoof MAC Address
+
+I can spoof the MAC Address of my source machine with the `--spoof-mac` flag. Here is an example that specifies a MAC Address for a network interface card that was developed by Dell:
+
+```bash
+$ nmap -sS -Pn -F --spoof-mac Dell 10.10.10.10
+```
