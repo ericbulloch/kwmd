@@ -292,6 +292,31 @@ I can spoof the MAC address of my source machine with the `--spoof-mac` flag. He
 $ nmap -sS -Pn -F --spoof-mac Dell 10.10.10.10
 ```
 
+#### Common Spoof MAC Address Values
+
+| Value | Description |
+| --- | --- |
+| 0 | Random MAC address (fully random). |
+| apple | Apple, Inc. |
+| cisco | Cisco Systems. |
+| juniper | Juniper Networks. |
+| intel | Intel Corporation. |
+| microsoft | Microsoft. |
+| vmware | VMware, Inc. |
+| xerox | Xerox Corporation. |
+| oracle | Oracle Corporation. |
+| ibm | IBM. |
+| hp | Hewlett-Packard. |
+| netgear | NETGEAR. |
+| belkin | Belkin International. |
+| nintendo | Nintendo. |
+| sony | Sony. |
+| samsung | Samsung Electronics. |
+| huawei | Huawei Technologies. |
+| xiaomi | Xiaomi. |
+| alcatel | Alcatel. |
+| dell | Dell Inc. |
+
 ### Spoof IP Address
 
 I can also spoof the ip address of my source machine with the `-S` flag. Here is an example that uses `192.168.1.17` as the spoofed ip address:
@@ -299,4 +324,5 @@ I can also spoof the ip address of my source machine with the `-S` flag. Here is
 ```bash
 $ nmap -sS -Pn -F -S 192.168.1.17 10.10.10.10
 ```
+
 
