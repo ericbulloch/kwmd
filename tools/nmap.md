@@ -268,3 +268,12 @@ As mentioned above a firewall might block traffic to a machine if it is coming f
 | `nmap -sS -Pn -F -D 10.10.1.1,192.168.1.1 10.10.10.10` | This is the same command as the one before except I didn't specify where in the decoy ordering my ip address should go. Nmap will pick when it gets ran for me. |
 | `nmap -sS -Pn -F -D RND,10.10.1.1,ME 10.10.10.10` | This command will generate a random ip address and then run `10.10.1.1` before finishing with my ip address. |
 | `nmap -sS -Pn -F -D RND,10.10.1.1 10.10.10.10` | This command is the same as the previous command except my ip address will be ran randomly between the three decoy addresses. |
+| `nmap -sS -Pn -F -D RND,RND,ME,RND 10.10.10.10` | This command runs two random ip addresses before running my ip address and then finishing with another random ip address. |
+
+### Proxy URL
+
+I can also run my scan from behind a proxy. I just need to specify the proxy address with the `--proxies` flag. Multiple proxies can be specified. Here is an example that uses `10.200.20.3` as the proxy address:
+
+```bash
+$ nmap -sS -Pn -F --proxies 10.200.20.3 10.10.10.10
+```
