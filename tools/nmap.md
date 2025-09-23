@@ -285,9 +285,16 @@ $ nmap -sS -Pn -F --proxies 10.200.20.3 10.10.10.10
 
 ### Spoof MAC Address
 
-I can spoof the MAC Address of my source machine with the `--spoof-mac` flag. Here is an example that specifies a MAC Address for a network interface card that was developed by Dell:
+I can spoof the MAC address of my source machine with the `--spoof-mac` flag. Here is an example that specifies a MAC address for a network interface card that was developed by Dell:
 
 ```bash
 $ nmap -sS -Pn -F --spoof-mac Dell 10.10.10.10
 ```
 
+### Spoof IP Address
+
+I can also spoof the ip address of my source machine with the `-S` flag. Here is an example that uses `192.168.1.17` as the spoofed ip address:
+
+```bash
+$ nmap -sS -Pn -F -S 192.168.1.17 10.10.10.10
+```
