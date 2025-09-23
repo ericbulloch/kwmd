@@ -7,6 +7,9 @@
     - [Initial TCP Scan](#initial-tcp-scan)
     - [UDP Scan](#udp-scan)
 - [Firewall Evasion](#firewall-evasion)
+  - [Use Decoy IP Addresses](#use-decoy-ip-addresses)
+  - [Proxy URL](#proxy-url)
+  - [Spoof MAC Address](#spoof-mac-address)
 
 ## Introduction
 
@@ -287,3 +290,4 @@ I can spoof the MAC Address of my source machine with the `--spoof-mac` flag. He
 ```bash
 $ nmap -sS -Pn -F --spoof-mac Dell 10.10.10.10
 ```
+
