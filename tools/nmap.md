@@ -251,16 +251,18 @@ An nmap scan can be frustrated by a firewall. Firewalls can filter traffic based
 - Source Address
 - MAC Address
 
-Here are some of the nmap options that help evade a firewall so that a target machine can get scanned:
-
-### Use Decoy IP Addresses
-
-As mentioned above a firewall might block traffic to a machine if it is coming from the wrong source ip address. The nmap tool has the `-D` option that can be used to source ip addresses that act as a decoy. I can specify the decoy addresses that I would like to use and what order I want them sent. I can also have nmap generate a decoy ip address for me. The examples below are using the following criteria:
+I will provide examples below that use the following information:
 
 - The target is located at `10.10.10.10`.
 - Nmap is running a SYN scan (`-sS`).
 - I want to skip host discovery checks (`-Pn`).
 - I want to check the first 100 ports (`-F`).
+
+Here are some of the nmap options that help evade a firewall so that a target machine can get scanned:
+
+### Use Decoy IP Addresses
+
+As mentioned above a firewall might block traffic to a machine if it is coming from the wrong source ip address. The nmap tool has the `-D` option that can be used to source ip addresses that act as a decoy. I can specify the decoy addresses that I would like to use and what order I want them sent. I can also have nmap generate a decoy ip address for me. Here are some examples:
 
 | Command | Explaination |
 | --- | --- |
@@ -277,3 +279,4 @@ I can also run my scan from behind a proxy. I just need to specify the proxy add
 ```bash
 $ nmap -sS -Pn -F --proxies 10.200.20.3 10.10.10.10
 ```
+
