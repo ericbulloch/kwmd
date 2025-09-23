@@ -10,6 +10,7 @@
   - [Use Decoy IP Addresses](#use-decoy-ip-addresses)
   - [Proxy URL](#proxy-url)
   - [Spoof MAC Address](#spoof-mac-address)
+    - [Common Spoof MAC Address Values](#common-spoof-mac-address-values)
   - [Spoof IP Address](#spoof-ip-address)
 
 ## Introduction
@@ -324,5 +325,3 @@ I can also spoof the ip address of my source machine with the `-S` flag. Here is
 ```bash
 $ nmap -sS -Pn -F -S 192.168.1.17 10.10.10.10
 ```
-
-
