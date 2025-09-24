@@ -349,11 +349,23 @@ Some firewalls, intrusion detection systems (IDS) and intrusion prevention syste
 Nmap has the `-f` and `-ff` options to fragment packets. The `-f` option will fragment the packet to carry only 8 bytes of data. The `-ff` option will double it to 16. For a SYN packet the headers are 20 bytes and so each packet will be 28 or 36 bytes when using the `-f` or `-ff` options respectively. Here is an example to limit the packets to 8 bytes of data:
 
 ```bash
-$ nmap -sS -Pn -F -f 8080 10.10.10.10
+$ nmap -sS -Pn -F -f 10.10.10.10
 ```
 
 Or the following to limit the packets to 16 bytes of data:
 
 ```bash
-$ nmap -sS -Pn -F -ff 8080 10.10.10.10
+$ nmap -sS -Pn -F -ff 10.10.10.10
+```
+
+Packet lengths can also be set by setting the `--mtu` option. I provide it a value that must be a multiple of 8. So I would run the following commands to do the same thing as the previous commands.
+
+```bash
+$ nmap -sS -Pn -F --mtu 8 10.10.10.10
+```
+
+and
+
+```bash
+$ nmap -sS -Pn -F --mtu 16 10.10.10.10
 ```
