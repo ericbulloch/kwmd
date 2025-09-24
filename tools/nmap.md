@@ -12,6 +12,7 @@
   - [Spoof MAC Address](#spoof-mac-address)
     - [Common Spoof MAC Address Values](#common-spoof-mac-address-values)
   - [Spoof IP Address](#spoof-ip-address)
+  - [Specify Source Port Number](#specify-source-port-number)
 
 ## Introduction
 
@@ -326,7 +327,7 @@ I can also spoof the ip address of my source machine with the `-S` flag. Here is
 $ nmap -sS -Pn -F -S 192.168.1.17 10.10.10.10
 ```
 
-### Use Specific Source Port Number
+### Specify Source Port Number
 
 Another rule that firewalls often check if the source and destination ports of traffic. It is a common rule for a firewall to block traffic based on the source port. Nmap uses the `-g` or `--source-port` option to specify a source port number. Here is a scan that uses source port 8080:
 
@@ -339,3 +340,4 @@ Or the other switch:
 ```bash
 $ nmap -sS -Pn -F --source-port 8080 10.10.10.10
 ```
+
