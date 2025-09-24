@@ -14,6 +14,7 @@
   - [Spoof IP Address](#spoof-ip-address)
   - [Specify Source Port Number](#specify-source-port-number)
   - [Fragment Packets](#fragment-packets)
+  - [Specify TCP Segment](#specify-tcp-segment)
 
 ## Introduction
 
@@ -368,4 +369,12 @@ and
 
 ```bash
 $ nmap -sS -Pn -F --mtu 16 10.10.10.10
+```
+
+## Specify TCP Segment
+
+Some firewalls will block small packet request because they appear as scans. Nmap provides a way to specify the size of a packet. The `--data-length` option sets how large the TCP segment will be. This must be a multiple of 8. If I specify 128 bytes for the data length, then my packet will be 148 bytes. Here is an example using 128 bytes:
+
+```bash
+$ nmap -sS -Pn -F --data-length 128 10.10.10.10
 ```
