@@ -13,6 +13,7 @@
     - [Common Spoof MAC Address Values](#common-spoof-mac-address-values)
   - [Spoof IP Address](#spoof-ip-address)
   - [Specify Source Port Number](#specify-source-port-number)
+  - [Fragment Packets](#fragment-packets)
 
 ## Introduction
 
@@ -341,3 +342,8 @@ Or the other switch:
 $ nmap -sS -Pn -F --source-port 8080 10.10.10.10
 ```
 
+## Fragment Packets
+
+Some firewalls, intrusion detection systems (IDS) and intrusion prevention systems (IPS) can be bypassed using fragment packets. This is when the packets are smaller and the firewall or IDS/IPS doesn't reassemble the fragment packets before passing them on to the target. The target will reassemble the fragment packets in order to process the request.
+
+Nmap has the `-f` and `-ff` options to fragment packets. The `-f` option will fragment the packet to carry only 8 bytes of data. The `-ff` option will double it to 16. For a SYN packet the headers are 20 bytes and so each packet will be 28 or 36 bytes when using the `-f` or `-ff` options respectively.
