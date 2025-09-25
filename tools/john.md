@@ -197,6 +197,14 @@ $ python3 ssh2john.py id_rsa > rsa_john
 $ john rsa_john
 ```
 
+### Hash From Shadow File
+
+When I have a hash from that shadow file that I want to crack I save the hash to `hash.txt` and run the following command:
+
+```bash
+$ john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+```
+
 ### Supplying a wordlist
 
 John has a built-in wordlist that it uses if one is not specified. There are times when I want john to use a wordlist that I provide. Here is the command:
@@ -204,4 +212,5 @@ John has a built-in wordlist that it uses if one is not specified. There are tim
 ```bash
 $ john --wordlist=/usr/share/wordlists/rockyou.txt
 ```
+
 
