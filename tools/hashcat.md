@@ -601,3 +601,11 @@ Candidates.#1....:  -> everybody knows it
 ```
 
 The key is shown on the line with the JWT. The key shows up after the colon (:). In this case, the key is `secret`.
+
+### Hash From Shadow File
+
+When I have a hash from that shadow file that I want to crack I save the hash to hash.txt and run the following command:
+
+```bash
+$ hashcat -a -m 1800 hash.txt /usr/share/wordlist/rockyou.txt
+```
