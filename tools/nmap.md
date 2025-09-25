@@ -378,3 +378,11 @@ Some firewalls will block small packet request because they appear as scans. Nma
 ```bash
 $ nmap -sS -Pn -F --data-length 128 10.10.10.10
 ```
+
+## Set Time-To-Live Field
+
+Some firewalls reject packets that have the default time-to-live (ttl) of nmap. If this is the case, it is easy to change the value. Here is an example that alters that ttl:
+
+```bash
+$ nmap -sS -Pn -F --ttl 123 10.10.10.10
+```
