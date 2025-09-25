@@ -15,6 +15,8 @@
   - [Specify Source Port Number](#specify-source-port-number)
   - [Fragment Packets](#fragment-packets)
   - [Specify TCP Segment](#specify-tcp-segment)
+  - [Specify Time-To-Live](#specify-time-to-live)
+  - [Bad Checksum](#bad-checksum)
 
 ## Introduction
 
@@ -379,10 +381,18 @@ Some firewalls will block small packet request because they appear as scans. Nma
 $ nmap -sS -Pn -F --data-length 128 10.10.10.10
 ```
 
-## Set Time-To-Live Field
+## Specify Time-To-Live
 
 Some firewalls reject packets that have the default time-to-live (ttl) of nmap. If this is the case, it is easy to change the value. Here is an example that alters that ttl:
 
 ```bash
 $ nmap -sS -Pn -F --ttl 123 10.10.10.10
+```
+
+## Bad Checksum
+
+Some firewalls will allow packets that have a bad checksum. This can be an indicator of the kind of firewall and technology that they are using. Here is how you send a packet with a bad checksum:
+
+```bash
+$ nmap -sS -Pn -F --badsum 10.10.10.10
 ```
