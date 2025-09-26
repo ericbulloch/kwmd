@@ -4,7 +4,7 @@
 - [Linux Privilege Escalation](#linux-privilege-escalation)
   - [`id`](#id)
   - [`ls /home`](#ls-home)
-  - [`cat ~/.bash_history`](cat-bash-history)
+  - [`cat ~/.bash_history`](#cat-bash-history)
   - [`cat /etc/passwd`](#cat-etcpasswd)
   - [`cat /etc/passwd | grep '/bin/bash'`](#cat-etcpasswd--grep-binbash)
   - [`sudo -l`](#sudo--l)
