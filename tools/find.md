@@ -82,3 +82,26 @@ find: /some/random/directory: Permission denied
 | `find ~ -type l -print` | Find symbolic links in your home directory and print the full path. |
 | `find / -perm -o+w 2>/dev/null` | Find all world-writable files and directories. |
 | `find / -type f -cmin -5 2>/dev/null` | Find all files that have been created or changed in the last five minutes. |
+
+I am also including a list of common file extentions that I look for:
+
+| File Type | Description |
+| --- | --- |
+| .c | A C source file |
+| .conf | A configuration file. System-wide config files reside in /etc while any user-specific configuration will be somewhere in the user's home directory |
+| .cpp | A C++ source file |
+| .gif | An image file |
+| .h | A C or C++ header file |
+| .html | An HTML file |
+| .jpg | An image file |
+| .log | A system or program's log file |
+| .pdf | An image of a document |
+| .php | A PHP script |
+| .png | An image file |
+| .py | A Python script |
+| .sh | A shell script |
+| .so | A shared object or a shared library. This is the equivalent of a Windows .dll file |
+| .tar | A compressed file|
+| .tar.bz2 | A compressed file |
+| .txt | A plain text file |
+| .zip | An extension for files in zip format, a popular file compression format |
