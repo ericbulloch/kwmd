@@ -7,6 +7,7 @@
   - [`cat ~/.bash_history`](#cat-bash_history)
   - [`cat /etc/passwd`](#cat-etcpasswd)
   - [`cat /etc/passwd | grep '/bin/bash'`](#cat-etcpasswd--grep-binbash)
+  - [etc directory](#etc-directory)
   - [`sudo -l`](#sudo--l)
   - [`cat /etc/crontab`](#cat-etccrontab)
   - [`uname -a`](#uname--a)
@@ -101,6 +102,10 @@ If I can read the /etc/passwd file, it also has information about users of the s
 ### `cat /etc/passwd | grep '/bin/bash'`
 
 This command is just looking for users in the /etc/passwd file that have a bash shell.
+
+### `/etc` directory
+
+The `/etc` directory is full of configuration files. It is very common for this folder to have sensitive information like usernames, passwords and other sensitive information.
 
 ### `sudo -l`
 
