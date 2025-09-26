@@ -4,6 +4,7 @@
 - [Linux Privilege Escalation](#linux-privilege-escalation)
   - [`id`](#id)
   - [`ls /home`](#ls-home)
+  - [`cat ~/.bash_history`](cat-bash-history)
   - [`cat /etc/passwd`](#cat-etcpasswd)
   - [`cat /etc/passwd | grep '/bin/bash'`](#cat-etcpasswd--grep-binbash)
   - [`sudo -l`](#sudo--l)
@@ -83,6 +84,14 @@ So if the user mike has a folder in /home, I would run the following command to 
 
 ```bash
 $ ls -lha /home/mike
+```
+
+### `cat ~/.bash_history`
+
+If possible, the `.bash_history` file has commands that have been ran by this user before. Users will often leave passwords and other sensitive information in these files. Generally, this file is in each user's home directory.
+
+```bash
+$ cat ~/.bash_history
 ```
 
 ### `cat /etc/passwd`
