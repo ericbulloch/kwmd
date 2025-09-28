@@ -24,7 +24,7 @@ Some of the more common injection types include:
 - Cross-Site Scripting
 - Server Side Template Injection
 - Remote File Injection
-- Shell Injection
+- Command Injection
 - Prompt Injection
 
 ## SQL Injection
@@ -397,3 +397,6 @@ Now I can start to pull values from tables. Here is an example of pulling `usern
 ```
 
 Columns can be adjusted based on needs.
+
+
+## Command Injection
