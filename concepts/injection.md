@@ -9,6 +9,7 @@
   - [SQL Injection Prevention](#sql-injection-prevention)
     - [Validate input](#validate-input)
     - [Parameterized query](#parameterized-query)
+- [Command Injection](#command-injection)
 
 ## Introduction
 
