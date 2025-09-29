@@ -53,6 +53,7 @@ Here are some write ups that I have done that involve injection:
 ### Vulnerabilities
 
 - [Local File Injection](/vulnerabilities/local_file_injection.md)
+- [SQL Injection](/concepts/injection.md#sql-injection)
 
 ### TryHackMe
 
