@@ -120,7 +120,7 @@ def get_file():
     if not filename:
         return "Missing filename", 400
 
-    # Normalize and resolve the full path
+    # Normalize and resolve the full path, this will remove things like `../` in the path
     requested_path = os.path.realpath(os.path.join(BASE_DIR, urllib.parse.unquote(filename)))
 
     # Ensure the resolved path is within the files directory
@@ -130,6 +130,8 @@ def get_file():
     # Ensure it's a file and not a directory
     if not os.path.isfile(requested_path):
         return "File not found", 404
+
+    # More checks could be added like making sure the file has the correct extension.
 
     return send_file(requested_path)
 ```
