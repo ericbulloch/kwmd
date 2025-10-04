@@ -17,7 +17,6 @@ All database management systems (DBMS) have similar functionality that users nee
 - List tables
 - Create table
 - Delete table
-- Update table
 - Add index
 - Remove index
 - List users
@@ -55,6 +54,57 @@ All database management systems (DBMS) have similar functionality that users nee
   - Filter value in list
 
 ## MySQL
+
+### List database.
+
+```sql
+SHOW DATABASES;
+```
+
+### Create database.
+
+```sql CREATE DATABASE kwmd;```
+
+### Delete database.
+
+```sql
+DROP DATABASE kwmd;
+```
+
+### List tables.
+
+```sql
+SHOW TABLES;
+```
+
+### Create table.
+
+```sql
+CREATE TABLE users(
+  id INT AUTO_INCREMENT,
+  email VARCHAR(250),
+  password VARCHAR(250),
+  PRIMARY KEY(id)
+);
+```
+
+### Delete table
+
+```sql
+DROP TABLE users;
+```
+
+### Add index
+
+```sql
+CREATE INDEX users__email ON users(email);
+```
+
+### Remove index
+
+```sql
+DROP INDEX users__email ON users;
+```
 
 ## PostgreSQL
 
