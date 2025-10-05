@@ -16,6 +16,7 @@ I wanted to list some concepts, terms and flows that are specific to Linux. Lear
   - [Group SGID](#group-sgid)
   - [Sticky bit](#sticky-bit)
   - [Changing permissions](#changing-permissions)
+  - [Permissions Review](#permissions-review)
 - [Privilege Escalation](#privilege-escalation)
 - [Systemctl](#systemctl)
 - [Crons](#crons)
@@ -271,12 +272,6 @@ drwxrwxrwt 15 root root 4.0K Jan 11 08:57 /tmp/
 
 As you can see above, the `t` sticky bit is shown in the execute permission group for everyone.
 
-### Permission Review
-
-| Character | Example | Meaning |
-| --- | --- | --- |
-| First | **d**rwxrwxrwx | The type of file. Regular files have the value `-`, folders or directories have the value `d`, and symbolic links have the value `l`. |
-
 ### Changing permissions
 
 Changing the permissions of a folder or file is very easy to do. The `chmod` command changes permissions for a file or directory. There are two different notations that can be used to alter the permissions of a file or directory with the `chmod` command. I'll talk about both of them. The two notations are symbolic notation and octal notation. I'll start with symbolic notation.
@@ -374,6 +369,12 @@ Here are some `chmod` commands with octal notation and what it would result in:
 | `$ chmod 777 file1.txt` | Sets read, write and execute permissions for user, group and others. |
 | `$ chmod 700 file1.txt` | Sets read, write and execute permissions for user. |
 | `$ chmod 755 file1.txt` | Sets read, write and execute permissions for user. Sets read and execute permissions for group and others. |
+
+### Permissions Review
+
+| Character | Example | Meaning |
+| --- | --- | --- |
+| First | **d**rwxrwxrwx | The type of file. Regular files have the value `-`, folders or directories have the value `d`, and symbolic links have the value `l`. |
 
 ## Privilege Escalation
 
