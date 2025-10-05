@@ -271,6 +271,12 @@ drwxrwxrwt 15 root root 4.0K Jan 11 08:57 /tmp/
 
 As you can see above, the `t` sticky bit is shown in the execute permission group for everyone.
 
+### Permission Review
+
+| Character | Example | Meaning |
+| --- | --- | --- |
+| First | **d**rwxrwxrwx | The type of file. Regular files have the value `-`, folders or directories have the value `d`, and symbolic links have the value `l`. |
+
 ### Changing permissions
 
 Changing the permissions of a folder or file is very easy to do. The `chmod` command changes permissions for a file or directory. There are two different notations that can be used to alter the permissions of a file or directory with the `chmod` command. I'll talk about both of them. The two notations are symbolic notation and octal notation. I'll start with symbolic notation.
