@@ -22,11 +22,9 @@ All database management systems (DBMS) have similar functionality that users nee
 - List users
 - Create user
 - Delete user
-- Update user
 - List permissions
-- Create permission
+- Add permission
 - Delete permission
-- Update permission
 - Assign permission to user
 - Revoke permission from user
 - Select data from table
@@ -104,6 +102,43 @@ CREATE INDEX users__email ON users(email);
 
 ```sql
 DROP INDEX users__email ON users;
+```
+
+### List users
+
+```sql
+SELECT user, host FROM mysql.user;
+```
+
+### Create users
+
+```sql
+CREATE USER 'kwmd'@'localhost' IDENTIFIED BY 'mySuperP@Ss\/\/0r|)';
+```
+
+### Delete users
+
+```sql
+DROP USER 'kwmd'@'localhost';
+```
+
+### List permissions
+
+```sql
+SHOW GRANTS FOR 'kwmd'@'localhost';
+```
+
+### Add permission
+
+```sql
+GRANT ALL PRIVILEGES ON * . * TO 'kwmd'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+### Delete permission
+
+```sql
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'kwmd'@'localhost';
 ```
 
 ## PostgreSQL
