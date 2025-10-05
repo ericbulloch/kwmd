@@ -374,7 +374,16 @@ Here are some `chmod` commands with octal notation and what it would result in:
 
 | Character | Example | Meaning |
 | --- | --- | --- |
-| First | **d**rwxrwxrwx | The type of file. Regular files have the value `-`, folders or directories have the value `d`, and symbolic links have the value `l`. |
+| 1st | **d**rwxrwxrwx | The type of file. Regular files have the value `-`, folders or directories have the value `d`, and symbolic links have the value `l`. |
+| 2nd | d**r**wxrwxrwx | Read permissions for the user. A value of `r` means the user has permission, a `-` means they do not. |
+| 3rd | dr**w**xrwxrwx | Write permissions for the user. A value of `w` means the user has permission, a `-` means they do not. |
+| 4th | drw**x**rwxrwx | Execute permissions for the user. A value of `x` means the user has permission, a `-` means they do not. |
+| 5th | drwx**r**wxrwx | Read permissions for the group. A value of `r` means the group has permission, a `-` means they do not. |
+| 6th | drrwx**w**xrwx | Write permissions for the group. A value of `w` means the group has permission, a `-` means they do not. |
+| 7th | drwxrw**x**rwx | Execute permissions for the group. A value of `x` means the group has permission, a `-` means they do not. |
+| 8th | drwxrwx**r**wx | Read permissions for the others. A value of `r` means the others has permission, a `-` means they do not. |
+| 9th | drwxrrwx**w**x | Write permissions for the others. A value of `w` means the others has permission, a `-` means they do not. |
+| 10th | drwxrwxrw**x** | Execute permissions for the others. A value of `x` means the others has permission, a `-` means they do not. |
 
 ## Privilege Escalation
 
