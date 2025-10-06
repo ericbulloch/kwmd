@@ -10,7 +10,9 @@ SHOW DATABASES;
 
 ## Create database.
 
-```sql CREATE DATABASE kwmd;```
+```sql
+CREATE DATABASE kwmd;
+```
 
 ## Delete database.
 
