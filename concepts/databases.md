@@ -141,6 +141,20 @@ FLUSH PRIVILEGES;
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'kwmd'@'localhost';
 ```
 
+### Select data from table
+
+#### All data from record
+
+```sql
+SELECT * FROM users;
+```
+
+#### Some data from record
+
+```sql
+SELECT id, email FROM users;
+```
+
 ## PostgreSQL
 
 ## SQLite
