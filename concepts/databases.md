@@ -57,4 +57,8 @@ This list of commands for the above list can be [found here](/concepts/databases
 
 ## PostgreSQL
 
+This list of commands for the above list can be [found here](/concepts/databases/postgres.md).
+
 ## SQLite
+
+This list of commands for the above list can be [found here](/concepts/databases/sqlite.md).
