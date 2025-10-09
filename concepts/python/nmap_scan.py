@@ -5,7 +5,7 @@ from subprocess import call
 def main(args):
     host = args.host.strip().lower()
     file_name = args.file_name.strip()
-    speed = args.speed.strip()
+    speed = args.speed
     ports = args.ports.strip()
     command = f'nmap -T{speed} -n -sC -sV -Pn -v0 -p{ports} {host} -oX {file_name}.xml -oN {file_name}.txt'
     call(command, shell=True)
