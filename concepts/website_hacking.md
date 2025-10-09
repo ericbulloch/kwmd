@@ -92,6 +92,7 @@ Since forms are accepting user input, some of the attacks they need to be aware 
 - Business Logic Flaws
 - Sensitive Data Exposure
 - Client-Side Only Validation
+- [File Uploads](#file-upload-forms)
 
 ### SQL Injection Example
 
