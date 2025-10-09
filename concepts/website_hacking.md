@@ -47,7 +47,7 @@ Developers will work on things and then comment them out thinking that people wi
 
 ### Security Measures
 
-Developers need to remove commented out parts of the source code. The risk of what they reveal is not worth it. Also, if a directory or feature is not ready or available for a user it should not allow them to use it. What happens to the user when they try to use one of these items is up to the developer and can be chosen on a case by case basis.
+Developers need to remove commented out parts of the source code. The risk of what they reveal is not worth it. Also, if a directory or feature is not ready or available for a user it should not allow them to use it. What happens to the user when they try to use one of these items is up to the developer and can be chosen on a case by case basis. Code reviews from other developers can be useful to catch these comments.
 
 ## Directory Enumeration
 
