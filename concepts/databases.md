@@ -28,8 +28,8 @@ All database management systems (DBMS) have similar functionality that users nee
 - Assign permission to user
 - Revoke permission from user
 - Select data from table
-  - All data from record
-  - Some data from record
+  - All columns from all records
+  - Some columns from all records
 - Join multiple tables
   - Inner join
   - Outer join
