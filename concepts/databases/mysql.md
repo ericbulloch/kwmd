@@ -94,7 +94,7 @@ REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'kwmd'@'localhost';
 
 ## Select data from table
 
-### All columns from all record
+### All columns from all records
 
 ```sql
 SELECT * FROM users;
