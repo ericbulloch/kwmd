@@ -2,31 +2,31 @@
 
 Here are the commands for MySQL that will execute the tasks [found here](/concepts/databases.md#database-commands).
 
-## List database.
+## List databases
 
 ```sql
 SHOW DATABASES;
 ```
 
-## Create database.
+## Create database
 
 ```sql
 CREATE DATABASE kwmd;
 ```
 
-## Delete database.
+## Delete database
 
 ```sql
 DROP DATABASE kwmd;
 ```
 
-## List tables.
+## List tables
 
 ```sql
 SHOW TABLES;
 ```
 
-## Create table.
+## Create table
 
 ```sql
 CREATE TABLE users(
