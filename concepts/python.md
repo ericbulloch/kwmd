@@ -4,6 +4,6 @@ Python is currently the most popular programming language in the world. So many 
 
 I have included scripts that I run when I do capture the flag events. They mostly automate steps that I get tired of running all the time.
 
-- [nmap_scanner](python/nmap_scan.py)
+- [nmap_scan](python/nmap_scan.py)
 - [reverse shell generator](python/reverse_shells.py)
 - [set host file](python/host_file.py)
