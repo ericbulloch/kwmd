@@ -6,5 +6,6 @@ I have included scripts that I run when I do capture the flag events. They mostl
 
 - [anonymous ftp walking](python/anonymous_ftp.py)
 - [nmap scan](python/nmap_scan.py)
+- [parse nmap scan](python/parse_nmap_scan.py)
 - [reverse shell generator](python/reverse_shells.py)
 - [set host file](python/host_file.py)
