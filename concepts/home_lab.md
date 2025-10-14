@@ -13,3 +13,7 @@ My home lab setup is very simple. Here are the details:
 ## Bug Bounty Hunting
 
 I also have a Kali Linux virtual machine that I use for bug bounty hunting. It also uses the NAT connection but does not connect to any other network.
+
+## TryHackMe
+
+Currently, I connect to the TryHackMe machines from the browser. I plan to make the switch using the same setup as the bug bounty hunting machine above.
