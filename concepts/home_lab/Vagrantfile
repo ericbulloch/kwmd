@@ -1,0 +1,90 @@
+Vagrant.configure("2") do |config|
+  # -------------- Router / NAT VM (internet gateway) --------------
+  config.vm.define "router" do |r|
+    r.vm.box = "debian/bullseye64"  # small, change if you like
+    r.vm.hostname = "router"
+    r.vm.provider "virtualbox" do |vb|
+      vb.memory = 256
+      vb.cpus = 1
+      # Ensure no shared folders; prevents host access via shared folders
+      vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate", "0"]
+    end
+
+    # Adapter 1: NAT (default) for internet (no extra config needed)
+    # Adapter 2: Internal network "targets_network"
+    r.vm.network "private_network", type: "dhcp", virtualbox__intnet: "targets_network"
+
+    # Provision: enable IP forwarding + NAT (iptables)
+    r.vm.provision "shell", inline: <<-SHELL
+      set -e
+      apt-get update
+      DEBIAN_FRONTEND=noninteractive apt-get install -y iptables-persistent
+      # Internal network interface is typically eth1 (eth0 = NAT)
+      # Enable IP forwarding
+      sysctl -w net.ipv4.ip_forward=1
+      sed -i '/^#net.ipv4.ip_forward=1/c\net.ipv4.ip_forward=1' /etc/sysctl.conf || true
+
+      # Flush existing rules and add MASQUERADE for outbound (via eth0)
+      iptables -F
+      iptables -t nat -F
+      # Allow established/related
+      iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+      # Allow forwarding from targets_network (eth1) to the internet (eth0)
+      iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+      iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+      # Persist rules (iptables-persistent uses /etc/iptables/rules.v4)
+      netfilter-persistent save
+    SHELL
+  end
+
+  # -------------- Kali (attack VM) --------------
+  config.vm.define "attacker" do |k|
+    k.vm.box = "kalilinux/rolling"
+    k.vm.hostname = "attacker"
+    k.vm.provider "virtualbox" do |vb|
+      vb.memory = 4096
+      vb.cpus = 2
+      # disable shared folders by default if you want stricter isolation:
+      vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate", "0"]
+    end
+
+    # Connect only to the Internal Network (targets_network). We'll use DHCP or static.
+    # Use static for predictable IPs:
+    k.vm.network "private_network", ip: "192.168.100.10", virtualbox__intnet: "targets_network"
+
+    # Provision: set default gateway to router IP so Kali has internet via router
+    k.vm.provision "shell", inline: <<-SHELL
+      set -e
+      # Wait for network to be up; configure route via router (192.168.100.1)
+      # Use static route: delete any default route and add gateway to router
+      ip route del default || true
+      ip route add default via 192.168.100.1 dev eth0
+      # Ensure DNS resolves - use public DNS via NAT router; if DNS fails, set a fallback
+      echo "nameserver 8.8.8.8" > /etc/resolv.conf
+    SHELL
+  end
+
+  # -------------- Target VM (no internet) --------------
+  config.vm.define "target" do |t|
+    t.vm.box = "debian/bullseye64"
+    t.vm.hostname = "target"
+    t.vm.provider "virtualbox" do |vb|
+      vb.memory = 512
+      vb.cpus = 1
+      vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate", "0"]
+    end
+
+    # Attach only to targets_network, but do NOT set a default gateway (no internet)
+    t.vm.network "private_network", ip: "192.168.100.20", virtualbox__intnet: "targets_network"
+
+    # Provision: remove default gateway and DNS to ensure no internet
+    t.vm.provision "shell", inline: <<-SHELL
+      set -e
+      # remove any default route
+      ip route del default || true
+      # remove DNS (so it can't resolve internet domains)
+      echo "" > /etc/resolv.conf
+    SHELL
+  end
+end
