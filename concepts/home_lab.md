@@ -12,6 +12,8 @@ Part of learning cybersecurity is taking steps to learn it safely. A home lab is
 
 Home labs are a great way to get hands on experience and try out things that are taught on sites like [TryHackMe](https://tryhackme.com), [Hack The Box](https://hackthebox.com), and [Let's Defend](https://letsdefend.io).
 
+I have a sample [Vagrant file here](home_lab/Vagrantfile).
+
 ## Regular Lab
 
 My home lab setup is very simple. Here are the details:
