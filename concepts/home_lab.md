@@ -6,6 +6,12 @@
 - [TryHackMe](#tryhackme)
 - [Hack The Box](#hack-the-box)
 
+## Introduction
+
+Part of learning cybersecurity is taking steps to learn it safely. A home lab is a great way to try defending like a member of the blue team and also attacking like a member of the red team. A home lab can be very simple like a single machine that acts as a sandbox. I recommend having any target machines in their own segmented network from the host and the host's network that doesn't have internet access.
+
+Home labs are a great way to get hands on experience and try out things that are taught on sites like [TryHackMe](https://tryhackme.com), [Hack The Box](https://hackthebox.com), and [Let's Defend](https://letsdefend.io).
+
 ## Regular Lab
 
 My home lab setup is very simple. Here are the details:
