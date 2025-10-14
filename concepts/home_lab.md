@@ -1,5 +1,11 @@
 # Home Lab
 
+- [Introduction](#introduction)
+- [Regular Lab](#regular-lab)
+- [Bug Bountry Hunting](#bug-bounty-hunting)
+- [TryHackMe](#tryhackme)
+- [Hack The Box](#hack-the-box)
+
 ## Regular Lab
 
 My home lab setup is very simple. Here are the details:
