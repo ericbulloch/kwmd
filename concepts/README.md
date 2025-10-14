@@ -11,6 +11,7 @@ There are so many processes, ideas, tools, techniques and parts. This folder is 
 - [Cryptography](cryptography.md)
 - [Databases](databases.md)
 - [Google Dorking](google_dorking.md)
+- [Home Lab](home_lab.md)
 - [Injection](injection.md)
 - [Networking](networking.md)
 - [Privilege Escalation](privilege_escalation.md)
