@@ -12,13 +12,17 @@ Part of learning cybersecurity is taking steps to learn it safely. A home lab is
 
 Home labs are a great way to get hands on experience and try out things that are taught on sites like [TryHackMe](https://tryhackme.com), [Hack The Box](https://hackthebox.com), and [Let's Defend](https://letsdefend.io).
 
-I have a sample [Vagrant file here](home_lab/Vagrantfile).
+Here are the scripts that I use to setup my home lab:
+
+- [Create Network](home_lab/create_network.sh)
+- [Create Attack Box](home_lab/create_attacker.sh)
+- [Sample Mr Robot Target Box](home_lab/create_mr_robot_target.sh)
 
 ## Regular Lab
 
 My home lab setup is very simple. Here are the details:
 
-- I use Vagrant and VirtualBox for tooling.
+- I use VirtualBox for tooling.
 - My host machine is Ubuntu.
 - I have created a network called targets. This network does not have access to the internet.
 - All the target machine are on the target network so that they can be hacked without having a connection to the internet.
