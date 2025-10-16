@@ -51,11 +51,13 @@ The server is suppose to look at the Content-Length property and create a buffer
 
 This vulnerability exists because it trusted user input. In my example above I said that my Content-Length was 5 bytes. But what if I had the same Content and I said that my Content-Length was 65,535 bytes?
 
-This is where the vulnerability. It doesn't check the length of my Content it just blindly trusts that I am sending the correct Content-Length for my Content.
+This is where the vulnerability lives. The software doesn't check the length of the data in my Content property of the request. it just blindly trusts that I am sending the correct Content-Length for the data in my Content property.
 
 In this case, the server will allocate a 65,535 byte buffer in memory. Keep in mind that deallocated memory still has the values that were in those addresses when the memory was allocated. Then it will copy over the 5 bytes in my Content property. Then it will read all the bytes from the buffer (all 65,535 of them) and copy them to the response that goes back to me.
 
 So now I have all kinds of things that were in memory when I made my request. It turns out that this can be usernames, passwords, sensitive chat logs and emails, environment variables, secret keys for X.509 certificates, critical business documents and more.
+
+As a side note, this was patched by examining the length of the actual content in the request. If that was less than the value in the Content-Length field, it only copied the smaller amount. 
 
 ## Task 2 Protecting Data In Transit
 
