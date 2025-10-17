@@ -252,7 +252,7 @@ $ lxc exec kwmd /bin/sh
 
 The cursor will show up as a # character to let me know I am root.
 
-I can now modify view or modify any file on the host directory. I just need to remember to prepend any directory with /mnt/root. Here are some examples:
+I can now modify view or modify any file on the host directory. I just need to remember that **within the container, the host file system is mounted to /mnt/root**. Here are some examples:
 
 - The /etc directory on the host would be /mnt/root/etc from the container.
 - The /home directory on the host would be /mnt/root/home from the container.
