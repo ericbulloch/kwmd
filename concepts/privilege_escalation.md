@@ -7,7 +7,7 @@
   - [`cat ~/.bash_history`](#cat-bash_history)
   - [`cat /etc/passwd`](#cat-etcpasswd)
   - [`cat /etc/passwd | grep '/bin/bash'`](#cat-etcpasswd--grep-binbash)
-  - [etc directory](#etc-directory)
+  - [`etc` directory](#etc-directory)
   - [`sudo -l`](#sudo--l)
   - [`cat /etc/crontab`](#cat-etccrontab)
   - [`uname -a`](#uname--a)
