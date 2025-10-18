@@ -6,6 +6,7 @@ There are so many processes, ideas, tools, techniques and parts. This folder is 
 
 - [API Hacking](api_hacking.md)
 - [Artificial Intelligence](artificial_intelligence.md)
+- [Bash](bash.md)
 - [Buffer Overflow](buffer_overflow.md)
 - [Canary Tokens](canary_tokens.md)
 - [Cryptography](cryptography.md)
