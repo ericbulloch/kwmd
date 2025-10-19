@@ -8,4 +8,5 @@ Since bash is running commands on a system it has most of the things that it req
 
 I have included some scripts I have seen, used, or liked below:
 
-[Modified MySQL Port Scanner From Linux Basics For Hackers](bash/mysql_scanner.sh)
+- [Python Build Script](bash/build.sh)
+- [Modified MySQL Port Scanner From Linux Basics For Hackers](bash/mysql_scanner.sh)
