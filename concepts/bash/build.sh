@@ -28,3 +28,70 @@ else
         fail "${OPERATION} is not a valid operation";
     fi
 fi
+
+ensure_directory () {
+    if [ ! -d 'build' ]; then
+        mkdir build
+    fi
+    if [ ! -d 'build/checks' ]; then
+        mkdir build/checks
+    fi
+    if [ ! -d "build/checks/$1" ]; then
+        mkdir "build/checks/$1"
+    fi
+}
+
+if [ ${OPERATION} = "all" ]; then
+    info "Removing the checks directory"
+    rm -rf build
+    success "Checks directory removed"
+fi
+
+if [ ${OPERATION} = "build" ]; then
+    pyinstaller main.py
+    cp -r images/ dist/main
+    cp -r maps/ dist/main
+    cp -r music/ dist/main
+    cp -r settings/ dist/main
+    cp logging.ini dist/main
+    mkdir dist/main/saves
+    cp -rf dist/main build
+    rm -rf dist
+fi
+
+if [ ${OPERATION} = "clean" ]; then
+    info "Cleaning the project"
+    rm build local -rf
+    success "Done cleaning the project"
+fi
+
+if [ ${OPERATION} = "all" ] || [ ${OPERATION} = "lint" ]; then
+    info "Running PyLint"
+    ensure_directory "pylint"
+    pylint py_dwc *.py > build/checks/pylint/output.txt
+    success "PyLint finished"
+fi
+
+if [ ${OPERATION} = "all" ] || [ ${OPERATION} = "pep8" ]; then
+    info "Running PEP8"
+    ensure_directory "pep8"
+        pep8 --show-source --show-pep8 --exclude=bin,lib,local . > build/checks/pep8/output.txt
+    success "PEP8 finished"
+fi
+
+if [ ${OPERATION} = "search" ]; then
+    info "Running Search"
+    grep $2 -rn --exclude=\.coverage --exclude-dir=local --exclude-dir=lib --exclude-dir=build --exclude-dir=include .
+    success "Search finished"
+fi
+
+if [ ${OPERATION} = "all" ] || [ ${OPERATION} = "test" ]; then
+    info "Running PyTest"
+    ensure_directory "pytest"
+    python -m pytest test/unit/*.py --cov py_dwc --cov-report html --durations=30
+    mv htmlcov/* build/checks/pytest
+    rm -rf htmlcov
+    success "PyTest finished"
+fi
+
+success "All checks have finished"
