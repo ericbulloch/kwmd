@@ -28,4 +28,5 @@ I have included guides on how to use various tools and programs. Some of the too
 - [steghide](steghide.md)
 - [stegseek](stegseek.md)
 - [strings](strings.md)
+- [tar](tar.md)
 - [wpscan](wpscan.md)
