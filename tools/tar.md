@@ -355,15 +355,22 @@ file2.txt
 file3.txt
 ```
 
-The `-c` option is used to tell the tar command that I am creating an archive. The `-v` option is for verbose output. The `-f` option tells the tar command what the name of archive file is.
+The `-c` option is used to tell the tar command that I am creating an archive. The `-v` option is for verbose output. The `-f` option tells the tar command what the name of archive file is. The new tarball file shows up along with the original files as can be seen below:
+
+```bash
+-rw-r--r--  1 root root   19 Oct 24 03:59 file1.txt
+-rw-r--r--  1 root root  173 Oct 24 03:59 file2.txt
+-rw-r--r--  1 root root    5 Oct 24 03:59 file3.txt
+-rw-r--r--  1 root root  10K Oct 24 04:00 kwmd.tar
+```
 
 ### View the files in a tarball
 
 ```bash
 $ tar -tvf kwmd.tar
--rwx------ 1 root root      513  Oct 22    2025 06:11 file1.txt
--rwx------ 1 root root     8913  Oct 22    2025 06:11 file2.txt
--rwx------ 1 root root      769  Oct 22    2025 06:11 file3.txt
+-rw-r--r--  1 root root   19 Oct 24 03:59 file1.txt
+-rw-r--r--  1 root root  173 Oct 24 03:59 file2.txt
+-rw-r--r--  1 root root    5 Oct 24 03:59 file3.txt
 ```
 
 The `-t` option is used to tell the tar command that I want a content list of the files in the archive. The `-v` option is for verbose output. The `-f` option tells the tar command what the name of archive file is.
