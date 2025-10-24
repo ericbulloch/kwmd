@@ -358,11 +358,14 @@ file3.txt
 The `-c` option is used to tell the tar command that I am creating an archive. The `-v` option is for verbose output. The `-f` option tells the tar command what the name of archive file is. The new tarball file shows up along with the original files as can be seen below:
 
 ```bash
+$ ls -lh
 -rw-r--r--  1 root root   19 Oct 24 03:59 file1.txt
 -rw-r--r--  1 root root  173 Oct 24 03:59 file2.txt
 -rw-r--r--  1 root root    5 Oct 24 03:59 file3.txt
 -rw-r--r--  1 root root  10K Oct 24 04:00 kwmd.tar
 ```
+
+Notice that the tar file has a lot of overhead. In this example, it is 10K in size and the three files it was created from aren't even 1K in size.
 
 ### View the files in a tarball
 
