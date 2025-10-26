@@ -10,4 +10,5 @@ I have included some scripts I have seen, used, or liked below:
 
 - [Modified MySQL Port Scanner From Linux Basics For Hackers](bash/mysql_scanner.sh)
 - [Shell script to build Python project](bash/build.sh)
-- [Shell script to release react website](bash/release.sh)
+- [Shell script to build a React project and upload it to the server](build_and_upload.sh)
+- [Shell script to release React website, used with the above script](bash/release.sh)
