@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [About Me](#about-me)
+  - [Certificates](#certificates)
   - [TryHackMe](#tryhackme)
 - [Concepts](#concepts)
 - [Tools](#tools)
@@ -271,6 +272,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
