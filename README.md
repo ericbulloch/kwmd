@@ -1,7 +1,8 @@
 # kwmd
 
 - [Introduction](#introduction)
-- [TryHackMe](#tryhackme)
+- [About Me](#about-me)
+  - [TryHackMe](#tryhackme)
 - [Concepts](#concepts)
 - [Tools](#tools)
 - [Vulnerabilities](#vulnerabilities)
@@ -14,7 +15,17 @@ Welcome! This is my personal repository for all things cybersecurity. I keep not
 
 **Everything in here is for educational purposes.**
 
-## TryHackMe
+## About Me
+
+I have been a software engineer for over 15 years. I have worked for multiple startups (even founding two of them) and very large businesses (fortune 500 size) as well as written software for some of the largest shippers in the world.
+
+I have been intentionally studying cybersecurity for over a year. I have listed some of my accomplishments below:
+
+### Certificates
+
+- Google Cybersecurity Certificate (Earned October 30, 2025).
+
+### TryHackMe
 
 Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). As of October 26th, 2025 here are my stats:
 
@@ -260,6 +271,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
