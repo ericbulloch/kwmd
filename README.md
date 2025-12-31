@@ -32,14 +32,14 @@ Currently have:
 
 ### TryHackMe
 
-Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). As of October 26th, 2025 here are my stats:
+Here is [my profile on TryHackMe](https://tryhackme.com/p/kwmd). As of December 31st, 2025 here are my stats:
 
 - I am ranked in the **top 0.2%**.
 - I am ranked **486** in the United States of America
 - I am ranked **4,007** in the world.
 - I have a 366 day learning streak.
 
-Here is my badge for TryHackMe (generated October 26th, 2025):
+Here is my badge for TryHackMe (generated December 31st, 2025):
 
 [<img src="/images/kwmd.png?v=1" alt="kwmd TryHackMe Badge" />](https://tryhackme.com/p/kwmd)
 
@@ -276,6 +276,7 @@ $ stty raw -echo; fg
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
