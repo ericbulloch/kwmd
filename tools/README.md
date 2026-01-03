@@ -22,6 +22,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [netstat](netstat.md)
 - [nikto](nikto.md)
 - [nmap](nmap.md)
+- [redis-cli](redis_cli.md)
 - [searchsploit](searchsploit.md)
 - [smbclient](smbclient.md)
 - [sqlmap](sqlmap.md)
