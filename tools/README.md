@@ -23,6 +23,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [nikto](nikto.md)
 - [nmap](nmap.md)
 - [searchsploit](searchsploit.md)
+- [smbclient](smbclient.md)
 - [sqlmap](sqlmap.md)
 - [ssh](ssh.md)
 - [steghide](steghide.md)
