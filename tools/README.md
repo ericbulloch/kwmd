@@ -6,6 +6,7 @@ I have included guides on how to use various tools and programs. Some of the too
 - [cat](cat.md)
 - [dirb](dirb.md)
 - [dirbuster](dirbuster.md)
+- [evil-winrm](evil_winrm.md)
 - [ffuf](ffuf.md)
 - [find](find.md)
 - [ftp](ftp.md)
