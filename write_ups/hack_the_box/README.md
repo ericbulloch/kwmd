@@ -11,3 +11,4 @@ Here are a list of write-ups for Hack The Box:
 - Crocodile
 - Responder
 - Three
+- Archetype
