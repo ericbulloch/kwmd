@@ -12,3 +12,4 @@ Here are a list of write-ups for Hack The Box:
 - Responder
 - Three
 - Archetype
+- Oopsie
