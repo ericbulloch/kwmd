@@ -139,7 +139,7 @@ A[Start: TCP/21 open] --> B[Enumerate
 nmap --script ftp*
 Banner]
 B --> C{Anonymous login?}
-C -- Yes --> D[List & Retrieve
+C -- Yes --> D[List and Retrieve
 ls -la
 get backups/configs/keys]
 C -- No --> E{Known credentials?}
@@ -158,6 +158,78 @@ Archives → credentials]
 K --> M{Uploads accessible elsewhere?}
 M -- Yes --> N[Exploit via mapped service]
 M -- No --> L
+```
+
+### LDAP Overview
+
+- Ports: TCP 389 (LDAP), 636 (LDAPS), 3268/3269 (Global Catalog)
+- Purpose: Directory services (often Active Directory).
+- Impact: User/group enumeration; sometimes passwords or secrets in attributes; enables targeted credential attacks and AD-specific techniques.
+
+#### Enumeration (commands)
+
+```bash
+# Nmap
+nmap -p389,636,3268,3269 -sV --script ldap* target.thm
+
+# Anonymous/simple bind test
+ldapsearch -x -H ldap://target.thm -b "DC=example,DC=local" "(objectClass=*)" -LLL
+
+# Authenticated bind (if creds)
+ldapsearch -H ldap://target.thm -D "user@example.local" -w '<pass>' -b "DC=example,DC=local" '(sAMA
+
+# LDAPS / StartTLS
+ldapsearch -ZZ -H ldap://target.thm -b "DC=example,DC=local" '(objectClass=user)'
+```
+
+### Exploitation – common paths
+
+- Anonymous bind allowed → dump naming contexts, users, groups, computers.
+- Authenticated bind → enumerate attributes (mail, description, userAccountControl, lastLogon).
+- Harvest servicePrincipalName (SPN) values for targeted service accounts (prep for Kerberoasting via Kerberos, outside LDAP).
+- Sometimes credentials or API keys are stored in description/comment attributes.
+
+#### Observation cues
+
+- Naming contexts (defaultNamingContext, rootDomainNamingContext).
+- Supported controls and SASL mechanisms; StartTLS capability.
+- Attribute hygiene (description, info, servicePrincipalName, userPrincipalName).
+
+#### Decision triggers
+
+- Anonymous bind works → build high-confidence username list before any guessing.
+- No anonymous bind → use usernames from SMTP/DNS/SMB and try simple bind with careful rate limits.
+- LDAPS/StartTLS available → prefer encrypted binds.
+
+#### Common pitfalls and time-savers
+
+- Wrong base DN causing empty results.
+- Mixing DOMAIN\user vs user@domain formats inconsistently.
+- Ignoring Global Catalog (3268/3269) for forest-wide queries.
+
+#### Privilege escalation tie-ins
+
+- Use enumerated users for precise SMB/RDP logins; map group memberships for privilege expectations.
+- Look for delegated/admin accounts and service accounts linked to machines you can reach.Automation ideas
+- Scripted ldapsearch wrappers to export CSV of users/groups and key attributes.
+- Automated parsing for SPNs and description fields to surface potential secrets.
+
+#### Attack flow
+
+```mermaid
+flowchart TD
+A[Start: TCP 389/636/3268 open] --> B[Enumerate
+nmap --script ldap*
+ldapsearch]
+B --> C{Anonymous bind?}
+C -- Yes --> D[Dump users/groups
+naming contexts]
+C -- No --> E[Use credentials
+simple/LDAPS bind]
+D --> F[Build username list
+harvest SPNs]
+E --> F
+F --> G[Use data for SMB/RDP targeting]
 ```
 
 ### NFS Overview
@@ -190,7 +262,7 @@ showmount -e target.thm
 - Readable export → harvest immediately; search for credentials.
 - Writable export → test controlled writes; check propagation to other services.
 
-#### Common pitfalls & time-savers
+#### Common pitfalls and time-savers
 
 - Not checking root-squash rules.
 - Leaving mounts open (operational hygiene).
@@ -229,7 +301,7 @@ D --> F[Use credentials for lateral movement]
 # Nmap
 nmap -p3389 -sV --script rdp* target.thm
 
-# Security & NLA info
+# Security and NLA info
 nmap -p3389 --script rdp-enum-encryption,rdp-ntlm-info target.thm
 
 # Credential testing (use caution)
@@ -261,7 +333,7 @@ xfreerdp /v:<IP> /u:<user> /pth:<NTLM_hash> /cert:ignore
 - NLA disabled → still rate-limit attempts; verify encryption settings.
 - Domain environment → prefer domain-format logins (DOMAIN\user or user@domain.local).
 
-#### Common pitfalls & time-savers
+#### Common pitfalls and time-savers
 
 - Triggering account lockouts with aggressive guessing.
 - Ignoring certificate warnings and channel security (clipboard/drive).
@@ -309,6 +381,87 @@ Lockout-aware]
 - Ports: 139/445
 - Purpose: File/printer sharing, RPC.
 - Impact: Readable/writable shares expose sensitive data; valid credentials enable lateral movement.
+
+#### Enumeration (commands)
+
+```bash
+# Nmap
+nmap -p445 --script smb-enum-shares,smb-enum-users target.thm
+
+# enum4linux
+enum4linux -a target.thm
+
+# smbclient
+smbclient -L //target.thm -N
+smbclient //target.thm/found_share -N
+
+# Credential verification
+crackmapexec smb target.thm -u <user> -p <pass>
+```
+
+#### Exploitation – common paths
+
+- Anonymous/null session → list shares, download configurations/keys.
+- Valid credentials → remote exec (psexec/wmi/smbexec) per OS/hardening.
+- Legacy OS/version → investigate kernel/RPC vulnerabilities.
+
+#### Observation cues
+
+- Share names/ACLs; custom departmental shares (finance/dev/hr).
+- OS fingerprint (helps choose technique).
+- Presence of writable script paths/logon scripts.
+
+#### Decision triggers
+
+- Anonymous read → loot first; parse for credentials and secrets.
+- Creds validated → choose appropriate remote exec to avoid noise.
+- No users → expand recon via SMTP/LDAP/DNS to harvest usernames.
+
+#### Common pitfalls and time-savers
+
+- Skipping RPC enumeration and null sessions.
+- Noisy brute force instead of targeted credential use.
+
+#### Privilege escalation tie-ins
+
+- AD memberships/GPO/script paths; saved credentials in profiles.
+- Deploy staged binaries via writable shares if policy permits.
+
+#### Automation ideas
+
+- Automated share listing and keyword grep across downloaded files.
+- Credential reuse tester across SMB/RDP/WinRM.
+
+#### Attack flow
+
+```mermaid
+flowchart TD
+A[Start: TCP/445 open] --> B[Enumerate
+nmap --script smb-*
+enum4linux -a
+smbclient -L -N]
+B --> C{Anonymous works?}
+C -- Yes --> D[List shares and ACLs
+Read/Write checks]
+C -- No --> E[User discovery
+RPC/LDAP/banners]
+E --> F[Credential testing
+crackmapexec smb]
+D --> G{Readable content?}
+G -- Yes --> H[Loot files
+configurations/keys/backups]
+G -- No --> I{Writable paths?}
+I -- Yes --> J[Upload tests
+Stage scripts]
+I -- No --> K[Re-enumerate/pivot]
+H --> L[Credential discovery
+Parse credentials/hashes]
+L --> F
+F --> M{Valid credentials?}
+M -- Yes --> N[Foothold/Lateral movement
+psexec/wmi/smbexec]
+M -- No --> O[Return to recon]
+```
 
 ### SMTP Overview
 
@@ -405,7 +558,7 @@ snmpwalk -v2c -c public target.thm
 - Community string valid → parse for credentials and target processes/services.
 - String invalid → try common defaults, then move on to other vectors.
 
-#### Common pitfalls & time-savers
+#### Common pitfalls and time-savers
 
 - Forgetting UDP scan entirely.
 - Not checking v3 (might hide useful data but more secure).
@@ -505,7 +658,7 @@ D -- No --> F{Key-only enforced?}
 F -- Yes --> G[Key hunt
 id_rsa / authorized_keys
 backups/shares]
-F -- No --> H[Re-enumerate & pivot]
+F -- No --> H[Re-enumerate and pivot]
 E --> I[Validate credentials
 hydra
 Manual attempts]
@@ -531,7 +684,7 @@ K -- No --> G
 # Nmap
 nmap -p23 -sV --script telnet* target.thm
 
-# Banner & prompt
+# Banner and prompt
 nc target.thm 23
 
 # Credential testing (slow and careful)
@@ -555,7 +708,7 @@ hydra -L users.txt -P passwords.txt telnet://target.thm
 - Prompt present → attempt targeted credentials first (from SMTP/LDAP/SMB).
 - No prompt or closed after banner → check ACLs or IP restrictions.
 
-#### Common pitfalls & time-savers
+#### Common pitfalls and time-savers
 
 - Brute forcing aggressively → easy lockouts or network alarms.
 - Forgetting Telnet is cleartext; avoid leaking your own creds; use isolated lab nets.
