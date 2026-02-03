@@ -738,3 +738,76 @@ configurations/keys]
 F -- No --> H[Re-evaluate wordlists]
 G --> I[Pivot with harvested credentials]
 ```
+
+### VNC Overview
+
+- Ports: TCP 5900+ (per display: 5900, 5901, ...)
+- Purpose: Remote desktop sharing.
+- Impact: Weak/empty passwords or no authentication can allow full desktop viewing/control.
+
+#### Enumeration (commands)
+
+```bash
+# Nmap
+nmap -p5900-5910 -sV --script vnc-info,vnc-title,vnc-auth target.thm
+
+# Manual connect
+vncviewer target.thm:<display>
+
+# Credential testing (short, careful)
+hydra -P passwords.txt -s 5900 vnc://target.thm
+
+# Screenshot
+vncsnapshot target.thm:<display> out.png
+```
+
+#### Exploitation – common paths
+
+- No auth or weak password → immediate desktop access.
+- View-only mode still leaks sensitive information (files, configs, tokens).
+- Use desktop access to open terminals or RDP/SSH clients for deeper control.
+
+#### Observation cues
+
+- Security types (VNC auth, TLS).
+- Display number mapping (port-5900).
+- Server banner/version (RealVNC/TightVNC/TigerVNC).
+
+#### Decision triggers
+
+- Authentication required → test curated passwords (from loot).
+- No authentication → connect and immediately begin evidence collection and pivot setup.
+
+#### Common pitfalls and time-savers
+
+- Trying only 5900 and missing other displays (5901+).
+- Leaving sessions open (risk and noise).
+
+#### Privilege escalation tie-ins
+
+- Harvest files/secrets and enable additional remote services (RDP/SSH).
+- Check saved credentials in browsers and password managers.
+
+#### Automation ideas
+
+- Automate screenshot capture across displays to triage hosts quickly.
+
+#### Attack flow
+
+```mermaid
+flowchart TD
+A[Start: TCP 5900+ open] --> B[Enumerate
+nmap --script vnc-*
+scan displays]
+B --> C{Authentication required?}
+C -- No --> D[Connect
+collect screenshots]
+C -- Yes --> E[Curated password test
+hydra]
+D --> F[Desktop pivot
+open terminals/RDP]
+E --> G{Success?}
+G -- Yes --> F
+G -- No --> H[Re-enumerate
+other displays]
+```
