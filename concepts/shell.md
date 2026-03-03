@@ -4,6 +4,7 @@
 - [Reverse Shell](#reverse-shell)
 - [Bind Shell](#bind-shell)
 - [Web Shell](#web-shell)
+- [Stable Shell](#stable-shell)
 
 ## Introduction
 
@@ -45,3 +46,28 @@ An ssh shell is a type of bind shell.
 A web shell is when you can send an operating system command to a website and it will then execute that command on the server (or backend) of that machine. These can be pages that a developer left for testing or ones that are created by an upload from an attacker.
 
 A web shell can be a page that accepts input or it could be one that only runs a command when the script is called because the command is hard coded into the page. The page might also be one that is hard coded to run a specific command but the user supplies arguments for that command.
+
+## Stable Shell
+
+Once I have connected to the target machine with netcat, getting a stable shell is my main priority. There are a few different ways to do this; below are a few.
+
+### Python PTY
+
+If Python is on the machine, this is my preferred method. There are four steps, and then I will have a stable shell. The steps are:
+
+- Run the command: `python3 -c 'import pty;pty.spawn("/bin/bash")'`. This creates a new process that runs bash in a pseudo-terminal (pty).
+- Run the command: `export TERM=xterm`. This sets the terminal emulator to xterm. This is the default setting for Ubuntu.
+- Move my shell session to the background by hitting `^Z` (Ctrl+Z). I need to run one more command, and this process needs to be in the background for the command to work.
+- Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through to standard in and out. The `fg` command moves the previous process from the background to the foreground.
+
+So the commands are as follows:
+
+```bash
+$ python3 -c 'import pty;pty.spawn("/bin/bash")'
+$ export TERM=xterm
+$ ^z
+[1]+  Stopped                 nc -lnvp 4444
+$ stty raw -echo; fg
+```
+
+Now I have a stable shell with Python.
