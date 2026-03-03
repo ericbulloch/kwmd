@@ -17,4 +17,5 @@ There are so many processes, ideas, tools, techniques and parts. This folder is 
 - [Networking](networking.md)
 - [Privilege Escalation](privilege_escalation.md)
 - [Python](python.md)
+- [Shell](shell.md)
 - [Website Hacking](website_hacking.md)
