@@ -252,30 +252,12 @@ I have included a write up that details interacting with [smb](services/smb.md) 
 
 ### Stable Shell
 
-Once I have connected to the target machine with netcat, getting a stable shell is my main priority. There are a few different ways to do this; here are the ones that I use.
-
-#### Python PTY
-
-If Python is on the machine, this is my preferred method. There are four steps, and then I will have a stable shell. The steps are:
-
-- Run the command: `python3 -c 'import pty;pty.spawn("/bin/bash")'`. This creates a new process that runs bash in a pseudo-terminal (pty).
-- Run the command: `export TERM=xterm`. This sets the terminal emulator to xterm. This is the default setting for Ubuntu.
-- Move my shell session to the background by hitting `^Z` (Ctrl+Z). I need to run one more command, and this process needs to be in the background for the command to work.
-- Run the command: `stty raw -echo; fg`. This disables the raw input and output and just sends it straight through to standard in and out. The `fg` command moves the previous process from the background to the foreground.
-
-So the commands are as follows:
-
-```bash
-$ python3 -c 'import pty;pty.spawn("/bin/bash")'
-$ export TERM=xterm
-$ ^z
-[1]+  Stopped                 nc -lnvp 4444
-$ stty raw -echo; fg
-```
+Once I have connected to the target machine with netcat, getting a stable shell is my main priority. I outline the steps I take in my Shell [concepts](concepts/shell.md#stable-shell) page.
 
 ### Linux Privilege Escalation
 
 I have included a write up for [Linux privilege escalation](concepts/privilege_escalation.md#linux-privilege-escalation) in my Privilege Escalation [concepts](concepts/README.md) section. It covers the more common commands and ideas that I have found and used during capture the flag events.
+
 
 
 
