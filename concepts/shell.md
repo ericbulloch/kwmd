@@ -7,7 +7,7 @@
 
 ## Introduction
 
-Databases are where information is stored. They store information like users, products, shopping carts, shipments, customers, clients and payment information. When people talk about hackers getting people's information they are talking about how hackers took that information from a database.
+Shells are the programs that take raw input from the user via the keyboard and pass the commands to the operating system. This was the original interface of a computer. There are some tasks that a terminal is much faster at than a graphical user interface (GUI).
 
 For the purposes of this section, my attack box is at ip address `10.10.1.10` and my target box is at ip address `10.10.1.20`.
 
@@ -36,4 +36,12 @@ Connection received on 10.10.1.20 42164
 
 ## Bind Shell
 
+A bind shell is similar to a reverse shell except that the target machine listens or "binds" to a specific port and waits for the attack machine to connect to it.
+
+An ssh shell is a type of bind shell.
+
 ## Web Shell
+
+A web shell is when you can send an operating system command to a website and it will then execute that command on the server (or backend) of that machine. These can be pages that a developer left for testing or ones that are created by an upload from an attacker.
+
+A web shell can be a page that accepts input or it could be one that only runs a command when the script is called because the command is hard coded into the page. The page might also be one that is hard coded to run a specific command but the user supplies arguments for that command.
