@@ -9,6 +9,7 @@
   - [Phonebook Example](#phonebook-example)
   - [How It Works With Computers](#how-it-works-with-computers)
   - [DNS Records](#dns-records)
+- [VPN](#vpn)
 - [OSI Model](#osi-model)
   - [Mnemonics To Remember OSI Model Layers](#mnemonics-to-remember-osi-model-layers)
 
@@ -277,6 +278,13 @@ Here is a list of the different DNS record types:
 | CNAME | Short for canonical name. It maps an alias to a canonical name. | Mapping `mail.google.com` and `www.google.com` to `google.com`. |
 | MX | Short for mail exchange. This is used for mail delivery. | `mail.google.com`. |
 | TXT | Human readable DNS record. Limited to 255 characters. It is used for infiltration and exfiltration attacks because this field is freeform | "This is a sample text DNS record." |
+
+## VPN
+
+Virtual Private Networks (VPN) are used to connect computers and devices with the intent of making them feel as if they were plugged into the same local area network (LAN). Some VPNs include the following:
+
+- Remote Access VPN: These are networks where the client creates a virtual interface that makes them feel like they are on the network. Sites like TryHackMe and Hack The Box use OpenVPN so that my attack machine can connect to their network.
+- SSL VPN: This is a VPN over the browser. Sites like TryHackMe and Hack The Box have attack boxes that can be ran from the browser. Those attack boxes are streaming a desktop session from the browser.
 
 ## OSI Model
 
