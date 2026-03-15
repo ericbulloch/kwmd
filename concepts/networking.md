@@ -14,6 +14,7 @@
 - [OSI Model](#osi-model)
   - [Mnemonics To Remember OSI Model Layers](#mnemonics-to-remember-osi-model-layers)
 - [TCP/IP Model](#tcpip-model)
+- [TCP/IP and OSI Model Table](#tcpip-and-osi-model-table]
 
 ## Introduction
 
@@ -317,3 +318,15 @@ Proxies are servers or devices that sit between two devices that are communicati
 - Layer 2: Internet Layer
 - Layer 3: Transport Layer
 - Layer 4: Application Layer
+
+## TCP/IP and OSI Model Table
+
+| TCP/IP Model Layer | OSI Model Layer | Description |
+|--------------------|-----------------|-------------|
+| Application        | Application (7) | Network services for applications (HTTP, FTP, SMTP, DNS) |
+| Application        | Presentation (6)| Data translation, encryption, compression |
+| Application        | Session (5)     | Session management between applications |
+| Transport          | Transport (4)   | End-to-end communication, reliability, ports (TCP, UDP) |
+| Internet           | Network (3)     | Logical addressing and routing (IP) |
+| Network Access     | Data Link (2)   | MAC addressing, frame transmission |
+| Network Access     | Physical (1)    | Electrical signals, cables, hardware transmission |
