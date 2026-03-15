@@ -10,6 +10,7 @@
   - [How It Works With Computers](#how-it-works-with-computers)
   - [DNS Records](#dns-records)
 - [VPN](#vpn)
+- [Proxy](#proxy)
 - [OSI Model](#osi-model)
   - [Mnemonics To Remember OSI Model Layers](#mnemonics-to-remember-osi-model-layers)
 
@@ -285,6 +286,13 @@ Virtual Private Networks (VPN) are used to connect computers and devices with th
 
 - Remote Access VPN: These are networks where the client creates a virtual interface that makes them feel like they are on the network. Sites like TryHackMe and Hack The Box use OpenVPN so that my attack machine can connect to their network.
 - SSL VPN: This is a VPN over the browser. Sites like TryHackMe and Hack The Box have attack boxes that can be ran from the browser. Those attack boxes are streaming a desktop session from the browser.
+
+## Proxy
+
+Proxies are servers or devices that sit between two devices that are communicating. Normally one side doesn't want to communicate directly with another and so a proxy acts as a mediator. Proxies can be used for inbound and outbound traffic. Some proxy types include:
+
+- Forward Proxy: When another device or computer makes a request on behalf of you. Burp Suite is an HTTP forward proxy as it intercepts requests from my machine so that I can alter them before sending them to the server. Many of the VPN services that get advertised on sites like YouTube are Forward Proxies.
+- Reverse Proxy: A reverse proxy is when another server or device receives a request and then forwards it to your machine. This is a common technique used for web applications where a server receives the request and then forwards that request to one of the application servers that handle the request. This is useful to protect against denial of service attacks. It also adds a layer of protection so that traffic can be filtered.
 
 ## OSI Model
 
