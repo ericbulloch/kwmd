@@ -13,7 +13,7 @@
 - [Proxy](#proxy)
 - [OSI Model](#osi-model)
   - [Mnemonics To Remember OSI Model Layers](#mnemonics-to-remember-osi-model-layers)
-- [TCP/IP Model](#tcp-ip-model)
+- [TCP/IP Model](#tcpip-model)
 
 ## Introduction
 
