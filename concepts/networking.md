@@ -13,6 +13,7 @@
 - [Proxy](#proxy)
 - [OSI Model](#osi-model)
   - [Mnemonics To Remember OSI Model Layers](#mnemonics-to-remember-osi-model-layers)
+- [TCP/IP Model](#tcp-ip-model)
 
 ## Introduction
 
@@ -309,3 +310,10 @@ Proxies are servers or devices that sit between two devices that are communicati
 - Please Do Not Throw Sausage Pizza Away
 - Piper Doesn't Need To Sell Pepper Anymore
 - Pete Doesn't Need To Sell Pickles Anymore
+
+## TCP/IP Model
+
+- Layer 1: Link Layer
+- Layer 2: Internet Layer
+- Layer 3: Transport Layer
+- Layer 4: Application Layer
