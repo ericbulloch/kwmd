@@ -14,7 +14,7 @@
 - [OSI Model](#osi-model)
   - [Mnemonics To Remember OSI Model Layers](#mnemonics-to-remember-osi-model-layers)
 - [TCP/IP Model](#tcpip-model)
-- [TCP/IP and OSI Model Table](#tcpip-and-osi-model-table]
+- [TCP/IP and OSI Model Table](#tcpip-and-osi-model-table)
 
 ## Introduction
 
