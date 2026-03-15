@@ -323,10 +323,10 @@ Proxies are servers or devices that sit between two devices that are communicati
 
 | TCP/IP Model Layer | OSI Model Layer | Description |
 |--------------------|-----------------|-------------|
-| Application        | Application (7) | Network services for applications (HTTP, FTP, SMTP, DNS) |
-| Application        | Presentation (6)| Data translation, encryption, compression |
-| Application        | Session (5)     | Session management between applications |
-| Transport          | Transport (4)   | End-to-end communication, reliability, ports (TCP, UDP) |
-| Internet           | Network (3)     | Logical addressing and routing (IP) |
-| Network Access     | Data Link (2)   | MAC addressing, frame transmission |
-| Network Access     | Physical (1)    | Electrical signals, cables, hardware transmission |
+| Application (4)    | Application (7) | Network services for applications (HTTP, FTP, SMTP, DNS) |
+| Application (4)    | Presentation (6)| Data translation, encryption, compression |
+| Application (4)    | Session (5)     | Session management between applications |
+| Transport (3)      | Transport (4)   | End-to-end communication, reliability, ports (TCP, UDP) |
+| Internet (2)       | Network (3)     | Logical addressing and routing (IP) |
+| Network Access (1) | Data Link (2)   | MAC addressing, frame transmission |
+| Network Access (1) | Physical (1)    | Electrical signals, cables, hardware transmission |
