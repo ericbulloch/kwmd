@@ -47,6 +47,7 @@ Things nmap does well:
   - `-p1-1000` A range of ports
   - `-p22,80,443,5000` Multiple ports
   - `-p21-25,80,443` Range of ports and multiple ports
+- `-sn` Disable port scanning. Used for [host discovery](/methodology/enumeration/host_discovery.md)
 
 ## Port Scans
 
