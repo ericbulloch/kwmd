@@ -55,10 +55,43 @@ I am looking to find out what technologies the company is using. I can find this
 
 - LinkedIn
 - GitHub
+- Bitbucket
 - X
+- BuiltWith
+- Wappalyzer
 
 Here is what I am looking for:
 
 - Technologies in use (from job postings and proficiencies of employees on LinkedIn)
 - Internal tools (Jira, Jenkins, AWS, Azure, etc.)
 - Developer mistakes (hardcoded secrets on GitHub)
+- Web server (Apache, Nginix, etc.)
+- Frameworks (React, Django, Laravel, etc.)
+- CMS (Wordpress, Joomla)
+- API keys
+- Hardcoded credentials
+- Internal URLs
+- Developer comments
+
+## Cloud & Storage Enumeration (Passive)
+
+Targets include:
+
+- S3 buckets
+- Azure blobs
+- GCP storage
+
+Methods include:
+
+- Guess naming conventions:
+  - company-name-backups
+  - company-dev
+
+## Output of Passive Reconnaissance
+
+- Domains:
+- Subdomains:
+- IP ranges:
+- Emails:
+- Technologies:
+- Potential attack vectors:
