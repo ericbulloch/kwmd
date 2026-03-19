@@ -15,7 +15,7 @@
 The goal here is just to look at the 1000 most common ports. If the results are low or ports are marked as filtered, run a Filtered scan. Otherwise run a Full TCP scan.
 
 ```bash
-nmap <target> -oA quick
+nmap <target> -oA nmap/quick
 ```
 
 ## Filtered Scan
@@ -25,13 +25,13 @@ Some ports have been marked as filtered or perhaps no results came back. A Filte
 ### Base Filtered Scan
 
 ```bash
-nmap <target> -sA -p1-1000 -oA filtered --reason
+nmap <target> -sA -p1-1000 -oA nmap/filtered --reason
 ```
 
 ### Source Port Filtered Scan
 
 ```bash
-nmap <target> -sA -p1-1000 -oA filtered --reason --source-port 53
+nmap <target> -sA -p1-1000 -oA nmap/filteredFrom53 --reason --source-port 53
 ```
 
 ### Decoy Port Filtered Scan
@@ -39,5 +39,5 @@ nmap <target> -sA -p1-1000 -oA filtered --reason --source-port 53
 This uses 5 random decoys:
 
 ```bash
-nmap <target> -sA -p1-1000 -oA filtered --reason -D RND:5
+nmap <target> -sA -p1-1000 -oA nmap/filteredDecoys --reason -D RND:5
 ```
