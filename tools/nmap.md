@@ -31,11 +31,13 @@ Things nmap does well:
 
 ## Flags
 
+- `-A` Perform OS detection, service detection, and traceroute scan
 - `-D` Specify decoys. Examples include:
   - `-D RND:5` Use five random IP address decoys
   - `-D <decoy,decoy2,ME,decoy3>` Use three decoys, two before me and then one after
+- `--disable-arp-ping` Disable ARP ping requests
 - `-f` fragment packets
-- `-F` Fast mode, scan fewer ports than the default scan
+- `-F` Fast mode, scan fewer ports than the default scan (top 100 ports)
 - `-iL <input_file>` Use an input file with a list of hosts/networks to scan
 - `-g <port_number>` or `--source-port <port_number>` Specify a port number the probe is coming from
 - `-n` Disables DNS resolution
@@ -49,6 +51,7 @@ Things nmap does well:
   - `-p1-1000` A range of ports
   - `-p22,80,443,5000` Multiple ports
   - `-p21-25,80,443` Range of ports and multiple ports
+- `--packet-trace` Show all packets sent and received
 - `-PE` Use ICMP echo request scans
 - `-Pn` Treat the host as online. Skip host discovery. Disables ICMP echo requests
 - `--reason` Display the reason for a result
