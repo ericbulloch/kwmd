@@ -1,7 +1,7 @@
 # Hacking Methodology
 
 ## 1. Reconnaissance
-- Passive recon
+- [Passive recon](reconnaissance/passive.md)
 - Active recon
 - Subdomain enumeration
 
