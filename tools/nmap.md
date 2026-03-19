@@ -1,6 +1,7 @@
 # nmap
 
 - [Introduction](#introduction)
+- [Flags](#flags)
 - [Port Scans](#port-scans)
   - [Known Machine IP Address](#known-machine-ip-address)
     - [Initial TCP Scan](#initial-tcp-scan)
