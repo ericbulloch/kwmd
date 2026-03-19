@@ -13,7 +13,7 @@ nmap 10.10.10.0/24 -sn -n -oA nmap/subdomain
 ## Scan With Specified Source Port
 
 ```bash
-nmap 10.10.10.0/24 -sn -n -g 53 -oA nmap/subdomainFrom53
+nmap 10.10.10.0/24 -sn -n --source-port 53 -oA nmap/subdomainFrom53
 ```
 
 ## Scan IP Range
