@@ -7,11 +7,11 @@ Sometimes I don't know all the machines in a network. Sometimes I need to scan t
 ## Scan All Machines In A Subdomain
 
 ```bash
-nmap 10.10.10.0/24 -sn -n
+nmap 10.10.10.0/24 -sn -n -oA nmap/subdomain
 ```
 
 ## Scan With Specified Source Port
 
 ```bash
-nmap 10.10.10.0/24 -sn -n -g 53
+nmap 10.10.10.0/24 -sn -n -g 53 -oA nmap/subdomainFrom53
 ```
