@@ -15,3 +15,9 @@ nmap 10.10.10.0/24 -sn -n -oA nmap/subdomain
 ```bash
 nmap 10.10.10.0/24 -sn -n -g 53 -oA nmap/subdomainFrom53
 ```
+
+## Scan IP Range
+
+```bash
+nmap 10.10.10.100-130 -sn -n -oA nmap/subdomainRange
+```
