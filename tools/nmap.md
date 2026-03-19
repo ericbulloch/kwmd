@@ -22,6 +22,13 @@
 
 Capture the flag events often provide a vulnerable machine's ip address. I need to know what is running on that machine so I can figure out what the next step is when attacking that machine. This is where nmap comes into play. The nmap tool is a very useful tool to find what ports are running on a machine. It can also try to detect the operating system that is running on the machine. I commonly use it to get the name and version of software that is listening on a given port.
 
+Things nmap does well:
+
+- Live host discovery
+- Open port identification
+- Service/version detection
+- Basic OS fingerprinting
+
 ## Usage
 
 ```bash
