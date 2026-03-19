@@ -6,6 +6,7 @@
 - Subdomain enumeration
 
 ## 2. Enumeration
+- [Host discovery](enumeration/host_discovery.md)
 - [Port Scanning](enumeration/port_scanning.md)
 - Services
 - Users
