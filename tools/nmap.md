@@ -31,13 +31,15 @@ Things nmap does well:
 
 ## Flags
 
-- `-T<0-5>` Specifies how fast you want to scan. Here are some times:
-  - `T0` Wait five minutes between each probe
-  - `T1` Wait 15 seconds between each probe
-  - `T2` Wait 0.4 seconds between each probe
-  - `T3` Is the default probe speed and includes parallelization
-  - `T4` Wait 0.1 seconds between each probe and includes parallelization
-  - `T5` Wait 0.05 seconds between each probe and includes parallelization
+- `-D` Specify decoys. Examples include:
+  - `-D RND:5` Use five random IP address decoys
+  - `-D <decoy,decoy2,ME,decoy3>` Use three decoys, two before me and then one after
+- `-f` fragment packets
+- `-F` Fast mode, scan fewer ports than the default scan
+- `-iL <input_file>` Use an input file with a list of hosts/networks to scan
+- `-g <port_number>` or `--source-port <port_number>` Specify a port number the probe is coming from
+- `-n` Disables DNS resolution
+- `-O` Enable OS detection
 - `-oN filename` Store results of the scan in normal format in the filename specified (filename.nmap)
 - `-oG filename` Store results of the scan in grepable format in the filename specified (filename.gnmap)
 - `-oX filename` Store results of the scan in xml format in the filename specified (filename.xml)
@@ -47,11 +49,24 @@ Things nmap does well:
   - `-p1-1000` A range of ports
   - `-p22,80,443,5000` Multiple ports
   - `-p21-25,80,443` Range of ports and multiple ports
-- `-sn` Disable port scanning. Used for [host discovery](/methodology/enumeration/host_discovery.md)
+- `-PE` Use ICMP echo request scans
 - `-Pn` Treat the host as online. Skip host discovery. Disables ICMP echo requests
-- `-n` Disables DNS resolution
+- `-S` Spoof the source address
+- `-sA` ACK scan
 - `-sC` Run default nmap scripts
+- `-sn` Disable port scanning. Used for [host discovery](/methodology/enumeration/host_discovery.md)
+- `-sS` TCP SYN scan
+- `-sT` Connect scan
+- `-sU` UDP scan (very slow, specify a low number of ports)
 - `-sV` Probe open ports to determine service/version information
+- `-T<0-5>` Specifies how fast you want to scan. Here are some times:
+  - `T0` Wait five minutes between each probe
+  - `T1` Wait 15 seconds between each probe
+  - `T2` Wait 0.4 seconds between each probe
+  - `T3` Is the default probe speed and includes parallelization
+  - `T4` Wait 0.1 seconds between each probe and includes parallelization
+  - `T5` Wait 0.05 seconds between each probe and includes parallelization
+- `--top-ports <number>` Scan the <number> most common ports
 
 ## Port Scans
 
