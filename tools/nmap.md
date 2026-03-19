@@ -50,6 +50,8 @@ Things nmap does well:
 - `-sn` Disable port scanning. Used for [host discovery](/methodology/enumeration/host_discovery.md)
 - `-Pn` Treat the host as online. Skip host discovery. Disables ICMP echo requests
 - `-n` Disables DNS resolution
+- `-sC` Run default nmap scripts
+- `-sV` Probe open ports to determine service/version information
 
 ## Port Scans
 
