@@ -59,6 +59,7 @@ I am looking to find out what technologies the company is using. I can find this
 - X
 - BuiltWith
 - Wappalyzer
+- StackOverflow
 
 Here is what I am looking for:
 
@@ -72,6 +73,7 @@ Here is what I am looking for:
 - Hardcoded credentials
 - Internal URLs
 - Developer comments
+- Private and public SSH keys
 
 ## Cloud & Storage Enumeration (Passive)
 
