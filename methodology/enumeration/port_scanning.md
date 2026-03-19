@@ -1,5 +1,7 @@
 # Enumeration - Port Scanning
 
+[Back to methodology](/methodology/README.md)
+
 - A port scan should take place for each machine to determine what services are available.
 - Once a foothold has been obtained, a port scan can find services that were hidden.
 - Generally a port scan has multiple stages. Generally here are the ones used:
