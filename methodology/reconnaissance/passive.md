@@ -49,7 +49,7 @@ I am looking for the following:
 - Email formats
 - Password reuse patterns
 
-## Technical Employees
+## Leaked Technologies
 
 I am looking to find out what technologies the company is using. I can find this information on the following sites:
 
