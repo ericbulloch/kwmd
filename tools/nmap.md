@@ -51,6 +51,7 @@ Things nmap does well:
   - `-p21-25,80,443` Range of ports and multiple ports
 - `-PE` Use ICMP echo request scans
 - `-Pn` Treat the host as online. Skip host discovery. Disables ICMP echo requests
+- `--reason` Display the reason for a result
 - `-S` Spoof the source address
 - `-sA` ACK scan
 - `-sC` Run default nmap scripts
