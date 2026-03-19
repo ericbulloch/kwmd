@@ -6,6 +6,7 @@
 - Subdomain enumeration
 
 ## 2. Enumeration
+- [Port Scanning](enumeration/port_scanning.md)
 - Services
 - Users
 - Shares
