@@ -32,21 +32,27 @@ Things nmap does well:
 ## Flags
 
 - `-A` Perform OS detection, service detection, and traceroute scan
-- `-D` Specify decoys. Examples include:
+- `-D` Specifies decoys. Examples include:
   - `-D RND:5` Use five random IP address decoys
   - `-D <decoy,decoy2,ME,decoy3>` Use three decoys, two before me and then one after
 - `--disable-arp-ping` Disable ARP ping requests
-- `-f` fragment packets
+- `--dns-server <name_server>` DNS resolution is performed by the specified name server
+- `-e <interface>` Specifies which interface to use when probing 
+- `-f` Fragment packets
 - `-F` Fast mode, scan fewer ports than the default scan (top 100 ports)
 - `-iL <input_file>` Use an input file with a list of hosts/networks to scan
-- `-g <port_number>` or `--source-port <port_number>` Specify a port number the probe is coming from
+- `--initial-rtt-timeout <time_with_unit>` Specifies time value of initial Round-Trip-Time (RTT) timeout. For example, 100ms or 2s
+- `-g <port_number>` or `--source-port <port_number>` Specifies a port number the probe is coming from
+- `--max-retries <number>` Specifies the maximum number of retries for a scan of specified ports
+- `--max-rtt-timeout <time_with_unit>` Specifies time value of maximum Round-Trip-Time (RTT) timeout. For example, 100ms or 2s
+- `--min-rate <number>` Specifies the number of packets that will be sent simultaneously. For example 500
 - `-n` Disables DNS resolution
 - `-O` Enable OS detection
 - `-oN filename` Store results of the scan in normal format in the filename specified (filename.nmap)
 - `-oG filename` Store results of the scan in grepable format in the filename specified (filename.gnmap)
 - `-oX filename` Store results of the scan in xml format in the filename specified (filename.xml)
 - `-oA filename` Store results of the scan in three files with each in a format specified above (filename.gnmap, filename.nmap, filename.xml)
-- `-p` Specify what ports to scan. Some examples include:
+- `-p` Specifies what ports to scan. Some examples include:
   - `-p80` A single port
   - `-p1-1000` A range of ports
   - `-p22,80,443,5000` Multiple ports
@@ -55,7 +61,7 @@ Things nmap does well:
 - `-PE` Use ICMP echo request scans
 - `-Pn` Treat the host as online. Skip host discovery. Disables ICMP echo requests
 - `--reason` Display the reason for a result
-- `-S` Spoof the source address
+- `-S <source_address>` Specifies the source address the probe is coming from
 - `-sA` ACK scan
 - `-sC` Run default nmap scripts
 - `-sn` Disable port scanning. Used for [host discovery](/methodology/enumeration/host_discovery.md)
@@ -71,6 +77,7 @@ Things nmap does well:
   - `T4` Wait 0.1 seconds between each probe and includes parallelization
   - `T5` Wait 0.05 seconds between each probe and includes parallelization
 - `--top-ports <number>` Scan the <number> most common ports
+- `-v/-vv` Verbose output. It will output while scanning instead of waiting until the end
 
 ## Port Scans
 
