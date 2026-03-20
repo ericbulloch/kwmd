@@ -59,3 +59,27 @@ This uses 5 random decoys:
 ```bash
 nmap <target> -sA -p1-1000 -oA nmap/filteredDecoys --reason -D RND:5
 ```
+
+## Output of Port Scanning
+
+For each service, try to get the following:
+
+- Port number:
+- Service running:
+- Version of service:
+- Exploit research:
+
+Ports and services should be grouped by priority, for example:
+
+High Priority:
+
+- 80 (Web app -> likely entry point)
+- 445 (SMB -> common misconfigurations)
+
+Medium Priority:
+
+- 22 (SSH -> depends on credentials)
+
+Low Priority:
+
+- 631 (CUPS)
