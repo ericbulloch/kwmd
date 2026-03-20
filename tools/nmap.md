@@ -28,6 +28,12 @@ Things nmap does well:
 - Open port identification
 - Service/version detection
 - Basic OS fingerprinting
+- Response analysis
+- Network mapping
+- Types of possible connections
+- Check firewall and IDS settings and configuration
+- Simulate penetration tests
+- Audit security aspects of a network
 
 ## Flags
 
