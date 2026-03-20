@@ -10,9 +10,18 @@
   - Full TCP scan
   - UDP scan
 
+## TCP Connect Scan
+
+The examples below use a full TCP connect scan (the `-sT` flag). Here is how this scan works:
+
+- Send packet with SYN flag to the target port.
+- If the target responds with a SYN-ACK flag packet, that port is marked as open and a packet with the ACK flag is sent to complete the handshake. After the connection has been made nmap closes the connection with a RST-ACK flag packet.
+- If the target response with a RST flagged packet, that port is marked as closed.
+- If nmap does not receive a packet back or an error code, that port is marked as filtered.
+
 ## TCP-SYN Scan
 
-Both the Quick scan and Full TCP scan use the TCP-SYN scan of nmap. This scan starts the TCP three-way handshake. Here is how this scan works:
+Both the Quick scan and Full TCP scan can use the TCP-SYN scan of nmap (use the `-sS` flag). This scan starts the TCP three-way handshake but doesn't finish it. This scan is called a stealth scan because many systems only log when a connection completes not when it is started. Here is how this scan works:
 
 - Send packet with SYN flag to the target port.
 - If the target responds with a SYN-ACK flag packet, that port is marked as open.
