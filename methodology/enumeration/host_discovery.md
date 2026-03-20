@@ -21,3 +21,7 @@ nmap 10.10.10.0/24 -sn -n --source-port 53 -oA nmap/subdomainFrom53
 ```bash
 nmap 10.10.10.100-130 -sn -n -oA nmap/subdomainRange
 ```
+
+## Output of Host Discovery
+
+- Online hosts to start [port scanning](port_scanning.md)
