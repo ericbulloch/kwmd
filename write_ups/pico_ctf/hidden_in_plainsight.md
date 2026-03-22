@@ -1,6 +1,8 @@
 # Challenge Name: Hidden in plainsight
 **Category:** Forensics
+
 **Difficulty:** Easy
+
 **Date Completed:** 2026-03-22
 
 ---
