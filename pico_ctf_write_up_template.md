@@ -1,7 +1,8 @@
 # Challenge Name: <name>
 **Category:** <e.g., Web, Crypto, Forensics>
+
 **Difficulty:** <Easy / Medium / Hard>
-**Points:** <points>
+
 **Date Completed:** <date>
 
 ---
