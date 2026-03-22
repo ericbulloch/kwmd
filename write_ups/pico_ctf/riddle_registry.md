@@ -1,7 +1,6 @@
 # Challenge Name: Riddle Registry
 **Category:** Forensics
 **Difficulty:** Easy
-**Points:** ?
 **Date Completed:** 2026-03-22
 
 ---
@@ -24,8 +23,12 @@ Opened the pdf and some of the context is blanked out. The flag might be behind 
 ---
 
 ## 🛠️ Tools Used
-- tool1 (e.g., strings, nmap, burpsuite)
-- tool2
+- wget
+- strings
+- exiftool
+- echo
+- base64
+- CyberChef
 
 ---
 
@@ -41,7 +44,7 @@ Step-by-step process:
 8. Experience has taught me to look at the metadata for a file.
 9. I ran the following command to get the metadata `exiftool confidential.pdf`
 10. I observed the following: `Author                          : cGljb0NURntwdXp6bDNkX20zdGFkYXRhX2YwdW5kIV9mOTQzMDBjNH0=`
-11. That value is base64 encoded. I the following command: `echo 'cGljb0NURntwdXp6bDNkX20zdGFkYXRhX2YwdW5kIV9mOTQzMDBjNH0' | base64 -d`
+11. That value is base64 encoded. I the following command: `echo 'cGljb0NURntwdXp6bDNkX20zdGFkYXRhX2YwdW5kIV9mOTQzMDBjNH0' | base64 -d`. You can also use CyberChef for this.
 
 Include commands:
 ```bash
