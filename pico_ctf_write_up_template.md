@@ -13,9 +13,14 @@ Brief description of the challenge and what needs to be achieved.
 ---
 
 ## 🔍 Initial Analysis
-- What information is given?
-- Any files, URLs, or hints?
-- First thoughts / hypotheses
+### What information is given?
+
+
+### Any files, URLs, or hints?
+
+
+### First thoughts / hypotheses
+
 
 ---
 
