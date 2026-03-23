@@ -1,0 +1,37 @@
+# Challenge Name: <name>
+**Category:** General Skills
+
+**Difficulty:** Easy
+
+**Date Completed:** 2026-03-23
+
+---
+
+## 🧠 Objective
+Our server seems to be leaking pieces of a secret flag in its logs. The parts are scattered and sometimes repeated. Can you reconstruct the original flag? Download the logs and figure out the full flag from the fragments.
+
+---
+
+## 🔍 Initial Analysis
+- What information is given?
+- Any files, URLs, or hints?
+- First thoughts / hypotheses
+
+---
+
+## 🛠️ Tools Used
+- tool1 (e.g., strings, nmap, burpsuite)
+- tool2
+
+---
+
+## 🚶 Approach
+Step-by-step process:
+1. Did X
+2. Observed Y
+3. Tried Z
+
+Include commands:
+```bash
+command_here
+```
