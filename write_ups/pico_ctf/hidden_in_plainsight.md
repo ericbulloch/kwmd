@@ -13,9 +13,14 @@ You’re given a seemingly ordinary JPG image. Something is tucked away out of s
 ---
 
 ## 🔍 Initial Analysis
-- What information is given? A link to a jpg image and a hint that the information is hidden in plain site.
-- Any files, URLs, or hints? The url for the image.
-- First thoughts / hypotheses: The metadata or some kind of stenography is at play with this one.
+- What information is given?
+A link to a jpg image and a hint that the information is hidden in plain site.
+
+- Any files, URLs, or hints?
+The url for the image.
+
+- First thoughts / hypotheses
+The metadata or some kind of stenography is at play with this one.
 
 ---
 
