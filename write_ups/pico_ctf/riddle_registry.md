@@ -13,13 +13,14 @@ Hi, intrepid investigator! 📄🔍 You've stumbled upon a peculiar PDF filled w
 ---
 
 ## 🔍 Initial Analysis
-- What information is given?
+
+### What information is given?
 There is a pdf file that is not working correctly. It seems to be filled with nonsense.
 
-- Any files, URLs, or hints?
+### Any files, URLs, or hints?
 A link to the PDF is provided
 
-- First thoughts / hypotheses
+### First thoughts / hypotheses
 Opened the pdf and some of the context is blanked out. The flag might be behind the blanked out content.
 
 ---
