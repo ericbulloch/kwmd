@@ -13,9 +13,15 @@ Our server seems to be leaking pieces of a secret flag in its logs. The parts ar
 ---
 
 ## 🔍 Initial Analysis
-- What information is given? There is a log file and part of the flag will be repeated.
-- Any files, URLs, or hints? The file url is provided. I'll need to look for repeated patterns in the file.
-- First thoughts / hypotheses: 
+
+### What information is given?
+There is a log file and part of the flag will be repeated.
+
+### Any files, URLs, or hints?
+The file url is provided. I'll need to look for repeated patterns in the file.
+
+### First thoughts / hypotheses
+I should look for any lines that have pico in them. That will help me see where the flag might be repeating.
 
 ---
 
