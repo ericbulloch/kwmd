@@ -60,6 +60,18 @@ This uses 5 random decoys:
 nmap <target> -sA -p1-1000 -oA nmap/filteredDecoys --reason -D RND:5
 ```
 
+## Source Ports For Evasion
+
+Firewalls and IDS/IPS systems are not always setup to filter or detect packets with specific source ports. Here is a table of ports and protocols that might evade firewalls and IDS/IPS systems, ordered by most likely to least likely:
+
+| Port | Protocol(s) | Service |
+| --- | --- | --- |
+| 53 | TCP & UDP | DNS |
+| 123 | UDP | NTP |
+| 20 | TCP | FTP Data |
+| 80 | TCP | HTTP |
+| 443 | TCP | HTTS |
+
 ## Output of Port Scanning
 
 For each service, try to get the following:
