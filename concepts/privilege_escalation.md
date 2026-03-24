@@ -14,6 +14,7 @@
   - [`env`](#env)
   - [`groups`](#groups)
   - [`grep -Ri "password" /home /opt 2>/dev/null`](#grep--ri-password-home-opt-2devnull)
+  - [`ps aux`](#ps-aux)
   - [`find / -perm -u=s -type f 2>/dev/null`](#find---perm--us--type-f-2devnull)
 - [Examples](#examples)
   - [LXD](#lxd)
@@ -163,6 +164,10 @@ The section about the `id` command above has sample find commands that can can b
 ### `grep -Ri "password" /home /opt 2>/dev/null`
 
 Developers struggle to sanitize their logs before they write to file. So many capture the flag events have credentials in files. This command looks in two of the more common directories to contains passwords. It looks for the case-insensitive string "password". It will look in all files in the /home and /opt directories.
+
+### `ps aux`
+
+I have done multiple CTF events and I have missed services that were running because I didn't run `ps aux`. Be on the lookout for things like MongoDB and other services that bind to ports. This opens up a greater attack surface.
 
 ### `find / -perm -u=s -type f 2>/dev/null`
 
