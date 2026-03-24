@@ -89,6 +89,15 @@ Methods include:
   - company-name-backups
   - company-dev
 
+## WHOIS
+
+WHOIS provides a lot of information about digital assets for targets on a penetration test. The following information can be found:
+
+- Key personnel's name, email address, and phone numbers
+- Nameservers
+- IP addresses
+- Historical data for analysis (track over time what has changed)
+
 ## Output of Passive Reconnaissance
 
 - Domains:
