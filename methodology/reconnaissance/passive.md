@@ -35,6 +35,9 @@ I am looking for:
 - Hidden subdomains
 - Dev/staging environments
 - Internal naming conventions (dev, test, staging, preprod, vpn, jira, etc.)
+- Mail servers
+- Name server records
+- The TXT field of DNS record is freeform, people mistakenly place sensitive information in it
 
 ## Public Data Leaks & Breaches
 
