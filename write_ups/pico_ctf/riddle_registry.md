@@ -5,6 +5,8 @@
 
 **Date Completed:** 2026-03-22
 
+[Back to picoCTF challenges](/write_ups/pico_ctf/)
+
 ---
 
 ## 🧠 Objective
