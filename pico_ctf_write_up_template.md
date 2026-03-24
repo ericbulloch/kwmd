@@ -5,6 +5,8 @@
 
 **Date Completed:** <date>
 
+[Back to picoCTF challenges](/write_ups/pico_ctf/)
+
 ---
 
 ## 🧠 Objective
