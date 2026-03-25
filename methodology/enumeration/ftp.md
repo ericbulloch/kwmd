@@ -104,3 +104,32 @@ This will show files and folders recursively from the current directory.
 ```bash
 get fileToDownload.txt -
 ```
+
+## Check Upload Permissions
+
+Create a file like the following:
+
+```bash
+echo 'kwmd FTW!' > test.txt
+```
+
+Then try uploading the file in the ftp client with the following command:
+
+```bash
+put test.txt
+```
+
+Afterwards see if it uploaded with the listing command:
+
+```bash
+ls
+-rw-------    1 1002     133             9 Oct 122 17:01 test.txt
+```
+
+## Connect over SSH
+
+OpenSSL can be used to connect to an FTP server. Use the following command:
+
+```bash
+openssl s_client -connect 10.10.1.222:21 -starttls ftp
+```
