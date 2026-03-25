@@ -9,6 +9,9 @@
 - [Host discovery](enumeration/host_discovery.md)
 - [Port Scanning](enumeration/port_scanning.md)
 - Services
+  - [FTP](enumeration/ftp.md) (21)
+  - [NFS](enumeration/nfs.md) (111, 2049)
+  - [SMB](enumeration/smb.md) (139, 445)
 - Users
 - Shares
 
