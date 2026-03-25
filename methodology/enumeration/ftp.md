@@ -7,6 +7,7 @@ File Transfer Protocol (FTP)
 - The data channel is on port 20 TCP, it is exclusively data transmission and can continue if the connection is broken and re-established
 - All FTP transmissions are in clear text
 - Trivial File Transfer Protocol (TFTP) is similar to FTP but uses UDP for transmission
+- OpenSSL can be used to enable using FTP over SSH.
 
 ## Active vs Passive mode
 
