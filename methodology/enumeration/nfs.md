@@ -22,8 +22,9 @@ showmount -e 10.10.10.33
 ## Mount Share
 
 ```bash
-mkdir target_share
-sudo mount -t nfs 10.10.10.33:/ ./target_share/ -o nolock
+cd /mnt
+sudo mkdir target_share
+sudo mount -t nfs 10.10.10.33:/ /mnt/target_share -o nolock
 ```
 
 ## List Contents With UIDs and GUIDs
