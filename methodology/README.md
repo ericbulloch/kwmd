@@ -10,7 +10,7 @@
 - [Port Scanning](enumeration/port_scanning.md)
 - Services
   - [FTP](enumeration/ftp.md) (21)
-  - [SMTP](enumeration/smtp.md) (25, 587)
+  - [SMTP](enumeration/smtp.md) (25, 465, 587)
   - [DNS](enumeration/dns.md) (53)
   - [NFS](enumeration/nfs.md) (111, 2049)
   - [SMB](enumeration/smb.md) (139, 445)
