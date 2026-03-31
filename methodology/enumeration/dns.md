@@ -93,6 +93,29 @@ This record is the opposite of DNS and converts IP addresses into valid domain n
 
 This record provides corresponding DNS zone and email address of the administrative contact.
 
+## Parsing Dig Output
+
+The next few commands make heavy use of `dig`. It is important to understand the output so that domain names can be classified as DNS servers, hosts, or zones. Here are some tips:
+
+1) If the name appears on the left side, it is either a zone or a host.
+2) If the name appears on the right side, it is either a server, alias, or an ip address
+3) Something is a zone if it meets the following criteria:
+   - Has a SOA record
+   - Has a NS record
+   - Is a left side name in a zone transfer (axfr) attempt
+4) Something is a nameserver if it meets the following criteria:
+   - It appears on the right side of an NS record
+   - It answers authoritative DNS queries
+   - It can be queried directly using @
+   - It responds to a chaos text query
+5) Something is a host if it meets the following criteria:
+   - It has an A or AAAA record
+   - It resolves to an ip address
+   - It is not referenced by an NS record.
+6) CNAME is not a host, it is an alias. Its role depends on the target (right side name):
+   - If target has A/AAAA record, it is the underlying host
+   - If target is external, this is a pivot opportunity
+
 ## Getting The SOA DNS Record
 
 ```bash
