@@ -4,6 +4,16 @@
 
 - Domain Name System (DNS) is the phonebook of the internet
 
+## Entities
+
+There are three main entities in the world of DNS, they are the following:
+
+- Zones
+- Hosts
+- DNS Servers
+
+DNS servers are discussed in more detail below. Hosts are domains like wwww.example.com or mail.example.com. These domains map to an ip address. Zones are a grouping of hosts that might use another DNS server. For example, the domain www.example.com could be in a zone like example.com but the domain mail.example.com could be in a different zone called mail.example.com where it might have its own DNS server.
+
 ## DNS Servers
 
 The different DNS servers include:
