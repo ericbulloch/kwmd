@@ -99,10 +99,59 @@ This record provides corresponding DNS zone and email address of the administrat
 dig soa www.example.com
 ```
 
+## Getting The NS DNS Recorrd
+
+```bash
+dig ns <zone> @dns_server
+```
+
+This is only for zone targets. Nameserver records live at the zone level, not hostnames. Run against root domains and any subdomain you think will be a separate zone.
+
+## Getting Any DNS Record
+
+```bash
+dig any <zone> @dns_server
+```
+
+This command is only for zone targets. Modern DNS servers will suppress and sanitize this information. I am checking if this zone leaks TXT, SPF, MX, and other DNS records. This is a low effort query.
+
+## Running Chaos Text Query
+
+```bash
+dig CH TXT version.bind @dns_server
+```
+
+Chaos queries interrogate the server, not the domain. Run this command after discovering the nameserver. This command is meant to be ran directly against the nameserver.
+
 ## Performing A Zone Transfer
 
 ```bash
-dig axfr domain.htb @10.10.10.75
+dig axfr <zone> @dns_server
 ```
 
-In this example, dig is trying to do a zone transfer for the domain named domain.htb using the dns name server 10.10.10.75.
+In this example, dig is trying to do a zone transfer for the zone named domain.htb using the dns nameserver dns_server. This command is only ran against zones and must be requested against the authoritative servers. It is a low effort, high reward query. This command should be ran against every discovered zone and authoritative server.
+
+## Performing An Internal Zone Transfer
+
+```bash
+dig axfr <internal_zone> @dns_server
+```
+
+I am inside the network and have indentified the internal nameservers. Internal DNS often trusts internal ip addresses, is Active Directory integrated, and contains internal only hostnames. Attempt this command post-compromise and against internal DNS servers.
+
+## Subdomain Enumeration
+
+```bash
+dnsenum --dnsserver <dns_server> --enum -p 0 -s 0 -o subdomains.txt -f /path/to/wordlist.txt <zone>
+```
+
+I am discovering child hosts of a zone, not grandchildren of the host. I am finding new A/CNAME records, dev/stage/admin services, and forgotten infrastructure. Brute force every valid zone discovered, especially zones that fail the zone transfer command above. Wordlists are everything with this command.
+
+## Command Mapping To DNS Entity
+
+| DNS Entity | Examples | Commands To Run |
+| --- | --- | --- |
+| Zone | example.com | `dig NS`, `dig ANY`, zone transfer, subdomain enumeration |
+| Host | www.example.com | `dig A`, `dig AAAA`, `dig CNAME` queries only |
+| DNS Server | ns1.example.com | chaos text, zone transfer |
+
