@@ -89,3 +89,10 @@ This record provides corresponding DNS zone and email address of the administrat
 dig soa www.example.com
 ```
 
+## Performing A Zone Transfer
+
+```bash
+dig axfr domain.htb @10.10.10.75
+```
+
+In this example, dig is trying to do a zone transfer for the domain named domain.htb using the dns name server 10.10.10.75.
