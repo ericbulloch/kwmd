@@ -155,3 +155,15 @@ I am discovering child hosts of a zone, not grandchildren of the host. I am find
 | Host | www.example.com | `dig A`, `dig AAAA`, `dig CNAME` queries only |
 | DNS Server | ns1.example.com | chaos text, zone transfer |
 
+## Example
+
+1. Start with example.com
+2. `dig ns example.com`
+3. For each nameserver:
+   - `dig ch txt version.bind @dns_server`
+   - `dig axfr example.com @dns_server`
+4. If zone transfer (axfr) fails:
+   - Subdomain enumeration
+5. Check if each host is it's own zone
+   - `dig ns new.example.com`
+6. If yes, repeat steps for the new zone
