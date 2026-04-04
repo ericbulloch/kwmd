@@ -15,7 +15,7 @@ Samba is used by Linux and other Unix systems to be able to use SMB. It uses the
 ## Nmap Scan
 
 ```bash
-nmap 10.10.1.101 -p139,445 -sC -sV -vv -A
+nmap -sC -sV -A -p139,445 <target>
 ```
 
 ## View Anonymous Shares
