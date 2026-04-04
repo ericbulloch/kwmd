@@ -93,6 +93,12 @@ This record is the opposite of DNS and converts IP addresses into valid domain n
 
 This record provides corresponding DNS zone and email address of the administrative contact.
 
+## Nmap Scan
+
+```bash
+nmap -sC -sV -A -p53 <target>
+```
+
 ## Parsing Dig Output
 
 The next few commands make heavy use of `dig`. It is important to understand the output so that domain names can be classified as DNS servers, hosts, or zones. Here are some tips:
