@@ -127,10 +127,22 @@ ls
 -rw-------    1 1002     133             9 Oct 122 17:01 test.txt
 ```
 
-## Connect over SSH
+## Connect Over SSH
 
 OpenSSL can be used to connect to an FTP server. Use the following command:
 
 ```bash
 openssl s_client -connect 10.10.1.222:21 -starttls ftp
+```
+
+## Connect With Netcat
+
+```bash
+nc -nv 10.10.1.222 21
+```
+
+## Connect With Telnet
+
+```bash
+telnet 10.10.1.222 21
 ```
