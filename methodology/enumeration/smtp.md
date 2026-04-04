@@ -4,6 +4,18 @@
 
 - SMTP like other protocols was built for convenience with security added later
 
+## Nmap Scan
+
+```bash
+nmap -sC -sV -A -p25 <target>
+```
+
+## Nmap Scan - Open Relay
+
+```bash
+nmap --script smtp-open-relay -p25 <target>
+```
+
 ## Connecting Example Manual User Enumeration
 
 ```bash
