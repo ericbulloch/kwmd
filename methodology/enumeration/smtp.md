@@ -76,3 +76,7 @@ Check an individual user running the command `RCPT <username>`. Here is an expla
 
 - 250: User exists
 - 550: User does not exist
+
+## Python - Enumerate Users
+
+I have a script to enumerate users [found here](/concepts/python/enumerate_smtp_users.py).
