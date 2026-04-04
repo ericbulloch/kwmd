@@ -33,7 +33,7 @@ TFTP is similar to FTP but uses UDP for transmission. This means that transmissi
 
 *TFTP does not have a list directory command.*
 
-## Nmap Enumeration
+## Nmap Scan
 
 The following command with try to get the service, version number, and run default scripts with nmap:
 
