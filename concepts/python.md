@@ -12,6 +12,7 @@ I have included scripts that I run when I do capture the flag events. They mostl
 ## Examples
 
 - [anonymous ftp walking](python/anonymous_ftp.py)
+- [enumerate smtp users](python/enumerate_smtp_users.py)
 - [nmap scan](python/nmap_scan.py)
 - [parse nmap scan](python/parse_nmap_scan.py)
 - [reverse shell generator](python/reverse_shells.py)
