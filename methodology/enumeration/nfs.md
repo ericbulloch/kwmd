@@ -11,7 +11,7 @@
 nmap -sC -sV -A -p111,2049 <target>
 ```
 
-## Nmap scripts
+## Nmap Scripts
 
 ```bash
 sudo nmap 10.10.10.33 -p111,2049 -sV --script nfs*
@@ -33,7 +33,7 @@ sudo mkdir target_share
 sudo mount -t nfs 10.10.10.33:/ /mnt/target_share -o nolock
 ```
 
-## List Contents With UIDs and GUIDs
+## List Contents With UIDs And GUIDs
 
 ```bash
 ls -n target_share
