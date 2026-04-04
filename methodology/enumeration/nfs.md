@@ -5,6 +5,12 @@
 - Network File Share (NFS) has the same purpose as SMB - access file systems on a network as if they were local
 - NFS is used between Linux and Unix systems, it is not compatible with SMB
 
+## Nmap Scan
+
+```bash
+nmap -sC -sV -A -p111,2049 <target>
+```
+
 ## Nmap scripts
 
 ```bash
