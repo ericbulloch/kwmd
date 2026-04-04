@@ -16,6 +16,16 @@ nmap -sC -sV -A -p25 <target>
 nmap --script smtp-open-relay -p25 <target>
 ```
 
+## Nmap Scan - Available Commands
+
+```bash
+nmap --script smtp-commands -p25 <target>
+
+PORT   STATE SERVICE
+25/tcp open  smtp
+|_smtp-commands: mail1, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, SMTPUTF8, CHUNKING
+```
+
 ## Connecting Example Manual User Enumeration
 
 ```bash
@@ -43,3 +53,26 @@ VRFY jim
 VRFY cindy
 252 2.0.0 cindy
 ```
+
+## VRFY, EXPN, And RCPT
+
+There are three commands that can be used to enumerate users on the smtp service. They are VRFY, EXPN, and RCPT.
+
+### VRFY
+
+Checks an individual user running the command `VRFY <username>`. Here is an explaination of the return codes:
+
+- 250: User exists
+- 550: User does not exist
+- 252: Server won't confirm, but will accept mail
+
+### EXPN
+
+Checks for all users running the command `EXPN`. If it is successful it will return a list of all users (rarely works). If it fails it will return a 502 or 550 for disabled or not supported.
+
+### RCPT
+
+Check an individual user running the command `RCPT <username>`. Here is an explaination of the return codes:
+
+- 250: User exists
+- 550: User does not exist
