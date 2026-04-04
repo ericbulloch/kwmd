@@ -188,6 +188,17 @@ rpcclient $> querygroup 0x201
 
 ## Brute Forcing User RIDs
 
+```bash
+for i in $(seq 500 1100);do rpcclient -N -U "" 10.10.1.101 -c "queryuser 0x$(printf '%x\n' $i)" | grep "User Name\|user_rid\|group_rid" && echo "";done
+        User Name   :   bounty
+        user_rid :      0x3e1
+        group_rid:      0x201
+        
+        User Name   :   hunter
+        user_rid :      0x3e1
+        group_rid:      0x201
+```
+
 ## Clients To Interact With SMB
 
 - Nmap
