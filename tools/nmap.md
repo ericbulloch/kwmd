@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [Flags](#flags)
+- [Update The Script Database](#update-the-script-database)
 - [Port Scans](#port-scans)
   - [Known Machine IP Address](#known-machine-ip-address)
     - [Initial TCP Scan](#initial-tcp-scan)
@@ -84,6 +85,12 @@ Things nmap does well:
   - `T5` Wait 0.05 seconds between each probe and includes parallelization
 - `--top-ports <number>` Scan the <number> most common ports
 - `-v/-vv` Verbose output. It will output while scanning instead of waiting until the end
+
+## Update The Script Database
+
+```bash
+nmap --script-updatedb
+```
 
 ## Port Scans
 
