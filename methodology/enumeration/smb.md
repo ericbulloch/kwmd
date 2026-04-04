@@ -140,7 +140,53 @@ DACL
 
 ```bash
 rpcclient $> enumdomusers
+user:[bounty] rid:[0x3e1]
+user:[hunter] rid:[0x3e2]
 ```
+
+## Rpcclient - Get User Information By RID
+
+```bash
+rpcclient $> queryuser 0x3e1
+        User Name   :   bounty
+        Full Name   :   bounty
+        Home Drive  :   \\devsmb\bounty
+        Dir Drive   :
+        Profile Path:   \\devsmb\bounty\profile
+        Logon Script:
+        Description :
+        Workstations:
+        Comment     :
+        Remote Dial :
+        Logon Time               :      Do, 01 Jan 1970 01:00:00 CET
+        Logoff Time              :      Mi, 16 Mar 2056 12:06:39 CET
+        Kickoff Time             :      Mi, 16 mar 2056 12:06:39 CET
+        Password last set Time   :      Mi, 22 Nov 2026 23:50:56 CEST
+        Password can change Time :      Mi, 22 Nov 2026 23:50:56 CEST
+        Password must change Time:      Do, 14 Sep 3033 03:38:01 CEST
+        unknown_2[0..31]...
+        user_rid :      0x3e1
+        group_rid:      0x201
+        acb_info :      0x00000014
+        fields_present: 0x00ffffff
+        logon_divs:     168
+        bad_password_count:     0x00000000
+        logon_count:    0x00000000
+        padding1[0..7]...
+        logon_hrs[0..21]...
+```
+
+## Rpcclient - Get Group Information By RID
+
+```bash
+rpcclient $> querygroup 0x201
+        Group Name:     Bounty Hunters
+        Description:    Group Of Trackers
+        Group Attribute:7
+        Num Members:2
+```
+
+## Brute Forcing User RIDs
 
 ## Clients To Interact With SMB
 
