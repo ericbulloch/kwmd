@@ -12,6 +12,12 @@
 
 Samba is used by Linux and other Unix systems to be able to use SMB. It uses the Common Internet File System (CIFS) network protocol. CIFS is a dialect of the SMB protocol.
 
+## Nmap Scan
+
+```bash
+nmap 10.10.1.101 -p139,445 -sC -sV -vv -A
+```
+
 ## View Anonymous Shares
 
 ```bash
