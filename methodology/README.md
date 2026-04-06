@@ -11,9 +11,10 @@
 - Services
   - [FTP](enumeration/ftp.md) (21)
   - [SMTP](enumeration/smtp.md) (25, 465, 587)
-  - [DNS](enumeration/dns.md) (53)
+  - [DNS](enumeration/dns.md) (53, 53 UDP)
   - [NFS](enumeration/nfs.md) (111, 2049)
   - [SMB](enumeration/smb.md) (139, 445)
+  - [SNMP](enumeration/snmp.md) (161 UDP, 162 UDP)
   - [IMAP/POP3](enumeration/imap_pop3.md) (110, 143, 993, 995)
 - Users
 - Shares
