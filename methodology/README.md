@@ -14,7 +14,7 @@
   - [DNS](enumeration/dns.md) (53)
   - [NFS](enumeration/nfs.md) (111, 2049)
   - [SMB](enumeration/smb.md) (139, 445)
-  - [IMAP/POP3](enumeration/imap_pop3.md) (143, 993)
+  - [IMAP/POP3](enumeration/imap_pop3.md) (110, 143, 993, 995)
 - Users
 - Shares
 
