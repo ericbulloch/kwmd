@@ -2,8 +2,8 @@
 
 [Back to methodology](/methodology/README.md)
 
-- IMAP uses ports 110 and 995
-- POP3 uses ports 143 and 993
+- Internet Message Access Protocol (IMAP) uses ports 110 and 995
+- Post Office Protocol (POP3) uses ports 143 and 993
 
 ## Nmap Scan
 
