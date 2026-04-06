@@ -28,3 +28,29 @@ openssl s_client -connect 10.10.1.100:imaps
 ```bash
 openssl s_client -connect 10.10.1.100:pop3s
 ```
+
+## IMAP Commands
+
+### Login
+
+```bash
+A LOGIN username password
+```
+
+### List Inboxes
+
+```bash
+A LIST "" *
+```
+
+### Select Inbox
+
+```bash
+SELECT inbox_name
+```
+
+### Retrieve Emails
+
+```bash
+A UID FETCH 1 (UID RFC822.SIZE BODY.PEEK[])
+```
