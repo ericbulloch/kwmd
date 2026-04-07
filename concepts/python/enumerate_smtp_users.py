@@ -6,9 +6,9 @@ import time
 def parse_args():
     parser = argparse.ArgumentParser(description="SMTP VRFY enumeration script")
 
-    parser.add_argument("TARGET", help="Target IP or hostname")
-    parser.add_argument("DOMAIN", help="Domain to use in EHLO")
-    parser.add_argument("WORDLIST", help="Path to user wordlist")
+    parser.add_argument("target", help="Target IP or hostname")
+    parser.add_argument("domain", help="Domain to use in EHLO")
+    parser.add_argument("wordlist", help="Path to user wordlist")
 
     parser.add_argument(
         "-p", "--port",
@@ -67,19 +67,12 @@ def connect(target, port, domain):
 
 def main():
     args = parse_args()
-
-    TARGET = args.TARGET
-    PORT = args.port
-    DOMAIN = args.DOMAIN
-    WORDLIST = args.WORDLIST
-    DELAY = args.delay
-
     valid_users = []
 
-    with open(WORDLIST, "r") as f:
+    with open(args.wordlist, "r") as f:
         users = [u.strip() for u in f if u.strip()]
 
-    sock, f = connect(TARGET, PORT, DOMAIN)
+    sock, f = connect(args.target, args.port, args.domain)
 
     i = 0
     while i < len(users):
@@ -91,7 +84,7 @@ def main():
             if resp.startswith("421"):
                 print(f"[!] Rate limit hit (421). Reconnecting...\n")
                 sock.close()
-                sock, f = connect(TARGET, PORT, DOMAIN)
+                sock, f = connect(args.target, args.port, args.domain)
                 continue
 
             if resp.startswith("252") or resp.startswith("250"):
@@ -101,12 +94,12 @@ def main():
                 print(f"[-] INVALID: {user} --> {resp}")
 
             i += 1
-            time.sleep(DELAY)
+            time.sleep(args.delay)
 
         except (socket.timeout, ConnectionResetError, BrokenPipeError) as e:
             print(f"[!] Connection dropped ({e}). Reconnecting...\n")
             sock.close()
-            sock, f = connect(TARGET, PORT, DOMAIN)
+            sock, f = connect(args.target, args.port, args.domain)
 
     try:
         quit_resp = send_cmd(sock, f, "QUIT")
