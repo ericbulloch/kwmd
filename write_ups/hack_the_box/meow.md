@@ -1,4 +1,7 @@
-# Target: Meow Lab 10.129.97.216 (Hostname: target.htb)
+# Target: Meow
+
+- IP Address: 10.129.97.216
+- Starting Domain Name: target.htb
 
 ## Scope & Goal
 - Objective: user.txt, root.txt
