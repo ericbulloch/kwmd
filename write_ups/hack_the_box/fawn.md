@@ -175,9 +175,19 @@ remote: flag.txt
 The output above shows the contents of the flag.txt file.
 
 ## Flags
-- root.txt 035db21c881520061c53e0536e44f815226 (Thu Apr  9 03:46:42 AM UTC 2026)
+- flag.txt: `035db21c881520061c53e0536e44f815226` (Thu Apr  9 03:46:42 AM UTC 2026)
 
 ## Lessons
-- What Worked:
-- Dead Ends:
+- What Worked: Nmap scan, ftp
+- Dead Ends: Full Nmap scan found nothing that the Target Scan hadn't already found
 - Reusable Commands:
+
+- ```bash
+ftp target.htb                                                                                                                            
+Connected to target.htb.
+220 (vsFTPd 3.0.3)
+Name (target.htb:kwmd): anonymous
+331 Please specify the password.
+Password: 
+230 Login successful.
+```
