@@ -113,7 +113,13 @@ Nmap done: 1 IP address (1 host up) scanned in 24.47 seconds
            Raw packets sent: 40 (2.594KB) | Rcvd: 204 (8.898KB)
 ```
 
-- Full TCP: Same as Targeted Scan
+- Full TCP:
+
+```bash
+nmap target.htb -sC -sV -A -T4 -vv -p-
+...
+Same as Targeted Scan above
+```
 
 ## Open Services
 - 23/telnet
