@@ -141,14 +141,6 @@ Nmap done: 1 IP address (1 host up) scanned in 26.20 seconds
            Raw packets sent: 54 (3.828KB) | Rcvd: 49 (3.300KB)
 ```
 
-- Full TCP:
-
-```bash
-$ nmap target.htb -sC -sV -A -T4 -vv -p-
-...
-Same as Targeted Scan above
-```
-
 ## Open Services
 - 139/smb
 
