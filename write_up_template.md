@@ -1,4 +1,7 @@
-# Target: 10.129.1.1 (Hostname: ???)
+# Target: Lab
+
+- IP Address: 10.129.1.1
+- Starting Domain Name: target.htb
 
 ## Scope & Goal
 - Objective: user.txt, root.txt
