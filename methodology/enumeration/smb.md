@@ -1,8 +1,8 @@
 # Enumeration - SMB
 
-Port(s): 139, 445
-
 [Back to methodology](/methodology/README.md)
+
+Port(s): 139, 445
 
 - Server Message Block (SMB) is a client-server protocol that regulates files, directories, and network resource (printers, routers, etc...)
 - It is generally associated with Windows but Samba can be used with Linux to provide SMB
