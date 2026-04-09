@@ -246,7 +246,6 @@ b40abdfe23665f766f9c61ecba8a4c19
 
 ## Lessons
 - What Worked: Nmap scan, hydra, and I needed to install seclists on my attack machine
-- Dead Ends: Full Nmap scan found nothing that the Target Scan hadn't already found
 - Reusable Commands:
 
 ```bash
