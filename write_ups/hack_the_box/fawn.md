@@ -182,7 +182,7 @@ The output above shows the contents of the flag.txt file.
 - Dead Ends: Full Nmap scan found nothing that the Target Scan hadn't already found
 - Reusable Commands:
 
-- ```bash
+```bash
 ftp target.htb                                                                                                                            
 Connected to target.htb.
 220 (vsFTPd 3.0.3)
