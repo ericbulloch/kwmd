@@ -9,8 +9,26 @@
 
 # Recon
 - Quick TCP:
+
+```bash
+$ nmap target.htb
+
+```
+
+- Targeted Scan:
+
+```bash
+$ nmap target.htb -sV -sC -A -p -vv
+
+```
+
 - Full TCP:
-- UDP:
+
+```bash
+$ nmap target.htb -sC -sV -A -T4 -vv -p-
+...
+Same as Targeted Scan above
+```
 
 ## Open Services
 - 80/http
@@ -33,8 +51,8 @@
 - Successful Path:
 
 ## Flags
-- user.txt <hash> (timestamp)
-- root.txt <hash> (timestamp)
+- user.txt: `hash` (date -u)
+- root.txt: `hash` (date -u)
 
 ## Cleanup
 - Artifacts Removed
@@ -43,3 +61,7 @@
 - What Worked:
 - Dead Ends:
 - Reusable Commands:
+
+```bash
+
+```
