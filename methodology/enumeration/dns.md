@@ -2,6 +2,8 @@
 
 [Back to methodology](/methodology/README.md)
 
+Port(s): 53, 53 UDP
+
 - Domain Name System (DNS) is the phonebook of the internet
 
 ## Entities
