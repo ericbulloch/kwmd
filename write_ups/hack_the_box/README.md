@@ -6,7 +6,7 @@ Here are a list of write-ups for Hack The Box:
 - [Fawn](fawn.md)
 - [Dancing](dancing.md)
 - [Redeemer](redeemer.md)
-- Appointment
+- [Appointment](appointment.md)
 - Sequel
 - Crocodile
 - Responder
