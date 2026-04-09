@@ -2,6 +2,8 @@
 
 [Back to methodology](/methodology/README.md)
 
+Port(s): 21
+
 File Transfer Protocol (FTP)
 - The client and server establish a control channel on port 21 TCP
 - The data channel is on port 20 TCP, it is exclusively data transmission and can continue if the connection is broken and re-established
