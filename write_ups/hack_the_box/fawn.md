@@ -179,7 +179,6 @@ The output above shows the contents of the flag.txt file.
 
 ## Lessons
 - What Worked: Nmap scan, ftp
-- Dead Ends: Full Nmap scan found nothing that the Target Scan hadn't already found
 - Reusable Commands:
 
 ```bash
