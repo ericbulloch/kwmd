@@ -2,6 +2,8 @@
 
 [Back to methodology](/methodology/README.md)
 
+Port(s): 25, 465, 587
+
 - SMTP like other protocols was built for convenience with security added later
 
 ## Nmap Scan
