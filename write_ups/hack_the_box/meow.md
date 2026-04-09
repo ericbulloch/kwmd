@@ -4,7 +4,7 @@
 - Starting Domain Name: target.htb
 
 ## Scope & Goal
-- Objective: user.txt, root.txt
+- Objective: flag.txt
 - Constraints: lab
 
 # Recon
@@ -231,12 +231,18 @@ Last login: Wed Apr  8 17:43:18 UTC 2026 on pts/9
 - Evidence:
 
 ```bash
-whoami
+root@Meow:~# whoami
 root
+root@Meow:~# pwd
+/root
+root@Meow:~# ls
+flag.txt  snap
+root@Meow:~# cat flag.txt 
+b40abdfe23665f766f9c61ecba8a4c19
 ```
 
 ## Flags
-- root.txt: `b40abdfe23665f766f9c61ecba8a4c19` (Wed 08 Apr 2026 05:48:43 PM UTC)
+- flag.txt: `b40abdfe23665f766f9c61ecba8a4c19` (Wed 08 Apr 2026 05:48:43 PM UTC)
 
 ## Lessons
 - What Worked: Nmap scan, hydra, and I needed to install seclists on my attack machine
