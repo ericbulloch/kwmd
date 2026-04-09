@@ -3,7 +3,7 @@
 Here are a list of write-ups for Hack The Box:
 
 - [Meow](meow.md)
-- Fawn
+- [Fawn](fawn.md)
 - Dancing
 - Redeemer
 - Appointment
