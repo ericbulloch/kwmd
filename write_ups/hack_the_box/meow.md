@@ -236,7 +236,7 @@ root
 ```
 
 ## Flags
-- root.txt b40abdfe23665f766f9c61ecba8a4c19 (Wed 08 Apr 2026 05:48:43 PM UTC)
+- root.txt: `b40abdfe23665f766f9c61ecba8a4c19` (Wed 08 Apr 2026 05:48:43 PM UTC)
 
 ## Lessons
 - What Worked: Nmap scan, hydra, and I needed to install seclists on my attack machine
