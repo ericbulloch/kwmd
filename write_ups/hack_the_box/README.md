@@ -7,7 +7,7 @@ Here are a list of write-ups for Hack The Box:
 - [Dancing](dancing.md)
 - [Redeemer](redeemer.md)
 - [Appointment](appointment.md)
-- Sequel
+- [Sequel](sequel.md)
 - Crocodile
 - Responder
 - Three
