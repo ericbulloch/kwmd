@@ -9,6 +9,7 @@ Here are a list of write-ups for Hack The Box:
 - [Appointment](appointment.md)
 - [Sequel](sequel.md)
 - [Responder](responder.md)
+- Crocodile
 - Three
 - Archetype
 - Oopsie
