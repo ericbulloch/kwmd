@@ -14,3 +14,4 @@ Here are a list of write-ups for Hack The Box:
 - Archetype
 - Oopsie
 - Vaccine
+- [Cap](cap.md)
