@@ -4,7 +4,7 @@
 - Starting Domain Name: target.htb
 
 ## Scope & Goal
-- Objective: user.txt, root.txt
+- Objective: root flag
 - Constraints: lab
 
 # Recon
