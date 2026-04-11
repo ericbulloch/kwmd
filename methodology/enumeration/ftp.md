@@ -61,6 +61,7 @@ nmap --script=banner -p21 <target>
 
 FTP does allow anonymous authentication. Typically the username is anonymous and the password is blank or an email address. Some common FTP credentials include:
 
+```text
 admin:admin
 admin:password
 root:root
@@ -69,6 +70,7 @@ ftp:ftp
 user:user
 guest:guest
 admin:1234
+```
 
 ## Server Status
 
