@@ -129,6 +129,22 @@ Same as Targeted Scan above
 
 ## MariaDB Enum
 - Tech: MariaDB 5.5.5
+- Searchsploit:
+
+```bash
+$ searchsploit mariadb 5.5              
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                                                      |  Path
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+MySQL / MariaDB / PerconaDB 5.5.51/5.6.32/5.7.14 - Code Execution / Privilege Escalation                            | linux/local/40360.py
+MySQL / MariaDB / PerconaDB 5.5.x/5.6.x/5.7.x - 'mysql' System User Privilege Escalation / Race Condition           | linux/local/40678.c
+MySQL / MariaDB / PerconaDB 5.5.x/5.6.x/5.7.x - 'root' System User Privilege Escalation                             | linux/local/40679.sh
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+```
+
+I tried to get a few of the scripts going but I didn't have a lot of luck. I decided to pivot and try a basic user enumeration.
+
 - User Enumeration:
 
 ```bash
