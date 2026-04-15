@@ -7,13 +7,13 @@ Port(s): 3306
 ## Nmap Scan
 
 ```bash
-nmap -sC -sV -A -p336 <target>
+nmap -sC -sV -A -p3306 <target>
 ```
 
 or
 
 ```bash
-nmap -sV -A -p336 --script mysql* <target>
+nmap -sV -A -p3306 --script mysql* <target>
 ```
 
 ## Connect To MySQL Database
