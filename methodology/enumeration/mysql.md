@@ -23,3 +23,11 @@ The following command connections to the database at 10.129.10.100 as the user r
 ```bash
 mysql -u root -h 10.129.10.100
 ```
+
+## Connect To MySQL Database With Password
+
+The following command connections to the database at 10.129.10.100 as the user root with the password MyPa55w0rd:
+
+```bash
+mysql -u root -pMyPa55w0rd -h 10.129.10.100
+```
