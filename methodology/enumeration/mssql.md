@@ -4,4 +4,5 @@
 
 Port(s): 1433
 
-- MSSQL will likely be running as `NT SERVICE\MSSQLSERVER` when installed.
+- MSSQL will likely be running as `NT SERVICE\MSSQLSERVER` when installed
+- Often uses Windows Authentication, and by default, encryption is not enforced when attempting to connect
