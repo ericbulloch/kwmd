@@ -11,6 +11,7 @@ Databases are where information is stored. They store information like users, pr
 
 All database management systems (DBMS) have similar functionality that users need to use the database. I have compiled a list here and the specific ways to do these things are listed below for the more common DBMS systems. Here is what gets covered:
 
+- Get version
 - List databases
 - Create database
 - Delete database
