@@ -15,3 +15,11 @@ or
 ```bash
 nmap -sV -A -p336 --script mysql* <target>
 ```
+
+## Connect To MySQL Database
+
+The following command connections to the database at 10.129.10.100 as the user root:
+
+```bash
+mysql -u root -h 10.129.10.100
+```
