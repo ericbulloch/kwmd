@@ -31,3 +31,7 @@ The following command connections to the database at 10.129.10.100 as the user r
 ```bash
 mysql -u root -pMyPa55w0rd -h 10.129.10.100
 ```
+
+## Sample MySQL Statements
+
+I have compiled a large list of example statements that I regularly use when using raw SQL with MySQL. The [examples can be found here](/concepts/databases/mysql.md).
