@@ -303,6 +303,25 @@ For every single open port ask these questions in order:
 Gather information directly from the web service.
 
 #### Questions & Commands
+- What web server software and version is running? (Apache, Nginx, IIS, etc.)
+- What technology stack is in use? (PHP, Python, Java, .NET, etc.)
+- What CMS is in use, if any? (Wordpress, Joomla, Drupal, custom)
+- What does the default page tell me? (title, content, comments, errors)
+- Are there any other virtual hosts or subdomains on this IP address?
+- What directories and files are accessible?
+- Are there any login or authentication pages?
+- What forms exist on the site? What doe they accept as input?
+- Does the site handle file uploads anywhere?
+- What does the page source reveal? (comments, hidden fields, Javascript files, API endpoints)
+- Are there any error messages that reveal software versions or paths?
+- What cookies are set? Are they using secure flags? Are they JWT tokens?
+- Is HTTPS in use? What does the SSL certificate reveal?
+- Are there any API endpoints exposed?
+- What HTTP methods are allowed? (GET, POST, PUT, DELETE, OPTIONS)
+- Does the site have robots.txt or sitemap.xml?
+- Is there a default or misconfigured admin panel?
+- Are there known CVEs for the identified version of this software?
+- Does any discovered path return a 403 (forbidden but exists)? A 403 means the resource exists - it may be bypassable.
 - Fingerprinting
   - `whatweb http://target.htb | tee enum/target_htb_whatweb.txt`
   - `curl -IL http://target.htb | tee enum/target_htb_headers.txt`
