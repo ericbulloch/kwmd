@@ -304,7 +304,6 @@ Ports: 80, 443
 
 
 # Reference Sheets
------
 ## Passive Reconnaissance Steps
 ### 1. Create your output directory first
 - `mkdir -p recon/passive`
@@ -330,14 +329,12 @@ Ports: 80, 443
 
 
 # WHOIS
------
 - Full registrant info
   - `whois domain.com`
 - IP ownership info
   - `whois <ip>`
 
 # DIG
----
 - IPv4 address
   - `dig A domain.com +short`
 - IPv6 address
@@ -356,7 +353,6 @@ Ports: 80, 443
   - `dig axfr @<nameserver> domain.com`
 
 # NSLOOKUP
---------
 - Basic lookup
   - `nslookup domain.com`
 - Mail servers
@@ -365,7 +361,6 @@ Ports: 80, 443
   - `nslookup <ip>`
 
 # HOST
-----
 - Quick A record
   - `host domain.com`
 - Mail servers
@@ -376,7 +371,6 @@ Ports: 80, 443
 
 
 # Google Dorking (exploit-db.com/google-hacking-database)
------
 ## Credential & Sensitive Data Discovery
 These are the highest value dorks for a penetration test.
 
