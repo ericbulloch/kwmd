@@ -9,16 +9,16 @@
 
 # Anti-Rabbit-Hole System
 When you feel stuck, use this checklist:
-What is my best current hypothesis?
-What evidence supports it?
-What evidence contradicts it?
-What is the fastest test that changes my decision?
-Have I updated my artifacts (especially failed paths and creds)?
+- What is my best current hypothesis?
+- What evidence supports it?
+- What evidence contradicts it?
+- What is the fastest test that changes my decision?
+- Have I updated my artifacts (especially failed paths and creds)?
 
 # Reassess Triggers
-30 minutes with no new evidence → go broader (Phases 1a and 1b)
-2 failed hypotheses → re-triage services
-You are collecting output “just because” → stop and define a question first
+- 30 minutes with no new evidence → go broader (Phases 1a and 1b)
+- 2 failed hypotheses → re-triage services
+- You are collecting output “just because” → stop and define a question first
 
 
 # Phases
