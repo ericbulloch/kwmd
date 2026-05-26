@@ -1,4 +1,16 @@
-# Working Artifacts during the penetration test
+# Methodology
+
+## Quick Reference Index
+- [Working Artifacts](#working-artifacts-during-the-penetration-test)
+- [Anti-Rabbit-Hole System](#anti-rabbit-hole-system)
+- [Phase 0 - Scope Review](#phase-0---scope-review)
+- [Phase 1 - Reconnaissance / Information Gathering](#phase-1---reconnaissance--information-gathering)
+- [Phase 1a - Passive Reconnaissance](#phase-1a---passive-reconnaissance)
+- [Phase 1b - Active Reconnaissance](#phase-1b---active-reconnaissance)
+- [Phase 2 - Service Enumeration](#phase-2---service-enumeration)
+- [Command Reference](#command-reference)
+
+## Working Artifacts during the penetration test
 - Target List: IP/hostnames, OS guess, network role guess, discovered open ports, current status (not started, in progress, foothold, and owned), priority, and notes.
 - Service Inventory (per host): Port, protocol, service name, version, auth required, anonymous/guest access possible (yes/no/unknown), enumeration status (not started, in progress, and complete), exploitation status, and notes/log references.
 - Credentials and Tokens: Credential type (plaintext / hash / token / key), value,  where found, service/host it is valid on, privilege level (user / admin / domain admin / unknown), tested against (list of services tried), and cracked (yes/no/attempted).
@@ -7,7 +19,7 @@
 - Timeline/Command Log: Timestamp, host, command run, and one-line result summary.
 
 
-# Anti-Rabbit-Hole System
+## Anti-Rabbit-Hole System
 When you feel stuck, use this checklist:
 - What is my best current hypothesis?
 - What evidence supports it?
@@ -15,18 +27,10 @@ When you feel stuck, use this checklist:
 - What is the fastest test that changes my decision?
 - Have I updated my artifacts (especially failed paths and creds)?
 
-# Reassess Triggers
+## Reassess Triggers
 - 30 minutes with no new evidence → go broader (Phases 1a and 1b)
 - 2 failed hypotheses → re-triage services
 - You are collecting output “just because” → stop and define a question first
-
-
-# Phases
-- Phase 0: Scope Review
-- Phase 1a: Passive Reconnaissance
-- Phase 1b: Active Reconnaissance
-- Phase 2: Service Enumeration
-
 
 ## Phase 0 - Scope Review
 ### Goal
@@ -48,7 +52,7 @@ Know what "win" means and what constraints exist.
 - Confirmed proof requirements (what you need to capture)
 - Starting point noted (your attack IP address, any given credentials)
 
-### Phase 0 is complete when
+### Phase 0 Complete When
 - [ ] Objective is clearly stated.
 - [ ] Target scope (IP addresses / ranges) is confirmed and written down.
 - [ ] Constraints are documented.
@@ -60,13 +64,14 @@ Know what "win" means and what constraints exist.
 ### Goal
 Build a complete picture of the attack surface without necessarily touching the target directly.
 
-## Phase 1a - Passive Reconnaissance
-### Goal
+### Phase 1a - Passive Reconnaissance
+#### Goal
 Gather information without directly touching the target.
 
-### Questions
+#### Questions & Commands
 - What information can be found with a WHOIS lookup of the target?
   - `whois target.htb | tee recon/passive/whois.txt`
+  - `whois <ip> | tee recon/passive/whois_ip_address.txt`
   - `grep -iE "registrant|admin|tech|name server|email|creation|expir" recon/passive/whois.txt`
   - Registrant email and organization
   - Registrant email address (credentials / users artifact)
@@ -78,8 +83,11 @@ Gather information without directly touching the target.
   - Record types include A, AAAA, MX, NS, TXT, CNAME, SOA, PTR, SRV, ANY
   - Dig examples include:
     - `dig A target.htb | tee recon/passive/dig_a.txt`
+    - `dig AAAA target.htb | tee recon/passive/dig_aaaa.txt`
+    - `dig MX target.htb | tee recon/passive/dig_mx.txt`
     - `dig NS target.htb | tee recon/passive/dig_ns.txt`
     - `dig TXT target.htb | tee recon/passive/dig_txt.txt`
+    - `dig SOA target.htb | tee recon/passive/dig_soa.txt`
     - `dig ANY target.htb | tee recon/passive/dig_any.txt`
     - `dig @nameserver.target.htb target.htb ANY | tee recon/passive/dig_any_nameserver.txt`
   - Nslookup examples include:
@@ -87,8 +95,9 @@ Gather information without directly touching the target.
     - `nslookup -type=A target.htb | tee recon/passive/nslookup_a.txt`
     - `nslookup -type=AAAA target.htb | tee recon/passive/nslookup_aaaa.txt`
     - `nslookup -type=CNAME target.htb | tee recon/passive/nslookup_cname.txt`
+    - `nslookup 10.10.10.10 | tee recon/passive/nslookup_10_10_10_10.txt`
     - `nslookup target.htb nameserver.target.htb | tee recon/passive/nslookup_nameserver.txt`
-- Did a reverse DSN lookup with any discovered IP addresses yield any other results?
+- Did a reverse DNS lookup with any discovered IP addresses yield any other results?
   - `dig -x 10.10.10.10 | tee recon/passive/dig_x_10_10_10_10.txt`
   - `nslookup 10.10.10.10 | tee recon/passive/nslookup_reverse_lookup.txt`
 - Was a zone transfer attempted against all nameservers found?
@@ -158,7 +167,7 @@ Gather information without directly touching the target.
   4. Feed ranges into nmap for host discovery (Phase 1b)
   5. Cross reference with DNS findings to find hosts with no DNS record (potentially unmonitored infrastructure)
 
-### Outputs
+#### Outputs & Scan Process
 - List of domains and subdomains
 - List of IP addresses
 - List of users
@@ -173,7 +182,7 @@ Gather information without directly touching the target.
 - Document metadata findings
 - GitHub / repository findings
 
-### Phase 1a is complete when
+#### Phase 1a Complete When
 - [ ] Domains, subdomains, and IP addresses are documented
 - [ ] WHOIS, DNS, zone transfer, email harvesting, cert analysis documented
 - [ ] Users, usernames, emails, and credentials documented
@@ -186,11 +195,11 @@ Gather information without directly touching the target.
 - [ ] Breach database check completed on discovered emails
 - [ ] All raw tool output saved (not just summarized)
 
-## Phase 1b - Active Reconnaissance
-Goal
+### Phase 1b - Active Reconnaissance
+#### Goal
 Gather information by directly touching the target. Stealthy options first, louder options later.
 
-### Questions
+#### Questions
 - What hosts are up?
 - What ports are filtered?
 - What service, protocol, and version are running on an open port?
@@ -203,7 +212,7 @@ Gather information by directly touching the target. Stealthy options first, loud
 - Were results cross-referenced with Phase 1a passive findings to confirm or expand the host list?
 - Did any service banners reveal version information worth immediately cross-referencing with CVE databases?
 
-### Outputs
+#### Outputs & Commands
 - Host discovery results (live hosts confirmed with IPs and hostnames)
   - `nmap -sn 10.10.1.0/24 -oA host_discovery`
   - `sudo arp-scan -localhost | tee recon/active/arp_scan.txt`
@@ -243,7 +252,7 @@ Gather information by directly touching the target. Stealthy options first, loud
       <host_ip>_tcp_targeted.nmap / .gnmap / .xml
       <host_ip>_udp_scan.nmap / .gnmap / .xml
 
-### Phase 1b is complete when
+#### Phase 1b Complete When
 - [ ] Host discovery completed — all live hosts confirmed and documented
 - [ ] Full TCP port scan completed on all in-scope hosts
 - [ ] Targeted service/version scan completed on all open TCP ports
@@ -256,7 +265,7 @@ Gather information by directly touching the target. Stealthy options first, loud
 - [ ] Phase 1a passive findings cross-referenced with active scan results
 - [ ] Each host assigned an enumeration priority for Phase 2
 
-### Phase 1 is complete when
+### Phase 1 Complete When
 - [ ] All Phase 1a and Phase 1b checklists are fully signed off
 - [ ] All Working Artifacts have been updated with Phase 1 findings:
     - [ ] Target List updated with confirmed hosts, OS, ports, priority
@@ -282,7 +291,18 @@ For every single open port ask these questions in order:
 - Are there known vulnerabilities for this version?
 
 ### Phase 2a - Web Services (HTTP/HTTPS)
-Ports: 80, 443
+#### Ports
+- 80
+- 443
+
+#### Protocols
+- http
+- https
+
+#### Goal
+Gather information directly from the web service.
+
+#### Questions & Commands
 - Fingerprinting
   - `whatweb http://target.htb | tee enum/target_htb_whatweb.txt`
   - `curl -IL http://target.htb | tee enum/target_htb_headers.txt`
@@ -301,130 +321,62 @@ Ports: 80, 443
   - `sslscan target.htb | tee enum/web_sslscan.txt`
 
 
-
-
-# Reference Sheets
-## Passive Reconnaissance Steps
-### 1. Create your output directory first
-- `mkdir -p recon/passive`
-
-### 2. WHOIS - get registrant info and nameservers
-- `whois target.htb | tee recon/passive/whois.txt`
-
-### 3. Grab all common DNS records
-- `dig A target.htb +short | tee recon/passive/dns_A.txt`
-- `dig AAAA target.htb +short | tee recon/passive/dns_AAAA.txt`
-- `dig MX target.htb | tee recon/passive/dns_MX.txt`
-- `dig NS target.htb +short | tee recon/passive/dns_NS.txt`
-- `dig TXT target.htb | tee recon/passive/dns_TXT.txt`
-- `dig SOA target.htb | tee recon/passive/dns_SOA.txt`
-
-### 4. Attempt zone transfer against each nameserver found in step 2
-- `dig axfr @<nameserver1> target.htb | tee recon/passive/zone_transfer_ns1.txt`
-- `dig axfr @<nameserver2> target.htb | tee recon/passive/zone_transfer_ns2.txt`
-
-### 5. Reverse lookups on any IPs discovered
-- `dig -x <discovered_ip> | tee recon/passive/reverse_<ip>.txt`
-
-
-
-# WHOIS
-- Full registrant info
-  - `whois domain.com`
-- IP ownership info
-  - `whois <ip>`
-
-# DIG
-- IPv4 address
-  - `dig A domain.com +short`
-- IPv6 address
-  - `dig AAAA domain.com +short`
-- Mail servers
-  - `dig MX domain.com`
-- Nameservers
-  - `dig NS domain.com +short`
-- Text records
-  - `dig TXT domain.com`
-- Zone authority
-  - `dig SOA domain.com`
-- Reverse lookup
-  - `dig -x <ip>`
-- Zone transfer attempt
-  - `dig axfr @<nameserver> domain.com`
-
-# NSLOOKUP
-- Basic lookup
-  - `nslookup domain.com`
-- Mail servers
-  - `nslookup -type=MX domain.com`
-- Reverse lookup
-  - `nslookup <ip>`
-
-# HOST
-- Quick A record
-  - `host domain.com`
-- Mail servers
-  - `host -t MX domain.com`
-- Reverse lookup
-  - `host <ip>`
-
-
-
-# Google Dorking (exploit-db.com/google-hacking-database)
-## Credential & Sensitive Data Discovery
+## Command Reference
+### Google Dorking (exploit-db.com/google-hacking-database)
+#### Credential & Sensitive Data Discovery
 These are the highest value dorks for a penetration test.
 
-### Look for password files
+##### Look for password files
 - `filetype:txt intext:"password" site:target.htb`
 - `filetype:log intext:"password"`
 - `filetype:env intext:"DB_PASSWORD"`
 
-### Configuration files with credentials
+##### Configuration files with credentials
 - `filetype:xml intext:"password" site:target.htb`
 - `filetype:yml intext:"password" site:target.htb`
 - `filetype:config intext:"password" site:target.htb`
 
-### Private keys accidentally exposed
+##### Private keys accidentally exposed
 - `filetype:pem intext:"PRIVATE KEY"`
 - `filetype:key intext:"PRIVATE KEY"`
 
-### Database connection strings
+##### Database connection strings
 - `filetype:sql intext:"INSERT INTO" site:target.htb`
 - `intext:"DB_CONNECTION" filetype:env`
 
-### AWS / API keys
+##### AWS / API keys
 - `intext:"AKIA" filetype:txt`
 - `intext:"aws_access_key_id" filetype:txt`
 
 
-## Exposed Files & Directories
-### Open directory listings — goldmine for files
+#### Exposed Files & Directories
+##### Open directory listings — goldmine for files
 - `intitle:"index of" site:target.htb`
 - `intitle:"index of" "parent directory" site:target.htb`
 - `intitle:"index of" intext:".sql"`
 - `intitle:"index of" intext:".bak"`
 - `intitle:"index of" intext:".log"`
 
-### Backup files
+##### Backup files
 - `filetype:bak site:target.htb`
 - `filetype:old site:target.htb`
 - `filetype:backup site:target.htb`
 - `inurl:backup site:target.htb`
 - `inurl:".bak" OR inurl:".old" OR inurl:".backup" site:target.htb`
 
-### Log files
+##### Log files
 - `filetype:log site:target.htb`
 - `intitle:"index of" "access.log"`
 - `intitle:"index of" "error.log"`
 
-### Database files
+##### Database files
 - `filetype:sql site:target.htb`
 - `filetype:db site:target.htb`
 - `filetype:sqlite site:target.htb`
 
 
-## Login & Admin Panels
-### Generic admin panels
+#### Login & Admin Panels
+##### Generic admin panels
 - `inurl:admin site:target.htb`
 - `inurl:login site:target.htb`
 - `inurl:administrator site:target.htb`
@@ -432,7 +384,7 @@ These are the highest value dorks for a penetration test.
 - `intitle:"admin login" site:target.htb`
 - `intitle:"admin panel" site:target.htb`
 
-### Specific CMS login pages
+##### Specific CMS login pages
 - WordPres
   - `inurl:wp-admin site:target.htb`
   - `inurl:wp-login.php site:target.htb`
@@ -441,19 +393,19 @@ These are the highest value dorks for a penetration test.
 - Drupal
   - `inurl:/user/login site:target.htb`
 
-### Remote access panels
+##### Remote access panels
 - `intitle:"phpMyAdmin" inurl:phpmyadmin`
 - `intitle:"Webmin" inurl:10000`
 - `inurl:"/remote/login" intitle:"FortiGate"`
 - `intitle:"Kibana" inurl:5601`
 
 
-## Technology & Version Discovery
-### Find specific technologies in use
+#### Technology & Version Discovery
+##### Find specific technologies in use
 - `intext:"powered by" site:target.htb`
 - `intitle:"Welcome to" intext:"Apache" site:target.htb`
 
-### Error messages revealing tech stack
+##### Error messages revealing tech stack
 - Generic
   - `intext:"Fatal error" site:target.htb`
 - MySQL
@@ -465,80 +417,80 @@ These are the highest value dorks for a penetration test.
 - PHP
   - `intext:"syntax error" filetype:php site:target.htb`
 
-### Server default pages (often mean misconfigured servers)
+##### Server default pages (often mean misconfigured servers)
 `intitle:"Apache2 Ubuntu Default Page" site:target.htb`
 `intitle:"Welcome to nginx" site:target.htb`
 `intitle:"IIS Windows Server" site:target.htb`
 `intitle:"Test Page for Apache" site:target.htb`
 
 
-## Sensitive Documents
-### General sensitive document search
+#### Sensitive Documents
+##### General sensitive document search
 - `filetype:pdf "confidential" site:target.htb`
 - `filetype:pdf "internal use only" site:target.htb`
 - `filetype:xlsx site:target.htb`
 - `filetype:docx site:target.htb`
 
-### Documents that often contain usernames or internal info
+##### Documents that often contain usernames or internal info
 - `filetype:pdf site:target.htb`
 - `filetype:doc site:target.htb`
 
-### Network diagrams and documentation
+##### Network diagrams and documentation
 - `filetype:pdf intitle:"network diagram"`
 - `filetype:pdf intitle:"infrastructure"`
 
 
-## Subdomain & Infrastructure Discovery
-### Find subdomains not found through other methods
+#### Subdomain & Infrastructure Discovery
+##### Find subdomains not found through other methods
 - `site:*.target.htb`
 - Exclude www, find others
   - `site:target.htb -www`
 
-### VPN and remote access infrastructure
+##### VPN and remote access infrastructure
 - `inurl:vpn site:target.htb`
 - `intitle:"SSL VPN" site:target.htb`
 - `inurl:remote site:target.htb`
 
-### Development and staging environments
+##### Development and staging environments
 - `inurl:dev site:target.htb`
 - `inurl:staging site:target.htb`
 - `inurl:test site:target.htb`
 - `inurl:beta site:target.htb`
 
 
-## User & Employee Information
-### Employee names and emails
+#### User & Employee Information
+##### Employee names and emails
 - `site:linkedin.com "target.htb"`
 - `site:linkedin.com/in "Target Company"`
 
-### Email addresses indexed on the site
+##### Email addresses indexed on the site
 - `intext:"@target.htb" site:target.htb`
 - `filetype:pdf intext:"@target.htb"`
 
-### Resumes that reveal internal tech stack
+##### Resumes that reveal internal tech stack
 - `site:linkedin.com "target.htb" "engineer"`
 - `site:linkedin.com "target.htb" "administrator"`
 
 
-## Misconfiguration & Vulnerability Discovery
-### Exposed Git repositories
+#### Misconfiguration & Vulnerability Discovery
+##### Exposed Git repositories
 - `inurl:"/.git" site:target.htb`
 - `intitle:"index of" ".git" site:target.htb`
 
-### Exposed WordPress config files
+##### Exposed WordPress config files
 - `inurl:wp-config.php site:target.htb`
 
-### Exposed .htaccess and .htpasswd
+##### Exposed .htaccess and .htpasswd
 - `filetype:htpasswd inurl:htpasswd`
 - `inurl:.htaccess site:target.htb`
 
-### Exposed phpinfo pages (reveals PHP config and server info)
+##### Exposed phpinfo pages (reveals PHP config and server info)
 - `intitle:"phpinfo()" site:target.htb`
 - `inurl:phpinfo.php site:target.htb`
 
-### Exposed .env files
+##### Exposed .env files
 - `inurl:.env site:target.htb`
 - `filetype:env site:target.htb`
 
-# Exposed SSH config
+##### Exposed SSH config
 - `filetype:pub intext:"ssh-rsa"`
