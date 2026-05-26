@@ -357,16 +357,21 @@ Ports: 80, 443
 
 # NSLOOKUP
 --------
-nslookup domain.com                       → Basic lookup
-nslookup -type=MX domain.com             → Mail servers
-nslookup <ip>                             → Reverse lookup
+- Basic lookup
+  - `nslookup domain.com`
+- Mail servers
+  - `nslookup -type=MX domain.com`
+- Reverse lookup
+  - `nslookup <ip>`
 
 # HOST
 ----
-host domain.com                           → Quick A record
-host -t MX domain.com                    → Mail servers
-host <ip>                                 → Reverse lookup
-
+- Quick A record
+  - `host domain.com`
+- Mail servers
+  - `host -t MX domain.com`
+- Reverse lookup
+  - `host <ip>`
 
 
 
@@ -376,62 +381,62 @@ host <ip>                                 → Reverse lookup
 These are the highest value dorks for a penetration test.
 
 ### Look for password files
-`filetype:txt intext:"password" site:target.htb`
-`filetype:log intext:"password"`
-`filetype:env intext:"DB_PASSWORD"`
+- `filetype:txt intext:"password" site:target.htb`
+- `filetype:log intext:"password"`
+- `filetype:env intext:"DB_PASSWORD"`
 
 ### Configuration files with credentials
-`filetype:xml intext:"password" site:target.htb`
-`filetype:yml intext:"password" site:target.htb`
-`filetype:config intext:"password" site:target.htb`
+- `filetype:xml intext:"password" site:target.htb`
+- `filetype:yml intext:"password" site:target.htb`
+- `filetype:config intext:"password" site:target.htb`
 
 ### Private keys accidentally exposed
-`filetype:pem intext:"PRIVATE KEY"`
-`filetype:key intext:"PRIVATE KEY"`
+- `filetype:pem intext:"PRIVATE KEY"`
+- `filetype:key intext:"PRIVATE KEY"`
 
 ### Database connection strings
-`filetype:sql intext:"INSERT INTO" site:target.htb`
-`intext:"DB_CONNECTION" filetype:env`
+- `filetype:sql intext:"INSERT INTO" site:target.htb`
+- `intext:"DB_CONNECTION" filetype:env`
 
 ### AWS / API keys
-`intext:"AKIA" filetype:txt`
-`intext:"aws_access_key_id" filetype:txt`
+- `intext:"AKIA" filetype:txt`
+- `intext:"aws_access_key_id" filetype:txt`
 
 
 ## Exposed Files & Directories
 ### Open directory listings — goldmine for files
-`intitle:"index of" site:target.htb`
-`intitle:"index of" "parent directory" site:target.htb`
-`intitle:"index of" intext:".sql"`
-`intitle:"index of" intext:".bak"`
-`intitle:"index of" intext:".log"`
+- `intitle:"index of" site:target.htb`
+- `intitle:"index of" "parent directory" site:target.htb`
+- `intitle:"index of" intext:".sql"`
+- `intitle:"index of" intext:".bak"`
+- `intitle:"index of" intext:".log"`
 
 ### Backup files
-`filetype:bak site:target.htb`
-`filetype:old site:target.htb`
-`filetype:backup site:target.htb`
-`inurl:backup site:target.htb`
-`inurl:".bak" OR inurl:".old" OR inurl:".backup" site:target.htb`
+- `filetype:bak site:target.htb`
+- `filetype:old site:target.htb`
+- `filetype:backup site:target.htb`
+- `inurl:backup site:target.htb`
+- `inurl:".bak" OR inurl:".old" OR inurl:".backup" site:target.htb`
 
 ### Log files
-`filetype:log site:target.htb`
-`intitle:"index of" "access.log"`
-`intitle:"index of" "error.log"`
+- `filetype:log site:target.htb`
+- `intitle:"index of" "access.log"`
+- `intitle:"index of" "error.log"`
 
 ### Database files
-`filetype:sql site:target.htb`
-`filetype:db site:target.htb`
-`filetype:sqlite site:target.htb`
+- `filetype:sql site:target.htb`
+- `filetype:db site:target.htb`
+- `filetype:sqlite site:target.htb`
 
 
 ## Login & Admin Panels
 ### Generic admin panels
-`inurl:admin site:target.htb`
-`inurl:login site:target.htb`
-`inurl:administrator site:target.htb`
-`inurl:portal site:target.htb`
-`intitle:"admin login" site:target.htb`
-`intitle:"admin panel" site:target.htb`
+- `inurl:admin site:target.htb`
+- `inurl:login site:target.htb`
+- `inurl:administrator site:target.htb`
+- `inurl:portal site:target.htb`
+- `intitle:"admin login" site:target.htb`
+- `intitle:"admin panel" site:target.htb`
 
 ### Specific CMS login pages
 - WordPres
@@ -443,23 +448,28 @@ These are the highest value dorks for a penetration test.
   - `inurl:/user/login site:target.htb`
 
 ### Remote access panels
-`intitle:"phpMyAdmin" inurl:phpmyadmin`
-`intitle:"Webmin" inurl:10000`
-`inurl:"/remote/login" intitle:"FortiGate"`
-`intitle:"Kibana" inurl:5601`
+- `intitle:"phpMyAdmin" inurl:phpmyadmin`
+- `intitle:"Webmin" inurl:10000`
+- `inurl:"/remote/login" intitle:"FortiGate"`
+- `intitle:"Kibana" inurl:5601`
 
 
 ## Technology & Version Discovery
 ### Find specific technologies in use
-`intext:"powered by" site:target.htb`
-`intitle:"Welcome to" intext:"Apache" site:target.htb`
+- `intext:"powered by" site:target.htb`
+- `intitle:"Welcome to" intext:"Apache" site:target.htb`
 
 ### Error messages revealing tech stack
-`intext:"Fatal error" site:target.htb`
-`intext:"Warning: mysql_" site:target.htb`
-`intext:"ORA-" site:target.htb`   # Oracle DB errors
-`intext:"Microsoft OLE DB Provider" site:target.htb`  # MSSQL errors
-`intext:"syntax error" filetype:php site:target.htb`
+- Generic
+  - `intext:"Fatal error" site:target.htb`
+- MySQL
+  - `intext:"Warning: mysql_" site:target.htb`
+- Oracle DB errors
+  - `intext:"ORA-" site:target.htb`
+- MSSQL errors
+  - `intext:"Microsoft OLE DB Provider" site:target.htb`
+- PHP
+  - `intext:"syntax error" filetype:php site:target.htb`
 
 ### Server default pages (often mean misconfigured servers)
 `intitle:"Apache2 Ubuntu Default Page" site:target.htb`
@@ -470,70 +480,71 @@ These are the highest value dorks for a penetration test.
 
 ## Sensitive Documents
 ### General sensitive document search
-`filetype:pdf "confidential" site:target.htb`
-`filetype:pdf "internal use only" site:target.htb`
-`filetype:xlsx site:target.htb`
-`filetype:docx site:target.htb`
+- `filetype:pdf "confidential" site:target.htb`
+- `filetype:pdf "internal use only" site:target.htb`
+- `filetype:xlsx site:target.htb`
+- `filetype:docx site:target.htb`
 
 ### Documents that often contain usernames or internal info
-`filetype:pdf site:target.htb`
-`filetype:doc site:target.htb`
+- `filetype:pdf site:target.htb`
+- `filetype:doc site:target.htb`
 
 ### Network diagrams and documentation
-`filetype:pdf intitle:"network diagram"`
-`filetype:pdf intitle:"infrastructure"`
+- `filetype:pdf intitle:"network diagram"`
+- `filetype:pdf intitle:"infrastructure"`
 
 
 ## Subdomain & Infrastructure Discovery
 ### Find subdomains not found through other methods
-`site:*.target.htb`
-`site:target.htb -www`  # Exclude www, find others
+- `site:*.target.htb`
+- Exclude www, find others
+  - `site:target.htb -www`
 
 ### VPN and remote access infrastructure
-`inurl:vpn site:target.htb`
-`intitle:"SSL VPN" site:target.htb`
-`inurl:remote site:target.htb`
+- `inurl:vpn site:target.htb`
+- `intitle:"SSL VPN" site:target.htb`
+- `inurl:remote site:target.htb`
 
 ### Development and staging environments
-`inurl:dev site:target.htb`
-`inurl:staging site:target.htb`
-`inurl:test site:target.htb`
-`inurl:beta site:target.htb`
+- `inurl:dev site:target.htb`
+- `inurl:staging site:target.htb`
+- `inurl:test site:target.htb`
+- `inurl:beta site:target.htb`
 
 
 ## User & Employee Information
 ### Employee names and emails
-`site:linkedin.com "target.htb"`
-`site:linkedin.com/in "Target Company"`
+- `site:linkedin.com "target.htb"`
+- `site:linkedin.com/in "Target Company"`
 
 ### Email addresses indexed on the site
-`intext:"@target.htb" site:target.htb`
-`filetype:pdf intext:"@target.htb"`
+- `intext:"@target.htb" site:target.htb`
+- `filetype:pdf intext:"@target.htb"`
 
 ### Resumes that reveal internal tech stack
-`site:linkedin.com "target.htb" "engineer"`
-`site:linkedin.com "target.htb" "administrator"`
+- `site:linkedin.com "target.htb" "engineer"`
+- `site:linkedin.com "target.htb" "administrator"`
 
 
 ## Misconfiguration & Vulnerability Discovery
 ### Exposed Git repositories
-`inurl:"/.git" site:target.htb`
-`intitle:"index of" ".git" site:target.htb`
+- `inurl:"/.git" site:target.htb`
+- `intitle:"index of" ".git" site:target.htb`
 
 ### Exposed WordPress config files
-`inurl:wp-config.php site:target.htb`
+- `inurl:wp-config.php site:target.htb`
 
 ### Exposed .htaccess and .htpasswd
-`filetype:htpasswd inurl:htpasswd`
-`inurl:.htaccess site:target.htb`
+- `filetype:htpasswd inurl:htpasswd`
+- `inurl:.htaccess site:target.htb`
 
 ### Exposed phpinfo pages (reveals PHP config and server info)
-`intitle:"phpinfo()" site:target.htb`
-`inurl:phpinfo.php site:target.htb`
+- `intitle:"phpinfo()" site:target.htb`
+- `inurl:phpinfo.php site:target.htb`
 
 ### Exposed .env files
-`inurl:.env site:target.htb`
-`filetype:env site:target.htb`
+- `inurl:.env site:target.htb`
+- `filetype:env site:target.htb`
 
 # Exposed SSH config
-`filetype:pub intext:"ssh-rsa"`
+- `filetype:pub intext:"ssh-rsa"`
