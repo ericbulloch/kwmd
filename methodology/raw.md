@@ -1,4 +1,4 @@
-Working Artifacts during the penetration test
+# Working Artifacts during the penetration test
 - Target List: IP/hostnames, OS guess, network role guess, discovered open ports, current status (not started, in progress, foothold, and owned), priority, and notes.
 - Service Inventory (per host): Port, protocol, service name, version, auth required, anonymous/guest access possible (yes/no/unknown), enumeration status (not started, in progress, and complete), exploitation status, and notes/log references.
 - Credentials and Tokens: Credential type (plaintext / hash / token / key), value,  where found, service/host it is valid on, privilege level (user / admin / domain admin / unknown), tested against (list of services tried), and cracked (yes/no/attempted).
@@ -7,7 +7,7 @@ Working Artifacts during the penetration test
 - Timeline/Command Log: Timestamp, host, command run, and one-line result summary.
 
 
-Anti-Rabbit-Hole System
+# Anti-Rabbit-Hole System
 When you feel stuck, use this checklist:
 What is my best current hypothesis?
 What evidence supports it?
@@ -15,24 +15,24 @@ What evidence contradicts it?
 What is the fastest test that changes my decision?
 Have I updated my artifacts (especially failed paths and creds)?
 
-Reassess Triggers
+# Reassess Triggers
 30 minutes with no new evidence → go broader (Phases 1a and 1b)
 2 failed hypotheses → re-triage services
 You are collecting output “just because” → stop and define a question first
 
 
-Phases:
+# Phases
 - Phase 0: Scope Review
 - Phase 1a: Passive Reconnaissance
 - Phase 1b: Active Reconnaissance
 - Phase 2: Service Enumeration
 
 
-Phase 0 - Scope Review
-Goal
+## Phase 0 - Scope Review
+### Goal
 Know what "win" means and what constraints exist.
 
-Questions
+### Questions
 - What is the objective? (foothold, user flag, root flag, multiple flags, etc.)
 - Is this single host or network environment?
 - Any rules/constraints? (scan limits, forbidden actions, time limit, pivot allowed)
@@ -41,14 +41,14 @@ Questions
 - Are there any known credentials or entry points provided? (was a starting user provided?)
 - What does "complete" look like? (what proof is required? flags, screenshots, hashes, etc.)
 
-Outputs
+### Outputs
 - A one-line mission statement. (e.g.: Gain root on a single host)
 - Confirmed target IP range / host list (even if just one IP address)
 - Confirmed constraints (what you cannot do)
 - Confirmed proof requirements (what you need to capture)
 - Starting point noted (your attack IP address, any given credentials)
 
-Phase 0 is complete when:
+### Phase 0 is complete when
 [ ] Objective is clearly stated.
 [ ] Target scope (IP addresses / ranges) is confirmed and written down.
 [ ] Constraints are documented.
@@ -56,15 +56,15 @@ Phase 0 is complete when:
 [ ] Starting point and any provided assets are noted.
 
 
-Phase 1 - Reconnaissance / Information Gathering
-Goal
+## Phase 1 - Reconnaissance / Information Gathering
+### Goal
 Build a complete picture of the attack surface without necessarily touching the target directly.
 
-Phase 1a - Passive Reconnaissance
-Goal
+## Phase 1a - Passive Reconnaissance
+### Goal
 Gather information without directly touching the target.
 
-Questions
+### Questions
 - What information can be found with a WHOIS lookup of the target?
   - > whois target.htb | tee recon/passive/whois.txt
   - > grep -iE "registrant|admin|tech|name server|email|creation|expir" recon/passive/whois.txt
@@ -158,7 +158,7 @@ Questions
   4. Feed ranges into nmap for host discovery (Phase 1b)
   5. Cross reference with DNS findings to find hosts with no DNS record (potentially unmonitored infrastructure)
 
-Outputs
+### Outputs
 - List of domains and subdomains
 - List of IP addresses
 - List of users
@@ -173,7 +173,7 @@ Outputs
 - Document metadata findings
 - GitHub / repository findings
 
-Phase 1a is complete when:
+### Phase 1a is complete when
 [ ] Domains, subdomains, and IP addresses are documented
 [ ] WHOIS, DNS, zone transfer, email harvesting, cert analysis documented
 [ ] Users, usernames, emails, and credentials documented
@@ -186,11 +186,11 @@ Phase 1a is complete when:
 [ ] Breach database check completed on discovered emails
 [ ] All raw tool output saved (not just summarized)
 
-Phase 1b - Active Reconnaissance
+## Phase 1b - Active Reconnaissance
 Goal
 Gather information by directly touching the target. Stealthy options first, louder options later.
 
-Questions
+### Questions
 - What hosts are up?
 - What ports are filtered?
 - What service, protocol, and version are running on an open port?
@@ -203,7 +203,7 @@ Questions
 - Were results cross-referenced with Phase 1a passive findings to confirm or expand the host list?
 - Did any service banners reveal version information worth immediately cross-referencing with CVE databases?
 
-Outputs
+### Outputs
 - Host discovery results (live hosts confirmed with IPs and hostnames)
   > nmap -sn 10.10.1.0/24 -oA host_discovery
   > sudo arp-scan -localhost | tee recon/active/arp_scan.txt
@@ -243,7 +243,7 @@ Outputs
       <host_ip>_tcp_targeted.nmap / .gnmap / .xml
       <host_ip>_udp_scan.nmap / .gnmap / .xml
 
-Phase 1b is complete when:
+### Phase 1b is complete when
 [ ] Host discovery completed — all live hosts confirmed and documented
 [ ] Full TCP port scan completed on all in-scope hosts
 [ ] Targeted service/version scan completed on all open TCP ports
@@ -256,7 +256,7 @@ Phase 1b is complete when:
 [ ] Phase 1a passive findings cross-referenced with active scan results
 [ ] Each host assigned an enumeration priority for Phase 2
 
-Phase 1 is complete when:
+### Phase 1 is complete when
 [ ] All Phase 1a and Phase 1b checklists are fully signed off
 [ ] All Working Artifacts have been updated with Phase 1 findings:
     [ ] Target List updated with confirmed hosts, OS, ports, priority
@@ -267,11 +267,11 @@ Phase 1 is complete when:
 [ ] All raw output is saved and organized
 [ ] You can answer the following in one paragraph: "What hosts exist, what are they running, and where am I going first in Phase 2 and why?"
 
-Phase 2 - Service Enumeration
-Goal
+## Phase 2 - Service Enumeration
+### Goal
 Detailed enumeration about "every port, every service, and every version" so that potential attack paths can be planned.
 
-Questions
+### Questions
 For every single open port ask these questions in order:
 - What service is running here?
 - What version is it?
@@ -281,7 +281,7 @@ For every single open port ask these questions in order:
 - What does this service tell me about the machine's role?
 - Are there known vulnerabilities for this version?
 
-Phase 2a - Web Services (HTTP/HTTPS)
+### Phase 2a - Web Services (HTTP/HTTPS)
 Ports: 80, 443
 - Fingerprinting
   > whatweb http://target.htb | tee enum/target_htb_whatweb.txt
@@ -307,16 +307,16 @@ Ports: 80, 443
 
 
 
-Reference Sheets
+# Reference Sheets
 -----
-Passive Reconnaissance Steps
-# 1. Create your output directory first
+## Passive Reconnaissance Steps
+### 1. Create your output directory first
 mkdir -p recon/passive
 
-# 2. WHOIS - get registrant info and nameservers
+### 2. WHOIS - get registrant info and nameservers
 whois targetdomain.com | tee recon/passive/whois.txt
 
-# 3. Grab all common DNS records
+### 3. Grab all common DNS records
 dig A targetdomain.com +short | tee recon/passive/dns_A.txt
 dig AAAA targetdomain.com +short | tee recon/passive/dns_AAAA.txt
 dig MX targetdomain.com | tee recon/passive/dns_MX.txt
@@ -324,21 +324,21 @@ dig NS targetdomain.com +short | tee recon/passive/dns_NS.txt
 dig TXT targetdomain.com | tee recon/passive/dns_TXT.txt
 dig SOA targetdomain.com | tee recon/passive/dns_SOA.txt
 
-# 4. Attempt zone transfer against each nameserver found in step 2
+### 4. Attempt zone transfer against each nameserver found in step 2
 dig axfr @<nameserver1> targetdomain.com | tee recon/passive/zone_transfer_ns1.txt
 dig axfr @<nameserver2> targetdomain.com | tee recon/passive/zone_transfer_ns2.txt
 
-# 5. Reverse lookups on any IPs discovered
+### 5. Reverse lookups on any IPs discovered
 dig -x <discovered_ip> | tee recon/passive/reverse_<ip>.txt
 
 
 
-WHOIS
+# WHOIS
 -----
 whois domain.com                          → Full registrant info
 whois <ip>                                → IP ownership info
 
-DIG
+# DIG
 ---
 dig A domain.com +short                   → IPv4 address
 dig AAAA domain.com +short                → IPv6 address
@@ -349,13 +349,13 @@ dig SOA domain.com                        → Zone authority
 dig -x <ip>                               → Reverse lookup
 dig axfr @<nameserver> domain.com         → Zone transfer attempt
 
-NSLOOKUP
+# NSLOOKUP
 --------
 nslookup domain.com                       → Basic lookup
 nslookup -type=MX domain.com             → Mail servers
 nslookup <ip>                             → Reverse lookup
 
-HOST
+# HOST
 ----
 host domain.com                           → Quick A record
 host -t MX domain.com                    → Mail servers
@@ -364,61 +364,62 @@ host <ip>                                 → Reverse lookup
 
 
 
-Google Dorking (exploit-db.com/google-hacking-database)
+# Google Dorking (exploit-db.com/google-hacking-database)
 -----
-Credential & Sensitive Data Discovery
+## Credential & Sensitive Data Discovery
 These are the highest value dorks for a penetration test.
-# Look for password files
+
+### Look for password files
 filetype:txt intext:"password" site:targetdomain.com
 filetype:log intext:"password"
 filetype:env intext:"DB_PASSWORD"
 
-# Configuration files with credentials
+### Configuration files with credentials
 filetype:xml intext:"password" site:targetdomain.com
 filetype:yml intext:"password" site:targetdomain.com
 filetype:config intext:"password" site:targetdomain.com
 
-# Private keys accidentally exposed
+### Private keys accidentally exposed
 filetype:pem intext:"PRIVATE KEY"
 filetype:key intext:"PRIVATE KEY"
 
-# Database connection strings
+### Database connection strings
 filetype:sql intext:"INSERT INTO" site:targetdomain.com
 intext:"DB_CONNECTION" filetype:env
 
-# AWS / API keys
+### AWS / API keys
 intext:"AKIA" filetype:txt
 intext:"aws_access_key_id" filetype:txt
 
 
-Exposed Files & Directories
-# Open directory listings — goldmine for files
+## Exposed Files & Directories
+### Open directory listings — goldmine for files
 intitle:"index of" site:targetdomain.com
 intitle:"index of" "parent directory" site:targetdomain.com
 intitle:"index of" intext:".sql"
 intitle:"index of" intext:".bak"
 intitle:"index of" intext:".log"
 
-# Backup files
+### Backup files
 filetype:bak site:targetdomain.com
 filetype:old site:targetdomain.com
 filetype:backup site:targetdomain.com
 inurl:backup site:targetdomain.com
 inurl:".bak" OR inurl:".old" OR inurl:".backup" site:targetdomain.com
 
-# Log files
+### Log files
 filetype:log site:targetdomain.com
 intitle:"index of" "access.log"
 intitle:"index of" "error.log"
 
-# Database files
+### Database files
 filetype:sql site:targetdomain.com
 filetype:db site:targetdomain.com
 filetype:sqlite site:targetdomain.com
 
 
-Login & Admin Panels
-# Generic admin panels
+## Login & Admin Panels
+### Generic admin panels
 inurl:admin site:targetdomain.com
 inurl:login site:targetdomain.com
 inurl:administrator site:targetdomain.com
@@ -426,102 +427,102 @@ inurl:portal site:targetdomain.com
 intitle:"admin login" site:targetdomain.com
 intitle:"admin panel" site:targetdomain.com
 
-# Specific CMS login pages
+### Specific CMS login pages
 inurl:wp-admin site:targetdomain.com  # WordPress
 inurl:wp-login.php site:targetdomain.com  # WordPress
 inurl:/administrator/index.php site:targetdomain.com  # Joomla
 inurl:/user/login site:targetdomain.com  # Drupal
 
-# Remote access panels
+### Remote access panels
 intitle:"phpMyAdmin" inurl:phpmyadmin
 intitle:"Webmin" inurl:10000
 inurl:"/remote/login" intitle:"FortiGate"
 intitle:"Kibana" inurl:5601
 
 
-Technology & Version Discovery
-# Find specific technologies in use
+## Technology & Version Discovery
+### Find specific technologies in use
 intext:"powered by" site:targetdomain.com
 intitle:"Welcome to" intext:"Apache" site:targetdomain.com
 
-# Error messages revealing tech stack
+### Error messages revealing tech stack
 intext:"Fatal error" site:targetdomain.com
 intext:"Warning: mysql_" site:targetdomain.com
 intext:"ORA-" site:targetdomain.com   # Oracle DB errors
 intext:"Microsoft OLE DB Provider" site:targetdomain.com  # MSSQL errors
 intext:"syntax error" filetype:php site:targetdomain.com
 
-# Server default pages (often mean misconfigured servers)
+### Server default pages (often mean misconfigured servers)
 intitle:"Apache2 Ubuntu Default Page" site:targetdomain.com
 intitle:"Welcome to nginx" site:targetdomain.com
 intitle:"IIS Windows Server" site:targetdomain.com
 intitle:"Test Page for Apache" site:targetdomain.com
 
 
-Sensitive Documents
-# General sensitive document search
+## Sensitive Documents
+### General sensitive document search
 filetype:pdf "confidential" site:targetdomain.com
 filetype:pdf "internal use only" site:targetdomain.com
 filetype:xlsx site:targetdomain.com
 filetype:docx site:targetdomain.com
 
-# Documents that often contain usernames or internal info
+### Documents that often contain usernames or internal info
 filetype:pdf site:targetdomain.com
 filetype:doc site:targetdomain.com
 
-# Network diagrams and documentation
+### Network diagrams and documentation
 filetype:pdf intitle:"network diagram"
 filetype:pdf intitle:"infrastructure"
 
 
-Subdomain & Infrastructure Discovery
-# Find subdomains not found through other methods
+## Subdomain & Infrastructure Discovery
+### Find subdomains not found through other methods
 site:*.targetdomain.com
 site:targetdomain.com -www  # Exclude www, find others
 
-# VPN and remote access infrastructure
+### VPN and remote access infrastructure
 inurl:vpn site:targetdomain.com
 intitle:"SSL VPN" site:targetdomain.com
 inurl:remote site:targetdomain.com
 
-# Development and staging environments
+### Development and staging environments
 inurl:dev site:targetdomain.com
 inurl:staging site:targetdomain.com
 inurl:test site:targetdomain.com
 inurl:beta site:targetdomain.com
 
 
-User & Employee Information
-# Employee names and emails
+## User & Employee Information
+### Employee names and emails
 site:linkedin.com "targetdomain.com"
 site:linkedin.com/in "Target Company"
 
-# Email addresses indexed on the site
+### Email addresses indexed on the site
 intext:"@targetdomain.com" site:targetdomain.com
 filetype:pdf intext:"@targetdomain.com"
 
-# Resumes that reveal internal tech stack
+### Resumes that reveal internal tech stack
 site:linkedin.com "targetdomain.com" "engineer"
 site:linkedin.com "targetdomain.com" "administrator"
 
 
-Misconfiguration & Vulnerability Discovery
-# Exposed Git repositories
+## Misconfiguration & Vulnerability Discovery
+### Exposed Git repositories
 inurl:"/.git" site:targetdomain.com
 intitle:"index of" ".git" site:targetdomain.com
 
-# Exposed WordPress config files
+### Exposed WordPress config files
 inurl:wp-config.php site:targetdomain.com
 
-# Exposed .htaccess and .htpasswd
+### Exposed .htaccess and .htpasswd
 filetype:htpasswd inurl:htpasswd
 inurl:.htaccess site:targetdomain.com
 
-# Exposed phpinfo pages (reveals PHP config and server info)
+### Exposed phpinfo pages (reveals PHP config and server info)
 intitle:"phpinfo()" site:targetdomain.com
 inurl:phpinfo.php site:targetdomain.com
 
-# Exposed .env files
+### Exposed .env files
 inurl:.env site:targetdomain.com
 filetype:env site:targetdomain.com
 
