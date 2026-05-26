@@ -49,11 +49,11 @@ Know what "win" means and what constraints exist.
 - Starting point noted (your attack IP address, any given credentials)
 
 ### Phase 0 is complete when
-[ ] Objective is clearly stated.
-[ ] Target scope (IP addresses / ranges) is confirmed and written down.
-[ ] Constraints are documented.
-[ ] Proof / flag requirements are known.
-[ ] Starting point and any provided assets are noted.
+- [ ] Objective is clearly stated.
+- [ ] Target scope (IP addresses / ranges) is confirmed and written down.
+- [ ] Constraints are documented.
+- [ ] Proof / flag requirements are known.
+- [ ] Starting point and any provided assets are noted.
 
 
 ## Phase 1 - Reconnaissance / Information Gathering
@@ -98,11 +98,11 @@ Gather information without directly touching the target.
 - Were any subdomains discovered?
 - What IP ranges does this organization own?
 - Did Google dorking find any of the following:
-  [ ] Usernames or email addresses?
-  [ ] Login or admin panels (inurl:admin, inurl:login)
-  [ ] Exposed files (filetype:pdf, filetype:xlsx, filetype:env)
-  [ ] Error messages revealing software or paths
-  [ ] Cached or indexed pages revealing internal content
+  - [ ] Usernames or email addresses?
+  - [ ] Login or admin panels (inurl:admin, inurl:login)
+  - [ ] Exposed files (filetype:pdf, filetype:xlsx, filetype:env)
+  - [ ] Error messages revealing software or paths
+  - [ ] Cached or indexed pages revealing internal content
   1. Start broad — map what is indexed
     `site:target.htb`
   2. Find subdomains
@@ -127,20 +127,20 @@ Gather information without directly touching the target.
 - Is there an old version of the site on the Wayback Machine?
 - Were you able to harvest any emails using Hunter.io or theHarvester?
 - Does Shodan or Censys reveal:
-  [ ] Open ports or services not found through other means?
-  [ ] Software version banners?
-  [ ] SSL certificate hostnames revealing subdomains?
-  [ ] Default or misconfigured service pages?
-  [ ] Historical data showing services that may have been removed?
+  - [ ] Open ports or services not found through other means?
+  - [ ] Software version banners?
+  - [ ] SSL certificate hostnames revealing subdomains?
+  - [ ] Default or misconfigured service pages?
+  - [ ] Historical data showing services that may have been removed?
 - Does the certificate reveal any additional subdomains?
 - Does GitHub, GitLab, or any public repository contain code, commits, or comments referencing the target domain or organization? (leaked API keys, hardcoded credentials, internal hostnames)
 - Are there any data breach records associated with discovered email addresses? (DeHashed, HaveIBeenPwned)
 - ASN Lookup
-  [ ] ASN identified for target organization
-  [ ] All IP ranges registered to that ASN documented
-  [ ] IP ranges added to Target List artifact for Phase 1b scanning
-  [ ] Ranges cross-referenced with DNS findings
-  [ ] Hosts with no DNS record flagged for priority investigation
+  - [ ] ASN identified for target organization
+  - [ ] All IP ranges registered to that ASN documented
+  - [ ] IP ranges added to Target List artifact for Phase 1b scanning
+  - [ ] Ranges cross-referenced with DNS findings
+  - [ ] Hosts with no DNS record flagged for priority investigation
   `whois 10.10.10.5 | grep -iE "ASN|AS|aut-num|org"`
   `whois AS15169  # Look up the ASN directly`
   `curl https://ipinfo.io/10.10.10.5/org  # Look up ASN from IP address`
@@ -174,17 +174,17 @@ Gather information without directly touching the target.
 - GitHub / repository findings
 
 ### Phase 1a is complete when
-[ ] Domains, subdomains, and IP addresses are documented
-[ ] WHOIS, DNS, zone transfer, email harvesting, cert analysis documented
-[ ] Users, usernames, emails, and credentials documented
-[ ] Technologies found and used are documented
-[ ] ASN and IP ranges documented
-[ ] GitHub/public repo search completed and findings noted
-[ ] Google dork results documented (all categories run)
-[ ] Wayback Machine reviewed and findings noted
-[ ] Shodan/Censys results documented
-[ ] Breach database check completed on discovered emails
-[ ] All raw tool output saved (not just summarized)
+- [ ] Domains, subdomains, and IP addresses are documented
+- [ ] WHOIS, DNS, zone transfer, email harvesting, cert analysis documented
+- [ ] Users, usernames, emails, and credentials documented
+- [ ] Technologies found and used are documented
+- [ ] ASN and IP ranges documented
+- [ ] GitHub/public repo search completed and findings noted
+- [ ] Google dork results documented (all categories run)
+- [ ] Wayback Machine reviewed and findings noted
+- [ ] Shodan/Censys results documented
+- [ ] Breach database check completed on discovered emails
+- [ ] All raw tool output saved (not just summarized)
 
 ## Phase 1b - Active Reconnaissance
 Goal
@@ -223,11 +223,11 @@ Gather information by directly touching the target. Stealthy options first, loud
     - `grep "open" recon/active/tcp_targeted.gnmap`
 - OS detection results per host (where possible)
 - Updated Target List artifact (from Working Artifacts) with:
-    [ ] Confirmed live hosts
-    [ ] Open ports per host
-    [ ] Service and version per port
-    [ ] OS guess per host
-    [ ] Assigned priority for Phase 2 enumeration
+    - [ ] Confirmed live hosts
+    - [ ] Open ports per host
+    - [ ] Service and version per port
+    - [ ] OS guess per host
+    - [ ] Assigned priority for Phase 2 enumeration
 - All scan output saved in nmap format (-oA) for every scan run
 - Directory structure for scan output looks similar to the following for each host:
   /recon
@@ -244,28 +244,28 @@ Gather information by directly touching the target. Stealthy options first, loud
       <host_ip>_udp_scan.nmap / .gnmap / .xml
 
 ### Phase 1b is complete when
-[ ] Host discovery completed — all live hosts confirmed and documented
-[ ] Full TCP port scan completed on all in-scope hosts
-[ ] Targeted service/version scan completed on all open TCP ports
-[ ] UDP scan completed on all in-scope hosts
-[ ] OS detection attempted on all hosts
-[ ] All scans saved with -oA in an organized directory
-[ ] Target List artifact updated with confirmed hosts, ports, services
-[ ] Service Inventory artifact populated with Phase 1b findings
-[ ] Unexpected hosts noted and scope confirmed with rules of engagement
-[ ] Phase 1a passive findings cross-referenced with active scan results
-[ ] Each host assigned an enumeration priority for Phase 2
+- [ ] Host discovery completed — all live hosts confirmed and documented
+- [ ] Full TCP port scan completed on all in-scope hosts
+- [ ] Targeted service/version scan completed on all open TCP ports
+- [ ] UDP scan completed on all in-scope hosts
+- [ ] OS detection attempted on all hosts
+- [ ] All scans saved with -oA in an organized directory
+- [ ] Target List artifact updated with confirmed hosts, ports, services
+- [ ] Service Inventory artifact populated with Phase 1b findings
+- [ ] Unexpected hosts noted and scope confirmed with rules of engagement
+- [ ] Phase 1a passive findings cross-referenced with active scan results
+- [ ] Each host assigned an enumeration priority for Phase 2
 
 ### Phase 1 is complete when
-[ ] All Phase 1a and Phase 1b checklists are fully signed off
-[ ] All Working Artifacts have been updated with Phase 1 findings:
-    [ ] Target List updated with confirmed hosts, OS, ports, priority
-    [ ] Service Inventory populated for all discovered services
-    [ ] Credentials artifact updated with any findings
-    [ ] Hypothesis List populated with initial attack ideas
-[ ] A prioritized list of targets and services for Phase 2 exists
-[ ] All raw output is saved and organized
-[ ] You can answer the following in one paragraph: "What hosts exist, what are they running, and where am I going first in Phase 2 and why?"
+- [ ] All Phase 1a and Phase 1b checklists are fully signed off
+- [ ] All Working Artifacts have been updated with Phase 1 findings:
+    - [ ] Target List updated with confirmed hosts, OS, ports, priority
+    - [ ] Service Inventory populated for all discovered services
+    - [ ] Credentials artifact updated with any findings
+    - [ ] Hypothesis List populated with initial attack ideas
+- [ ] A prioritized list of targets and services for Phase 2 exists
+- [ ] All raw output is saved and organized
+- [ ] You can answer the following in one paragraph: "What hosts exist, what are they running, and where am I going first in Phase 2 and why?"
 
 ## Phase 2 - Service Enumeration
 ### Goal
