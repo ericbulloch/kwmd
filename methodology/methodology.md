@@ -112,6 +112,12 @@
 ### Active recon
 
 #### Port Scanning
+
+See the following command references for syntax and examples:
+- [Nmap commands](commands.md#nmap)
+- [RustScan](commands.md#rustscan-faster-initial-port-discovery)
+- [Masscan](commands.md#masscan-fastest--use-for-large-ranges)
+
 1. **Fast full TCP scan** — scan all 65535 ports quickly to find open ports
 2. **Targeted service/version scan** — run a deeper scan against only the open ports found in step 1
 3. **Default script scan** — run default enumeration scripts against open ports to grab banners, versions, and basic vuln info
