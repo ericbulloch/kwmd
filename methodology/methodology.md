@@ -72,6 +72,8 @@
 6. **Review public documents** — PDFs and Office docs indexed by search engines often contain metadata with internal usernames, software versions, and network paths
 
 #### DNS Reconnaissance
+See [DNS commands](commands.md#dns-port-53) for zone transfer, reverse lookups, and subdomain enumeration.
+
 1. **WHOIS lookup** — identify registrant info, registration dates, nameservers, and related domains
 2. **Passive DNS history** — check historical DNS records for previously hosted IPs and infrastructure changes
 3. **Enumerate nameservers** — identify all authoritative nameservers for the target domain
@@ -349,6 +351,11 @@ See the following command references for syntax and examples:
 8. **Note credential reuse** — always try every credential found against every service; password reuse is extremely common
 
 #### Password Attacks & Brute Forcing
+See the following command references for syntax and examples:
+- [Hashcat](commands.md#hashcat)
+- [John the Ripper](commands.md#john-the-ripper)
+- [Hydra](commands.md#hydra-online-brute-force)
+
 1. **Build a targeted wordlist** — combine common password lists (rockyou, SecLists) with company-specific words, employee names, and discovered naming conventions
 2. **Identify the password policy first** — enumerate lockout thresholds before spraying anything; a lockout will alert defenders and block access
 3. **Username enumeration before spraying** — confirm valid usernames via Kerbrute, SMTP VRFY, or other methods before attempting any passwords
@@ -494,6 +501,10 @@ See the following command references for syntax and examples:
 ### File Transfer Techniques
 
 #### General
+See the following command references for syntax and examples:
+- [File Transfers commands](commands.md#file-transfers)
+- [File Transfer payloads](payloads.md#file-transfers)
+
 1. **Always verify file integrity after transfer** — check MD5/SHA256 hash on both ends to confirm the file wasn't corrupted
 2. **Use encoded transfers when direct methods are blocked** — base64 encode files and decode on the target when binary transfers fail
 3. **Set up a simple HTTP server on your attack box** — Python's built-in HTTP server is the fastest way to serve files to targets
@@ -532,6 +543,11 @@ See the following command references for syntax and examples:
 - Part of a real-world engagement when explicitly authorized
 
 ### Shell Handling & Stabilization
+See the following command references for syntax and examples:
+- [Reverse Shells](payloads.md#reverse-shells)
+- [Bind Shells](payloads.md#bind-shells)
+- [Shell Upgrade & Stabilization](payloads.md#shell-upgrade--stabilization)
+
 1. **Upgrade your shell immediately** — raw netcat shells are unstable; upgrade to a fully interactive TTY as soon as you land
 2. **Linux shell upgrade** — use Python/Python3 pty spawn, then `stty` to set terminal size and enable job control
 3. **Windows shell upgrade** — upgrade to PowerShell if in cmd; consider evil-winrm or a Meterpreter session for a better experience
@@ -677,6 +693,9 @@ See the following command references for syntax and examples:
 7. **Use `--continue-on-success`** — prevent CME from stopping after first valid login; map all hosts where credentials work
 
 ### Responder / NTLM Relay (Mid-Engagement)
+See the following command references for syntax and examples:
+- [Responder & NTLM Relay commands](commands.md#responder--ntlm-relay)
+
 1. **Run Responder in analyze mode first** — identify traffic on the network before poisoning anything; avoid unnecessary noise
 2. **Poison LLMNR / NBT-NS / mDNS** — capture NTLMv2 hashes from hosts making failed name resolution requests
 3. **Identify SMB signing disabled hosts** — these are relay targets; enumerate with CME or Nmap before relaying
@@ -737,6 +756,12 @@ See the following command references for syntax and examples:
 6. **Create processes under impersonated token** — spawn a shell or payload running as the impersonated user
 
 ### Pivoting & Tunneling
+See the following command references for syntax and examples:
+- [Chisel](commands.md#chisel)
+- [SSH Tunnels](commands.md#ssh-tunnels)
+- [Ligolo-ng](commands.md#ligolo-ng)
+- [Proxychains](commands.md#proxychains)
+
 1. **Identify pivot opportunities** — check network interfaces and routing tables on each compromised host for access to new subnets
 2. **Port forwarding (local)** — forward a remote port to your local machine to access services on unreachable segments
 3. **Port forwarding (remote/reverse)** — forward a local port through a compromised host to reach internal services
@@ -815,6 +840,9 @@ See the following command references for syntax and examples:
 4. **Compile carefully** — ensure the exploit is compiled for the correct architecture and kernel version
 
 #### PwnKit / Polkit (CVE-2021-4034)
+See the following command references for syntax and examples:
+- [Linux Privilege Escalation commands](commands.md#linux-post-exploitation)
+
 1. **Check if pkexec is present** — `which pkexec`; present on virtually all Linux distributions with Polkit installed
 2. **Check Polkit version** — versions prior to 0.120 (most systems before early 2022 patches) are vulnerable
 3. **Exploit CVE-2021-4034** — a local privilege escalation in `pkexec` that gives immediate root regardless of sudo rights or SUID bits
@@ -904,6 +932,10 @@ See the following command references for syntax and examples:
 ## 8. Active Directory Attacks
 
 ### Kerberoasting
+See the following command references for syntax and examples:
+- [Impacket Kerberos commands](commands.md#---kerberos--)
+- [BloodHound Cypher queries](commands.md#key-cypher-queries-run-in-bloodhound-query-box)
+
 1. **Identify accounts with SPNs** — any domain user account with a Service Principal Name set is a Kerberoasting target
 2. **Request TGS tickets for SPN accounts** — any authenticated domain user can request these; no special privileges needed
 3. **Extract tickets for offline cracking** — export the TGS tickets in crackable format
@@ -912,6 +944,9 @@ See the following command references for syntax and examples:
 6. **Prioritize high-value SPN accounts** — focus on accounts that are members of privileged groups first
 
 ### AS-REP Roasting
+See the following command references for syntax and examples:
+- [GetNPUsers command examples](commands.md#---kerberos--)
+
 1. **Identify accounts with pre-authentication disabled** — enumerate the `DONT_REQ_PREAUTH` UAC flag on user accounts
 2. **Request AS-REP hashes without authentication** — no credentials needed; the KDC returns an encrypted blob that can be cracked
 3. **Crack hashes offline** — use Hashcat with wordlists and rules
