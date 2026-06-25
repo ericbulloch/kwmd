@@ -32,7 +32,8 @@ See the following command references for syntax and examples:
 5. **Recurse into discovered directories** — run enumeration again on every discovered directory; hidden functionality is often nested
 6. **Check for admin panels** — `/admin`, `/administrator`, `/manager`, `/portal`, `/dashboard`, `/console`, `/backend`
 7. **Look for API endpoints** — `/api/`, `/api/v1/`, `/v1/`, `/swagger`, `/api-docs`, `/graphql`
-8. **Check for sensitive files** — `.git/`, `.env`, `config.php`, `web.config`, `settings.py`, `database.yml`, `id_rsa`
+  - Enumerating for endpoints should include the above with possible entities like `users`, `settings`, `orders`, `files`, etc...
+9. **Check for sensitive files** — `.git/`, `.env`, `config.php`, `web.config`, `settings.py`, `database.yml`, `id_rsa`
 
 ### Virtual Host & Subdomain Discovery
 See the following command references for syntax and examples:
