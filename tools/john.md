@@ -205,6 +205,14 @@ When I have a hash from that shadow file that I want to crack I save the hash to
 $ john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 ```
 
+### NTLM
+
+When I have a hash from NTLM that I want to crack I save the hash to `hash.txt` and run the following command:
+
+```bash
+$ john --format=NT --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+```
+
 ### Supplying a wordlist
 
 John has a built-in wordlist that it uses if one is not specified. There are times when I want john to use a wordlist that I provide. Here is the command:
