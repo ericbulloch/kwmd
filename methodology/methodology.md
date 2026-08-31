@@ -612,7 +612,7 @@ See the following command references for syntax and examples:
 8. **Review network connections** — identify locally listening services not exposed externally
 9. **Check PowerShell history** — `ConsoleHost_history.txt` often contains previously run commands with credentials
 10. **Search for interesting files** — check user profiles, `C:\inetpub`, `C:\xampp`, `C:\Users\*\Desktop`, and config files for credentials
-11. **Check Winlogon registry for autologon credentials** — query `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon` for `DefaultUsername`, `DefaultPassword`, and `DefaultDomainName`; autologon credentials are stored in plaintext
+11. **Check Winlogon registry for autologon credentials** — query `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon` for `DefaultUsername`, `DefaultPassword`, and `DefaultDomainName`; autologon credentials are stored in plaintext. `reg query HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon`
 12. **Check for DPAPI-protected secrets** — browser credentials, Outlook passwords, and RDP credentials are protected by DPAPI; extract with Mimikatz or SharpDPAPI using the user's master key
 
 ### Sensitive Data Hunting
