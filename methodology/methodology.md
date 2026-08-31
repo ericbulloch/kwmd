@@ -612,7 +612,8 @@ See the following command references for syntax and examples:
 8. **Review network connections** — identify locally listening services not exposed externally
 9. **Check PowerShell history** — `ConsoleHost_history.txt` often contains previously run commands with credentials
 10. **Search for interesting files** — check user profiles, `C:\inetpub`, `C:\xampp`, `C:\Users\*\Desktop`, and config files for credentials
-11. **Check for DPAPI-protected secrets** — browser credentials, Outlook passwords, and RDP credentials are protected by DPAPI; extract with Mimikatz or SharpDPAPI using the user's master key
+11. **Check Winlogon registry for autologon credentials** — query `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon` for `DefaultUsername`, `DefaultPassword`, and `DefaultDomainName`; autologon credentials are stored in plaintext
+12. **Check for DPAPI-protected secrets** — browser credentials, Outlook passwords, and RDP credentials are protected by DPAPI; extract with Mimikatz or SharpDPAPI using the user's master key
 
 ### Sensitive Data Hunting
 1. **Search for flags** — in CTF/CPTS context, look for `user.txt` and `root.txt` / `local.txt` and `proof.txt` in user home dirs and Desktop
@@ -888,9 +889,10 @@ See the following command references for syntax and examples:
 #### Stored Credentials & Registry
 1. **Check Windows Credential Manager** — stored credentials for network resources may include domain admin accounts
 2. **Search registry for credentials** — query common registry paths for stored passwords (Autologon, VNC, PuTTY)
-3. **Check PowerShell history** — `ConsoleHost_history.txt` frequently contains previously used credentials
-4. **Search for unattended install files** — `unattend.xml`, `sysprep.xml`, and similar files often contain base64-encoded passwords
-5. **Check web.config and application configs** — IIS and application config files often contain database credentials
+3. **Check Winlogon for autologon credentials** — query `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon`; `DefaultPassword` stores the autologon password in plaintext and is a frequent privesc find
+4. **Check PowerShell history** — `ConsoleHost_history.txt` frequently contains previously used credentials
+5. **Search for unattended install files** — `unattend.xml`, `sysprep.xml`, and similar files often contain base64-encoded passwords
+6. **Check web.config and application configs** — IIS and application config files often contain database credentials
 
 #### SeBackupPrivilege Abuse
 1. **Check for SeBackupPrivilege** — grants the ability to read any file on the system regardless of ACLs; often assigned to backup service accounts
