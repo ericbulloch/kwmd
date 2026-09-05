@@ -208,7 +208,7 @@ See the following command references for syntax and examples:
 5. **Enumerate users and groups** — pull local users, groups, and domain info via RID cycling or RPC
 6. **Test authenticated access** — try any credentials found elsewhere; recheck share access and permissions with each new credential set
 7. **Check for known vulnerabilities** — test for EternalBlue (MS17-010), PrintNightmare, and other SMB CVEs based on OS/version
-8. **Check for password policy** — enumerate the domain/local password policy to inform password spraying (avoid lockouts)
+8. **Check for password policy** — enumerate the domain/local password policy to inform password spraying (avoid lockouts). `nxc smb <dc_ip> --pass-pol` or `rpc -U "" <dc_ip> -N` can get the password policy if anonymous sessions are allowed. 
 9. **Note for lateral movement** — SMB is a primary lateral movement technique; always retest with new credentials throughout the engagement
 
 ##### SNMP (Ports 161,162 (UDP))
