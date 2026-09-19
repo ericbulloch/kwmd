@@ -398,6 +398,24 @@ php://input
 
 ### Detection — identify injection and engine
 ```
+# The following are to test if errors are thrown
+${{<%[%'"}}%
+{{${<%[('"}}
+${{7*7}}<%=7*7%>#{7*7}
+{{7*7}${7*7}<%=7*7%>#{7*7}
+{{{{
+{{{{7
+{{7*}}
+{{*}}
+{{'
+${{
+${7*}
+<%=
+<%=7*%>
+<%[%
+#{7*}
+#{{
+
 {{7*7}}           → 49 = Jinja2 / Twig
 ${7*7}            → 49 = Freemarker / Mako
 <%= 7*7 %>        → 49 = ERB (Ruby)
