@@ -232,7 +232,7 @@ See the following command references for syntax and examples:
 
 1. **Identify state-changing actions** — password change, email change, account deletion, money transfer
 2. **Check for CSRF tokens** — if present, test if they're validated server-side, if they can be reused, or if the check can be bypassed. An example of these tokens are the ones that Django generates on their forms using CsrfViewMiddleware.
-4. **Test for token absence bypass** — remove the token entirely and see if the request succeeds. Try this on your own user first as a proof of concept
+4. **Test for token absence bypass** — remove the token entirely and see if the request succeeds. Try this on your own user first as a proof of concept. Copy and modify one of the samples mentioned above into a web page, view it in a browser that is logged in to the vulnerable website, and test whether the intended request is issued successfully and the desired action occurs
 5. **Test SameSite cookie bypass** — determine if SameSite=Lax or Strict is enforced; some CSRF attacks still work against Lax
 6. **Check for CORS misconfigurations** — overly permissive CORS policies can enable CSRF-equivalent attacks via JavaScript
 
