@@ -709,3 +709,7 @@ ping -c 5 127.0.0.1
     document.getElementById("csrf").submit();
 </script>
 ```
+
+```
+# You can save a Burp Suite request to a file and then run the python script found [here](https://github.com/kryptohaker/CSRFPoC) that converts a request to a CSRF proof of concept HTML file.
+```
