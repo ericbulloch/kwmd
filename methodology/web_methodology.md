@@ -227,11 +227,14 @@ See the following command references for syntax and examples:
 6. **Check for sandbox escapes** — some apps run templates in a sandbox; research engine-specific sandbox escape techniques
 
 ### Cross-Site Request Forgery (CSRF)
-1. **Identify state-changing actions without CSRF protection** — password change, email change, account deletion, money transfer
-2. **Check for CSRF tokens** — if present, test if they're validated server-side, if they can be reused, or if the check can be bypassed
-3. **Test for token absence bypass** — remove the token entirely and see if the request succeeds
-4. **Test SameSite cookie bypass** — determine if SameSite=Lax or Strict is enforced; some CSRF attacks still work against Lax
-5. **Check for CORS misconfigurations** — overly permissive CORS policies can enable CSRF-equivalent attacks via JavaScript
+See the following command references for syntax and examples:
+- [CSRF Payloads](payloads.md#cross-site-request-forgery-csrf)
+- 
+1. **Identify state-changing actions** — password change, email change, account deletion, money transfer
+2. **Check for CSRF tokens** — if present, test if they're validated server-side, if they can be reused, or if the check can be bypassed. An example of these tokens are the ones that Django generates on their forms using CsrfViewMiddleware.
+4. **Test for token absence bypass** — remove the token entirely and see if the request succeeds. Try this on your own user first as a proof of concept
+5. **Test SameSite cookie bypass** — determine if SameSite=Lax or Strict is enforced; some CSRF attacks still work against Lax
+6. **Check for CORS misconfigurations** — overly permissive CORS policies can enable CSRF-equivalent attacks via JavaScript
 
 ### Insecure Deserialization
 1. **Identify serialized data** — look for base64-encoded blobs in cookies, parameters, and request bodies; Java (`rO0`), PHP (`O:`), .NET (`AAEAAAD`) indicators
