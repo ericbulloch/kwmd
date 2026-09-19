@@ -229,7 +229,7 @@ See the following command references for syntax and examples:
 ### Cross-Site Request Forgery (CSRF)
 See the following command references for syntax and examples:
 - [CSRF Payloads](payloads.md#cross-site-request-forgery-csrf)
-- 
+
 1. **Identify state-changing actions** — password change, email change, account deletion, money transfer
 2. **Check for CSRF tokens** — if present, test if they're validated server-side, if they can be reused, or if the check can be bypassed. An example of these tokens are the ones that Django generates on their forms using CsrfViewMiddleware.
 4. **Test for token absence bypass** — remove the token entirely and see if the request succeeds. Try this on your own user first as a proof of concept
